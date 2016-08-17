@@ -126,7 +126,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\DefenseMobilizeController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\GrassrootWorkController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MediaController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PolicyAdviceController.cs" />
+    <Compile Include="Controllers\SiteNaviController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,10 +244,18 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Application\Index.cshtml" />
+    <Content Include="Views\DefenseMobilize\Index.cshtml" />
+    <Content Include="Views\Download\Index.cshtml" />
+    <Content Include="Views\GrassrootWork\Index.cshtml" />
+    <Content Include="Views\Media\Index.cshtml" />
+    <Content Include="Views\PolicyAdvice\Index.cshtml" />
+    <Content Include="Views\SiteNavi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="fonts\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

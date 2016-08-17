@@ -2,12 +2,24 @@
     ViewBag.Title = "首页";
 }
 
+<style>
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover
+    {
+        background-color: #efefef;
+    }
+
+    a:visited, a:focus
+    {
+        text-decoration: none;
+    }
+</style>
 
 <div class="banner" style="margin-top: 2px">
     <img src="@Url.Content("~/Image/参军2.jpg")"  height="50%" width="100%"/>
 </div>
 
-<!-- //banner -->
 <!-- banner-bottom -->
 <div class="new-bottom">
     <div class="container" style="width: 100%">
@@ -68,92 +80,272 @@
         </div>
     </div>
 </div>
-
 <!-- //banner-bottom -->
-<!-- about -->
+
+<!-- defense mobilizie -->
 <div id="about" class="about">
     <div class="container">
         <div class="about-header">
-            <h2>新闻聚焦</h2>
+            <h2>国防动员</h2>
             <h2 style="float: right; color: yellow; font-size: 24px">听党指挥，能打胜仗，作风优良。 </h2>
             <div class="clearfix"></div>
         </div>
-        <div class="about-grids">
-            <div class="col-md-6 about-grid">
-                <h3>国际新闻</h3>
-                <p>
-                    新华社大马士革８月１５日电（记者车宏亮）叙利亚副总理兼国防部长弗拉杰中将１４日下午在大马士革会见了正在叙访问的中央
-                    军委国际军事合作办公室主任关友飞海军少将。弗拉杰说，中国有数千年历史和文明。自１９７８年以来，中国政府带领人民艰苦
-                    奋斗，在科学技术、军事等领域取得令世人瞩目的成绩。叙中友谊源远流长，双方在国际问题上保持了密切协调。叙方支持中方在
-                    南海问题上的立场，对中国政府和军队给予叙方的帮助表示感谢。叙方愿与中方一道，推动两军关系不断向前发展。
-                </p>
-            </div>
-            <div class="col-md-6 about-grid list">
-                <h3>国内新闻</h3>
-                <p>
-                    从2015年起，国家对直接招收为士官的高等学校学生施行国家资助，入伍时对其在校期间缴纳的学费实行一次性补偿或获得的国
-                    家助学贷款(包括校园地国家助学贷款和生源地信用助学贷款，下同)实行代偿。学费补偿或国家助学贷款代偿金额，按学生实际
-                    缴纳的学费或获得的国家助学贷款(包括本金及其全部偿还之前产生的利息，下同)两者金额较高者执行，据实补偿或者代偿，但
-                    本专科学生每人每年最高不超过8000元、研究生每人每年最高不超过12000元。
-                </p>
+        <div class="about-grids" style="overflow: hidden">
+            @for (int i = 0; i < 3; i++)
+            {
+                <div class="col-md-4" style="color: black; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                    <p><a href="#" style="color: black">2016年部队依托地方高校定向培养士官有关政策规定</a></p>
+                    <p><a href="#" style="color: black">关于对直接招收为士官的高等学校学生施行国家资助的通知</a></p>
+                    <p><a href="#" style="color: black">高等学校学生应征入伍服义务兵役国家资助办法出台</a></p>
+                </div>
+            }
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<!-- //defense mobilizie -->
+
+<!-- news -->
+<div class="news">
+    <div class="container">
+        <div class="about-header">
+            <h2>新闻聚焦</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">国防是国家生存与发展的安全保障。 </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="news-grids">
+            <div class="col-md-12 news-grid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs default bordered">
+                            <li class="active">
+                                <a href="#international" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-home"></i></span>
+                                    <span class="hidden-xs">国际</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#nation" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-man"></i></span>
+                                    <span class="hidden-xs">国内</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#military" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-email"></i></span>
+                                    <span class="hidden-xs">军事</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#society" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
+                                    <span class="hidden-xs">社会</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#xining" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
+                                    <span class="hidden-xs">西宁</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="international">
+                                <div class="scrollable" style="overflow: hidden;">
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        <div class="col-md-4" style="color: black">
+                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
+                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
+                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade in" id="nation">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4" style="color: black">
+                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
+                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
+                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="tab-pane fade in" id="military">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4" style="color: black">
+                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
+                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
+                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="tab-pane fade in" id="society">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4" style="color: black">
+                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
+                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
+                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="tab-pane fade in" id="xining">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4" style="color: black">
+                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
+                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
+                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
 </div>
-<!-- //about -->
+<!-- //news -->
 
 
-<!-- about -->
-<div id="about1" class="about">
+<!-- media -->
+<div class="mediaimpress">
     <div class="container">
         <div class="about-header">
             <h2>媒体印象</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">铁的纪律，铁的连队，铁的作风，铁的素质。</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">铁的纪律，铁的连队，铁的作风，铁的素质。 </h2>
             <div class="clearfix"></div>
         </div>
-        <div class="about-grids">
-            <div class="col-md-6 about-grid">
-                <h3>解放军报</h3>
-                <p>
-                    新华社北京8月15日电 外交部发言人陆慷15日宣布：二十国集团领导人第十一次峰会将于9月4日至5日在浙江杭州举行。峰会主题
-                    为“构建创新、活力、联动、包容的世界经济”。二十国集团成员和嘉宾国领导人及有关国际组织负责人将应邀与会。中国国家
-                    主席习近平将出席并主持会议，并出席金砖国家领导人非正式会晤等有关活动。
-                </p>
-            </div>
-            <div class="col-md-6 about-grid list">
-                <h3>中国兵法</h3>
-                <p>
-                    在西安正北60公里处，有一片红色土壤。83年前，刘志丹、谢子长、习仲勋、李妙斋等老一辈无产阶级革命家在这里创立了陕甘
-                    边照金革命根据地。今天，面对改革强军的大潮，陕西省铜川市耀州区人武部扎根这片红色沃土，积极谋事创业，用实际行动
-                    有力回答了军地关系靠什么维系、干部职工作风形象如何树立、专武干部队伍怎么抓建等一系列问题。
-                </p>
+        <div class="mediaimpress-grids">
+            <div class="col-md-12 mediaimpress-grid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs default bordered">
+                            <li class="active">
+                                <a href="#jfjb" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-home"></i></span>
+                                    <span class="hidden-xs">解放军报</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#gfb" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-man"></i></span>
+                                    <span class="hidden-xs">国防报</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#gf" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-email"></i></span>
+                                    <span class="hidden-xs">国防</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#zgbf" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
+                                    <span class="hidden-xs">中国兵法</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#jfjhb" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
+                                    <span class="hidden-xs">解放军画报</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="jfjb">
+                                <div class="scrollable" style="overflow: hidden;">
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        <div class="col-md-4" style="color: black">
+                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
+                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
+                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade in" id="gfb">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4" style="color: black">
+                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
+                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
+                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="tab-pane fade in" id="gf">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4" style="color: black">
+                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
+                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
+                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="tab-pane fade in" id="zgbf">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4" style="color: black">
+                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
+                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
+                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="tab-pane fade in" id="jfjhb">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4" style="color: black">
+                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
+                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
+                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
 </div>
-<!-- //about -->
+<!--media-->
 
-<!-- team -->
-<div id="team" class="team">
+<!-- army-image -->
+<div class="army-image">
     <div class="container">
-        <div class="about-header" style="overflow: auto; margin-bottom:5px">
+        <div class="about-header" style="overflow: auto; margin: 20px  auto">
             <h2 style="float: left">军营生活</h2>
             <h2 style="float: right; color: yellow; font-size: 24px">团结奋进，无私奉献，为建设新世纪现代化军队而不断开拓创新。</h2>
         </div>
-        <div class="col-md-3" style="padding-left:0">
+        <div class="col-md-3" style="padding-left: 0">
             <img src="@Url.Content("~/Image/slider1.png")" width="100%" alt=""/>
         </div>
-        <div class="col-md-3" style="padding-left:5px">
+        <div class="col-md-3" style="padding-left: 5px">
             <img src="@Url.Content("~/Image/slider2.png")" width="100%" alt=""/>
         </div>
-        <div class="col-md-3" style="padding-left:5px">
+        <div class="col-md-3" style="padding-left: 5px">
             <img src="@Url.Content("~/Image/slider3.png")" width="100%" alt=""/>
         </div>
-        <div class="col-md-3" style="padding-left:5px">
+        <div class="col-md-3" style="padding-left: 5px">
             <img src="@Url.Content("~/Image/slider4.png")" width="100%" alt=""/>
         </div>
     </div>
 </div>
-<!-- //team -->
+<!-- //army-image -->

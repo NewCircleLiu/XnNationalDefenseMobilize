@@ -8,6 +8,13 @@ body{
 	background:#D34346;
 	border-bottom:8px solid #BD2D30;
 }
+
+a:hover,a:visited
+{
+    text-decoration: none;
+}
+
+
 .logo{
 	float:left;
 	width:12%;
@@ -471,20 +478,45 @@ font-size: 23px;
 color: #46586A;
 font-weight: 800;
 }
+
 .about-grid p {
 margin: 0;
 font-size: 14px;
 color: #212121;
 line-height: 1.8em;
 }
-.about-grid p:nth-child(1) {
+
+
+/*
+.about-grid p{
 background: #f7f7f7;
-font-style: italic;
-padding: 25px 25px;
-}
+padding: 5px 25px;
+}*/
 .about-grids {
-padding: 50px 0;
+padding: 30px 0;
 }
+
+.news,
+.mediaimpress {
+background: #efefef;
+}
+.news-grid p,
+.mediaimpress-grid p {
+margin: 0;
+font-size: 14px;
+color: #212121;
+line-height: 1.8em;
+padding: 5px 0;
+
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.news-grids,
+.mediaimpress-grids {
+padding: 30px 0;
+}
+
 .slider-info h4{
 margin: 24px 0 0 40px;
 font-size: 16px;
@@ -521,19 +553,19 @@ transition: .5s all;
 		font-size:14px;
 		}
 /*-- //about --*/
-/*-- team --*/
-.team-header {
+/*-- army-image --*/
+.army-image-header {
 background: #D34346;
 border-left: 8px solid #C62F31;
 }
-.team-header h2{
+.army-image-header h2{
 margin: 0;
 color: #ffffff;
 font-size: 20px;
 font-weight: 700;
 padding: 15px;
 }
-.team {
+.army-image {
 background: #efefef;
 }
 /*--flexisel--*/
@@ -589,27 +621,27 @@ background: #efefef;
 	background: url(../images/13.png) no-repeat 0px 0px;
 }
 /*--flexisel--*/
-.team-grid{
+.army-image-grid{
 background:#f7f7f7;
 margin:0 13px;
 height: 100%;
 padding:13px 13px 0px 13px;
 }
-.team-grid h3{
+.army-image-grid h3{
 color:#212121;
 margin:13px 0;
 font-size:18px;
 font-weight:600;
 }
-.team-grid p{
+.army-image-grid p{
 color:#D34346;
 margin:0 0 25px 0;
 font-size:14px;
 }
-.team-grid img {
+.army-image-grid img {
 width: 100%;
 }
-/*-- //team --*/
+/*-- //army-image --*/
 /*-- services --*/
 .services-header {
 background: #46586A;
@@ -1334,10 +1366,10 @@ float:right;
 	.facts p {
 		font-size: 1em;
 		}
-	.team-grid h3{
+	.army-image-grid h3{
 		font-size:14px;
 		}
-	.team-grid p{
+	.army-image-grid p{
 		font-size:14px;
 		}
 	.services-grid h3 {
@@ -1463,10 +1495,10 @@ float:right;
 		right: 0% !important;
 		top: 18%;
 		}
-		.team-grid h3 {
+		.army-image-grid h3 {
 		margin: 13px 0;
 		}
-		.team-grid p {
+		.army-image-grid p {
 		font-size:11px;
 		}
 		.col-md-2.services-grid {
@@ -1652,7 +1684,7 @@ float:right;
 		.slider-info h4 {
 		margin: 14px 0 0 23px;
 		}
-		.about-header h2, .team-header h2,.services-header h2 , .prices-header h2,.contact-header h2{ 
+		.about-header h2, .army-image-header h2,.services-header h2 , .prices-header h2,.contact-header h2{ 
 		padding: 9px;
 		}
 		.about-header img,.services-header img, .prices-header img,.contact-header img {
@@ -1873,7 +1905,7 @@ float:right;
 		.img-sprite ul {
 		margin: 10px 0 0 0!important;
 		}
-		.team-grid p {
+		.army-image-grid p {
 		font-size: 13px;
 		}
 		.footer p {
@@ -1999,7 +2031,7 @@ float:right;
 		overflow: hidden;
 		height: 18px;
 		}
-		.about-header h2, .team-header h2, .services-header h2, .prices-header h2, .contact-header h2 {
+		.about-header h2, .army-image-header h2, .services-header h2, .prices-header h2, .contact-header h2 {
 		font-size: 14px;
 		padding: 8px;
 		}

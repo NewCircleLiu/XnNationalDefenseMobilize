@@ -448,7 +448,7 @@ font-weight: 700;
 }
 .bottom-right p {
 margin: 8px 0 0 0;
-font-size: 14px;
+font-size: 16px;
 color: #212121;
 }
 /*-- //banner-bottom --*/
@@ -480,10 +480,14 @@ font-weight: 800;
 }
 
 .about-grid p {
-margin: 0;
-font-size: 14px;
+margin: 5px;
+font-size: 16px;
 color: #212121;
 line-height: 1.8em;
+
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
 }
 
 
@@ -492,7 +496,7 @@ line-height: 1.8em;
 background: #f7f7f7;
 padding: 5px 25px;
 }*/
-.about-grids {
+.about-grid {
 padding: 30px 0;
 }
 
@@ -503,7 +507,7 @@ background: #efefef;
 .news-grid p,
 .mediaimpress-grid p {
 margin: 0;
-font-size: 14px;
+font-size: 16px;
 color: #212121;
 line-height: 1.8em;
 padding: 5px 0;
@@ -512,7 +516,7 @@ overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
 }
-.news-grids,
+.news-grid,
 .mediaimpress-grids {
 padding: 30px 0;
 }
@@ -705,13 +709,12 @@ background: #f7f7f7;
 	margin: 0 auto;
 }
 .services-grids {
-padding: 60px 0;
+padding: 30px 0;
 }
 .services-grid h3 {
-margin: 20px 0;
+margin: 10px 0;
 font-size: 20px;
 color: #BD2C30;
-text-align:center;
 font-weight: 700;
 }
 .services-grid p {
@@ -1332,9 +1335,10 @@ float:right;
 		font-size: 22px;
 		}
 	.about-grid p {
-		font-size: 13px;
+		/*font-size: 13px;*/
+        font-size:16px;
 		overflow: hidden;
-		height: 112px;
+		/*height: 112px;*/
 		}
 	.list ul li{
 		font-size: 13px;
@@ -1347,11 +1351,12 @@ float:right;
 		overflow:hidden;
 		height:24px;
 		}
+    /*
 	.about-grid p:nth-child(1) {
 		padding: 9px 15px;
 		overflow: hidden;
 		height:85px;
-		}
+		}*/
 	a.callbacks_nav.callbacks2_nav.prev {
 		left: 82% !important;
 		}
@@ -1461,8 +1466,11 @@ float:right;
 		.bottom-grid:nth-child(4) {
 		display:none;
 		}
-		.about-grids {
+		.about-grid {
 		padding: 35px 0;
+		}
+        .about-grid p {
+		font-size:16px;
 		}
 		.col-md-4.about-grid {
 		float: left;
@@ -1481,7 +1489,7 @@ float:right;
 		.about-grid p:nth-child(1) {
 		padding: 4px 15px;
 		overflow: hidden;
-		  height: 78px;
+		height: 78px;
 		}
 		.slider-info h4 {
 		margin: 21px 0 0 23px;

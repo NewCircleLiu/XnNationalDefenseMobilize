@@ -13,6 +13,6 @@
 10. 重复3-9  
 
 二、参考资料
-1. <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖雪峰github教程</a>
+1. <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖雪峰github教程</a>    
 2. <a href="http://blog.csdn.net/yuquan0821/article/details/8210944">push到github时，每次都要输入用户名和密码的问题</a>
 

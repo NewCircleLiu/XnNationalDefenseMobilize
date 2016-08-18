@@ -394,7 +394,7 @@ top: 9%;
 /*-- banner-bottom --*/
 .new-bottom{
 	padding:40px 0;
-	background: #f7f7f7;
+	background: #efefef;
 	}
 .bottom-left{
 float:left;
@@ -455,6 +455,7 @@ color: #212121;
 /*-- about --*/
 .about {
 background: #efefef;
+padding-top:30px;
 }
 .about-header{
 background:#D34346;
@@ -571,6 +572,7 @@ padding: 15px;
 }
 .army-image {
 background: #efefef;
+padding-bottom:10px;
 }
 /*--flexisel--*/
 .work-bottom{
@@ -1258,22 +1260,6 @@ width: 96%;
 margin: 4px 0 0 0;
 font-size:14px;
 text-align:center;
-}
-.footer p a{
-color:#ffffff;
-text-decoration:none;
-}
-.footer p a:hover{
-color: #D34346;
-transition: .5s all;
--webkit-transition: .5s all;
--o-transition: .5s all;
--ms-transition: .5s all;
--moz-transition: .5s all;
-}
-.footer img{
-margin: 0px 0px 0px 15px;
-float:right;
 }
 /*-- //footer --*/
 @media(max-width:1440px){

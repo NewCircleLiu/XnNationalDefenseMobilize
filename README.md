@@ -12,14 +12,7 @@
 9. 将合并的本地库 push到远程仓库  参考 <a href="http://blog.csdn.net/peterwanghao/article/details/49762479">更新GitHub上自己 Fork 的代码与原作者的项目进度一致</a>    
 10. 重复3-9  
 
-二、merge tips:  
-Step 1: From your project repository, check out a new branch and test the changes.  
+二、参考资料
+1. <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖雪峰github教程</a>
+2. <a href="http://blog.csdn.net/yuquan0821/article/details/8210944">push到github时，每次都要输入用户名和密码的问题</a>
 
-git checkout -b Xiaohong-Lee-master master  
-git pull git://github.com/Xiaohong-Lee/testGit.git master  
-
-Step 2: Merge the changes and update on GitHub. 
-
-git checkout master  
-git merge --no-ff Xiaohong-Lee-master  
-git push origin master

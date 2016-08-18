@@ -7,7 +7,10 @@
 4. 提交到你的本地仓库  
 5. 提交到你的远程仓库  
 6. 发送pull request 请求 合并  
-7. 
+7. 合并后，fetch被fork的源仓库到本地  
+8. fetch到本地后，可能与本地库冲突，这时为了保持与源仓库一致，应该丢掉本地分支  
+9. 将合并的本地库 push到远程仓库  参考 http://blog.csdn.net/peterwanghao/article/details/49762479  
+10. 重复3-9  
 
 二、merge tips:  
 Step 1: From your project repository, check out a new branch and test the changes.  

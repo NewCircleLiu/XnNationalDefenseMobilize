@@ -12,6 +12,18 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="@Url.Content("~/Content/pagecss/layoutcss/layout.css")" rel="stylesheet" type="text/css" media="all" />
 </head>
+
+<script type="text/javascript">
+    function enable(id_name) {
+        var all_alink = document.getElementsByClassName('navi');
+        for (var i = 0; i < all_alink.length; i++)
+            all_alink[i].style.borderBottom = "none";
+        document.getElementById(id_name).style.borderBottom = "5px solid yellow";
+        document.cookie = id_name;
+    }
+
+</script>
+
 <body>
     <div id="home" class="header">
         <div class="container" style="width: 100%">
@@ -22,72 +34,101 @@
                     <span class="menu">
                         <img src="images/menu.png" alt="" /></span>
                     <ul class="nav1">
-                        <li><a class="scroll" href="@Url.Content("~/Home")"">首页</a></li>
-                        <li><a class="scroll" href="@Url.Content("~/News")">新闻聚焦</a></li>
-                        <li><a class="scroll" href="@Url.Content("~/DefenseMobilize")">国防动员</a></li>
-                        <li><a class="scroll" href="@Url.Content("~/GrassrootWork")">基层工作</a></li>
-                        <li><a class="scroll" href="@Url.Content("~/PolicyAdvice")">政策咨询</a></li>
-                        <li><a class="scroll" href="@Url.Content("~/SiteNavi")">网站导航</a></li>
-                        <li><a class="scroll" href="@Url.Content("~/Media")">影音天地</a></li>
-                        <li><a class="scroll" href="@Url.Content("~/Download")">下载中心</a></li>
-                        <li><a class="scroll" href="@Url.Content("~/Application")">应用服务</a></li>
+                        <li class="navi" id="a1" onclick="enable('a1')"><a class="scroll"  href="@Url.Content("~/Home")"">首页</a></li>
+                        <li class="navi" id="a2" onclick="enable('a2')"><a class="scroll"  href="@Url.Content("~/News")">新闻聚焦</a></li>
+                        <li class="navi" id="a3" onclick="enable('a3')"><a class="scroll"  href="@Url.Content("~/DefenseMobilize")">国防动员</a></li>
+                        <li class="navi" id="a4" onclick="enable('a4')"><a class="scroll"  href="@Url.Content("~/GrassrootWork")">基层工作</a></li>
+                        <li class="navi" id="a5" onclick="enable('a5')"><a class="scroll"  href="@Url.Content("~/PolicyAdvice")">政策咨询</a></li>
+                        <!--<li><a class="scroll" href="@Url.Content("~/SiteNavi")">网站导航</a></li>-->
+                        <li class="navi" id="a6" onclick="enable('a6')"><a class="scroll"  href="@Url.Content("~/Media")">影音天地</a></li>
+                        <li class="navi" id="a7" onclick="enable('a7')"><a class="scroll"  href="@Url.Content("~/Download")">下载中心</a></li>
+                        <li class="navi" id="a8" onclick="enable('a8')"><a class="scroll"  href="@Url.Content("~/Application")">应用服务</a></li>
                     </ul>
-
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        if (document.cookie == "")
+            document.getElementById('a1').style.borderBottom = "5px solid yellow";
+        else
+            document.getElementById(document.cookie).style.borderBottom = "5px solid yellow";
+    </script>
 
     @RenderBody()
 
-    <div style="background:#f7f7f7">
-    <div id="link" class="container">
-        <div class="services-header">
-            <h2>友情链接</h2>
-            <div class="clearfix"></div>
-        </div>
-        <div class="services-grids" style=" border-bottom:2px solid #ddd">
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>中华人民共和国国防部</h3></a>
+    <div style="background: #f7f7f7">
+        <div id="link" class="container">
+            <div class="services-header">
+                <h2>友情链接</h2>
+                <div class="clearfix"></div>
             </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>中央军委总政治部之根</h3></a>
+            <div class="services-grids" style="border-bottom: 2px solid #ddd">
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中华人民共和国国防部</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中央军委总政治部之根</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中央军委总后勤部之根</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>全国征兵网</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中华军事网</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>凤凰网军事</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中华网军事</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中华网军事论坛</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中华网军事论坛</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中华人民共和国国防部</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中央军委总政治部之根</h3>
+                    </a>
+                </div>
+                <div class="col-md-3 services-grid">
+                    <a href="#link">
+                        <h3>中央军委总后勤部之根 </h3>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>中央军委总后勤部之根</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>全国征兵网</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>中华军事网</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>凤凰网军事</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>中华网军事</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-               <a href="#link"><h3>中华网军事论坛</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-               <a href="#link"> <h3>中华网军事论坛</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>中华人民共和国国防部</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>中央军委总政治部之根</h3></a>
-            </div>
-            <div class="col-md-3 services-grid">
-                <a href="#link"><h3>中央军委总后勤部之根 </h3></a>
-            </div>
-            <div class="clearfix"></div>
         </div>
     </div>
-        </div>
-    
+
 
     <div id="contact" class="contact">
         <div class="container">

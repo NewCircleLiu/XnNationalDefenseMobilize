@@ -24,7 +24,7 @@ body
 
 .services-section-grid
 {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .service-icon
@@ -45,7 +45,7 @@ body
 {
     color: #999;
     /*font-size: 0.9em;*/
-    font-size:18px;
+    font-size: 16px;
     line-height: 1.6em;
     font-weight: 400;
 }
@@ -66,13 +66,13 @@ i.rocket
     height: 123px;
     background: url('../images/s-icons.png') no-repeat 18px 43px #EC5844;
     display: inline-block;
-    text-align:center;
+    text-align: center;
 }
 
- i.rocket span
-{
-   display:block;
-}
+    i.rocket span
+    {
+        display: block;
+    }
 
 i.rocket
 {
@@ -328,3 +328,59 @@ i.cloud
         padding: 1em 0em;
     }
 }
+
+.nunc-bwn
+{
+    margin: 40px 0px 30px 10%;
+    float: right;
+    padding-right:20px;
+}
+
+    .nunc-bwn a
+    {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background: #e45c5f;
+        padding: 6px 16px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+        .nunc-bwn a:hover
+        {
+            text-decoration: none;
+            color: #fff;
+            background: #999;
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+        }
+
+
+    .nunc-bwn a
+    {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background: #e45c5f;
+        padding: 6px 16px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+        .nunc-bwn a:hover
+        {
+            text-decoration: none;
+            color: #fff;
+            background: #999;
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+        }

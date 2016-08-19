@@ -3,6 +3,22 @@
 }
 <!--这是新闻聚焦页面-->
 <link href="@Url.Content("~/Content/pagecss/newscss/news.css")" rel="stylesheet" type="text/css" media="all" />
+<style>
+    a:visited, a:focus
+    {
+        text-decoration:none;
+    }
+    a
+    {
+        color:black;
+    }
+
+    a:hover
+    {
+        color:#337ab7;
+        font-size:18px;
+    }
+</style>
 
 @{string[] title = new string[] { "国际新闻", "国内新闻", "军事新闻", "社会新闻", "西宁新闻", "北京新闻" };}
 @{string[] news = new string[] { "菲律宾总统杜特尔特：我还没蠢到要跟中国宣战", 
@@ -29,20 +45,20 @@
                         </div>
                         <div class="service-icon-heading">
                             <div class="col-md-6">
-                                <p>
+                               
                                      @for (int j = 0; j < 6; j++){
-                                     @news[i]<br />
+                                      <p><a href ="#">@news[i]</a></p>
                                     }
-                                </p>
                             </div>
                             <div class="col-md-6">
-                                <p>
                                     @for (int j = 0; j < 6; j++){
-                                     @news[i]<br />
+                                     <p><a href ="#">@news[i]</a></p>
                                     }
-                                </p>
                             </div>
                         </div>
+                         <div class="nunc-bwn" style="clear:both">
+                        <a href="#">More >></a>
+                    </div>
                         <div class="clearfix"></div>
                     </div>
                 </div>

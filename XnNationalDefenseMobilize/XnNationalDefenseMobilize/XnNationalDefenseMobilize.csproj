@@ -145,6 +145,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\pagecss\defensecss\defense.css" />
     <Content Include="Content\pagecss\indexcss\about.css" />
     <Content Include="Content\pagecss\layoutcss\layout.css" />
     <Content Include="Content\pagecss\newscss\news.css" />
@@ -213,7 +214,19 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="设计方案\参考模板.txt" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Image\binCode.png" />
+    <Content Include="Image\news\ser-bg.png" />
+    <Content Include="Image\slider1.png" />
+    <Content Include="Image\slider2.png" />
+    <Content Include="Image\slider3.png" />
+    <Content Include="Image\slider4.png" />
+    <Content Include="Image\slider5.png" />
+    <Content Include="Image\slider6.png" />
+    <Content Include="Image\军训.jpg" />
+    <Content Include="Image\参军1.jpg" />
+    <Content Include="Image\参军2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -253,6 +266,7 @@
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\PolicyAdvice\Index.cshtml" />
     <Content Include="Views\SiteNavi\Index.cshtml" />
+    <Content Include="设计方案\西宁市国防动员综合信息中心软件研发.doc" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

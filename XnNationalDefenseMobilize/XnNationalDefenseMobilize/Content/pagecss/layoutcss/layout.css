@@ -46,6 +46,10 @@ display:block;
 .navigation ul li{
 	display:inline-block;
 	}
+.navigation ul li:hover
+    {
+    border-bottom:5px solid yellow;
+    }
 .navigation ul li a {
 	color: #ffffff;
 	padding: 25px 22px;

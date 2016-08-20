@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "新闻聚焦";
+}
+
+<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Fjalla+One|Archivo+Narrow|Oswald:400,700' rel='stylesheet' type='text/css'>
+<link href="@Url.Content("~/Content/pagecss/defensecss/reset.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss/defensecss/style.css")" rel="stylesheet" type="text/css" media="all" />
+
+<div class="site_wrapper">
+    <div class="page_title">
+
+        <div class="container">
+            <!--
+            <div class="leaft_title">
+                <h1><b>国际新闻</b></h1>
+            </div>
+            -->
+            <!--<div class="reght_pagenation"><a href="index.html">Home</a> <i>/</i>  <i>/</i> with Small image</div>-->
+        </div>
+
+    </div>
+    <!-- end page title -->
+
+    <div class="clearfix"></div>
+
+    <div class="container">
+
+        <div class="content_left">
+
+            @for(int i = 0; i < 6; i++){
+            <div class="blog_post" style="margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #ddd">
+                <div class="blog_postcontent">
+
+                    <div class="post_info_content_small">
+                        <a href="blog-archive.html" class="date"><strong>@(18-i)</strong><i>2016.08</i></a>
+                        <h3><a href="#"><b>菲律宾总统杜特尔特：我还没蠢到要跟中国宣战</b> </a></h3>
+                        <div class="clearfix"></div>
+
+                        <p>据《菲律宾星报》8月18日报道，菲律宾总统昨天（17日）晚间表示，他愿意与中国展开双边对话，但必须在国际仲裁庭对南海争议作出对菲律宾有利裁决的背景下进行。</p>
+
+                    </div>
+
+                    <div class="post_info_content_small">
+                        <a href="blog-archive.html" class="date"><strong>@(18-i)</strong><i>2016.08</i></a>
+                        <h3><a href="#"><b>菲律宾总统杜特尔特：我还没蠢到要跟中国宣战</b></a></h3>
+                        <div class="clearfix"></div>
+
+                        <p>据《菲律宾星报》8月18日报道，菲律宾总统昨天（17日）晚间表示，他愿意与中国展开双边对话，但必须在国际仲裁庭对南海争议作出对菲律宾有利裁决的背景下进行。</p>
+
+                    </div>
+                </div>
+            </div>
+            }
+            <!-- /# end post -->
+
+            <!--
+            <div class="clearfix divider_line3"></div>
+            -->
+
+            <div style="text-align:center">
+            <div class="pagination">
+                <a href="#" class="navlinks">&lt;上一页</a>
+                <a href="#" class="navlinks">1</a>
+                <a href="#" class="navlinks current">2</a>
+                <a href="#" class="navlinks">3</a>
+                <a href="#" class="navlinks">4</a>
+                <a href="#" class="navlinks">5</a>
+                <a href="#" class="navlinks">6</a>
+                <a href="#" class="navlinks">下一页 ></a>
+            </div>
+                </div>
+            <!-- end pagination -->
+
+        </div>
+        <!-- end content left area -->
+
+        <!-- right sidebar starts -->
+        
+        <!--
+        <div class="right_sidebar">
+            <div class="site-search-area">
+                <form method="get" id="site-searchform" action="blog.html">
+                    <div>
+                        <input class="input-text" name="s" id="s" value="Enter Search keywords..." onfocus="if (this.value == 'Enter Search keywords...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter Search keywords...';}" type="text" />
+                        <input id="searchsubmit" value="Search" type="submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        -->
+
+    </div>
+    <div class="clearfix"></div>
+</div>

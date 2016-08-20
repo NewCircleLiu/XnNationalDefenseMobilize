@@ -267,6 +267,7 @@
     <Content Include="Views\PolicyAdvice\Index.cshtml" />
     <Content Include="Views\SiteNavi\Index.cshtml" />
     <Content Include="设计方案\西宁市国防动员综合信息中心软件研发.doc" />
+    <Content Include="Views\News\NewsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

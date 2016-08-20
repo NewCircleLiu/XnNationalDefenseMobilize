@@ -6,17 +6,18 @@
 <style>
     a:visited, a:focus
     {
-        text-decoration:none;
-    }
-    a
-    {
-        color:black;
+        text-decoration: none;
     }
 
-    a:hover
+    a
     {
-        color:#337ab7;
-        font-size:18px;
+        color: black;
+    }
+
+    p a:hover
+    {
+        color: #337ab7;
+        font-size: 18px;
     }
 </style>
 
@@ -36,29 +37,31 @@
                     <div class="services-section-grid-head">
                         <div class="service-icon">
                             <i class="rocket" style="font-style: normal">
-                                <span>@title[i].Substring(0,1)</span>
-                                <span>@title[i].Substring(1,1)</span>
-                                <span>@title[i].Substring(2,1)</span>
-                                <span>@title[i].Substring(3,1)</span>
-                               
+                                <span>@title[i].Substring(0, 1)</span>
+                                <span>@title[i].Substring(1, 1)</span>
+                                <span>@title[i].Substring(2, 1)</span>
+                                <span>@title[i].Substring(3, 1)</span>
+
                             </i>
                         </div>
                         <div class="service-icon-heading">
                             <div class="col-md-6">
-                               
-                                     @for (int j = 0; j < 6; j++){
-                                      <p><a href ="#">@news[i]</a></p>
-                                    }
+
+                                @for (int j = 0; j < 6; j++)
+                                {
+                                    <p><a href="#">@news[i]</a></p>
+                                }
                             </div>
                             <div class="col-md-6">
-                                    @for (int j = 0; j < 6; j++){
-                                     <p><a href ="#">@news[i]</a></p>
-                                    }
+                                @for (int j = 0; j < 6; j++)
+                                {
+                                    <p><a href="#">@news[i]</a></p>
+                                }
                             </div>
                         </div>
-                         <div class="nunc-bwn" style="clear:both">
-                        <a href="#">More >></a>
-                    </div>
+                        <div class="nunc-bwn" style="clear: both">
+                            <a href="@Url.Content("~/news/NewsList?id=3")">More >></a>
+                        </div>
                         <div class="clearfix"></div>
                     </div>
                 </div>

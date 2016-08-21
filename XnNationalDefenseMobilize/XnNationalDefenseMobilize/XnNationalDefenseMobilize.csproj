@@ -146,9 +146,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\pagecss\defensecss\defense.css" />
+    <Content Include="Content\pagecss\GrassrootWork\grassrootWork.css" />
+    <Content Include="Content\pagecss\GrassrootWork\grassrootWorkList.css" />
     <Content Include="Content\pagecss\indexcss\about.css" />
     <Content Include="Content\pagecss\layoutcss\layout.css" />
     <Content Include="Content\pagecss\newscss\news.css" />
+    <Content Include="Content\pagecss\video\video_index.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -214,6 +217,20 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="GrassrootImage\templatemo_image.jpg" />
+    <Content Include="GrassrootImage\templatemo_image_01.png" />
+    <Content Include="videoImage\CuPlayerMiniV4.swf" />
+    <Content Include="videoImage\image-hover.png" />
+    <Content Include="videoImage\Logo.png" />
+    <Content Include="videoImage\p1.jpg" />
+    <Content Include="videoImage\p2.jpg" />
+    <Content Include="videoImage\p3.jpg" />
+    <Content Include="videoImage\p4.jpg" />
+    <Content Include="videoImage\start.png" />
+    <Content Include="videoImage\video_exmp1.jpg" />
+    <Content Include="videoImage\video_exmp2.jpg" />
+    <Content Include="videoImage\video_exmp3.jpg" />
+    <Content Include="video_xml\CuPlayerSetFile.xml" />
     <Content Include="设计方案\参考模板.txt" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Image\binCode.png" />
@@ -268,10 +285,14 @@
     <Content Include="Views\SiteNavi\Index.cshtml" />
     <Content Include="设计方案\西宁市国防动员综合信息中心软件研发.doc" />
     <Content Include="Views\News\NewsList.cshtml" />
+    <Content Include="Views\GrassrootWork\GrassrootList.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="fonts\Models\" />
+    <Folder Include="video\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,6 +1,422 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "影音天地";
 }
-
+<link href="@Url.Content("~/content/pagecss/video/video_index.css")" rel="stylesheet" type="text/css" media="all" />
 <!--这是影音天地页面-->
-<h2>这是影音天地页面</h2>
+<div class="vedio">
+    <div class="zbxc">
+        <div id="myplayer">
+			<!--酷播迷你 CuPlayerMiniV4.0 代码开始-->
+            <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.4.3.min.js")"></script>
+			<script type="text/javascript" src="@Url.Content("~/Scripts/swfobject.js")"></script>
+			<div id="CuPlayer"> <strong>提示：您的Flash Player版本过低，请<a href="#" >点此进行播放器升级</a>！</strong> </div>
+			<div class="list" style="height:400px;width:280px;overflow-x:hidden;">
+				<dl>
+					<dt><a href="#" onclick="changeStream(0);"><img src="@Url.Content("~/videoImage/p1.jpg")" /><strong>2016解放军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
+				</dl>
+				<dl>
+					<dt><a href="#" onclick="changeStream(1);"><img src="@Url.Content("~/videoImage/p2.jpg")" /><strong>2016陆军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
+				</dl>
+				<dl>
+					<dt><a href="#" onclick="changeStream(2);"><img src="@Url.Content("~/videoImage/p3.jpg")" /><strong>解放军发布2016最新热血征兵片《战斗宣言》[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
+				</dl>
+				<dl>
+					<dt><a href="#" onclick="changeStream(3);"><img src="@Url.Content("~/videoImage/p4.jpg")" /><strong>2016解放军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
+				</dl>
+				<dl>
+					<dt><a href="#" onclick="changeStream(4);"><img src="@Url.Content("~/videoImage/p1.jpg")" /><strong>2016陆军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
+				</dl>
+				<dl>
+					<dt><a href="#" onclick="changeStream(5);"><img src="@Url.Content("~/videoImage/p2.jpg")" /><strong>解放军发布2016最新热血征兵片《战斗宣言》[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
+				</dl>
+				<dl>
+					<dt><a href="#" onclick="changeStream(6);"><img src="@Url.Content("~/videoImage/p3.jpg")" /><strong>2016解放军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
+				</dl>
+			</div>
+
+			<script type=text/javascript>
+				<!--
+
+    var CuPlayerList = "@Url.Content("~/videoImage/1.mp4")|@Url.Content("~/videoImage/2.mp4")|@Url.Content("~/videoImage/3.mp4")|@Url.Content("~/videoImage/1.mp4")|@Url.Content("~/videoImage/2.mp4")|@Url.Content("~/videoImage/3.mp4")|@Url.Content("~/videoImage/3.mp4")";
+			    var sp = CuPlayerList.split("|")
+			    var num = sp.length;
+			    var video_index = 0;
+
+			    function getNext(pars) {
+			        if (video_index < num - 1) {
+			            video_index++;
+			            so.addVariable("CuPlayerFile", sp[video_index]);
+			            so.addVariable("CuPlayerAutoPlay", "yes"); //是否自动播放
+			            so.write("CuPlayer");
+			        } else {
+			            video_index = 0;
+			            so.addVariable("CuPlayerFile", sp[video_index]);
+			            so.write("CuPlayer");
+			        }
+			        $(".list dl dt a").css("background", "#ffffff").css("color", "#333");
+			        $(".list dl dt a").eq(video_index).css("background", "#efefef").css("color", "red");
+			        LeftScr(video_index);
+			    }
+
+			    function changeStream(CuPlayerFile) {
+			        $(".list dl dt a").css("background", "#ffffff").css("color", "#333");
+			        $(".list dl dt a:hover").css("background", "#efefef").css("color", "red");
+			        LeftScr(CuPlayerFile);
+			        video_index = CuPlayerFile;
+			        so.addVariable("CuPlayerFile", sp[CuPlayerFile]);
+			        so.addVariable("CuPlayerAutoPlay", "yes"); //是否自动播放
+			        so.write("CuPlayer");
+			        return false;
+			    }
+			    CuPlayerFile = sp[video_index];
+			    $(".list dl dt a").css("background", "#ffffff").css("color", "#333");
+			    $(".list dl dt a").eq(video_index).css("background", "#efefef").css("color", "red");
+			    var so = new SWFObject("@Url.Content("~/videoImage/CuPlayerMiniV4.swf")", "ply", "870", "400", "9", "#000000");
+                so.addParam("allowfullscreen", "true");
+                so.addParam("allowscriptaccess", "always");
+                so.addParam("wmode", "opaque");
+                so.addParam("quality", "high");
+                so.addParam("salign", "lt");
+                so.addVariable("CuPlayerFile", CuPlayerFile);
+                so.addVariable("CuPlayerSetFile", "@Url.Content("~/video_xml/CuPlayerSetFile.xml")"); //* 必须存在/播放器配置文件地址
+                so.addVariable("CuPlayerImage", "@Url.Content("~/videoImage/start.png")"); //* 必须存在/视频略缩图,本图片文件必须正确
+			    so.addVariable("CuPlayerWidth", "875"); //视频宽度
+			    so.addVariable("CuPlayerHeight", "400"); //视频高度
+			    so.addVariable("CuPlayerAutoPlay", "no"); //是否自动播放
+			    //so.addVariable("CuPlayerLogo", "@Url.Content("~/videoImage/Logo.png")"); //Logo文件地址
+			    so.addVariable("CuPlayerPosition", "bottom-right"); //Logo显示的位置
+			    so.write("CuPlayer");
+
+			    function LeftScr(m) {
+			        var scrtop;
+			        if (m > 1) {
+			            scrtop = 55 * (m - 1);
+			        } else {
+			            scrtop = 0;
+			        }
+			        $(".list").animate({
+			            scrollTop: scrtop
+			        }, 130);
+			    }
+			    //-->
+			</script>
+			
+		</div>
+    </div>
+    <div class="video_classify">
+        <div class="video_classify_name">
+            <h3>国防教育</h3>
+        </div>
+        <div class="video_img_list">
+            <table>
+                <tr>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <a href="#">
+                                    <img src="@Url.Content("~/videoImage/video_exmp1.jpg")"/>
+                                </a>
+                            </div>
+                            <div class="video_name">
+                                <a href="#" >
+                                    <h4>视频名称视频名称</h4>
+                                </a>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                 <a href="#">
+                                    <img src="@Url.Content("~/videoImage/video_exmp1.jpg")"/>
+                                </a>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>浏览320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <img src="@Url.Content("~/videoImage/video_exmp1.jpg")"/>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <img src="@Url.Content("~/videoImage/video_exmp1.jpg")"/>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="more_video">
+                <a class="more" id="1">
+                    <h4>更多>></h4>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="video_classify">
+         <div class="video_classify_name">
+            <h3>拥军优属</h3>
+        </div>
+
+        <div class="video_img_list">
+            <table>
+                <tr>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <a href="#">
+                                    <img src="@Url.Content("~/videoImage/video_exmp2.jpg")"/>
+                                </a>
+                            </div>
+                            <div class="video_name">
+                                <a href="#" >
+                                    <h4>视频名称视频名称</h4>
+                                </a>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                 <a href="#">
+                                    <img src="@Url.Content("~/videoImage/video_exmp2.jpg")"/>
+                                </a>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>浏览320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <img src="@Url.Content("~/videoImage/video_exmp2.jpg")"/>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <img src="@Url.Content("~/videoImage/video_exmp2.jpg")"/>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="more_video">
+                <a class="more" id="2">
+                    <h4>更多>></h4>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="video_classify">
+         <div class="video_classify_name">
+            <h3>动员演练</h3>
+        </div>
+        <div class="video_img_list">
+            <table>
+                <tr>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <a href="#">
+                                    <img src="@Url.Content("~/videoImage/video_exmp3.jpg")"/>
+                                </a>
+                            </div>
+                            <div class="video_name">
+                                <a href="#" >
+                                    <h4>视频名称视频名称</h4>
+                                </a>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                 <a href="#">
+                                    <img src="@Url.Content("~/videoImage/video_exmp3.jpg")"/>
+                                </a>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>浏览320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <img src="@Url.Content("~/videoImage/video_exmp3.jpg")"/>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video_item">
+                            <div class="video_img">
+                                <img src="@Url.Content("~/videoImage/video_exmp3.jpg")"/>
+                            </div>
+                            <div class="video_name">
+                                <h4>视频名称视频名称</h4>
+                            </div>
+                            <div class="video_info">
+                                <div class="video_pull_time">
+                                    <p>2016-08-15</p>
+                                </div>
+                                <div class="video_counts">
+                                    <p>320次</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="more_video">
+                <a class="more" id="3">
+                    <h4>更多>></h4>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(".more").click(function () {
+        var curr_gradpa_ele = this.parentElement.parentElement;
+        var curr_table = curr_gradpa_ele.getElementsByTagName("table")[0];
+        var id = this.id;
+        var img_url = "@Url.Content("~/videoImage/video_exmp1.jpg")";
+        var video_item = "<div class='video_item'>"
+                        + "<div class='video_img'>"
+                        + "<img src='" + img_url + "'/>"
+                        + "<div class='video_name'>"
+                        + "<h4>视频名称视频名称</h4>"
+                        + "</div>"
+                        + "<div class='video_info'>"
+                        + "<div class='video_pull_time'>"
+                        + "<p>2016-08-15</p>"
+                        + "</div>"
+                        + "<div class='video_counts'>"
+                        + "<p>320次</p>"
+                        + "</div>"
+                        + "</div>"
+                        + "</div>"
+                        + "</div>";
+        var tr = document.createElement("tr");
+        for (var i = 0; i < 4; i++) {
+            var td = document.createElement("td");
+            td.innerHTML = video_item;
+            tr.appendChild(td);
+        }
+        curr_table.appendChild(tr);
+    });
+
+</script>

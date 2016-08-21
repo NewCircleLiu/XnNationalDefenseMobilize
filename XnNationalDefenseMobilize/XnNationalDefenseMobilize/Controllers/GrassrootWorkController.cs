@@ -16,5 +16,13 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
+        //
+        // GET: /GrassrootList/
+
+        public ActionResult GrassrootList() 
+        {
+            return View();
+        }
+
     }
 }

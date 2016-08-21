@@ -1,0 +1,41 @@
+﻿.grassrootWorkList {
+    width:1000px;
+    margin:auto;
+    margin-top:10px;
+}
+.divcePage {
+    width:100%;
+}
+.pagination {
+    text-align:center;
+}
+.list-group-item h4 h5{
+    width:auto;
+}
+.title {
+    background-color:#D34346;
+    height:40px;
+    padding-left:10px;
+    color:white;
+    
+}
+.title h4{
+    line-height:40px;
+}
+.list-group-item table {
+    width:100%;
+}
+.artcle_title {
+    width:25%;
+}
+.author {
+    width:25%;
+}
+.count {
+    width:25%;
+    text-align:right;
+}
+.time {
+    width:25%;
+    text-align:right;
+}

@@ -5,7 +5,7 @@
     padding-left:20px;
 }
 a:link, a:visited { color: #333333; text-decoration: none;} 
-a:active, a:hover { color: #333333; text-decoration: underline;}
+a:active, a:hover { color: #333333; text-decoration: none;}
 
 
 .section_02_box h3 {
@@ -84,11 +84,10 @@ img {
 	clear: both;
 	width: 100%;
 }
-.tempaltemo_content_left_section_02  .section_02_box {
-	float: left;
-	/*width: 360px;*/
-    width: 550px;
 
+.section_02_box {
+    float: left;
+	width: 540px;
 	border: 1px solid #CCCCCC;
 	margin: 0 20px 0 0px;
 }
@@ -118,4 +117,5 @@ img {
 }
 .more {
     text-align:right;
+    width:100%;
 }

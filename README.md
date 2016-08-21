@@ -1,4 +1,4 @@
-# XnNationalDefenseMobilize
+﻿# XnNationalDefenseMobilize
 
 <b>一、工作流程</b>  
 1. fork代码到你的远程仓库   地址：https://github.com/Zhengjun-Du/XnNationalDefenseMobilize   
@@ -15,4 +15,5 @@
 <b>二、参考资料</b>    
 1. <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖雪峰github教程</a>    
 2. <a href="http://blog.csdn.net/yuquan0821/article/details/8210944">push到github时，每次都要输入用户名和密码的问题</a>
+3. <a href="http://www.01happy.com/git-resolve-conflicts/">使用git pull文件时和本地文件冲突怎么办？</a>
 

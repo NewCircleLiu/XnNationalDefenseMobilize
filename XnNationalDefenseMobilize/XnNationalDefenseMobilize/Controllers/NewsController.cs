@@ -21,5 +21,10 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
+        public ActionResult NewsDetail(int id)
+        {
+            return View();
+        }
+
     }
 }

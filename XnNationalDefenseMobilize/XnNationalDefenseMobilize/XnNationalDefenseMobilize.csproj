@@ -146,11 +146,15 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\pagecss\defensecss\defense.css" />
+    <Content Include="Content\pagecss\defensecss\reset.css" />
+    <Content Include="Content\pagecss\defensecss\style.css" />
     <Content Include="Content\pagecss\GrassrootWork\grassrootWork.css" />
     <Content Include="Content\pagecss\GrassrootWork\grassrootWorkList.css" />
     <Content Include="Content\pagecss\indexcss\about.css" />
     <Content Include="Content\pagecss\layoutcss\layout.css" />
     <Content Include="Content\pagecss\newscss\news.css" />
+    <Content Include="Content\pagecss\newscss\newsdetailred.css" />
+    <Content Include="Content\pagecss\newscss\newsdetail.css" />
     <Content Include="Content\pagecss\video\video_index.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -288,6 +292,9 @@
     <Content Include="Views\GrassrootWork\GrassrootList.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\News\NewsDetail.cshtml" />
+    <Content Include="Views\DefenseMobilize\DefenseList.cshtml" />
+    <Content Include="Views\DefenseMobilize\DefenseDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

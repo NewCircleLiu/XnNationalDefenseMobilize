@@ -2,16 +2,31 @@
     ViewBag.Title = "基层工作列表";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Fjalla+One|Archivo+Narrow|Oswald:400,700' rel='stylesheet' type='text/css'>
 <link href="@Url.Content("~/content/pagecss/GrassrootWork/grassrootWorkList.css")" rel="stylesheet" type="text/css" media="all" /> 
+<link href="@Url.Content("~/Content/pagecss/defensecss/reset.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss/defensecss/style.css")" rel="stylesheet" type="text/css" media="all" />
+
+<div class="page_title">
+        <div class="container">
+            <div class="leaft_title">
+                <h1 style="float:left;font-size:20px">基层工作  >>  城北区基层工作</h1>
+                <div class="site-search-area" style="float:right">
+                <form method="get" id="site-searchform" action="Index">
+                    <div>
+                        <input class="input-text" name="s" id="s"  type="text" />
+                        <input id="searchsubmit" style="color:white; font-size:14px; font-weight:bold" value="搜索" type="submit" />
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
 
 <div class="grassrootWorkList">
     <div>
-        <div class="title">
-        	<h4>城北区基层工作</h4>
-        </div>
-        
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
         	<table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -21,7 +36,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -31,7 +46,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -41,7 +56,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -51,7 +66,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -61,7 +76,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -71,7 +86,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -81,7 +96,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -91,7 +106,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -101,7 +116,7 @@
             	</tr>
             </table>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")" class="list-group-item">
             <table>
             	<tr>
             		<td class="artcle_title"><h4>城北区基层工作</h4></td>
@@ -112,15 +127,16 @@
             </table>
         </a>
     </div>
-    <div class="divcePage">
-        <ul class="pagination pagination-lg">
-          <li><a href="#">&laquo;</a></li>
-          <li ><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&raquo;</a></li>
-        </ul>
-    </div>
+    <div style="text-align:center">
+           <div class="pagination">
+                <a href="#" class="navlinks">&lt;上一页</a>
+                <a href="#" class="navlinks">1</a>
+                <a href="#" class="navlinks current">2</a>
+                <a href="#" class="navlinks">3</a>
+                <a href="#" class="navlinks">4</a>
+                <a href="#" class="navlinks">5</a>
+                <a href="#" class="navlinks">6</a>
+                <a href="#" class="navlinks">下一页 ></a>
+          </div>
+     </div>
 </div>

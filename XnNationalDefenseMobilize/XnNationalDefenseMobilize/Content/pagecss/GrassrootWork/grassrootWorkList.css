@@ -1,14 +1,12 @@
 ﻿.grassrootWorkList {
-    width:1000px;
+    width:1150px;
     margin:auto;
     margin-top:10px;
 }
-.divcePage {
-    width:100%;
-}
-.pagination {
-    text-align:center;
-}
+
+
+
+
 .list-group-item h4 h5{
     width:auto;
 }
@@ -39,3 +37,36 @@
     width:25%;
     text-align:right;
 }
+
+/* pagination */
+.pagination {
+	clear:both;
+	padding:10px 0;
+	margin-bottom:20px;
+	font-family: 'Open Sans', sans-serif;
+}
+.pagination b{
+	float:left;
+	margin: 0px 5px 2px 0;
+	padding:0px 10px;
+	font-weight: normal;
+	color: #999;
+}
+.pagination a.navlinks {
+	font-size: 16px;
+	color: #454545;
+	background-color: #eee;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 7px 10px;
+	border-radius: 3px;
+}
+.pagination a.navlinks:hover {
+	color: #fff;
+	background-color: #454545;
+}
+.pagination a.current {
+	color: #fff;
+	background-color: #454545;
+}
+

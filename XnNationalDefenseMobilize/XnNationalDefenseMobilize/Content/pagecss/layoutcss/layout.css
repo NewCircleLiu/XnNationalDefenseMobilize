@@ -6,7 +6,7 @@ body{
 /*-- header --*/
 .header{
 	background:#D34346;
-	border-bottom:8px solid #BD2D30;
+	border-bottom:5px solid #BD2D30;
 }
 
 a:hover,a:visited
@@ -17,19 +17,20 @@ a:hover,a:visited
 
 .logo{
 	float:left;
-	width:12%;
-    margin-top: 23px;
+	width:20%;
+    height:80px;
+
+    
 }
 .logo a{
 display:block;
 }
-.logo img{
-	width:100%;
-	}
+
 .navigation {
 	float:left;
 	width:78%;
-	text-align: center;
+    padding-left:30px;
+	/*text-align: center;*/
 }
 .social-icons{
 	float:left;
@@ -53,7 +54,7 @@ display:block;
 .navigation ul li a {
 	color: #ffffff;
 	padding: 25px 22px;
-	font-size: 15px;
+	font-size: 18px;
 	font-weight: 600;
 	text-decoration: none;
 	display: block;

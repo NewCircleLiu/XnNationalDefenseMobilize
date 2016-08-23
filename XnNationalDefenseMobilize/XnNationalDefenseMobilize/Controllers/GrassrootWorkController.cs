@@ -24,5 +24,10 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
+        public ActionResult GrassrootDetail()
+        {
+            return View();
+        }
+
     }
 }

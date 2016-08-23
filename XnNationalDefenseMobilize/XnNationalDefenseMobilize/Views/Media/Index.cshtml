@@ -37,7 +37,7 @@
 			<script type=text/javascript>
 				<!--
 
-    var CuPlayerList = "@Url.Content("~/Image/videoImage/1.mp4")|@Url.Content("~/Image/videoImage/2.mp4")|@Url.Content("~/Image/videoImage/3.mp4")|@Url.Content("~/Image/videoImage/1.mp4")|@Url.Content("~/Image/videoImage/2.mp4")|@Url.Content("~/Image/videoImage/3.mp4")|@Url.Content("~/Image/videoImage/3.mp4")";
+    var CuPlayerList = "@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")";
 			    var sp = CuPlayerList.split("|")
 			    var num = sp.length;
 			    var video_index = 0;
@@ -72,13 +72,13 @@
 			    $(".list dl dt a").css("background", "#ffffff").css("color", "#333");
 			    $(".list dl dt a").eq(video_index).css("background", "#efefef").css("color", "red");
 			    var so = new SWFObject("@Url.Content("~/Image/videoImage/CuPlayerMiniV4.swf")", "ply", "870", "400", "9", "#000000");
-                so.addParam("allowfullscreen", "true");
-                so.addParam("allowscriptaccess", "always");
-                so.addParam("wmode", "opaque");
-                so.addParam("quality", "high");
-                so.addParam("salign", "lt");
-                so.addVariable("CuPlayerFile", CuPlayerFile);
-                so.addVariable("CuPlayerSetFile", "@Url.Content("~/video/video_xml/CuPlayerSetFile.xml")"); //* 必须存在/播放器配置文件地址
+			    so.addParam("allowfullscreen", "true");
+			    so.addParam("allowscriptaccess", "always");
+			    so.addParam("wmode", "opaque");
+			    so.addParam("quality", "high");
+			    so.addParam("salign", "lt");
+			    so.addVariable("CuPlayerFile", CuPlayerFile);
+			    so.addVariable("CuPlayerSetFile", "@Url.Content("~/video/video_xml/CuPlayerSetFile.xml")"); //* 必须存在/播放器配置文件地址
                 so.addVariable("CuPlayerImage", "@Url.Content("~/Image/videoImage/start.png")"); //* 必须存在/视频略缩图,本图片文件必须正确
 			    so.addVariable("CuPlayerWidth", "875"); //视频宽度
 			    so.addVariable("CuPlayerHeight", "400"); //视频高度

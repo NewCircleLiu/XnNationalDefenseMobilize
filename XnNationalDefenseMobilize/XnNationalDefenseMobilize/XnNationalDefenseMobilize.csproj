@@ -148,6 +148,7 @@
     <Content Include="Content\pagecss\defensecss\defense.css" />
     <Content Include="Content\pagecss\defensecss\reset.css" />
     <Content Include="Content\pagecss\defensecss\style.css" />
+    <Content Include="Content\pagecss\downloadcss\download.css" />
     <Content Include="Content\pagecss\GrassrootWork\grassrootWork.css" />
     <Content Include="Content\pagecss\GrassrootWork\grassrootWorkList.css" />
     <Content Include="Content\pagecss\indexcss\about.css" />
@@ -245,6 +246,7 @@
     <Content Include="Image\videoImage\video_exmp1.jpg" />
     <Content Include="Image\videoImage\video_exmp2.jpg" />
     <Content Include="Image\videoImage\video_exmp3.jpg" />
+    <Content Include="Scripts\swfobject.js" />
     <Content Include="video\video_xml\CuPlayerSetFile.xml" />
     <Content Include="设计方案\参考模板.txt" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
@@ -283,22 +285,22 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Application\Index.cshtml" />
     <Content Include="Views\DefenseMobilize\Index.cshtml" />
-    <Content Include="Views\Download\Index.cshtml" />
-    <Content Include="Views\GrassrootWork\Index.cshtml" />
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\PolicyAdvice\Index.cshtml" />
     <Content Include="Views\SiteNavi\Index.cshtml" />
     <Content Include="设计方案\西宁市国防动员综合信息中心软件研发.doc" />
     <Content Include="Views\News\NewsList.cshtml" />
-    <Content Include="Views\GrassrootWork\GrassrootList.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Views\News\NewsDetail.cshtml" />
     <Content Include="Views\DefenseMobilize\DefenseList.cshtml" />
     <Content Include="Views\DefenseMobilize\DefenseDetail.cshtml" />
     <Content Include="Views\PolicyAdvice\Quiz.cshtml" />
     <Content Include="Views\PolicyAdvice\Reply.cshtml" />
     <Content Include="Views\PolicyAdvice\ReplyDetail.cshtml" />
+    <Content Include="Views\GrassrootWork\GrassrootDetail.cshtml" />
+    <Content Include="Views\GrassrootWork\GrassrootList.cshtml" />
+    <Content Include="Views\GrassrootWork\Index.cshtml" />
+    <Content Include="Views\Download\DownloadList.cshtml" />
+    <Content Include="Views\Download\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

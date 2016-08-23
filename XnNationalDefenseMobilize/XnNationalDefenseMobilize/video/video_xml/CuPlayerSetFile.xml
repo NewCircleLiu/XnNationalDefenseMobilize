@@ -2,8 +2,8 @@
   <CuPlayerWidth>870</CuPlayerWidth>
   <CuPlayerHeight>400</CuPlayerHeight>
   <CuPlayerAutoPlay>yes</CuPlayerAutoPlay>    
-  <CuPlayerImage>../videoImage/start.png</CuPlayerImage>
+  <CuPlayerImage>../../Image/videoImage/start.png</CuPlayerImage>
   <CuPlayerLogo></CuPlayerLogo>
   <CuPlayerPosition>top-right</CuPlayerPosition>
-  <CuPlayerFile>../videoImage/1.mp4</CuPlayerFile>
+  <CuPlayerFile>../3.mp4</CuPlayerFile>
 </content>

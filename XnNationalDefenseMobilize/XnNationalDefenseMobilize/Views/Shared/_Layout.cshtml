@@ -15,9 +15,16 @@
 
 <body>
     <div id="home" class="header">
-        <div class="container" style="width: 100%">
+        <div class="container" style="width: 100%; padding-left:0">
             <div class="header-grid">
-                <div class="logo" style="font-size: 20px; color: yellow">
+                <div class="logo" style="border-right:1px solid #46586A">
+                    <div style="float:left; padding-left:10px">
+                    <img src="@Url.Content("~/Image/logo1.png")" height="70" width="70" ;/>
+
+                    </div>
+                    <p style="display:inline-block;font-size: 32px; padding-left:10px; padding-top:15px; color:#FFFF00;">
+                    <b>西宁市国防动员网</b>
+                    </p>
                 </div>
                 <div class="navigation">
                     <span class="menu">
@@ -31,7 +38,7 @@
                         <!--<li><a class="scroll" href="@Url.Content("~/SiteNavi")">网站导航</a></li>-->
                         <li class="navi"  id="Media" onclick="enable('a6')"><a class="scroll"  href="@Url.Content("~/Media")">影音天地</a></li>
                         <li class="navi"  id="Download" onclick="enable('a7')"><a class="scroll"  href="@Url.Content("~/Download")">下载中心</a></li>
-                        <li class="navi"  id="Application" onclick="enable('a8')"><a class="scroll"  href="@Url.Content("~/Application")">应用服务</a></li>
+                        <!--<li class="navi"  id="Application" onclick="enable('a8')"><a class="scroll"  href="@Url.Content("~/Application")">应用服务</a></li>-->
                     </ul>
                 </div>
             </div>

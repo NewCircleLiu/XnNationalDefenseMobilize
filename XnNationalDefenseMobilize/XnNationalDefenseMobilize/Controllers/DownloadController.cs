@@ -16,5 +16,11 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
+        public ActionResult DownloadList()
+        {
+
+            return View();
+        }
+
     }
 }

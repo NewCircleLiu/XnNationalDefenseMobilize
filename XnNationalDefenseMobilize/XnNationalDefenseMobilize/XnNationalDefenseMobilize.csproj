@@ -155,6 +155,7 @@
     <Content Include="Content\pagecss\newscss\news.css" />
     <Content Include="Content\pagecss\newscss\newsdetailred.css" />
     <Content Include="Content\pagecss\newscss\newsdetail.css" />
+    <Content Include="Content\pagecss\polycyadvicecss\polycyadvice.css" />
     <Content Include="Content\pagecss\video\video_index.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -295,6 +296,9 @@
     <Content Include="Views\News\NewsDetail.cshtml" />
     <Content Include="Views\DefenseMobilize\DefenseList.cshtml" />
     <Content Include="Views\DefenseMobilize\DefenseDetail.cshtml" />
+    <Content Include="Views\PolicyAdvice\Quiz.cshtml" />
+    <Content Include="Views\PolicyAdvice\Reply.cshtml" />
+    <Content Include="Views\PolicyAdvice\ReplyDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,100 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "政策咨询";
 }
 
-<!--这是政策咨询页面-->
-<h2>这是政策咨询页面</h2>
+<link href="@Url.Content("~/Content/pagecss/polycyadvicecss/polycyadvice.css")" rel="stylesheet" type="text/css" media="all" />
+
+
+<!-- Wrapper Start -->
+<div id="outer_wrapper">
+    <!-- Content Section Start -->
+    <div id="contentsec">
+        <div class="inner">
+            <div class="twothird left">
+                <!-- Two Third Box Start -->
+                <div class="twothird box left">
+                    <div class="blog">
+                        <!-- Blog Post Start -->
+                        <div class="post">
+                            <div class="p-date">
+                                <p>政策咨询</p>
+                                <p><a id="Index" href = "@Url.Content("~/PolicyAdvice/Index")">常见问题</a></p>
+                                <p><a id="Reply" href = "@Url.Content("~/PolicyAdvice/Reply")">留言答复</a></p>
+                                <p><a id="Quiz" href = "@Url.Content("~/PolicyAdvice/Quiz")">我要提问</a></p>
+                            </div>
+
+                            <script type="text/javascript">
+                                var id_name = "@ViewContext.RouteData.Values["action"].ToString()";
+                                document.getElementById(id_name).style.border = "2px solid yellow";
+                            </script>
+                            <div class="post-sec">
+                                <div class="post-desc">
+                                    <div id="right_title">
+                                        常见问题
+                                    </div>
+                                </div>
+
+                                <ul id="right_list">
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <hr />
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <hr />
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <hr />
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</span><p>2016-08-18</p>
+                                    </a></li>
+                                    <hr />
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post End -->
+                    </div>
+                </div>
+                <!-- Two Third Box End -->
+
+            </div>
+            <!-- One Third Box Start -->
+
+        </div>
+        <div style="clear: both; width: 0; height: 0"></div>
+    </div>
+    <!-- Content Section End -->
+</div>
+<!-- Wrapper End -->
+

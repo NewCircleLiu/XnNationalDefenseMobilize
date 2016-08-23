@@ -16,5 +16,19 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
+        public ActionResult Quiz()
+        {
+            return View();
+        }
+
+        public ActionResult Reply()
+        {
+            return View();
+        }
+
+        public ActionResult ReplyDetail()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,50 @@
+﻿.index_big_img_prevew {
+    width:100%;
+}
+.explain {
+    padding:4px;
+}
+.explain p{
+    color:red;
+}
+.head {
+    width:100%;
+    padding:4px;
+}
+.head img {
+    width:100%;
+}
+.img_preview {
+    width:100%;
+    border: 2px dashed red;
+    padding:4px;
+}
+.img_preview img {
+    width:100%;
+}
+
+.change {
+   margin-top:10px;
+   
+}
+.life_img_preview {
+    width:100%;
+    padding:4px;
+}
+.life_img_preview img{
+    width:100%;
+}
+.preview {
+    border: 2px dashed red;
+    padding:4px;
+}
+.imgs {
+    width:100%;
+}
+.imgs td{
+    
+    padding:5px;
+}
+.imgs img{
+    width:100%;
+}

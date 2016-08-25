@@ -161,6 +161,9 @@
     <Content Include="Content\pagecss\backPageCss\backLoginCss\backLogin.css" />
     <Content Include="Content\pagecss\backPageCss\bootstrap-table.css" />
     <Content Include="Content\pagecss\backPageCss\datepicker3.css" />
+    <Content Include="Content\pagecss\backPageCss\ImageManageCss\ImageManageCss.css" />
+    <Content Include="Content\pagecss\backPageCss\ImageManageCss\uploadify.css" />
+    <Content Include="Content\pagecss\backPageCss\LinkManageCss\LinkManageCss.css" />
     <Content Include="Content\pagecss\backPageCss\styles.css" />
     <Content Include="Content\pagecss\defensecss\defense.css" />
     <Content Include="Content\pagecss\defensecss\reset.css" />
@@ -245,6 +248,10 @@
     <Content Include="Image\back\login_bg.jpg" />
     <Content Include="Image\back\login_icon.png" />
     <Content Include="Image\back\logo.png" />
+    <Content Include="Image\download\excel.jpg" />
+    <Content Include="Image\download\pdf.jpg" />
+    <Content Include="Image\download\ppt.jpg" />
+    <Content Include="Image\download\word.jpg" />
     <Content Include="Image\home\binCode.png" />
     <Content Include="Image\home\slider1.png" />
     <Content Include="Image\home\slider2.png" />
@@ -255,6 +262,8 @@
     <Content Include="Image\home\军训.jpg" />
     <Content Include="Image\home\参军1.jpg" />
     <Content Include="Image\home\参军2.jpg" />
+    <Content Include="Image\logo.jpg" />
+    <Content Include="Image\logo1.png" />
     <Content Include="Image\videoImage\CuPlayerMiniV4.swf" />
     <Content Include="Image\videoImage\image-hover.png" />
     <Content Include="Image\videoImage\Logo.png" />
@@ -274,8 +283,11 @@
     <Content Include="Scripts\back\easypiechart-data.js" />
     <Content Include="Scripts\back\easypiechart.js" />
     <Content Include="Scripts\back\html5shiv.min.js" />
+    <Content Include="Scripts\back\jquery.uploadify.js" />
+    <Content Include="Scripts\back\jquery.uploadify.min.js" />
     <Content Include="Scripts\back\respond.min.js" />
     <Content Include="Scripts\back\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\back\uploadify.swf" />
     <Content Include="Scripts\swfobject.js" />
     <Content Include="video\video_xml\CuPlayerSetFile.xml" />
     <Content Include="设计方案\参考模板.txt" />

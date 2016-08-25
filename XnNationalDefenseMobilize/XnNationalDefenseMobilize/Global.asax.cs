@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using XnNationalDefenseMobilize.App_Start;
 
 namespace XnNationalDefenseMobilize
 {
@@ -22,6 +23,14 @@ namespace XnNationalDefenseMobilize
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            RegisterView();
+        }
+
+        protected void RegisterView()
+        {
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new MyViewEngine());
         }
     }
 }

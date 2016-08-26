@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "PublishNewsPage";
+    Layout = "~/Views/Shared/_backLayout.cshtml";
+}
+
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li class="active">发布新闻</li>
+        </ol>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            基本信息
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                <form class="form-horizontal" action="" method="post">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="name">标题</label>
+                            <div class="col-md-6">
+                                <input id="name" name="name" type="text" placeholder="标题" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="email">作者</label>
+                            <div class="col-md-6">
+                                <input id="email" name="email" type="text" placeholder="作者" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="email">来源</label>
+                            <div class="col-md-6">
+                                <input id="email" name="email" type="text" placeholder="来源" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="email">分类</label>
+                            <div class="col-md-6">
+                                <select class="form-control">
+                                    <option>国际新闻</option>
+                                    <option>国内新闻</option>
+                                    <option>军事新闻</option>
+                                    <option>社会新闻</option>
+                                    <option>西宁新闻</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="message">摘要</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="message" name="message" placeholder="新闻摘要" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            内容编辑
+        </div>
+        <div class="panel-body">
+
+            <form>
+                <script id="container" name="content" type="text/plain">
+                        在此编辑文章内容
+                </script>
+                <!-- 配置文件 -->
+                <script type="text/javascript" src="@Url.Content("~/ueditor/ueditor.config.js")"></script>
+                <!-- 编辑器源码文件 -->
+                <script type="text/javascript" src="@Url.Content("~/ueditor/ueditor.all.min.js")"></script>
+                <!-- 实例化编辑器 -->
+                <script type="text/javascript">
+                    var ue = UE.getEditor('container');
+                </script>
+
+                <button type="button" class="btn btn-primary" onclick="getContent()">直接发布</button>
+                <button type="button" class="btn btn-primary">预览</button>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<script>
+    function getContent() {
+        var arr = [];
+        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('container').getContent());
+        
+        var text = arr.join("\n");
+        @*window.location.href = "@Url.Content("")";*@
+    }
+</script>
+
+
+

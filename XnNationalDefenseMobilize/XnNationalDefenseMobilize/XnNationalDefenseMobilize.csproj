@@ -153,10 +153,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\Master\Contact.cs" />
+    <Compile Include="Models\Master\ContactContext.cs" />
     <Compile Include="Models\Master\LinkListContext.cs" />
     <Compile Include="Models\Master\LinkList.cs" />
+    <Compile Include="Models\Master\MasterViewModel.cs" />
     <Compile Include="Models\Master\Suggest.cs" />
+    <Compile Include="Models\Master\SuggestContext.cs" />
+    <Compile Include="Models\News\NewsCategory.cs" />
+    <Compile Include="Models\News\NewsInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,19 +225,19 @@
     <Content Include="Content\pagecss\backPageCss\ImageManageCss\uploadify.css" />
     <Content Include="Content\pagecss\backPageCss\LinkManageCss\LinkManageCss.css" />
     <Content Include="Content\pagecss\backPageCss\styles.css" />
-    <Content Include="Content\pagecss\defensecss\defense.css" />
-    <Content Include="Content\pagecss\defensecss\reset.css" />
-    <Content Include="Content\pagecss\defensecss\style.css" />
-    <Content Include="Content\pagecss\downloadcss\download.css" />
-    <Content Include="Content\pagecss\GrassrootWork\grassrootWork.css" />
-    <Content Include="Content\pagecss\GrassrootWork\grassrootWorkList.css" />
-    <Content Include="Content\pagecss\indexcss\about.css" />
-    <Content Include="Content\pagecss\layoutcss\layout.css" />
-    <Content Include="Content\pagecss\newscss\news.css" />
-    <Content Include="Content\pagecss\newscss\newsdetailred.css" />
-    <Content Include="Content\pagecss\newscss\newsdetail.css" />
-    <Content Include="Content\pagecss\polycyadvicecss\polycyadvice.css" />
-    <Content Include="Content\pagecss\video\video_index.css" />
+    <Content Include="Content\pagecss\frontPageCss\defenseCss\defense.css" />
+    <Content Include="Content\pagecss\frontPageCss\defenseCss\reset.css" />
+    <Content Include="Content\pagecss\frontPageCss\defenseCss\style.css" />
+    <Content Include="Content\pagecss\frontPageCss\downloadCss\download.css" />
+    <Content Include="Content\pagecss\frontPageCss\GrassrootWorkCss\grassrootWork.css" />
+    <Content Include="Content\pagecss\frontPageCss\GrassrootWorkCss\grassrootWorkList.css" />
+    <Content Include="Content\pagecss\frontPageCss\indexCss\about.css" />
+    <Content Include="Content\pagecss\frontPageCss\layoutCss\layout.css" />
+    <Content Include="Content\pagecss\frontPageCss\newsCss\news.css" />
+    <Content Include="Content\pagecss\frontPageCss\newsCss\newsdetailred.css" />
+    <Content Include="Content\pagecss\frontPageCss\newsCss\newsdetail.css" />
+    <Content Include="Content\pagecss\frontPageCss\polycyadviceCss\polycyadvice.css" />
+    <Content Include="Content\pagecss\frontPageCss\videoCss\video_index.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -323,6 +329,9 @@
     <Content Include="Image\home\参军2.jpg" />
     <Content Include="Image\logo.jpg" />
     <Content Include="Image\logo1.png" />
+    <Content Include="Image\master\binCode.png" />
+    <Content Include="Image\master\logo.jpg" />
+    <Content Include="Image\master\logo1.png" />
     <Content Include="Image\news\习近平主席.jpg" />
     <Content Include="Image\news\菲律宾总统.jpg" />
     <Content Include="Image\videoImage\CuPlayerMiniV4.swf" />
@@ -703,7 +712,6 @@
     <Folder Include="Models\DefenseMobilize\" />
     <Folder Include="Models\Download\" />
     <Folder Include="Models\GrassrootWork\" />
-    <Folder Include="Models\Home\" />
     <Folder Include="Models\Media\" />
     <Folder Include="Models\PolicyAdvice\" />
     <Folder Include="obj\Debug\TempPE\" />

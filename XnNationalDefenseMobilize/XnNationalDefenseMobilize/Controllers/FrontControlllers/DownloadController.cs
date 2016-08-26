@@ -11,15 +11,17 @@ namespace XnNationalDefenseMobilize.Controllers
         //
         // GET: /Download/
 
+        private XnNationalDefenseMobilize.Models.Home.HomeViewModel homeViewModel = new XnNationalDefenseMobilize.Models.Home.HomeViewModel();
+
         public ActionResult Index()
         {
-            return View();
+            return View(homeViewModel);
         }
 
         public ActionResult DownloadList()
         {
 
-            return View();
+            return View(homeViewModel);
         }
 
     }

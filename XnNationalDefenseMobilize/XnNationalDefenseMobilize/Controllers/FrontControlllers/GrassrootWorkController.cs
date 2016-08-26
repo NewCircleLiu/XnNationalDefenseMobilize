@@ -11,9 +11,11 @@ namespace XnNationalDefenseMobilize.Controllers
         //
         // GET: /GrassrootWork/
 
+        private XnNationalDefenseMobilize.Models.Home.HomeViewModel homeViewModel = new XnNationalDefenseMobilize.Models.Home.HomeViewModel();
+
         public ActionResult Index()
         {
-            return View();
+            return View(homeViewModel);
         }
 
         //
@@ -21,12 +23,12 @@ namespace XnNationalDefenseMobilize.Controllers
 
         public ActionResult GrassrootList() 
         {
-            return View();
+            return View(homeViewModel);
         }
 
         public ActionResult GrassrootDetail()
         {
-            return View();
+            return View(homeViewModel);
         }
 
     }

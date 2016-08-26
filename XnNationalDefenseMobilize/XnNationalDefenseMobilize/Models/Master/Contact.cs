@@ -10,6 +10,7 @@ namespace XnNationalDefenseMobilize.Models.Master
     {
         [Key]
         public int contact_id { get; set; }
+        public string contact_addr { get; set; }
         public string contact_phone { get; set; }
         public string contact_fax { get; set; }
         public string contact_email { get; set; }

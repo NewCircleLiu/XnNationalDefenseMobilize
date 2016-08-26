@@ -10,20 +10,22 @@ namespace XnNationalDefenseMobilize.Controllers
     {
         //
         // GET: /News/
+        private XnNationalDefenseMobilize.Models.Home.HomeViewModel homeViewModel = new XnNationalDefenseMobilize.Models.Home.HomeViewModel();
+
 
         public ActionResult Index()
         {
-            return View();
+            return View(homeViewModel);
         }
 
         public ActionResult NewsList(int id)
         {
-            return View();
+            return View(homeViewModel);
         }
 
         public ActionResult NewsDetail(int id)
         {
-            return View();
+            return View(homeViewModel);
         }
 
     }

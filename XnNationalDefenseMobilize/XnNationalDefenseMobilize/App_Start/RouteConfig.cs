@@ -16,7 +16,7 @@ namespace XnNationalDefenseMobilize
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "backindex", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -25,7 +25,7 @@
 
                             <script type="text/javascript">
                                 var id_name = "@ViewContext.RouteData.Values["action"].ToString()";
-                                document.getElementById(id_name).style.border = "2px solid yellow";
+                                document.getElementById(id_name).innerText = "· " + document.getElementById(id_name).innerText + " ·";
                             </script>
                             <div class="post-sec">
                                 <div class="post-desc">

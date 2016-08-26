@@ -151,6 +151,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Master\Contact.cs" />
+    <Compile Include="Models\Master\LinkListContext.cs" />
+    <Compile Include="Models\Master\LinkList.cs" />
+    <Compile Include="Models\Master\Suggest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -360,7 +364,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Files\" />
     <Folder Include="fonts\Models\" />
+    <Folder Include="Models\DefenseMobilize\" />
+    <Folder Include="Models\Download\" />
+    <Folder Include="Models\GrassrootWork\" />
+    <Folder Include="Models\Home\" />
+    <Folder Include="Models\Media\" />
+    <Folder Include="Models\PolicyAdvice\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -381,7 +392,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>7551</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:10108/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

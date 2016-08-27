@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "新闻聚焦";
 }
+@using XnNationalDefenseMobilize.Models.News
+@model  IEnumerable<NewsInfo>
 
 <link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Fjalla+One|Archivo+Narrow|Oswald:400,700' rel='stylesheet' type='text/css'>
@@ -35,30 +37,33 @@
     <div class="container" >
 
         <div class="content_left">
-
-            @for(int i = 0; i < 6; i++){
+           @{  
+                
+             NewsInfo[] NewsInfoArray = Model.ToArray();
+             for(int i = 0; i < 10; i+=2){
             <div class="blog_post" style="margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #ddd">
                 <div class="blog_postcontent">
 
                     <div class="post_info_content_small">
                         <a href="blog-archive.html" class="date"><strong>@(18-i)</strong><i>2016.08</i></a>
-                        <h3><a href="@Url.Content("~/News/NewsDetail?id=3")"><b>菲律宾总统杜特尔特：我还没蠢到要跟中国宣战</b> </a></h3>
+                        <h3><a href="@Url.Content("~/News/NewsDetail?id=3")"><b>@NewsInfoArray[i].news_title</b> </a></h3>
                         <div class="clearfix"></div>
 
-                        <p>据《菲律宾星报》8月18日报道，菲律宾总统昨天（17日）晚间表示，他愿意与中国展开双边对话，但必须在国际仲裁庭对南海争议作出对菲律宾有利裁决的背景下进行。</p>
+                        <p>@NewsInfoArray[i].news_abstract</p>
 
                     </div>
 
                     <div class="post_info_content_small">
                         <a href="@Url.Content("~/News/NewsDetail?id=3")" class="date"><strong>@(18-i)</strong><i>2016.08</i></a>
-                        <h3><a href="@Url.Content("~/News/NewsDetail?id=3")"><b>菲律宾总统杜特尔特：我还没蠢到要跟中国宣战</b></a></h3>
+                        <h3><a href="@Url.Content("~/News/NewsDetail?id=3")"><b>@NewsInfoArray[i+1].news_title</b></a></h3>
                         <div class="clearfix"></div>
 
-                        <p>据《菲律宾星报》8月18日报道，菲律宾总统昨天（17日）晚间表示，他愿意与中国展开双边对话，但必须在国际仲裁庭对南海争议作出对菲律宾有利裁决的背景下进行。</p>
+                        <p>@NewsInfoArray[i+1].news_abstract</p>
 
                     </div>
                 </div>
             </div>
+            }
             }
             <!-- /# end post -->
 

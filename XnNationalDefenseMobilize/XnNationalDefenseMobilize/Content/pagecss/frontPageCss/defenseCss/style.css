@@ -266,7 +266,7 @@ ul.post_meta_links_small {
 	font-size: 11px;
 }
 .blog_post a.date {
-	padding: 10px 5px 0px 0px;
+	/*padding: 10px 5px 0px 0px;*/
 	text-decoration: none;
 	/*width: 55px;*/
 	height: 55px;

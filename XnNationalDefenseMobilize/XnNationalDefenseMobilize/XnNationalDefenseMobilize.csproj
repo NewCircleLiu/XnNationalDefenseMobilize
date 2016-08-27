@@ -162,13 +162,23 @@
     <Compile Include="Models\Master\Suggest.cs" />
     <Compile Include="Models\Master\SuggestContext.cs" />
     <Compile Include="Models\News\NewsCategory.cs" />
+    <Compile Include="Models\News\NewsCategoryContext.cs" />
     <Compile Include="Models\News\NewsInfo.cs" />
+    <Compile Include="Models\News\NewsInfoContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Contact.mdf" />
+    <Content Include="App_Data\Contact_log.ldf">
+      <DependentUpon>Contact.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\LinkList.mdf" />
     <Content Include="App_Data\LinkList_log.ldf">
       <DependentUpon>LinkList.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Suggest.mdf" />
+    <Content Include="App_Data\Suggest_log.ldf">
+      <DependentUpon>Suggest.mdf</DependentUpon>
     </Content>
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\EntityFramework.dll" />

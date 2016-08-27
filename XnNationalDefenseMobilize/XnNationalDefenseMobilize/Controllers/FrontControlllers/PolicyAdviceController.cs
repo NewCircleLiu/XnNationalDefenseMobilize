@@ -10,26 +10,24 @@ namespace XnNationalDefenseMobilize.Controllers
     {
         //
         // GET: /PolicyAdvice/
-        private XnNationalDefenseMobilize.Models.Home.HomeViewModel homeViewModel = new XnNationalDefenseMobilize.Models.Home.HomeViewModel();
-
         public ActionResult Index()
         {
-            return View(homeViewModel);
+            return View();
         }
 
         public ActionResult Quiz()
         {
-            return View(homeViewModel);
+            return View();
         }
 
         public ActionResult Reply()
         {
-            return View(homeViewModel);
+            return View();
         }
 
         public ActionResult ReplyDetail()
         {
-            return View(homeViewModel);
+            return View();
         }
     }
 }

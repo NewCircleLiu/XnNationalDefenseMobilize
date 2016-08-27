@@ -11,5 +11,7 @@ namespace XnNationalDefenseMobilize.Models.News
         [Key]
         public int newsCategory_id { get; set; }
         public string newsCategory_name { get; set; }
+
+        public virtual ICollection<NewsInfo> news { get; set; }
     }
 }

@@ -1,6 +1,9 @@
-﻿@using XnNationalDefenseMobilize.Models.Home
-@using XnNationalDefenseMobilize.Models.Master
-@model  HomeViewModel
+﻿@using XnNationalDefenseMobilize.Models.Master
+@{
+    MasterViewModel masterData = new MasterViewModel();
+    LinkListContext linkTable = masterData.LinkTable;
+    ContactContext contactTable = masterData.ContactTable;
+ }
 
 <!DOCTYPE html>
 <html>
@@ -64,7 +67,7 @@
             </div>
             <div class="services-grids" style="border-bottom: 2px solid #ddd">
 
-                @foreach (var item in Model.masterView.LinkTable.linkLists.ToList())
+                @foreach (var item in linkTable.linkLists.ToList())
                 {
                     <div class="col-md-3 services-grid">
                         <a href="#link">
@@ -98,7 +101,7 @@
             </div>
             <div class="address">
                 <h3>联系方式</h3>
-                @{Contact contact = Model.masterView.ContactTable.ContactLists.ToList()[0]; }
+                @{Contact contact = contactTable.ContactLists.ToList()[0]; }
                 <p style="font-size: 16px">
                     <label><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp; @contact.contact_addr</label>
                 </p>

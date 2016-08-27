@@ -15,5 +15,7 @@ namespace XnNationalDefenseMobilize.Models.News
         public string news_source { get; set; }
         public string news_abstract { get; set; }
         public string news_content { get; set; }
+
+        public virtual NewsCategory newsCategory { get; set; }
     }
 }

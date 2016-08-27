@@ -1,8 +1,11 @@
 ﻿@{
     ViewBag.Title = "新闻聚焦";
 }
-<!--这是新闻聚焦页面-->
-<link href="@Url.Content("~/Content/pagecss//frontpagecss/newscss/news.css")" rel="stylesheet" type="text/css" media="all" />
+
+@using  XnNationalDefenseMobilize.Models.News
+@model  IEnumerable<NewsInfo>
+
+<link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/news.css")" rel="stylesheet" type="text/css" media="all" />
 <style>
     a:visited, a:focus
     {
@@ -22,15 +25,11 @@
 </style>
 
 @{string[] title = new string[] { "国际新闻", "国内新闻", "军事新闻", "社会新闻", "西宁新闻", "北京新闻" };}
-@{string[] news = new string[] { "菲律宾总统杜特尔特：我还没蠢到要跟中国宣战", 
-                                 "习近平：让“一带一路”建设造福沿线各国人民", 
-                                 "中国海军舰艇编队圆满完成环太演习任务回国", 
-                                 "三星和苹果厂商都在被这家中国手机抢地盘",
-                                 "西宁市城中区总寨镇举办“两学一做”知识竞赛"};}
 
 <div class="service-section">
     <div class="container">
         <div class="serve-grids wow bounceIn animated" data-wow-delay="0.4s">
+
             @for (int i = 0; i < 5; i++)
             {
                 <div class="col-md-12 services-section-grid">
@@ -44,23 +43,34 @@
 
                             </i>
                         </div>
+
+                         @{ 
+                             IEnumerable<NewsInfo> newsList = from items in Model where items.newsCategory.newsCategory_id == (i+1) orderby items.news_title select items;
+                             NewsInfo[] NewsInfoArray = newsList.ToArray();            
+                          }
+
                         <div class="service-icon-heading">
                             <div class="col-md-6">
 
-                                @for (int j = 0; j < 6; j++)
+                                @for (int j = 0; j < Math.Min(6, NewsInfoArray.Count()); j++ )
                                 {
-                                    <p><a href="@Url.Content("~/News/NewsDetail?id=3")">@news[i]</a></p>
+                                    <p><a href="@Url.Content("~/News/NewsDetail?id="+NewsInfoArray[j].news_id)">@NewsInfoArray[j].news_title</a></p>
                                 }
+
                             </div>
+
                             <div class="col-md-6">
-                                @for (int j = 0; j < 6; j++)
+
+                                 @for (int k = 6; k < Math.Min(12, NewsInfoArray.Count()); k++ )
                                 {
-                                    <p><a href="@Url.Content("~/News/NewsDetail?id=3")">@news[i]</a></p>
+                                    <p><a href="@Url.Content("~/News/NewsDetail?id="+NewsInfoArray[k].news_id)">@NewsInfoArray[k].news_title</a></p>
                                 }
+
                             </div>
+
                         </div>
                         <div class="nunc-bwn" style="clear: both">
-                            <a href="@Url.Content("~/News/NewsList?id=3")">More >></a>
+                            <a href="@Url.Content("~/News/NewsList?type_id="+(i+1))">More >></a>
                         </div>
                         <div class="clearfix"></div>
                     </div>

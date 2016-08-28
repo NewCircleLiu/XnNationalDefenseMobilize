@@ -3,7 +3,7 @@
     MasterViewModel masterData = new MasterViewModel();
     LinkListContext linkTable = masterData.LinkTable;
     ContactContext contactTable = masterData.ContactTable;
- }
+}
 
 <!DOCTYPE html>
 <html>
@@ -21,17 +21,14 @@
 </head>
 
 <body>
-    <div id="home" class="header">
+    <div class="header">
         <div class="container" style="width: 100%; padding-left: 0">
             <div class="header-grid">
-                <div class="logo" style="border-right: 1px solid #46586A">
+                <div class="logo">
                     <div style="float: left; padding-left: 10px">
-                        <img src="@Url.Content("~/Image/master/logo1.png")" height="70" width="70" ;/>
-
+                        <img src="@Url.Content("~/Image/master/logo.png")" height="90" width="450"/>
+                        <span class="glyphicon glyphicon-bookmark" style="color: yellow; font-size: 54px;"> </span>
                     </div>
-                    <p style="display: inline-block; font-size: 26px; padding-left: 10px; padding-top: 15px; color: #FFFF00;">
-                        <b>西宁市国防动员网</b>
-                    </p>
                 </div>
                 <div class="navigation">
                     <span class="menu">
@@ -101,7 +98,7 @@
             </div>
             <div class="address">
                 <h3>联系方式</h3>
-                @{Contact contact = contactTable.ContactLists.ToList()[0]; }
+                @{Contact contact = contactTable.ContactLists.First(); }
                 <p style="font-size: 16px">
                     <label><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp; @contact.contact_addr</label>
                 </p>
@@ -135,5 +132,7 @@
             </div>
         </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

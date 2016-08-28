@@ -1,9 +1,10 @@
-﻿@{
-    ViewBag.Title = "新闻聚焦";
+﻿@model  XnNationalDefenseMobilize.Models.News.NewsInfo 
+@{
+    ViewBag.Title = Model.newsCategory.newsCategory_name;
 }
 
-<link href="@Url.Content("~/Content/pagecss//frontpagecss/newscss/newsdetail.css")" rel="stylesheet" type="text/css" media="all" />
-<link href="@Url.Content("~/Content/pagecss//frontpagecss/newscss/newsdetailred.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/newsdetail.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/newsdetailred.css")" rel="stylesheet" type="text/css" media="all" />
 
 <!-- Wrapper Start -->
 <div id="outer_wrapper">
@@ -13,7 +14,7 @@
             <div class="twothird left">
                 <!-- Two Third Box Start -->
                 <div class="twothird box left">
-                    <h2 class="widget-head-border colr"><b>菲律宾总统杜特尔特：我还没蠢到要跟中国宣战</b></h2>
+                    <h2 class="widget-head-border colr"><b>@Model.news_title</b></h2>
                     <div class="blog">
                         <!-- Blog Post Start -->
                         <div class="post">
@@ -24,51 +25,19 @@
                             <div class="post-sec">
                                 <div class="thumb" style="text-align:center">
                                     <a href="#">
-                                        <img src="@Url.Content("~/Image/news/菲律宾总统.jpg")" alt="" /></a>
+                                        <img src="@Url.Content("~/Image/news/test.png")" alt="" />
+                                    </a>
                                 </div>
                                 <div class="post-desc">
-                                    <p>
-                                        据《菲律宾星报》8月18日报道，菲律宾总统昨天（17日）晚间表示，他愿意与中国展开双边对话，但必须在国际仲裁庭对南海争议作出对菲律宾有利裁决的背景下进行。
-                                    </p>
-                                    <p>
-                                        “只有当我们面对面时，我才提这个议题。如果我们现在就跟他们斗嘴，声索主权……他们甚至都不想讲话了。”在被问到是否会与东盟国家讨论南海议题时，杜特尔特如此回应。
-                                    </p>
-                                    <p>
-                                        日前，杜特尔特任命前总统拉莫斯作为特使，前往中国缓解两国关系。据观察者网此前报道，拉莫斯强调此行为非正式访问，自己只是“破冰者”。美联社引述拉莫斯的话表示，在与中国官员存会面中，并未直接提及南海仲裁。
-                                    </p>
-                                    <p>
-                                        “拉莫斯开路为任何人、任何国家带去善意。我们与中国保持良好关系。让我们创造能够坐下来直接对话的氛围。”杜特尔特这样评价拉莫斯中国之旅。
-                                    </p>
-                                    <p>
-                                        杜特尔特说：“到那个时候，我就可以说，我们延续了裁决结果。”
-                                    </p>
-                                    <p>
-                                        不过，杜特尔特一直强调，与中国开战不是一个选项。“如果中国说，我不想跟你吵架，甚至不想跟你对话，我们怎么办？难道我们要宣战吗？这不在考虑范围之内，”杜特尔特说，“我还没有蠢到那个地步，战争对所有人来说都是一场屠杀……眼下战争不是明智之举。”
-                                    </p>
-                                    <p>
-                                        据菲律宾《每日问询者报》报道，杜特尔特计划下月飞往老挝，出席在当地举行的东盟轮值主席国交接仪式。
-                                    </p>
-                                    <p>
-                                        报道称，尽管中国并非东盟成员国，但中国通过其在东盟内部“盟国”发挥影响力，阻止其他成员国发表针对中国在南海主权措辞强硬的声明。
-                                    </p>
-                                    <p>
-                                        最终，中国和东盟国家外长发表联合声明，强调直接有关的主权国家通过友好磋商和谈判，以和平方式解决它们的领土和管辖权争议，而不诉诸武力或以武力相威胁。
-                                    </p>
-                                    <p>
-                                        仲裁结果出来前后，刚刚上任的杜特尔特都试图在为南海议题降温，避免与中国在该问题上正面撞车。这让不少分析猜测，杜特尔特新一届政府的外交政策兴许会发生重大转折。
-                                    </p>
-                                    <p>
-                                        美国《赫芬顿邮报》17日便撰文指出，与前任阿基诺三世不同，杜特尔特向中国伸出橄榄枝，欢迎中国投资菲国基础建设领域。与之相对，杜特尔特一次又一次地打破了菲律宾与美国交往的禁忌。杜特尔特甚至一度说出：“我要问问美国大使，你们和我们（在南海问题上）是站在一起的吗？”杜特尔特对美国的公开质疑已经在菲国内引起共鸣。
-                                    </p>
-                                    <p>
-                                        评论最后指出，已经有消息传出，杜特尔特将把北京作为首次外访目的地。纵然两国未来能否达成皆大欢喜的成果还是个未知数，但眼下对杜特尔特来说，首要任务莫过于要拓展多方渠道缓释紧张关系，与北京方面构建至少表面看起来正常的双边纽带。
-                                    </p>
-                                    <div class="post-opts">
-                                        <p class="postby">供稿：<span style="color:#666">腾讯新闻</span></p>
-                                        <p class="postby">编辑：<span style="color:#666">张三</span></p>
+                                    @Html.Raw(Model.news_content)
+
+                                     <div class="post-opts">
+                                        <p class="postby">供稿：<span style="color:#666">@Model.news_source</span></p>
+                                        <p class="postby">编辑：<span style="color:#666">@Model.news_author</span></p>
                                         <p class="post-time">2016.8.18</p>
                                         <p class="post-time">青海省警备司令部</p>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

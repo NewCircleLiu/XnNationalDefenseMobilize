@@ -1,92 +1,91 @@
-﻿@{
-    ViewBag.Title = "新闻聚焦";
-}
-@using XnNationalDefenseMobilize.Models.News
-@model  IEnumerable<NewsInfo>
+﻿@using XnNationalDefenseMobilize.Models.News
+@using XnNationalDefenseMobilize.Models.utility
+@model  MulltiPageDisplayContrler
 
-<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Fjalla+One|Archivo+Narrow|Oswald:400,700' rel='stylesheet' type='text/css'>
-<link href="@Url.Content("~/Content/pagecss//frontpagecss/defensecss/reset.css")" rel="stylesheet" type="text/css" media="all" />
-<link href="@Url.Content("~/Content/pagecss//frontpagecss/defensecss/style.css")" rel="stylesheet" type="text/css" media="all" />
+@{   
+    List<NewsInfo> curr_page_data = (List<NewsInfo>)Model.curr_page_data;
+    ViewBag.title = curr_page_data.First().newsCategory.newsCategory_name;
+    int news_type_id = curr_page_data.First().newsCategory.newsCategory_id;
+}
+
+
+<link href="@Url.Content("~/Content/pagecss/frontpagecss/defensecss/reset.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss/frontpagecss/defensecss/style.css")" rel="stylesheet" type="text/css" media="all" />
 
 <div class="site_wrapper">
     <div class="page_title">
-
         <div class="container">
-            
             <div class="leaft_title">
-                <h1 style="float:left;font-size:20px">新闻聚焦  >>  国际新闻</h1>
-                <div class="site-search-area" style="float:right">
-                <form method="get" id="site-searchform" action="Index">
-                    <div>
-                        <input class="input-text" name="s" id="s"  type="text" />
-                        <input id="searchsubmit" style="color:white; font-size:14px; font-weight:bold" value="搜索" type="submit" />
-                    </div>
-                </form>
+                <h1 style="float: left; font-size: 20px">新闻聚焦  >>  @ViewBag.title</h1>
+                <div class="site-search-area" style="float: right">
+                    <form method="get" id="site-searchform" action="Index">
+                        <div>
+                            <input class="input-text" name="s" id="s" type="text" />
+                            <input id="searchsubmit" style="color: white; font-size: 14px; font-weight: bold" value="搜索" type="submit" />
+                        </div>
+                    </form>
+                </div>
             </div>
-            </div>
-            
-            <!--<div class="reght_pagenation"><a href="index.html">Home</a> <i>/</i>  <i>/</i> with Small image</div>-->
         </div>
-
     </div>
-    <!-- end page title -->
+
 
     <div class="clearfix"></div>
-
-    <div class="container" >
-
+    <div class="container">
         <div class="content_left">
-           @{  
-                
-             NewsInfo[] NewsInfoArray = Model.ToArray();
-             for(int i = 0; i < 10; i+=2){
-            <div class="blog_post" style="margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #ddd">
-                <div class="blog_postcontent">
+            @{                  
+                NewsInfo[] NewsInfoArray = curr_page_data.ToArray();
+                for (int i = 0; i < curr_page_data.Count(); i += 2)
+                {
+                <div class="blog_post" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #ddd">
+                    <div class="blog_postcontent">
+                        <div class="post_info_content_small">
+                            <a href="blog-archive.html" class="date"><strong>@(18 - i)</strong><i>2016.08</i></a>
+                            <h3><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[i].news_id)"><b>@NewsInfoArray[i].news_title</b> </a></h3>
+                            <div class="clearfix"></div>
+                            <p>@NewsInfoArray[i].news_abstract</p>
+                        </div>
 
-                    <div class="post_info_content_small">
-                        <a href="blog-archive.html" class="date"><strong>@(18-i)</strong><i>2016.08</i></a>
-                        <h3><a href="@Url.Content("~/News/NewsDetail?id=3")"><b>@NewsInfoArray[i].news_title</b> </a></h3>
-                        <div class="clearfix"></div>
-
-                        <p>@NewsInfoArray[i].news_abstract</p>
-
-                    </div>
-
-                    <div class="post_info_content_small">
-                        <a href="@Url.Content("~/News/NewsDetail?id=3")" class="date"><strong>@(18-i)</strong><i>2016.08</i></a>
-                        <h3><a href="@Url.Content("~/News/NewsDetail?id=3")"><b>@NewsInfoArray[i+1].news_title</b></a></h3>
-                        <div class="clearfix"></div>
-
-                        <p>@NewsInfoArray[i+1].news_abstract</p>
-
+                        @if (i + 1 < curr_page_data.Count())
+                        {
+                            <div class="post_info_content_small">
+                                <a href="@Url.Content("~/News/NewsDetail?id=3")" class="date"><strong>@(18 - i)</strong><i>2016.08</i></a>
+                                <h3><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[i].news_id)"><b>@NewsInfoArray[i + 1].news_title</b></a></h3>
+                                <div class="clearfix"></div>
+                                <p>@NewsInfoArray[i + 1].news_abstract</p>
+                            </div>
+                        }
                     </div>
                 </div>
-            </div>
+                }
             }
-            }
-            <!-- /# end post -->
 
-            <!--
-            <div class="clearfix divider_line3"></div>
-            -->
+            @{
+                int prePageId = (Model.curr_page_index > 1) ? Model.curr_page_index - 1 : 1;
+                int nextPageId = (Model.curr_page_index < Model.count_pages) ? Model.curr_page_index + 1 : Model.count_pages;
+             }
 
-            <div style="text-align:center">
-            <div class="pagination">
-                <a href="#" class="navlinks">&lt;上一页</a>
-                <a href="#" class="navlinks">1</a>
-                <a href="#" class="navlinks current">2</a>
-                <a href="#" class="navlinks">3</a>
-                <a href="#" class="navlinks">4</a>
-                <a href="#" class="navlinks">5</a>
-                <a href="#" class="navlinks">6</a>
-                <a href="#" class="navlinks">下一页 ></a>
-            </div>
+             <div style="text-align: center">
+                <div class="pagination">
+                    <a href="@Url.Content("~/News/NewsList?type_id=" + news_type_id + "&page_id=1")" class="navlinks">首页</a>
+                    <a href="@Url.Content("~/News/NewsList?type_id=" + news_type_id + "&page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
+
+                    @for (int i = Model.start_page_index; i <= Model.end_page_index; i++)
+                    {
+                    <a id="@i" href="@Url.Content("~/News/NewsList?type_id=" + news_type_id + "&page_id=" + i)" class="navlinks">@i</a>
+                    }
+ 
+                    <a href="@Url.Content("~/News/NewsList?type_id=" + news_type_id+"&page_id=" + nextPageId )" class="navlinks">下一页 ></a>
+                    <a href="@Url.Content("~/News/NewsList?type_id=1&page_id=" + Model.count_pages)" class="navlinks">末页</a>
                 </div>
-            <!-- end pagination -->
+            </div>
+
+            <script type="text/javascript">
+                var id_name = "@Model.curr_page_index.ToString()";
+                document.getElementById(id_name).className = "navlinks current";
+            </script>
 
         </div>
-        <!-- end content left area -->
     </div>
     <div class="clearfix"></div>
 </div>

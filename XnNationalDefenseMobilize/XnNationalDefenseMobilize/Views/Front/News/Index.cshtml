@@ -2,23 +2,20 @@
     ViewBag.Title = "新闻聚焦";
 }
 
-@using  XnNationalDefenseMobilize.Models.News
+@using XnNationalDefenseMobilize.Models.News
 @model  IEnumerable<NewsInfo>
 
 <link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/news.css")" rel="stylesheet" type="text/css" media="all" />
 <style>
-    a:visited, a:focus
-    {
+    a:visited, a:focus {
         text-decoration: none;
     }
 
-    a
-    {
+    a {
         color: black;
     }
 
-    p a:hover
-    {
+    p a:hover {
         color: #337ab7;
         font-size: 18px;
     }
@@ -44,33 +41,23 @@
                             </i>
                         </div>
 
-                         @{ 
-                             IEnumerable<NewsInfo> newsList = from items in Model where items.newsCategory.newsCategory_id == (i+1) orderby items.news_title select items;
-                             NewsInfo[] NewsInfoArray = newsList.ToArray();            
-                          }
+                        @{ 
+                            IEnumerable<NewsInfo> newsList = from items in Model where items.newsCategory.newsCategory_id == (i + 1) orderby items.news_title select items;
+                            NewsInfo[] NewsInfoArray = newsList.ToArray();            
+                        }
 
                         <div class="service-icon-heading">
-                            <div class="col-md-6">
+                            @for (int j = 0; j < Math.Min(12, NewsInfoArray.Count()); j++)
+                            {
+                                <div class="col-md-6">
+                                    <p><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[j].news_id)" target="_blank">@NewsInfoArray[j].news_title</a></p>
+                                </div>
 
-                                @for (int j = 0; j < Math.Min(6, NewsInfoArray.Count()); j++ )
-                                {
-                                    <p><a href="@Url.Content("~/News/NewsDetail?id="+NewsInfoArray[j].news_id)">@NewsInfoArray[j].news_title</a></p>
-                                }
-
-                            </div>
-
-                            <div class="col-md-6">
-
-                                 @for (int k = 6; k < Math.Min(12, NewsInfoArray.Count()); k++ )
-                                {
-                                    <p><a href="@Url.Content("~/News/NewsDetail?id="+NewsInfoArray[k].news_id)">@NewsInfoArray[k].news_title</a></p>
-                                }
-
-                            </div>
-
+                            }
                         </div>
+
                         <div class="nunc-bwn" style="clear: both">
-                            <a href="@Url.Content("~/News/NewsList?type_id="+(i+1))">More >></a>
+                            <a href="@Url.Content("~/News/NewsList?type_id=" + (i + 1))" target="_blank">More >></a>
                         </div>
                         <div class="clearfix"></div>
                     </div>

@@ -17,7 +17,7 @@ a:hover,a:visited
 
 .logo{
 	float:left;
-	width:35%;
+	width:45%;
     height:100px;
     padding-top:5px;
     
@@ -28,8 +28,8 @@ display:block;
 
 .navigation {
 	float:left;
-	width:60%;
-    padding-left:30px;
+	width:55%;
+    padding-left:20px;
     padding-top:15px;
 	/*text-align: center;*/
 }
@@ -48,13 +48,17 @@ display:block;
 .navigation ul li{
 	display:inline-block;
 	}
+/*
 .navigation ul li:hover
     {
     border-bottom:5px solid yellow;
     }
+*/
+
 .navigation ul li a {
 	color: #ffffff;
-	padding: 25px 22px;
+	/*padding: 25px 22px;*/
+    margin: 5px 22px;
 	font-size: 18px;
 	font-weight: 600;
 	text-decoration: none;

@@ -129,7 +129,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminControllers\PreviewNewsController.cs" />
     <Compile Include="Controllers\AdminControllers\UserSuggestController.cs" />
-    <Compile Include="Controllers\FrontControlllers\ApplicationController.cs" />
+    <Compile Include="Controllers\FrontControlllers\MediaImpressController.cs" />
     <Compile Include="Controllers\AdminControllers\BackIndexController.cs" />
     <Compile Include="Controllers\AdminControllers\BackLoginController.cs" />
     <Compile Include="Controllers\AdminControllers\DefenseManageController.cs" />
@@ -342,8 +342,6 @@
     <Content Include="Image\home\军训.jpg" />
     <Content Include="Image\home\参军1.jpg" />
     <Content Include="Image\home\参军2.jpg" />
-    <Content Include="Image\logo.jpg" />
-    <Content Include="Image\logo1.png" />
     <Content Include="Image\master\binCode.png" />
     <Content Include="Image\master\logo.jpg" />
     <Content Include="Image\master\logo1.png" />

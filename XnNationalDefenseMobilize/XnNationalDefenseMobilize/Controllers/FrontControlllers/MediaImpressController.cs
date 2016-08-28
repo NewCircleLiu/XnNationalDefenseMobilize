@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace XnNationalDefenseMobilize.Controllers
 {
-    public class ApplicationController : Controller
+    public class MediaImpressController : Controller
     {
         //
-        // GET: /Application/
+        // GET: /MediaImpress/
 
         public ActionResult Index()
         {

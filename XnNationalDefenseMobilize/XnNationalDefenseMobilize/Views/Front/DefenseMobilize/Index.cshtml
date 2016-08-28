@@ -1,7 +1,8 @@
-﻿@{
+﻿@using XnNationalDefenseMobilize.Models.DefenseMobilize
+@model IEnumerable<XnNationalDefenseMobilize.Models.DefenseMobilize.DefenseNews>
+@{
     ViewBag.Title = "国防动员";
 }
-@model IEnumerable<XnNationalDefenseMobilize.Models.DefenseMobilize.DefenseNews>
 
 <link href="@Url.Content("~/Content/pagecss//frontpagecss/defensecss/defense.css")" rel="stylesheet" type="text/css" media="all" />
 
@@ -13,14 +14,16 @@
 
     p a:visited, p a:focus
     {
-        text-decoration:none;
+        text-decoration: none;
     }
 
+    /*
     p a:hover
     {
-        color:#6CA6CD;
-        font-size:18px;
-    }
+        color: #6CA6CD;
+        font-size: 18px;
+    }*/
+
     a
     {
         color: black;
@@ -28,38 +31,31 @@
 </style>
 
 @{string[] title = new string[] { "人民武装", "国防教育", "交通战备", "国民经济", "人民防空", "信息动员" };}
-@{string[] news = new string[] { "菲律宾总统杜特尔特：我还没蠢到要跟中国宣战", 
-                                 "习近平：让“一带一路”建设造福沿线各国人民", 
-                                 "中国海军舰艇编队圆满完成环太演习任务回国", 
-                                 "三星和苹果厂商都在被这家中国手机抢地盘",
-                                 "西宁市城中区总寨镇举办“两学一做”知识竞赛",
-                                 "习近平的健康观：以人民为中心 以健康为根本"};}
-
 @for (int i = 0; i < 6; i++)
 {
+    IEnumerable<DefenseNews> defenseNewsList = from items in Model where items.defenseNewsCategory.defenseCategory_id == (i + 1) orderby items.defenseNews_title select items;
+    DefenseNews[] defenseNewsArray = defenseNewsList.ToArray();       
+    
     <div class="nuncdig" style="width: 1170px; padding-left: 15px; padding-right: 15px;">
-        <div class="nuncdig-main" >
+        <div class="nuncdig-main">
             <div class="nunc-bott">
                 <div class="col-md-12 nunc-bott-grid">
                     <div class="headind-text">
                         <h3>@title[i]</h3>
                     </div>
-                    <div class="col-md-6" style="margin:20px auto; padding-left:0">
-                        
-                            @for (int j = 0; j < 5; j++)
-                            {
-                              <p> <a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=3")"> @news[5]</a> </p>
-                            }
-                       
-                    </div>
-                    <div class="col-md-6" style="margin:20px auto;  padding-left:0">
-                            @for (int j = 0; j < 5; j++)
-                            {
-                                 <p> <a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=3")"> @news[5]</a> </p>
-                            }
-                    </div>
-                    <div class="nunc-bwn" style="clear:both">
-                        <a href="@Url.Content("~/DefenseMobilize/DefenseList?id=3")"> More >> </a>
+
+                    @for (int j = 0; j < Math.Min(10, defenseNewsArray.Count()); j++)
+                    {
+                        <div class="col-md-6">
+                            <p><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id="+defenseNewsArray[j].defenseNews_id)" target="_blank">
+                                @defenseNewsArray[j].defenseNews_title
+                               </a>
+                            </p>
+                        </div>
+                    }
+
+                    <div class="nunc-bwn" style="clear: both">
+                        <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + (i + 1))">More >> </a>
                     </div>
                 </div>
                 <div class="clearfix"></div>

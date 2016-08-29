@@ -34,51 +34,31 @@
                                 </div>
 
                                 <ul id="right_list">
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <hr />
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <hr />
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <hr />
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-                                    </a></li>
-                                    <hr />
+                                    @for (int i = 0; i < 15; i++)
+                                    {
+                                        <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
+
+                                        </a></li>
+                                        if ((i + 1) % 5 == 0)
+                                        {
+                                        <hr />
+                                        }
+                                    }
+
                                 </ul>
+
+                                <div style="text-align: center">
+                                    <div class="pagination">
+                                        <a href="#" class="navlinks">&lt;上一页</a>
+                                        <a href="#" class="navlinks">1</a>
+                                        <a href="#" class="navlinks current">2</a>
+                                        <a href="#" class="navlinks">3</a>
+                                        <a href="#" class="navlinks">4</a>
+                                        <a href="#" class="navlinks">5</a>
+                                        <a href="#" class="navlinks">6</a>
+                                        <a href="#" class="navlinks">下一页 ></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- Blog Post End -->

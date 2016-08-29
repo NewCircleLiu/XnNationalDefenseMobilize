@@ -1,213 +1,48 @@
 ﻿@{
-    ViewBag.Title = "基层共作";
+    ViewBag.Title = "基层工作";
 }
+@using XnNationalDefenseMobilize.Models.GrassrootWork
+@model  IEnumerable<GrassrootNews>
 
-<!--这是基层工作页面-->
+
 <link href="@Url.Content("~/content/pagecss/frontpagecss/grassrootworkcss/grassrootwork.css")" rel="stylesheet" type="text/css" media="all" />
 
 <div class="grassrootwork">
     <div id="templatemo_content">
-	    <div id="templatemo_content_left">
-		    <div class="tempaltemo_content_left_section_01">
-			    <div class="section_01_two_col">
-			        <img src="@Url.Content("~/Image/Grassroot/templatemo_image_01.png")" alt="templatemo" width="100%"/>
-			    </div>
-			    <div class="section_01_two_col">
-				    <div class="section_01_box">
-					    <a class="section_01_box_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作要闻</a>
-                        <p>基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要。</p>
-
-				    </div>
-
-				    <div class="section_01_box">
-					    <a class="section_01_box_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作要闻</a>
-					    <p>基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要。</p>
-
-				    </div>
-
-                    <div class="section_01_box">
-					    <a class="section_01_box_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作要闻</a>
-                        <p>基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要基层工作要闻摘要。</p>
-
-				    </div>
-			    </div>
-			    <div class="cleaner">&nbsp;</div>
-		    </div>
-		    <!-- end of content left section 01 -->
-
-		    <div class="cleaner_with_height">&nbsp;</div>
-
-		    <div class="tempaltemo_content_left_section_02">
-			    <div class="section_02_box">
-				    <h3>城东区</h3>
-				    <div class="section_02_box_content col-md-6">
-					    <ul>
-						    <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-						     <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                             <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-					    </ul>
-                        <div class="more">
-                            <a href="@Url.Content("~/GrassrootWork/GrassrootList")">更多>></a>
-                        </div>
-				    </div>
-			    </div>
-			    <div class="section_02_box">
-				    <h3>城西区</h3>
-				    <div class="section_02_box_content">
-					    <ul>
-						    <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-						     <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                             <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-					    </ul>
-                        <div class="more">
-                            <a href="@Url.Content("~/GrassrootWork/GrassrootList")">更多>></a>
-                        </div>
-				    </div>
-			    </div>
-		    </div>
-
-		    <!-- end of content leeft section 01 -->
-
-		    <div class="cleaner_with_height">&nbsp;</div>
-
-		    <div class="tempaltemo_content_left_section_02">
-			    <div class="section_02_box">
-				    <h3>城南区</h3>
-				    <div class="section_02_box_content">
-					    <ul>
-						    <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-						     <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                             <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-					    </ul>
-                        <div class="more">
-                            <a href="@Url.Content("~/GrassrootWork/GrassrootList")">更多>></a>
-                        </div>
-				    </div>
-			    </div>
-
-			    <div class="section_02_box">
-				    <h3>城北区</h3>
-				    <div class="section_02_box_content">
-					    <ul>
-						    <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-						     <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                             <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-					    </ul>
-                        <div class="more">
-                            <a href="@Url.Content("~/GrassrootWork/GrassrootList")">更多>></a>
-                        </div>
-				    </div>
-			    </div>
-		    </div>
-
+        <div id="templatemo_content_left">
             <div class="cleaner_with_height">&nbsp;</div>
-
             <div class="tempaltemo_content_left_section_02">
 
-                <div class="section_02_box">
-				    <h3>城中区</h3>
-				    <div class="section_02_box_content">
-					    <ul>
-						    <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-						     <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                             <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-					    </ul>
-                        <div class="more">
-                            <a href="@Url.Content("~/GrassrootWork/GrassrootList")">更多>></a>
+                @for (int i = 0; i < 6; i++)
+                {
+                    IEnumerable<GrassrootNews> newsList = from items in Model where items.disTrict.district_id == (i + 1) orderby items.grassrootNews_title select items;
+                    GrassrootNews[] NewsArray = newsList.ToArray();         
+                 
+                    <div class="section_02_box" style="margin-bottom: 25px">
+                        <h3>@NewsArray.First().disTrict.district_name</h3>
+                        <div class="section_02_box_content col-md-6">
+                            <ul>
+                                @for (int j = 0; j < Math.Min(5, NewsArray.Count()); j++)
+                                {
+                                    <li>
+                                        <a class="section_02_box_content_title" target="_blank" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=" + NewsArray[j].grassrootNews_id)">
+                                            @NewsArray[j].grassrootNews_title
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                            <div class="more">
+                                <a href="@Url.Content("~/GrassrootWork/GrassrootList?type_id=" + (i + 1))" target="_blank">更多>></a>
+                            </div>
                         </div>
-				    </div>
-			    </div>
+                    </div>   
+                }
 
-                <div class="section_02_box">
-				    <h3>海湖新区</h3>
-				    <div class="section_02_box_content">
-					    <ul>
-						    <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-						     <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                            <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-                             <li>
-                                <a class="section_02_box_content_title" href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=1")">基层工作基层工作基层工作基层工作</a>
-						    </li>
-					    </ul>
-                        <div class="more">
-                            <a href="@Url.Content("~/GrassrootWork/GrassrootList")">更多>></a>
-                        </div>
-				    </div>
-			    </div>
             </div>
 
-             <div class="cleaner_with_height">&nbsp;</div>
-		    <div class="cleaner_with_height">&nbsp;</div>
-	    </div>
-	    <div class="cleaner">&nbsp;</div>
+            <div class="cleaner_with_height">&nbsp;</div>
+            <div class="cleaner_with_height">&nbsp;</div>
+        </div>
+        <div class="cleaner">&nbsp;</div>
     </div>
 </div>

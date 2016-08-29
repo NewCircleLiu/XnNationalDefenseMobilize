@@ -20,7 +20,14 @@
     <link href="@Url.Content("~/Content/pagecss/frontpagecss/layoutcss/layout.css")" rel="stylesheet" type="text/css" media="all" />
 </head>
 
-<body style="overflow:scroll">
+<!--
+    <script type="text/javascript">
+        document.getElementById("bodydiv").style.width = screen.width;
+    </script>
+   -->
+
+
+<body id="bodydiv" style="overflow: scroll;">
     <div class="header">
         <div class="container" style="width: 100%; padding-left: 0;">
             <div class="header-grid">
@@ -53,7 +60,7 @@
                         <li class="navi" id="PolicyAdvice" onclick="enable('a5')"><a class="scroll"  href="@Url.Content("~/PolicyAdvice")">政策咨询</a></li>
                         <li class="navi" id="Media" onclick="enable('a6')"><a class="scroll"  href="@Url.Content("~/Media")">影音天地</a></li>
                         <li class="navi" id="Download" onclick="enable('a7')"><a class="scroll"  href="@Url.Content("~/Download")">下载中心</a></li>
-                        <li class="navi"  id="MediaImpress" onclick="enable('a8')"><a class="scroll"  href="@Url.Content("~/Application")">媒体印象</a></li>
+                        <li class="navi" id="MediaImpress" onclick="enable('a8')"><a class="scroll"  href="@Url.Content("~/Application")">媒体印象</a></li>
                     </ul>
                 </div>
             </div>

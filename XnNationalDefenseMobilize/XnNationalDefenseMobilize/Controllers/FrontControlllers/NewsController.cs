@@ -10,17 +10,17 @@ namespace XnNationalDefenseMobilize.Controllers
 {
     public class NewsController : Controller
     {
-        NewsInfoContext newsInfoTable = new NewsInfoContext();
+        NewsInfoContext newsContext = new NewsInfoContext();
 
 
         public ActionResult Index()
         {
-            return View(newsInfoTable.newsInfoLists.ToList());
+            return View(newsContext.newsInfoLists.ToList());
         }
 
         public ActionResult NewsList(int type_id, int page_id = 1)
         {
-            IEnumerable<NewsInfo> newsList = from items in newsInfoTable.newsInfoLists
+            IEnumerable<NewsInfo> newsList = from items in newsContext.newsInfoLists
                                              where items.newsCategory.newsCategory_id == type_id
                                              orderby items.news_title
                                              select items;
@@ -32,7 +32,7 @@ namespace XnNationalDefenseMobilize.Controllers
 
         public ActionResult NewsDetail(int id)
         {
-            IEnumerable<NewsInfo> news = from newsDetail in newsInfoTable.newsInfoLists
+            IEnumerable<NewsInfo> news = from newsDetail in newsContext.newsInfoLists
                                          where newsDetail.news_id == id
                                          select newsDetail;
             NewsInfo singleNews = news.First();

@@ -24,17 +24,17 @@
     width:100%;
 }
 .artcle_title {
-    width:25%;
+    width:50%;
 }
 .author {
-    width:25%;
+    width:10%;
 }
 .count {
-    width:25%;
+    width:20%;
     text-align:right;
 }
 .time {
-    width:25%;
+    width:20%;
     text-align:right;
 }
 

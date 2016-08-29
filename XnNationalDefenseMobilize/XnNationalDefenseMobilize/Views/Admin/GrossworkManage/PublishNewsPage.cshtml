@@ -1,0 +1,203 @@
+﻿@{
+    ViewBag.Title = "发布基层工作";
+    Layout = "~/Views/Shared/_backLayout.cshtml";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/editor/themes/default/default.css")" />
+<script charset="utf-8" src="@Url.Content("~/editor/kindeditor-min.js")"></script>
+<script charset="utf-8" src="@Url.Content("~/editor/lang/zh-CN.js")"></script>
+<script charset="utf-8" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li class="active">发布基层工作</li>
+        </ol>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            基本信息
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                <form class="form-horizontal" id="base_info">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="name">标题</label>
+                            <div class="col-md-6">
+                                <input id="title" name="title" type="text" placeholder="标题" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="email">作者</label>
+                            <div class="col-md-6">
+                                <input id="author" name="author" type="text" placeholder="作者" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="email">地区</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="classify">
+                                    <option value="gjxw">城北区</option>
+                                    <option value="gnxw">城中区</option>
+                                    <option value="jsxw">城南区</option>
+                                    <option value="shxw">城西区</option>
+                                    <option value="xnxw">城东区</option>
+                                    <option value="xnxw">大通县</option>
+                                    <option value="xnxw">湟源县</option>
+                                    <option value="xnxw">湟中县</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="message">摘要</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="message" name="message" placeholder="新闻摘要" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            内容编辑
+        </div>
+        <div class="panel-body">
+
+            <form name="text" action="" method="post">
+
+
+                <textarea name="content" style="width: 100%; height: 800px; visibility: hidden; display: block;">KindEditor</textarea>
+                @*<p>
+                    <input type="button" name="getHtml" value="取得HTML" />
+                    <input type="button" name="isEmpty" value="判断是否为空" />
+                    <input type="button" name="getText" value="取得文本(包含img,embed)" />
+                    <input type="button" name="selectedHtml" value="取得选中HTML" />
+                    <br />
+                    <br />
+                    <input type="button" name="setHtml" value="设置HTML" />
+                    <input type="button" name="setText" value="设置文本" />
+                    <input type="button" name="insertHtml" value="插入HTML" />
+                    <input type="button" name="appendHtml" value="添加HTML" />
+                    <input type="button" name="clear" value="清空内容" />
+                    <input type="reset" name="reset" value="Reset" />
+                </p>*@
+
+                <input type="button" name="publish" value="发布" class="btn btn-primary" />
+                <input type="button" name="preview" value="预览" class="btn btn-primary" />
+                <input type="button" name="clear" value="清空" class="btn btn-primary" />
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var editor;
+    KindEditor.ready(function (K) {
+        editor = K.create('textarea[name="content"]', {
+            allowFileManager: true,
+            uploadJson: '@Url.Content("~/editor/upload_json.ashx?model=news")',  //指定上传文件的服务器端程序。
+            fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx?model=news")',  //指定浏览远程图片的服务器端程序。
+            fontSizeTable: ['9px', '10px', '12px', '14px', '16px', '18px', '24px', '32px'],//指定文字大小。
+            allowFileManager: true,
+            afterCreate: function () {
+                var self = this;
+                K.ctrl(document, 13, function () {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+                K.ctrl(self.edit.doc, 13, function () {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+            }
+        });
+
+        //预览
+        K('input[name=preview]').click(function (e) {
+            var text = editor.html();
+            
+            while (text.indexOf("<") >= 0) {
+                text = text.replace("<","#lt;");
+            }
+            while (text.indexOf(">") >= 0) {
+                text = text.replace(">", "#gt;");
+            }
+            alert(text);
+            var arr = jQuery("#base_info").serialize();
+
+            arr = arr + "&text=" + text;
+
+            
+            //window.location.href = "@Url.Content("~/PreviewNews")?text=" + text;
+        });
+
+        
+
+        //发布
+        K('input[name=publish]').click(function (e) {
+            var text = editor.html();
+            var arr = jQuery("#base_info").serialize();
+            arr = arr + "&text=" + text;
+            alert(arr);
+        });
+
+        //清空
+        K('input[name=clear]').click(function (e) {
+            editor.html('');
+        });
+
+        //K('input[name=getHtml]').click(function (e) {
+        //    alert(editor.html());
+        //});
+        //K('input[name=isEmpty]').click(function (e) {
+        //    alert(editor.isEmpty());
+        //});
+        //K('input[name=getText]').click(function (e) {
+        //    alert(editor.text());
+        //});
+        //K('input[name=selectedHtml]').click(function (e) {
+        //    alert(editor.selectedHtml());
+        //});
+        //K('input[name=setHtml]').click(function (e) {
+        //    editor.html('<h3>Hello KindEditor</h3>');
+        //});
+        //K('input[name=setText]').click(function (e) {
+        //    editor.text('<h3>Hello KindEditor</h3>');
+        //});
+        //K('input[name=insertHtml]').click(function (e) {
+        //    editor.insertHtml('<strong>插入HTML</strong>');
+        //});
+        //K('input[name=appendHtml]').click(function (e) {
+        //    editor.appendHtml('<strong>添加HTML</strong>');
+        //});
+        
+
+
+
+        //预览
+        @* function preview() {
+            var text = editor.html();
+            var arr = jQuery("#base_info").serialize();
+            arr = arr + "&text=" + text;
+
+            alert(arr);
+
+            //window.location.href = "@Url.Content("~/PreviewNews")?" + arr;
+
+        }*@
+    });
+</script>
+
+

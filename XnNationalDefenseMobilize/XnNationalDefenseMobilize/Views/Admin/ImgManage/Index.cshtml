@@ -3,11 +3,8 @@
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
 
-
- <script src="@Url.Content("~/Scripts/back/jquery.uploadify.min.js")" type="text/javascript"></script>
-
 <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/ImageManageCss/ImageManageCss.css")">
-<link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/ImageManageCss/uploadify.css")">
+
 
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -35,10 +32,16 @@
                 </div>
             </div>
             <div class="change">
-                <button type="button" class="btn btn-primary">更换</button>
+                <p>
+                    <input type="text" id="url1" value="" />
+                    <input type="button" id="image" value="更换" class="btn btn-primary" />
+                </p>
             </div>
         </div>
     </div>
+
+    
+
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -71,22 +74,26 @@
                         <tr>
                             <td>
                                 <div class="change">
-                                    <button type="button" class="btn btn-primary">更换</button>
+                                    <input type="text" id="url1" value="" />
+                                    <input type="button" id="image" value="更换" class="btn btn-primary" />
                                 </div>
                             </td>
                             <td>
                                 <div class="change">
-                                    <button type="button" class="btn btn-primary">更换</button>
+                                    <input type="text" id="url1" value="" />
+                                    <input type="button" id="image" value="更换" class="btn btn-primary" />
                                 </div>
                             </td>
                             <td>
                                 <div class="change">
-                                    <button type="button" class="btn btn-primary">更换</button>
+                                    <input type="text" id="url1" value="" />
+                                    <input type="button" id="image" value="更换" class="btn btn-primary" />
                                 </div>
                             </td>
                             <td>
                                 <div class="change">
-                                    <button type="button" class="btn btn-primary">更换</button>
+                                    <input type="text" id="url1" value="" />
+                                    <input type="button" id="image" value="更换" class="btn btn-primary" />
                                 </div>
                             </td>
                         </tr>
@@ -96,6 +103,31 @@
         </div>
     </div>
 
+
+    <script>
+        KindEditor.ready(function (K) {
+            var editor = K.editor({
+                allowFileManager: true
+            });
+            K('#image').click(function () {
+                editor.loadPlugin('image', function () {
+                    editor.plugin.imageDialog({
+                        showRemote: false,
+                        imageUrl: K('#url1').val(),
+                        clickFn: function (url, title, width, height, border, align) {
+                            K('#url3').val(url);
+                            editor.hideDialog();
+                        }
+                    });
+                });
+            });
+
+
+        });
+    </script>
+
+
+
     <div class="panel panel-default">
         <div class="panel-heading">
             图库
@@ -103,12 +135,6 @@
         <div class="panel-body">
             <!--<input type="button" class="btn btn-primary" value="上传图片" id="upload_img">-->
 
-            <div id="fileQueue"></div>
-            <input type="file" name="uploadify" id="upload_img" />
-            <p>
-                <a href="javascript:$('#uploadify').uploadifyUpload()">上传</a>| 
-                <a href="javascript:$('#uploadify').uploadifyClearQueue()">取消上传</a>
-            </p>
 
             <table class="imgs">
                 <tr>
@@ -193,7 +219,7 @@
             </center>
         </div>
     </div>
-											
+
 </div>
 <script>
     $(document).ready(function () {

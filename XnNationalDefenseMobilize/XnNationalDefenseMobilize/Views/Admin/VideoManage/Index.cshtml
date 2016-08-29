@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/LinkManageCss/LinkManageCss.css")">
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
             <li class="active">影音天地</li>
@@ -13,18 +13,18 @@
     </div>
 
     <form class="search_form">
-        <table >
+        <table>
             <tr>
                 <td>
                     <input type="button" class="btn btn-primary" value="搜索" id="search" />
                 </td>
                 <td>
-                    <div class="form-group" style="margin:0;">
+                    <div class="form-group" style="margin: 0;">
                         <input class="form-control">
                     </div>
                 </td>
                 <td>
-                    <div class="form-group" style="margin:0;">
+                    <div class="form-group" style="margin: 0;">
                         <select class="form-control">
                             <option>按名称</option>
                             <option>按分类</option>
@@ -37,78 +37,81 @@
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td>
-                    <input type="button" class="btn btn-primary" value="删除所选" id="delete_selected"/>
+                    <input type="button" class="btn btn-primary" value="删除所选" id="delete_selected" />
                 </td>
-                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td>
-                    <input type="button" class="btn btn-primary" value="全选" id="select_all"/>
+                    <input type="button" class="btn btn-primary" value="全选" id="select_all" />
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td>
-                    <input type="button" class="btn btn-primary" value="反选" id="reverse_select"/>
+                    <input type="button" class="btn btn-primary" value="反选" id="reverse_select" />
                 </td>
-                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td>
-                    <input type="button" class="btn btn-primary" value="刷新" id="refresh"/>
+                    <input type="button" class="btn btn-primary" value="刷新" id="refresh" onclick="Refresh()" />
                 </td>
             </tr>
         </table>
     </form>
+    <form id="selectedForm">
+        <table data-toggle="table">
+            <thead>
+                <tr>
+                    <th>选择</th>
+                    <th>视频名称</th>
+                    <th>分类</th>
+                    <th>格式</th>
+                    <th>大小</th>
+                    <th>上传时间</th>
+                    <th>播放次数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
 
-    <table data-toggle="table">
-        <thead>
-            <tr>
-                <th >选择</th>
-                <th >视频名称</th>
-                <th >分类</th>
-                <th >格式</th>
-                <th >大小</th>
-                <th >上传时间</th>
-                <th >播放次数</th>
-                <th >操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="">
-                        </label>
-                    </div>
-                </td>
-                <td >征兵宣传片</td>
-                <td >征兵宣传</td>
-                <td >mp4</td>
-                <td >200MB</td>
-                <td>2016-8-26 14:22</td>
-                <td>20</td>
-                <td >
-                    <a href="">删除</a>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="1001" name="video">
+                            </label>
+                        </div>
+                    </td>
+                    <td>征兵宣传片</td>
+                    <td>征兵宣传</td>
+                    <td>mp4</td>
+                    <td>200MB</td>
+                    <td>2016-8-26 14:22</td>
+                    <td>20</td>
+                    <td>
+                        <a id="1001" onclick="Delete(this.id)">删除</a>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="">
-                        </label>
-                    </div>
-                </td>
-                <td >国防宣传片</td>
-                <td >国防教育</td>
-                <td >mp4</td>
-                <td >200MB</td>
-                <td>2016-8-26 14:22</td>
-                <td>20</td>
-                <td >
-                    <a href="">删除</a>
-                </td>
-            </tr>
-            
-        </tbody>
-    </table>
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="1002" name="video">
+                            </label>
+                        </div>
+                    </td>
+                    <td>国防宣传片</td>
+                    <td>国防教育</td>
+                    <td>mp4</td>
+                    <td>200MB</td>
+                    <td>2016-8-26 14:22</td>
+                    <td>20</td>
+                    <td>
+                        <a id="1001" onclick="Delete(this.id)">删除</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+
     <center>
         <ul class="pagination">
                 <li><a href="">&laquo;</a></li>
@@ -120,6 +123,83 @@
                 <li><a href="">&raquo;</a></li>
             </ul>
     </center>
-											
+
 </div>
 
+<script>
+    //全选
+    jQuery("#select_all").click(function () {
+        var checkboxes = jQuery("input[type='checkbox']");
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = true;
+        }
+    });
+
+    ////反选
+    jQuery("#reverse_select").click(function () {
+        var checkboxes = jQuery("input[type='checkbox']");
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                checkboxes[i].checked = false;
+            } else {
+                checkboxes[i].checked = true;
+            }
+        }
+    });
+
+    //刷新
+    function Refresh() {
+        jQuery.ajax({
+            url: "@Url.Content("~/VideoManage/Refresh")",
+            dataType: "text",
+            type: "GET",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
+    }
+
+    //删除
+    function Delete(video_id) {
+        jQuery.ajax({
+            url: "@Url.Content("~/VideoManage/Delete")",
+            dataType: "text",
+            type: "POST",
+            data: "video_id=" + video_id,
+            success: function (data) {
+                alert(data);
+                refresh();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
+    }
+
+    //批量删除
+    jQuery("#delete_selected").click(function () {
+        var n = jQuery("input[type='checkbox']:checked").length;
+        if (n == 0) {
+            alert("请至少选择一条");
+        }
+        else {
+            var data = jQuery("#selectedForm").serialize();
+            jQuery.ajax({
+                url: "@Url.Content("~/VideoManage/DeleteMore")",
+                dataType: "text",
+                type: "POST",
+                data: data,
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
+        }
+    });
+
+</script>

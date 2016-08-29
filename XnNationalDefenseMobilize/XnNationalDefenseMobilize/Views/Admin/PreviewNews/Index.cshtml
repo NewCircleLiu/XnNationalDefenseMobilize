@@ -4,3 +4,21 @@
 }
 
 <h2>预览</h2>
+<div id="preview">
+    @ViewBag.text
+</div>
+<script>
+    
+    document.onload(function () {
+        var text = "@ViewBag.text";
+        alert(text);
+        while (text.indexOf("<") >= 0) {
+            text = text.replace("#lt;", "<");
+        }
+        while (text.indexOf(">") >= 0) {
+            text = text.replace("#gt;", ">");
+        }
+        jQuery("#preview").html = text;
+    });
+    
+</script>

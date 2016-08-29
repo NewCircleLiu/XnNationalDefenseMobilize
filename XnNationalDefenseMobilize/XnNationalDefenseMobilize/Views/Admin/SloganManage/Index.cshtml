@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "标语管理";
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
@@ -34,8 +34,8 @@
                 <td >首页-->国防动员</td>
                 <td >听党指挥，能打胜仗，作风优良。</td>
                 <td >
-                    <a href="">修改</a>|
-                    <a href="">禁用</a>
+                    <a href="#" class="modify" id="slogan1">修改</a>|
+                    <a href="#" class="status" id="s1">禁用</a>
                 </td>
             </tr>
             <tr>
@@ -50,8 +50,8 @@
                 <td >首页-->新闻聚焦</td>
                 <td >国防是国家生存与发展的安全保障。</td>
                 <td >
-                    <a href="">修改</a>|
-                    <a href="">禁用</a>
+                    <a href="#"  class="modify" id="slogan2">修改</a>|
+                    <a href="#" class="status" id="s2">禁用</a>
                 </td>
             </tr>
             <tr>
@@ -66,8 +66,8 @@
                 <td >首页-->媒体印象</td>
                 <td >铁的纪律，铁的连队，铁的作风，铁的素质。</td>
                 <td >
-                    <a href="">修改</a>|
-                    <a href="">禁用</a>
+                    <a href="#" class="modify" id="slogan3">修改</a>|
+                    <a href="#" class="status" id="s3">禁用</a>
                 </td>
             </tr>
             <tr>
@@ -82,10 +82,57 @@
                 <td >首页-->军营生活</td>
                 <td >团结奋进，无私奉献，为建设新世纪现代化军队而不断开拓创新。</td>
                 <td >
-                    <a href="">修改</a>|
-                    <a href="">启用</a>
+                    <a href="#" class="modify" id="slogan4">修改</a>|
+                    <a href="#" class="status" id="s4">启用</a>
                 </td>
             </tr>
         </tbody>
     </table>										
 </div>
+<script>
+    KindEditor.ready(function (K) {
+        //修改标语
+        K('.modify').click(function () {
+            var sloganId = this.id;
+            var newSlogan = prompt("请输入新的标语", "");
+            var data = "newSlogan="+newSlogan+"&sloganId="+sloganId;
+            if (newSlogan) {
+                jQuery.ajax({
+                    type: "POST",
+                    url: "@Url.Content("~/SloganManage/ChangeSlogan")",
+                    data: data,
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert(data);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(XMLHttpRequest.responseText);
+                    }
+                });
+            }
+        });
+
+        //修改标语状态
+        K(".status").click(function () {
+            var sloganId = this.id;
+            var isSure = confirm("确定修改状态？");
+            if (isSure) {
+                jQuery.ajax({
+                    type: "POST",
+                    url: "@Url.Content("~/SloganManage/ChangeSloganStatus")",
+                    data: "sloganId=" + sloganId,
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert(data);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(XMLHttpRequest.responseText);
+                    }
+                });
+            }
+        });
+    });
+
+</script>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Text;
 
 namespace XnNationalDefenseMobilize.Controllers.AdminControllers
 {
@@ -11,9 +12,15 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
         //
         // GET: /PreviewNews/
 
-        public ActionResult Index(String text)
+        private XnNationalDefenseMobilize.Models.Home.HomeViewModel homeViewModel = new XnNationalDefenseMobilize.Models.Home.HomeViewModel();
+
+        [HttpPost]
+        public ActionResult Index(String title,String author,String frome,String classify,String text)
         {
-            return View();
+
+            ViewBag.text = text;
+            
+            return View(homeViewModel);
         }
 
     }

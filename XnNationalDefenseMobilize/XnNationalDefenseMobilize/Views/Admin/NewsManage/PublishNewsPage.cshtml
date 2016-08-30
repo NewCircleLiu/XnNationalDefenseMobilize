@@ -98,8 +98,8 @@
         editor = K.create('textarea[name="content"]', {
             newlineTag: "br",
             allowFileManager: true,
-            uploadJson: '@Url.Content("~/editor/upload_json.ashx?model=news")',  //指定上传文件的服务器端程序。
-            fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx?model=news")',  //指定浏览远程图片的服务器端程序。
+            uploadJson: '@Url.Content("~/editor/upload_json.ashx")',  //指定上传文件的服务器端程序。
+            fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx")',  //指定浏览远程图片的服务器端程序。
             fontSizeTable: ['9px', '10px', '12px', '14px', '16px', '18px', '24px', '32px'],//指定文字大小。
             allowFileManager: true,
             afterCreate: function () {

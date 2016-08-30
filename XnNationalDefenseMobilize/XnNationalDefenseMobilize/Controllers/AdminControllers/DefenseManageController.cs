@@ -16,5 +16,9 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             return View();
         }
 
+        public ActionResult PublishNewsPage()
+        {
+            return View();
+        }
     }
 }

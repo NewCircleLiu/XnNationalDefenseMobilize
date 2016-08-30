@@ -1,9 +1,72 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "权限管理";
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
-		<h2>权限管理</h2>
-											
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li class="active">权限管理</li>
+        </ol>
+    </div>
+
+    <input type="button" class="btn btn-primary" value="添加账户" id="search" />
+
+    <table data-toggle="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>角色</th>
+                    <th>账号</th>
+                    <th>描述</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>管理员</td>
+                    <td>jundong@qq.com</td>
+                    <td>管理员</td>
+                    <td id="001">
+                        <a class="delete">删除</a>|
+                        <a class="modifyPass">修改密码</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>001</td>
+                    <td>下级</td>
+                    <td>jundong@qq.com</td>
+                    <td>城东区</td>
+                    <td id="002">
+                        <a class="delete">删除</a>|
+                        <a class="modifyPass">修改密码</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>001</td>
+                    <td>下级</td>
+                    <td>jundong@qq.com</td>
+                    <td>城北区</td>
+                    <td id="003">
+                        <a class="delete">删除</a>|
+                        <a class="modifyPass">修改密码</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </div>
+<script>
+    //删除角色
+    jQuery(".delete").click(function () {
+        //var id = this.parent.id;
+        alert("id");
+    });
+
+    //修改密码
+    
+
+    //添加账户
+
+</script>

@@ -650,6 +650,7 @@
     <Content Include="Views\Admin\NewsManage\PublishNewsPage.cshtml" />
     <Content Include="Views\Admin\PreviewNews\Index.cshtml" />
     <Content Include="Views\Admin\GrossworkManage\PublishNewsPage.cshtml" />
+    <Content Include="Views\Admin\DefenseManage\PublishNewsPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\Models\" />
@@ -658,8 +659,7 @@
     <Folder Include="Models\GrassrootWork\" />
     <Folder Include="Models\Media\" />
     <Folder Include="Models\PolicyAdvice\" />
-    <Folder Include="uploadFile\newsFile\" />
-    <Folder Include="uploadFile\otherFile\" />
+    <Folder Include="uploadFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

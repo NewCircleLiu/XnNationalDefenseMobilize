@@ -22,33 +22,11 @@ public class Upload : IHttpHandler
     public void ProcessRequest(HttpContext context)
     {
         String aspxUrl = context.Request.Path.Substring(0, context.Request.Path.LastIndexOf("/") + 1);
-
-        //String model = context.Request.Form["model"];
         
-        
-        //if (model.Equals("news"))
-        //{
-        //    //文件保存目录路径
-        //    String savePath = "../uploadFile/newsFile/";
-
-        //    //文件保存目录URL
-        //    String saveUrl = aspxUrl + "../uploadFile/newsFile/";
-        //}
-        //else
-        //{
-        //    //文件保存目录路径
-        //    String savePath = "../uploadFile/otherFile/";
-
-        //    //文件保存目录URL
-        //    String saveUrl = aspxUrl + "../uploadFile/otherFile/";
-        //}
-
-
         //文件保存目录路径
-        String savePath = "../uploadFile/otherFile/";
-
+        String savePath = "../uploadFile/";
         //文件保存目录URL
-        String saveUrl = aspxUrl + "../uploadFile/otherFile/";
+        String saveUrl = aspxUrl + "../uploadFile/";
 
         //定义允许上传的文件扩展名
         Hashtable extTable = new Hashtable();

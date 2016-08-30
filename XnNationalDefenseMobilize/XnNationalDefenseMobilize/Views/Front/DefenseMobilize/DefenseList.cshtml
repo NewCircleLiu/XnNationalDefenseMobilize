@@ -43,7 +43,7 @@
                     <div class="blog_postcontent">
                         <div class="post_info_content_small">
                             <a href="blog-archive.html" class="date"><strong>@(18 - i)</strong><i>2016.08</i></a>
-                            <h3><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[i].defenseNews_id)"><b>@NewsInfoArray[i].defenseNews_title</b> </a></h3>
+                            <h3><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + NewsInfoArray[i].defenseNews_id)"><b>@NewsInfoArray[i].defenseNews_title</b> </a></h3>
                             <div class="clearfix"></div>
                             <p>@NewsInfoArray[i].defenseNews_abstract</p>
                         </div>
@@ -51,8 +51,8 @@
                         @if (i + 1 < curr_page_data.Count())
                         {
                             <div class="post_info_content_small">
-                                <a href="@Url.Content("~/News/NewsDetail?id=3")" class="date"><strong>@(18 - i)</strong><i>2016.08</i></a>
-                                <h3><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[i].defenseNews_id)"><b>@NewsInfoArray[i + 1].defenseNews_title</b></a></h3>
+                                <a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=3")" class="date"><strong>@(18 - i)</strong><i>2016.08</i></a>
+                                <h3><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + NewsInfoArray[i].defenseNews_id)"><b>@NewsInfoArray[i + 1].defenseNews_title</b></a></h3>
                                 <div class="clearfix"></div>
                                 <p>@NewsInfoArray[i + 1].defenseNews_abstract</p>
                             </div>
@@ -69,16 +69,16 @@
 
             <div style="text-align: center">
                 <div class="pagination">
-                    <a href="@Url.Content("~/News/NewsList?type_id=" + news_type_id + "&page_id=1")" class="navlinks">首页</a>
-                    <a href="@Url.Content("~/News/NewsList?type_id=" + news_type_id + "&page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
+                    <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + news_type_id + "&page_id=1")" class="navlinks">首页</a>
+                    <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + news_type_id + "&page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
 
                     @for (int i = Model.start_page_index; i <= Model.end_page_index; i++)
                     {
-                        <a id="@i" href="@Url.Content("~/News/NewsList?type_id=" + news_type_id + "&page_id=" + i)" class="navlinks">@i</a>
+                        <a id="@i" href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + news_type_id + "&page_id=" + i)" class="navlinks">@i</a>
                     }
 
-                    <a href="@Url.Content("~/News/NewsList?type_id=" + news_type_id + "&page_id=" + nextPageId)" class="navlinks">下一页 ></a>
-                    <a href="@Url.Content("~/News/NewsList?type_id=1&page_id=" + Model.count_pages)" class="navlinks">末页</a>
+                    <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + news_type_id + "&page_id=" + nextPageId)" class="navlinks">下一页 ></a>
+                    <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=1&page_id=" + Model.count_pages)" class="navlinks">末页</a>
                 </div>
             </div>
 

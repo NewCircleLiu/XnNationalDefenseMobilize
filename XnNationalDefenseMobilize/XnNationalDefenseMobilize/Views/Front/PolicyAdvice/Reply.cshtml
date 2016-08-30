@@ -1,5 +1,9 @@
-﻿@{
+﻿@using XnNationalDefenseMobilize.Models.PolycyAdvice
+@using XnNationalDefenseMobilize.Models.utility
+@model  MulltiPageDisplayContrler
+@{   
     ViewBag.Title = "留言答复";
+    List<Message> curr_page_data = (List<Message>)Model.curr_page_data;
 }
 
 <link href="@Url.Content("~/Content/pagecss/frontpagecss/polycyadvicecss/polycyadvice.css")" rel="stylesheet" type="text/css" media="all" />
@@ -34,31 +38,41 @@
                                 </div>
 
                                 <ul id="right_list">
-                                    @for (int i = 0; i < 15; i++)
+                                    @{ Message[] messageArray = curr_page_data.ToArray();}
+                                    @for (int i = 0; i < curr_page_data.Count(); i++)
                                     {
-                                        <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail")"><span>大学生入伍有什么优惠政策，是否可以保留学籍？可以在不均报考军事院校吗？</span><p>2016-08-18</p>
-
+                                        <li><a href="@Url.Content("~/PolicyAdvice/ReplyDetail?id=" + messageArray[i].message_id)" target="_blank">
+                                            <span>@messageArray[i].message_title</span>@messageArray[i].message_id<p>2016-08-18</p>
                                         </a></li>
                                         if ((i + 1) % 5 == 0)
-                                        {
-                                        <hr />
-                                        }
+                                        { <hr /> }
                                     }
 
                                 </ul>
 
+                                @{
+                                    int prePageId = (Model.curr_page_index > 1) ? Model.curr_page_index - 1 : 1;
+                                    int nextPageId = (Model.curr_page_index < Model.count_pages) ? Model.curr_page_index + 1 : Model.count_pages;
+                                }
                                 <div style="text-align: center">
                                     <div class="pagination">
-                                        <a href="#" class="navlinks">&lt;上一页</a>
-                                        <a href="#" class="navlinks">1</a>
-                                        <a href="#" class="navlinks current">2</a>
-                                        <a href="#" class="navlinks">3</a>
-                                        <a href="#" class="navlinks">4</a>
-                                        <a href="#" class="navlinks">5</a>
-                                        <a href="#" class="navlinks">6</a>
-                                        <a href="#" class="navlinks">下一页 ></a>
+                                        <a href="@Url.Content("~/PolicyAdvice/Reply?page_id=1")" class="navlinks">首页</a>
+                                        <a href="@Url.Content("~/PolicyAdvice/Reply?page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
+
+                                        @for (int i = Model.start_page_index; i <= Model.end_page_index; i++)
+                                        {
+                                            <a id="@i" href="@Url.Content("~/PolicyAdvice/Reply?page_id=" + i)" class="navlinks">@i</a>
+                                        }
+
+                                        <a href="@Url.Content("~/PolicyAdvice/Reply?page_id=" + nextPageId)" class="navlinks">下一页 ></a>
+                                        <a href="@Url.Content("~/PolicyAdvice/Reply?page_id=" + Model.count_pages)" class="navlinks">末页</a>
                                     </div>
                                 </div>
+
+                                <script type="text/javascript">
+                                    var id_name = "@Model.curr_page_index.ToString()";
+                                    document.getElementById(id_name).className = "navlinks current";
+                                </script>
                             </div>
                         </div>
                         <!-- Blog Post End -->

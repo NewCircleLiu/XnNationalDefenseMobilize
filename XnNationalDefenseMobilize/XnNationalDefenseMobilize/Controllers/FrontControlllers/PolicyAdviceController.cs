@@ -15,13 +15,7 @@ namespace XnNationalDefenseMobilize.Controllers
         {
             CommonQuesContext commonQuesContext = new CommonQuesContext();
             IEnumerable<CommonQues> questionList = commonQuesContext.commonQuesLists.ToList();
-
-            string s = questionList.GetType().ToString();
-
-            int m = questionList.Count();
-
             MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(questionList, 12, 5, page_id);
-
             return View(multiPagesContrler);
         }
 
@@ -30,14 +24,42 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
-        public ActionResult Reply()
+        [HttpPost]
+        public ActionResult Quiz(string test)
         {
+            Message message = new Message();
+            message.message_username = Request["name"];
+            message.message_email = Request["email"];
+            message.message_title = Request["title"];
+            message.message_content = Request["answer"];
+
+            MessageContext messageContext = new MessageContext();
+            messageContext.messageLists.Add(message);
+            messageContext.SaveChanges();
+
             return View();
         }
 
-        public ActionResult ReplyDetail()
+        public ActionResult Reply(int page_id = 1)
         {
-            return View();
+            MessageContext messageContext = new MessageContext();
+            IEnumerable<Message> messageList = messageContext.messageLists.ToList();
+            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(messageList, 12, 5, page_id);
+            return View(multiPagesContrler);
+        }
+
+        public ActionResult ReplyDetail(int id)
+        {
+            MessageContext messageContext = new MessageContext();
+            Message singleMessage = messageContext.messageLists.Find(id);
+            return View(singleMessage);
+        }
+
+        public ActionResult CommonQuesDetail(int id)
+        {
+            CommonQuesContext commonQuesContext = new CommonQuesContext();
+            CommonQues singleCommonQues = commonQuesContext.commonQuesLists.Find(id);
+            return View(singleCommonQues);
         }
     }
 }

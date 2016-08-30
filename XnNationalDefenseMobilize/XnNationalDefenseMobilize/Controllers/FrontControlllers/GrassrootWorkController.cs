@@ -31,10 +31,7 @@ namespace XnNationalDefenseMobilize.Controllers
 
         public ActionResult GrassrootDetail(int id)
         {
-            IEnumerable<GrassrootNews> news = from newsDetail in grassNewsContext.grassrootNewsLists
-                                              where newsDetail.grassrootNews_id == id
-                                              select newsDetail;
-            GrassrootNews singleNews = news.First();
+            GrassrootNews singleNews = grassNewsContext.grassrootNewsLists.Find(id);
             return View(singleNews);
         }
 

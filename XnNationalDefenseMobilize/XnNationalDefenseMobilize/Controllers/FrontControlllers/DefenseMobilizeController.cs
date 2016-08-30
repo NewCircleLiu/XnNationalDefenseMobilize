@@ -31,10 +31,7 @@ namespace XnNationalDefenseMobilize.Controllers
 
         public ActionResult DefenseDetail(int id)
         {
-            IEnumerable<DefenseNews> defenseNews = from newsDetail in defenseNewsContext.defenseNewsLists
-                                                   where newsDetail.defenseNews_id == id
-                                                   select newsDetail;
-            DefenseNews singleNews = defenseNews.First();
+            DefenseNews singleNews = defenseNewsContext.defenseNewsLists.Find(id);
             return View(singleNews);
         }
 

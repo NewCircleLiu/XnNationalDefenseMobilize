@@ -578,7 +578,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Front\Home\Index.cshtml" />
     <Content Include="Views\Front\News\Index.cshtml" />
-    <Content Include="Views\Front\Application\Index.cshtml" />
+    <Content Include="Views\Front\MediaImpress\Index.cshtml" />
     <Content Include="Views\Front\DefenseMobilize\Index.cshtml" />
     <Content Include="Views\Front\Media\Index.cshtml" />
     <Content Include="Views\Front\PolicyAdvice\Index.cshtml" />
@@ -590,7 +590,7 @@
     <Content Include="Views\Front\DefenseMobilize\DefenseDetail.cshtml" />
     <Content Include="Views\Front\PolicyAdvice\Quiz.cshtml" />
     <Content Include="Views\Front\PolicyAdvice\Reply.cshtml" />
-    <Content Include="Views\Front\PolicyAdvice\ReplyDetail.cshtml" />
+    <Content Include="Views\Front\PolicyAdvice\CommonQuesDetail.cshtml" />
     <Content Include="Views\Front\GrassrootWork\GrassrootDetail.cshtml" />
     <Content Include="Views\Front\GrassrootWork\GrassrootList.cshtml" />
     <Content Include="Views\Front\GrassrootWork\Index.cshtml" />
@@ -613,6 +613,7 @@
     <Content Include="Views\Admin\NewsManage\PublishNewsPage.cshtml" />
     <Content Include="Views\Admin\PreviewNews\Index.cshtml" />
     <Content Include="Views\Admin\GrossworkManage\PublishNewsPage.cshtml" />
+    <Content Include="Views\Front\PolicyAdvice\ReplyDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\Models\" />

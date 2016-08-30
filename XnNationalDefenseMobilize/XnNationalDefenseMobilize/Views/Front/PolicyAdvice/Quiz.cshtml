@@ -4,23 +4,47 @@
 
 <link href="@Url.Content("~/Content/pagecss/frontpagecss/polycyadvicecss/polycyadvice.css")" rel="stylesheet" type="text/css" media="all" />
 
+<script type="text/javascript">
+    function checkForm() {
 
-<!-- Wrapper Start -->
+       
+
+        var title_edit = document.getElementById("title");
+        var title = title_edit.value;
+        if (title.trim() == "") {
+            title_edit.style.border = "1px solid red ";
+            return false;
+        }
+        else
+            title_edit.style.border = "1px solid green ";
+
+        var answer_edit = document.getElementById("answer");
+        var answer = answer_edit.value;
+        if (answer.trim() == "") {
+            answer_edit.style.border = "1px solid red ";
+            return false;
+        }
+        else
+            answer_edit.style.border = "1px solid green ";
+
+       
+        $('#myModal').modal('toggle');
+        return false;
+    }
+</script>
+
 <div id="outer_wrapper">
-    <!-- Content Section Start -->
     <div id="contentsec">
         <div class="inner">
             <div class="twothird left">
-                <!-- Two Third Box Start -->
                 <div class="twothird box left">
                     <div class="blog">
-                        <!-- Blog Post Start -->
                         <div class="post">
                             <div class="p-date">
                                 <p>政策咨询</p>
                                 <p><a id="Index" href = "@Url.Content("~/PolicyAdvice/Index")">常见问题</a></p>
                                 <p><a id="Reply" href = "@Url.Content("~/PolicyAdvice/Reply")">留言答复</a></p>
-                                <p><a id="Quiz" href = "@Url.Content("~/PolicyAdvice/Quiz")">我要提问</a></p>
+                                <p><a id="Quiz"  href = "@Url.Content("~/PolicyAdvice/Quiz")" >我要提问</a></p>
                             </div>
                             <script type="text/javascript">
                                 var id_name = "@ViewContext.RouteData.Values["action"].ToString()";
@@ -33,33 +57,55 @@
                                     </div>
                                 </div>
                                 <div class="quiz-form">
-                                    <form>
+                                    <form action="~/PolicyAdvice/Quiz" method="post" onsubmit="return checkForm()">
                                         <div class="quiz-left">
-                                            <input type="text" placeholder="姓名" required>
-                                            <input type="text" placeholder="邮箱" required>
-                                            <input type="text" placeholder="标题" required>
+                                            <input name="name" type="text" placeholder="姓名">
+                                            <input name="email" type="text" placeholder="邮箱">
+                                            <input name="title" type="text" placeholder="标题" required>
                                         </div>
                                         <div class="quiz-right">
-                                            <textarea placeholder="请填写您的意见及建议" required></textarea>
+                                            <textarea name="answer" placeholder="请填写您的问题" required></textarea>
                                         </div>
                                         <div class="clearfix"></div>
                                         <input type="submit" value="发送">
                                     </form>
                                 </div>
-
                             </div>
                         </div>
-                        <!-- Blog Post End -->
                     </div>
                 </div>
-                <!-- Two Third Box End -->
-
             </div>
-            <!-- One Third Box Start -->
-
         </div>
     </div>
-    <!-- Content Section End -->
 </div>
-<!-- Wrapper End -->
 
+<script  type="text/javascript">
+
+    $('#myModal').modal('toggle');
+
+</script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题
+                </h4>
+            </div>
+            <div class="modal-body">
+                在这里添加一些文本
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

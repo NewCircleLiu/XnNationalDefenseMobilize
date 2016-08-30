@@ -32,10 +32,7 @@ namespace XnNationalDefenseMobilize.Controllers
 
         public ActionResult NewsDetail(int id)
         {
-            IEnumerable<NewsInfo> news = from newsDetail in newsContext.newsInfoLists
-                                         where newsDetail.news_id == id
-                                         select newsDetail;
-            NewsInfo singleNews = news.First();
+            NewsInfo singleNews = newsContext.newsInfoLists.Find(id);
             return View(singleNews);
         }
     }

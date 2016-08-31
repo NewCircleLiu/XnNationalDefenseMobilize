@@ -97,14 +97,14 @@
         <div class="container">
             <div class="contact-form">
                 <h3>联系我们</h3>
-                <form>
+                <form action="@Url.Content("~/Home/SendUserSuggest")" method="post">
                     <div class="contact-left">
-                        <input type="text" placeholder="姓名" required>
-                        <input type="text" placeholder="邮箱" required>
-                        <input type="text" placeholder="联系电话" required>
+                        <input type="text" placeholder="姓名" required name="user_name">
+                        <input type="text" placeholder="邮箱" required name="user_email">
+                        <input type="text" placeholder="联系电话" required name="user_phone">
                     </div>
                     <div class="contact-right">
-                        <textarea placeholder="请填写您的意见及建议" required></textarea>
+                        <textarea placeholder="请填写您的意见及建议" required name="user_suggest"></textarea>
                     </div>
                     <div class="clearfix"></div>
                     <input type="submit" value="发送">

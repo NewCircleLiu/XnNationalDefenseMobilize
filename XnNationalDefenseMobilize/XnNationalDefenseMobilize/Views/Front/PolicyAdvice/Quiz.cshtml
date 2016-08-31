@@ -33,14 +33,14 @@
                                     </div>
                                 </div>
                                 <div class="quiz-form">
-                                    <form>
+                                    <form action="@Url.Content("~/PolicyAdvice/SendQuestion")" method="post">
                                         <div class="quiz-left">
-                                            <input type="text" placeholder="姓名" required>
-                                            <input type="text" placeholder="邮箱" required>
-                                            <input type="text" placeholder="标题" required>
+                                            <input type="text" placeholder="姓名" required name="user_name">
+                                            <input type="text" placeholder="邮箱" required name="user_email">
+                                            <input type="text" placeholder="标题" required name="title">
                                         </div>
                                         <div class="quiz-right">
-                                            <textarea placeholder="请填写您的意见及建议" required></textarea>
+                                            <textarea placeholder="请填写您的意见及建议" required name="text"></textarea>
                                         </div>
                                         <div class="clearfix"></div>
                                         <input type="submit" value="发送">

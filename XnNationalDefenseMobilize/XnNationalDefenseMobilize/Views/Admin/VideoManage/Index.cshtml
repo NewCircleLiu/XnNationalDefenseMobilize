@@ -269,6 +269,7 @@
         KindEditor.ready(function (K) {
             var editor = K.editor({
                 uploadJson: '@Url.Content("~/editor/upload_json.ashx")',
+                fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx")',
                 allowFileManager: true
             });
             jQuery("#chooseVideo").click(function () {

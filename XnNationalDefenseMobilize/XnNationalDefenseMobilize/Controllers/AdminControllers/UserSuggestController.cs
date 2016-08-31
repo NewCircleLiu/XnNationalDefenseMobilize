@@ -51,5 +51,6 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
             String s_text = Request.Form["s_text"];
             return Content("搜索成功:" + s_text);
         }
+
     }
 }

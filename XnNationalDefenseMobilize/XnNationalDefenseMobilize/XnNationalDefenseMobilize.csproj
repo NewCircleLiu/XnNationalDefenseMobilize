@@ -131,6 +131,7 @@
     <Compile Include="App_Start\MyViewEngine .cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminControllers\ExitAndLogoutController.cs" />
     <Compile Include="Controllers\AdminControllers\UploadFileController.cs" />
     <Compile Include="Controllers\AdminControllers\UserSuggestController.cs" />
     <Compile Include="Controllers\AdminControllers\WebInfoController.cs" />

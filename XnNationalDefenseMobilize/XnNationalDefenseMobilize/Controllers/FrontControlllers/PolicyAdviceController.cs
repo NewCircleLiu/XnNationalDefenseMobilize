@@ -24,6 +24,20 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView();
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
         [HttpPost]
         public ActionResult Quiz(string test)
         {

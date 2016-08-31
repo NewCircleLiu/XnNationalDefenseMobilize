@@ -81,7 +81,9 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             //by_type:按类型
             String s_type = Request.Form["s_type"];
             String s_text = Request.Form["s_text"];
-            return Content("搜索成功:" + s_text);
+            //模块名称
+            String model = Request.Form["model"];
+            return Content("搜索成功:" + model);
         }
     }
 }

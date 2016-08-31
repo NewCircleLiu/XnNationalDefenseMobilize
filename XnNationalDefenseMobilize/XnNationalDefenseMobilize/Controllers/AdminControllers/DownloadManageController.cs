@@ -37,8 +37,8 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         public ActionResult DeleteMore()
         {
             //id:为要删除的资源的id，根据id来判断资源的类别，例如1001,2001,3001,4001,根据id第一个数字分别为：文件，手机app，pc应用，图书
-            String id = Request.Form["resource"];  //多个id拼接成字符串：“1001,1002,1003”
-            return Content("删除成功:" + id);
+            String newsid = Request.Form["news"];  //多个id拼接成字符串：“1001,1002,1003”
+            return Content("删除成功:" + newsid);
         }
 
         //搜索

@@ -16,5 +16,6 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             return View();
         }
 
+
     }
 }

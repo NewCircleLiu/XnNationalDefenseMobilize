@@ -61,5 +61,15 @@ namespace XnNationalDefenseMobilize.Controllers
             CommonQues singleCommonQues = commonQuesContext.commonQuesLists.Find(id);
             return View(singleCommonQues);
         }
+
+        //发送问题
+        [HttpPost]
+        public ActionResult SendQuestion() {
+            String user_name = Request.Form["user_name"];
+            String user_email = Request.Form["user_email"];
+            String title = Request.Form["title"];
+            String text = Request.Form["text"];
+            return Content("发送成功");
+        }
     }
 }

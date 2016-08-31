@@ -16,5 +16,12 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             return View();
         }
 
+        //更换图片
+        [HttpPost]
+        public ActionResult ImageChange(){
+            String imgLocal = Request.Form["imgLocal"];
+            String imgUrl = Request.Form["imgUrl"];
+            return Content("更换成功:" + imgLocal);
+        }
     }
 }

@@ -56,5 +56,17 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             //LinkName：链接名称，LinkAddress：链接地址,linkID:链接ID
             return Content("修改成功");
         }
+
+        //搜索
+        [HttpPost]
+        public ActionResult Search()
+        {
+            //搜索方式
+            //by_id:按id
+            //by_name:按时间
+            String s_type = Request.Form["s_type"];
+            String s_text = Request.Form["s_text"];
+            return Content("搜索成功:" + s_text);
+        }
     }
 }

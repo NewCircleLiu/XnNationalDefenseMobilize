@@ -20,14 +20,14 @@
                 </td>
                 <td>
                     <div class="form-group" style="margin: 0;">
-                        <input class="form-control">
+                        <input class="form-control" id="s_text">
                     </div>
                 </td>
                 <td>
                     <div class="form-group" style="margin: 0;">
-                        <select class="form-control">
-                            <option>按姓名</option>
-                            <option>按时间</option>
+                        <select class="form-control" id="s_type">
+                            <option value="by_name">按姓名</option>
+                            <option value="by_phone">按电话</option>
                         </select>
                     </div>
                 </td>
@@ -215,5 +215,27 @@
                 }
             });
         }
+    });
+
+    //搜索
+    jQuery("#search").click(function () {
+        var s_type = jQuery("#s_type").val();
+        var s_text = jQuery("#s_text").val();;
+        if (s_text.length <= 0) {
+            alert("请输入查询条件");
+            return;
+        }
+        jQuery.ajax({
+            url: "@Url.Content("~/UserSuggest/Search")",
+            data: "s_type=" + s_type + "&s_text=" + s_text,
+            type: "POST",
+            dataType: "text",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
     });
 </script>

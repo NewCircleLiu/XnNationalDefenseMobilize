@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using XnNationalDefenseMobilize.Models.Home;
+using XnNationalDefenseMobilize.Models.News;
+using XnNationalDefenseMobilize.Models.utility;
 
 namespace XnNationalDefenseMobilize.Controllers.BackControllers
 {
@@ -14,9 +16,17 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
 
         
 
-        public ActionResult Index()
+        public ActionResult Index(int page_id = 1)
         {
-            return View();
+            NewsInfoContext newsContext = new NewsInfoContext();
+            IEnumerable<NewsInfo> newsList = from items in newsContext.newsInfoLists
+                                             where items.newsCategory.newsCategory_id == 1
+                                             orderby items.news_title
+                                             select items;
+
+            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(newsList, 4, 5, page_id);
+
+            return View(multiPagesContrler);
         }
 
         public ActionResult PublishNewsPage()
@@ -66,6 +76,18 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             //内容中的换行用“<br/>”代替
             String text = Request.Form["text"];
             return Content("发布成功:" + text);
+        }
+
+        //搜索
+        [HttpPost]
+        public ActionResult Search()
+        {
+            //搜索方式
+            //by_name:按名称
+            //by_type:按类型
+            String s_type = Request.Form["s_type"];
+            String s_text = Request.Form["s_text"];
+            return Content("搜索成功:" + s_text);
         }
     }
 }

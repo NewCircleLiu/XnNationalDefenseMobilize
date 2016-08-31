@@ -20,21 +20,22 @@
                 </td>
                 <td>
                     <div class="form-group" style="margin: 0;">
-                        <input class="form-control">
+                        <input class="form-control" id="s_text">
                     </div>
                 </td>
                 <td>
                     <div class="form-group" style="margin: 0;">
-                        <select class="form-control">
-                            <option>按名称</option>
-                            <option>按分类</option>
+                        <select class="form-control" id="s_type">
+                            <option value="by_name">按名称</option>
+                            <option value="by_classify">按分类</option>
                         </select>
                     </div>
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td>
-                    <input type="button" class="btn btn-primary" value="上传" />
+                    <input type="button" class="btn btn-primary" value="上传" data-toggle="modal" data-target="#addVideo" />
                 </td>
+
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td>
                     <input type="button" class="btn btn-primary" value="删除所选" id="delete_selected" />
@@ -124,6 +125,65 @@
             </ul>
     </center>
 
+
+    <!-- 上传视频窗口 -->
+    <div class="modal fade" id="addVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="addLinkLabel">上传视频
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="videoInfo">
+                        <div class="form-group">
+                            <label for="firstname" class="col-sm-2 control-label">视频名称</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="VideoName" id="videoName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="col-sm-2 control-label">视频类别</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="classify">
+                                    <option value="v_zbxc">征兵宣传</option>
+                                    <option value="v_gfjy">国防教育</option>
+                                    <option value="v_yjys">拥军优属</option>
+                                    <option value="v_dyyl">动员演练</option>
+                                </select>
+                            </div>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" class="btn btn-primary" value="选择文件" id="chooseVideo" />
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <input type="text" class="form-control" id="videoUrl" name="videoUrl">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" id="ok_video">
+                        确定
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
 </div>
 
 <script>
@@ -199,7 +259,81 @@
                     alert(XMLHttpRequest.responseText);
                 }
             });
-        }
+            }
     });
 
+        $(function () { $('#addVideo').modal('hide') });
+
+
+        //上传视频
+        KindEditor.ready(function (K) {
+            var editor = K.editor({
+                uploadJson: '@Url.Content("~/editor/upload_json.ashx")',
+                fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx")',
+                allowFileManager: true
+            });
+            jQuery("#chooseVideo").click(function () {
+                editor.loadPlugin('insertfile', function () {
+                    editor.plugin.fileDialog({
+                        fileUrl: jQuery('#videoUrl').val(),
+                        clickFn: function (url, title) {
+                            jQuery('#videoUrl').val(url);
+                            editor.hideDialog();
+                        }
+                    });
+                });
+            });
+        });
+
+        jQuery("#ok_video").click(function () {
+            var v_name = jQuery("#videoName").val();
+            var v_url = jQuery("#videoUrl").val();
+            if (v_name.length <= 0) {
+                alert("请输入视频名称");
+                return;
+            }
+            if (v_url.length <= 0) {
+                alert("请上传视频");
+                return;
+            }
+            jQuery.ajax({
+                url: "@Url.Content("~/VideoManage/UploadVideo")",
+            data: jQuery("#videoInfo").serialize(),
+            type: "POST",
+            dataType: "text",
+            success: function (data) {
+                jQuery('#addVideo').modal('hide');
+                alert(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
+    });
+
+    //搜索视频
+    jQuery("#search").click(function () {
+        var s_type = jQuery("#s_type").val();
+        var s_text = jQuery("#s_type").val();
+
+        if (jQuery("#s_text").val().length <= 0) {
+            alert("请输入搜索条件");
+            return;
+        }
+        jQuery.ajax({
+            url: "@Url.Content("~/VideoManage/Search")",
+            data: "s_type=" + s_type + "&s_text=" + s_text,
+            type: "POST",
+            dataType: "text",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
+    });
 </script>
+
+
+

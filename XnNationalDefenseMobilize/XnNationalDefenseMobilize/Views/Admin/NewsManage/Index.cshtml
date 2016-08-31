@@ -3,6 +3,15 @@
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
 
+@using XnNationalDefenseMobilize.Models.News
+@using XnNationalDefenseMobilize.Models.utility
+@model  MulltiPageDisplayContrler
+
+@{   
+    List<NewsInfo> curr_page_data = (List<NewsInfo>)Model.curr_page_data;
+}
+
+
 <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/LinkManageCss/LinkManageCss.css")">
 
 
@@ -20,15 +29,14 @@
                 </td>
                 <td>
                     <div class="form-group" style="margin: 0;">
-                        <input class="form-control">
+                        <input class="form-control" id="s_text" name="s_text">
                     </div>
                 </td>
                 <td>
                     <div class="form-group" style="margin: 0;">
-                        <select class="form-control">
-                            <option>按名称</option>
-                            <option>按分类</option>
-                            <option>按时间</option>
+                        <select class="form-control" name="s_type" id="s_type">
+                            <option value="by_name">按名称</option>
+                            <option value="by_type">按分类</option>
                         </select>
                     </div>
                 </td>
@@ -71,6 +79,10 @@
                 </tr>
             </thead>
             <tbody>
+                @{
+                NewsInfo[] NewsInfoArray = curr_page_data.ToArray();
+                for (int i = 0; i < curr_page_data.Count(); i ++)
+                {
                 <tr>
                     <td>
                         <div class="checkbox">
@@ -79,10 +91,10 @@
                             </label>
                         </div>
                     </td>
-                    <td>习近平来访青海</td>
-                    <td>XXX</td>
-                    <td>新闻网</td>
-                    <td>国内新闻</td>
+                    <td>@NewsInfoArray[i].news_title</td>
+                    <td>@NewsInfoArray[i].news_author</td>
+                    <td>@NewsInfoArray[i].news_source</td>
+                    <td>@NewsInfoArray[i].newsCategory.newsCategory_name</td>
                     <td>2016-8-26 14:22</td>
                     <td>150</td>
                     <td>
@@ -90,42 +102,39 @@
                     <a id="1001" onclick="Delete(this.id)">删除</a>
                     </td>
                 </tr>
+                }
+                }
 
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="1002" name="news">
-                            </label>
-                        </div>
-                    </td>
-                    <td>习近平来访青海</td>
-                    <td>XXX</td>
-                    <td>新闻网</td>
-                    <td>国内新闻</td>
-                    <td>2016-8-26 14:22</td>
-                    <td>150</td>
-                    <td>
-                        <a href="">查看</a>|
-                    <a id="1002" onclick="Delete(this.id)">删除</a>
-                    </td>
-                </tr>
+               
 
             </tbody>
         </table>
     </form>
 
-    <center>
-        <ul class="pagination">
-                <li><a href="">&laquo;</a></li>
-                <li><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">5</a></li>
-                <li><a href="">&raquo;</a></li>
-            </ul>
-    </center>
+ @{
+                int prePageId = (Model.curr_page_index > 1) ? Model.curr_page_index - 1 : 1;
+                int nextPageId = (Model.curr_page_index < Model.count_pages) ? Model.curr_page_index + 1 : Model.count_pages;
+            }
+
+            <div style="text-align: center">
+                <div class="pagination">
+                    <a href="@Url.Content("~/NewsManage/Index?page_id=1")" class="navlinks">首页</a>
+                    <a href="@Url.Content("~/NewsManage/Index?page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
+
+                    @for (int i = Model.start_page_index; i <= Model.end_page_index; i++)
+                    {
+                        <a id="@i" href="@Url.Content("~/NewsManage/Index?page_id=" + i)" class="navlinks">@i</a>
+                    }
+
+                    <a href="@Url.Content("~/NewsManage/Index?page_id=" + nextPageId)" class="navlinks">下一页 ></a>
+                    <a href="@Url.Content("~/NewsManage/Index?page_id=" + Model.count_pages)" class="navlinks">末页</a>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                var id_name = "@Model.curr_page_index.ToString()";
+                document.getElementById(id_name).className = "navlinks current";
+            </script>
 </div>
 
 <script>
@@ -210,5 +219,26 @@
 
     //查看
 
+    //搜索
+    jQuery("#search").click(function () {
+        var s_type = jQuery("#s_type").val();
+        var s_text = jQuery("#s_text").val();;
+        if (s_text.length <= 0) {
+            alert("请输入查询条件");
+            return;
+        }
+        jQuery.ajax({
+            url: "@Url.Content("~/NewsManage/Search")",
+            data: "s_type=" + s_type + "&s_text=" + s_text,
+            type: "POST",
+            dataType: "text",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
+    });
 </script>
 

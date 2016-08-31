@@ -22,43 +22,21 @@ public class Upload : IHttpHandler
     public void ProcessRequest(HttpContext context)
     {
         String aspxUrl = context.Request.Path.Substring(0, context.Request.Path.LastIndexOf("/") + 1);
-
-        //String model = context.Request.Form["model"];
         
-        
-        //if (model.Equals("news"))
-        //{
-        //    //文件保存目录路径
-        //    String savePath = "../uploadFile/newsFile/";
-
-        //    //文件保存目录URL
-        //    String saveUrl = aspxUrl + "../uploadFile/newsFile/";
-        //}
-        //else
-        //{
-        //    //文件保存目录路径
-        //    String savePath = "../uploadFile/otherFile/";
-
-        //    //文件保存目录URL
-        //    String saveUrl = aspxUrl + "../uploadFile/otherFile/";
-        //}
-
-
         //文件保存目录路径
-        String savePath = "../uploadFile/otherFile/";
-
+        String savePath = "../uploadFile/";
         //文件保存目录URL
-        String saveUrl = aspxUrl + "../uploadFile/otherFile/";
+        String saveUrl = aspxUrl + "../uploadFile/";
 
         //定义允许上传的文件扩展名
         Hashtable extTable = new Hashtable();
         extTable.Add("image", "gif,jpg,jpeg,png,bmp");
         extTable.Add("flash", "swf,flv");
-        extTable.Add("media", "swf,flv,mp3,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb");
-        extTable.Add("file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2");
+        extTable.Add("media", "swf,flv,mp3,mp4,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb");
+        extTable.Add("file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2,exe,apk");
 
         //最大文件大小
-        int maxSize = 1000000;
+        int maxSize = 1000000000;
         this.context = context;
 
         HttpPostedFile imgFile = context.Request.Files["imgFile"];

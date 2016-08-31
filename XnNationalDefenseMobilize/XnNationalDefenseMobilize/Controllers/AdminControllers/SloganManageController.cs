@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XnNationalDefenseMobilize.Models.Slogan;
 
 namespace XnNationalDefenseMobilize.Controllers.BackControllers
 {
@@ -13,9 +14,11 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         //
         // GET: /SloganManage/
 
+        SloganContext sloganContxt = new SloganContext();
+
         public ActionResult Index()
         {
-            return View();
+            return View(sloganContxt.sloganLists.ToList());
         }
 
         //修改标语

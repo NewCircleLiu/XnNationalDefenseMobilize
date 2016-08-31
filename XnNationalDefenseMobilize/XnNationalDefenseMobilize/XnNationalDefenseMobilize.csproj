@@ -131,10 +131,10 @@
     <Compile Include="App_Start\MyViewEngine .cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AdminControllers\PreviewNewsController.cs" />
-    <Compile Include="Controllers\AdminControllers\StringBuild.cs" />
+    <Compile Include="Controllers\AdminControllers\ExitAndLogoutController.cs" />
     <Compile Include="Controllers\AdminControllers\UploadFileController.cs" />
     <Compile Include="Controllers\AdminControllers\UserSuggestController.cs" />
+    <Compile Include="Controllers\AdminControllers\WebInfoController.cs" />
     <Compile Include="Controllers\FrontControlllers\MediaImpressController.cs" />
     <Compile Include="Controllers\AdminControllers\BackIndexController.cs" />
     <Compile Include="Controllers\AdminControllers\BackLoginController.cs" />
@@ -183,6 +183,8 @@
     <Compile Include="Models\PolicyAdvice\Message.cs" />
     <Compile Include="Models\PolicyAdvice\MessageContext.cs" />
     <Compile Include="Models\PolicyAdvice\CommonQuesContext.cs" />
+    <Compile Include="Models\Slogan\SloganContext.cs" />
+    <Compile Include="Models\Slogan\Slogan.cs" />
     <Compile Include="Models\utility\MulltiPageDisplay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -513,6 +515,8 @@
     <Content Include="Image\master\binCode.png" />
     <Content Include="Image\master\logo.jpg" />
     <Content Include="Image\master\logo1.png" />
+    <Content Include="Image\news\bottom_img.jpg" />
+    <Content Include="Image\news\top_img.jpg" />
     <Content Include="Image\news\习近平主席.jpg" />
     <Content Include="Image\news\菲律宾总统.jpg" />
     <Content Include="Image\videoImage\CuPlayerMiniV4.swf" />
@@ -611,17 +615,18 @@
     <Content Include="Views\Admin\RootManage\Index.cshtml" />
     <Content Include="Views\Admin\UserSuggest\Index.cshtml" />
     <Content Include="Views\Admin\NewsManage\PublishNewsPage.cshtml" />
-    <Content Include="Views\Admin\PreviewNews\Index.cshtml" />
     <Content Include="Views\Admin\GrossworkManage\PublishNewsPage.cshtml" />
     <Content Include="Views\Front\PolicyAdvice\ReplyDetail.cshtml" />
+    <Content Include="Views\Admin\DefenseManage\PublishNewsPage.cshtml" />
+    <Content Include="Views\Admin\WebInfo\Index.cshtml" />
+    <Content Include="Views\Admin\PolicyManage\PublishNewsPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\Models\" />
     <Folder Include="Image\back\uploadImage\" />
     <Folder Include="Models\Download\" />
     <Folder Include="Models\Media\" />
-    <Folder Include="uploadFile\newsFile\" />
-    <Folder Include="uploadFile\otherFile\" />
+    <Folder Include="uploadFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -78,14 +78,14 @@
             </div>
             <div class="services-grids" style="border-bottom: 2px solid #ddd">
 
-                @*@foreach (var item in linkTable.linkLists.ToList())
+                @foreach (var item in linkTable.linkLists.ToList())
                 {
                     <div class="col-md-3 services-grid">
                         <a href="@item.link_url" target ="_blank">
                             <h3>@item.link_name</h3>
                         </a>
                     </div>
-                }*@
+                }
 
                 <div class="clearfix"></div>
             </div>
@@ -112,8 +112,8 @@
             </div>
             <div class="address">
                 <h3>联系方式</h3>
-                @*@{Contact contact = contactTable.ContactLists.First(); }*@
-                @*<p style="font-size: 16px">
+                @{Contact contact = contactTable.ContactLists.First(); }
+                <p style="font-size: 16px">
                     <label><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp; @contact.contact_addr</label>
                 </p>
                 <ul style="font-size: 16px">
@@ -121,14 +121,14 @@
                     <li><span class="glyphicon glyphicon-print"></span>&nbsp;@contact.contact_fax</li>
                     <li><span class="glyphicon glyphicon-envelope"></span>&nbsp;@contact.contact_email</li>
                     <li><span class="glyphicon glyphicon-globe"></span>&nbsp;@contact.contact_website</li>
-                </ul>*@
+                </ul>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
     <!-- //contact -->
     <!-- footer -->
-    @*<div class="footer">
+    <div class="footer">
         <div class="container" style="text-align: center">
             <div style="float: left; margin-left: 20%">
                 <img src="@Url.Content(contact.contact_wx_bincode)" width="120" height="120"  alt="" />
@@ -145,7 +145,7 @@
                 <p style="font-size: 16px; margin-bottom: 10px">联系邮箱：webmaster@yahoo.com.</p>
             </div>
         </div>
-    </div>*@
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 </body>

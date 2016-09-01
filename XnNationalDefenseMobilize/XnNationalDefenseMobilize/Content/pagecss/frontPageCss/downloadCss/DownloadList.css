@@ -22,6 +22,21 @@ body
 
 
 
+.download {
+    color: #ed5c5c; 
+    margin-left: 20px; 
+    font-size: 20px;
+}
+
+
+.download:hover{
+	color:#a2a876;
+	transition: 0.5s all ease;
+	-webkit-transition: 0.5s all ease;
+	-moz-transition: 0.5s all ease;
+	-o-transition: 0.5s all ease;
+	-ms-transition: 0.5s all ease;
+}
 .download-top-grid ul.last li a,.download-top-grid ul li{
 	font-size: 20px;
 	color: #000;
@@ -75,4 +90,7 @@ ul.last li{
 .pagination a.current {
 	color: #fff;
 	background-color: #454545;
+}
+.last img {
+    padding-right:10px;
 }

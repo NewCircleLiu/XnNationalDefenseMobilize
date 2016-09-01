@@ -215,10 +215,14 @@
     <Content Include="Content\pagecss\frontPageCss\defenseCss\reset.css" />
     <Content Include="Content\pagecss\frontPageCss\defenseCss\style.css" />
     <Content Include="Content\pagecss\frontPageCss\downloadCss\download.css" />
+    <Content Include="Content\pagecss\frontPageCss\downloadCss\DownloadList.css" />
     <Content Include="Content\pagecss\frontPageCss\GrassrootWorkCss\grassrootWork.css" />
     <Content Include="Content\pagecss\frontPageCss\GrassrootWorkCss\grassrootWorkList.css" />
     <Content Include="Content\pagecss\frontPageCss\indexCss\about.css" />
     <Content Include="Content\pagecss\frontPageCss\layoutCss\layout.css" />
+    <Content Include="Content\pagecss\frontPageCss\mediaImpressCss\mediaimpDetail.css" />
+    <Content Include="Content\pagecss\frontPageCss\mediaImpressCss\mediaimpList.css" />
+    <Content Include="Content\pagecss\frontPageCss\mediaImpressCss\MediaImpress.css" />
     <Content Include="Content\pagecss\frontPageCss\newsCss\news.css" />
     <Content Include="Content\pagecss\frontPageCss\newsCss\newsdetailred.css" />
     <Content Include="Content\pagecss\frontPageCss\newsCss\newsdetail.css" />
@@ -620,6 +624,8 @@
     <Content Include="Views\Admin\DefenseManage\PublishNewsPage.cshtml" />
     <Content Include="Views\Admin\WebInfo\Index.cshtml" />
     <Content Include="Views\Admin\PolicyManage\PublishNewsPage.cshtml" />
+    <Content Include="Views\Front\MediaImpress\MediaimpressDetail.cshtml" />
+    <Content Include="Views\Front\MediaImpress\MediaimpressList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\Models\" />

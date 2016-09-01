@@ -1174,6 +1174,28 @@ background: #f7f7f7;
 	-ms-transition: .5s all;
 	-moz-transition: .5s all;	
 	}
+
+.contact-form input[type=button] {
+	color: #ffffff;
+	padding: 13px 43px;
+	font-size:14px;
+	cursor: pointer;
+	font-weight: 700;
+	border: 3px solid #D34346;
+	background: #D34346;
+	width: 65%;
+	margin-left: 273px;
+	}
+.contact-form input[type=button]:hover {
+	background:#ffffff;
+	border: 3px solid #D34346;
+	color:#D34346;
+	transition: .5s all;
+	-webkit-transition: .5s all;
+	-o-transition: .5s all;
+	-ms-transition: .5s all;
+	-moz-transition: .5s all;	
+	}
 .address ul{
 		padding:0;
 		margin: 15px 0 0 0;

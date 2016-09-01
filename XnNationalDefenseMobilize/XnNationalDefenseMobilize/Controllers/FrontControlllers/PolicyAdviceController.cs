@@ -24,34 +24,25 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView();
-            }
-            else
-            {
-                return View("Index");
-            }
-        }
-
         [HttpPost]
         public ActionResult Quiz(string test)
         {
-            Message message = new Message();
-            message.message_username = Request["name"];
-            message.message_email = Request["email"];
-            message.message_title = Request["title"];
-            message.message_content = Request["answer"];
+            if (Request.IsAjaxRequest())
+            {
+                Message message = new Message();
+                message.message_username = Request["name"];
+                message.message_email = Request["email"];
+                message.message_title = Request["title"];
+                message.message_content = Request["answer"];
 
-            MessageContext messageContext = new MessageContext();
-            messageContext.messageLists.Add(message);
-            messageContext.SaveChanges();
+                MessageContext messageContext = new MessageContext();
+                messageContext.messageLists.Add(message);
+                messageContext.SaveChanges();
 
-            return View();
+                return Content("提交成功");
+            }
+            else
+                return View();
         }
 
         public ActionResult Reply(int page_id = 1)

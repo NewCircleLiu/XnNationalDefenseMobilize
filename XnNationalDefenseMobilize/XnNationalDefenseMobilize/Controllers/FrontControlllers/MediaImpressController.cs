@@ -16,5 +16,18 @@ namespace XnNationalDefenseMobilize.Controllers
             return View();
         }
 
+        public ActionResult MediaimpressList()
+        {
+
+            return View();
+        }
+        public ActionResult MediaimpressDetail()
+        {
+
+            return View();
+        }
+
+
+
     }
 }

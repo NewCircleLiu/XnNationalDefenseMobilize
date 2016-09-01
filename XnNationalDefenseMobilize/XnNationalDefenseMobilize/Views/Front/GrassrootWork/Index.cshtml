@@ -19,7 +19,7 @@
                     GrassrootNews[] NewsArray = newsList.ToArray();         
                  
                     <div class="section_02_box" style="margin-bottom: 25px">
-                        <h3>@NewsArray.First().disTrict.district_name</h3>
+                        <h3><b>@NewsArray.First().disTrict.district_name</b></h3>
                         <div class="section_02_box_content col-md-6">
                             <ul>
                                 @for (int j = 0; j < Math.Min(5, NewsArray.Count()); j++)
@@ -31,9 +31,10 @@
                                     </li>
                                 }
                             </ul>
-                            <div class="more">
-                                <a href="@Url.Content("~/GrassrootWork/GrassrootList?type_id=" + (i + 1))" target="_blank">更多>></a>
+                            <div class="nunc-bwn" style="clear: both">
+                                <a href="@Url.Content("~/GrassrootWork/GrassrootList?type_id=" + (i + 1))" target="_blank">More >></a>
                             </div>
+                             <div class="clearfix"></div>
                         </div>
                     </div>   
                 }

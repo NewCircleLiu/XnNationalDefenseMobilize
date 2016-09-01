@@ -5,26 +5,38 @@
 <link href="@Url.Content("~/Content/pagecss/frontpagecss/polycyadvicecss/polycyadvice.css")" rel="stylesheet" type="text/css" media="all" />
 
 <script type="text/javascript">
-    function checkForm() {
-        var title_edit = document.getElementById("title");
-        var title = title_edit.value;
-        if (title.trim() == "") {
-            title_edit.style.border = "1px solid red ";
+    function checkQuizForm() {
+
+        if (jQuery("#title").val().trim() == "") {
+            jQuery("#title").css("border", "1px solid red ");
             return false;
-        }
-        else
-            title_edit.style.border = "1px solid green ";
+        } else
+            jQuery("#title").css("border", "1px solid #e8e8e8 ");
 
         var answer_edit = document.getElementById("answer");
-        var answer = answer_edit.value;
-        if (answer.trim() == "") {
-            answer_edit.style.border = "1px solid red ";
-            return false;
-        }
-        else
-            answer_edit.style.border = "1px solid green ";
 
-        document.forms[0].submit();
+        if (jQuery("#answer").val().trim() == "") {
+            jQuery("#answer").css("border", "1px solid red");
+            return false;
+        } else
+            jQuery("#answer").css("border", "1px solid #e8e8e8");
+
+        $.ajax({
+            url: "@Url.Content("~/PolicyAdvice/Quiz")",
+            type: "POST",
+            dataType: "text",
+            data: $("#quiz_form").serialize(),
+            success: function (data) {
+                alert(data);
+                $("#name").val("");
+                $("#email").val("");
+                $("#title").val("");
+                $("#answer").val("");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
         return true;
     }
 </script>
@@ -53,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="quiz-form">
-                                    <form action="~/PolicyAdvice/Quiz" method="post">
+                                    <form id="quiz_form">
                                         <div class="quiz-left">
                                             <input id="name" name="name" type="text" placeholder="姓名">
                                             <input id="email" name="email" type="text" placeholder="邮箱">
@@ -63,7 +75,7 @@
                                             <textarea id="answer" name="answer" placeholder="请填写您的问题" required></textarea>
                                         </div>
                                         <div class="clearfix"></div>
-                                        <input type="button" onclick="checkForm()" data-toggle="modal" data-target="#myModal" value="发送">
+                                        <input type="button" onclick="checkQuizForm()" value="发送">
                                     </form>
                                 </div>
                             </div>
@@ -73,13 +85,4 @@
             </div>
         </div>
     </div>
-</div>
-
-
-@section scripts{
-    <script type="text/javascript" src="@Url.Content("~/scripts/jquery.unobtrusive-ajax.min.js")"></script>
-}
-
-@Ajax.ActionLink("About", "About", "PolicyAdvice", null, new AjaxOptions { UpdateTargetId = "body-content",HttpMethod = "Get", }, new { })
-<div id="body-content">
 </div>

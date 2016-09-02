@@ -1,33 +1,95 @@
-﻿@{
-    ViewBag.Title = "MediaimpressDetail";
+﻿@model  XnNationalDefenseMobilize.Models.News.NewsInfo 
+@{
+    //ViewBag.Title = Model.newsCategory.newsCategory_name;
+    ViewBag.Title = "媒体印象";
 }
 
-<link href="@Url.Content("~/content/pagecss/frontPageCss/mediaImpressCss/mediaimpDetail.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/newsdetail.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/newsdetailred.css")" rel="stylesheet" type="text/css" media="all" />
 
 <!-- Wrapper Start -->
-<div class="container">
+<div id="outer_wrapper">
     <!-- Content Section Start -->
+    <div id="contentsec">
+        <div class="inner">
+            <div class="twothird left">
+                <!-- Two Third Box Start -->
+                <div class="twothird box left">
+                    <h2 class="widget-head-border colr"><b>中国空军12型装备将首次向社会公众展示</b></h2>
+                    <div class="blog">
+                        <!-- Blog Post Start -->
+                        <div class="post">
+                            <div class="p-date">
+                                <span>18</span>
+                                <span>2016.08</span>
+                            </div>
+                            <div class="post-sec">
+                                <div class="thumb" style="text-align:center">
+                                    <a href="#">
+                                        <img src="@Url.Content("~/Image/news/test.png")" alt="" />
+                                    </a>
+                                </div>
+                                <div class="post-desc">
+                                    <p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、运输机等。其中，轰-6K、空警-500等12型装备系首次对外展示。
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    <strong>□谈活动亮点</strong>
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    <strong>30余型武器装备展示比往年多一倍</strong>
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    此次航空开放活动将在吉林长春大房身机场举行，现场分为训练飞机、主战飞机、地面装备三个展区。昨日，记者从该活动媒体吹风会上获悉，此次航空开放活动共计30余型40余台装备参加展示，参展装备种类比上一届增加一倍。既有歼-10A等多型战斗机，也有对地打击装备轰-6K、轰-6、歼轰7-A、强5等飞机，还有大中型运输机伊尔-76和运-8，以及空警-500等，其中12型武器装备将首次对外展示。
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    值得关注的是，近期数次执行南海战斗巡航任务的“战神”轰-6K将首次进行静态展示。与此同时，以运-9为载机的新型预警机空警-500也将亮相航空开放活动。
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    此次飞行表演队共有4支，包括“天之翼”、“红鹰”、“八一”和航模表演队。其中，作为新生表演力量，航模队是首次参加航空开放活动。据空军航空大学训练部部长乔增强大校介绍，这次航模队将发挥航模飞机重量小、推动比大、机动性强的优势，表演超低空悬停，尾冲、平螺旋等超常规的飞行动作。
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    而有中国蓝天仪仗队美称的“八一”飞行表演队，与美国“雷鸟”、俄罗斯“勇士”、“雨燕”并列成为世界四大第三代超音速飞行表演队。空军“八一”飞行表演队队长曹振忠上校介绍，此次开放活动上，八一表演队在动作编排上做了调整，尤其是在拉烟系统上。以往，歼-10表演机上一直使用固体拉烟，这次则采用了液体拉烟，增加了表演效果。“彩烟剂是绿色环保的食品级染色材料，以红黄蓝白四色为主。”
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    目前，“狮子山”台风已进入吉林省，开放活动对此有否预案？“我们时刻关注着天气情况。”乔增强大校说，每一天都会对天气进行分时段的会商，并针对不同的天气情况有不同的预案。目前，航空开放活动启动“顺延”方案。原计划9月1日的飞行表演等主体活动，顺延至9月2日进行。
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    <strong>□谈新型招飞</strong>
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    <strong>将启用招飞体检专用车</strong>
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    近年来空军招飞质量实现历史跨越，过去招飞平均成绩是410分，今年跃升到561分，600分以上考生占20%。对此，空军政治工作部干部局副局长刘润国大校表示，今年空军招飞全面实现高考一本线，把招飞对象全部放到尖子生行列。在飞行军官补充中保证了干部队伍的“五湖四海”，空军招飞地域从本世纪初的2001年18个省份896个县区4559所中学，逐年拓展到今年的30个省份2143个县区11826所中学。
+</p>
+<p style="margin-top: 0px; margin-bottom: 29px; padding: 0px; line-height: 28px; font-family: 宋体, Arial, sans-serif; font-size: 15.9996px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);">
+    由于每年招飞群体初选有几十万人，空军目前正在研制“招飞体检专用车”，计划珠海航展期间公开亮相，涵盖常规项目和部分专业内容，运用现代化科技手段，通过身份证扫描、流水线作业、条形码的输出，实现一站式监测和一键式选拔，更加公平公正高效。
+</p>
+<p>
+    <br/>
+</p>
 
-    <div class="title">
-        <h2><b>中国空军12型装备将首次向社会公众展示</b></h2>
+                                     <div class="post-opts">
+                                        <p class="postby">供稿：<span style="color:#666">腾讯新闻</span></p>
+                                        <p class="postby">编辑：<span style="color:#666">李东</span></p>
+                                        <p class="post-time">2016.8.18</p>
+                                        <p class="post-time">青海省警备司令部</p>
+                                    </div>
 
-        <div class="thumb">
-            <a href="#">
-                <img src="~/Image/mediaimpress/s-1.jpg" alt="" />
-            </a>
-        </div>
-        <div class="content">
-            <p>从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、运输机等。其中，轰-6K、空警-500等12型装备系首次对外展示。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Blog Post End -->
+                    </div>
+                </div>
+                <!-- Two Third Box End -->
 
-                                     <div class="last">
-                                         <p class="postby">供稿：<span style="color: #666">admin</span></p>
-                                         <p class="postby">编辑：<span style="color: #666">admin</span></p>
-                                         <p class="post-time">2016.8.18</p>
-                                         <p class="post-time">青海省警备司令部</p>
-                                     </div>
+            </div>
+            <!-- One Third Box Start -->
 
         </div>
     </div>
+    <!-- Content Section End -->
 </div>
-<!-- Blog Post End -->
-
+<!-- Wrapper End -->

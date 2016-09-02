@@ -1,20 +1,21 @@
 ﻿@{
-    ViewBag.Title = "MediaimpressList";
+    ViewBag.Title = "媒体印象";
 }
 <link href="@Url.Content("~/content/pagecss/frontPageCss/mediaImpressCss/mediaimpList.css")" rel="stylesheet" type="text/css" media="all" />
 
 <!-- Start of Page Container -->
 <div class="container">
 
-    <!-- start of page content -->
+    @for(int i = 0; i < 4; i++)
+    {
     <div class="col-md-12 span8 main-listing" >
 
 
         <div class="col-md-6 hentry" style="padding-right: 40px">
 
             <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" />中国空军12型装备将首次向社会公众展示</a>
+                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")" target="_blank">
+                    <img src="~/Image/mediaimpress/standard-large.png" height="80" /><b>中国空军12型装备将首次向社会公众展示</b></a>
             </h3>
 
             <div class="post-meta">
@@ -26,15 +27,16 @@
                     <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
             </div>
 
-
-            <p>M从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、. . . <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">更多</a></p>
+            <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")" target="_blank" >
+            <p >从9月1日起，空军将在吉林省长春市举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机. . .</p>
+            </a>
 
         </div>
         <div class="col-md-6 hentry" style="padding-left: 40px">
 
             <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" />中国空军12型装备将首次向社会公众展示</a>
+                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")" target="_blank">
+                    <img src="~/Image/mediaimpress/standard-large.png" height="80" /><b>中国空军12型装备将首次向社会公众展示</b></a>
             </h3>
 
             <div class="post-meta">
@@ -46,161 +48,27 @@
                     <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
             </div>
 
-
-            <p>M从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、. . . <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">更多</a></p>
+            <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")" target="_blank">
+            <p>从9月1日起，空军将在吉林省长春市举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机. . .</p>
+            </a>
 
         </div>
-
     </div>
-    <div class="col-md-12 span8 main-listing">
+    }
 
+        <div style="text-align: center;" >
+    <div class="pagination">
+        <a href="#" class="navlinks">首页</a>
+        <a href="#" class="navlinks">&lt;上一页</a>
 
-        <div class="col-md-6 hentry" style="padding-right: 40px">
+        @for (int i = 1; i <= 5; i++)
+        {
+            <a id="@i" href="#" class="navlinks">@i</a>
+        }
 
-            <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" />中国空军12型装备将首次向社会公众展示</a>
-            </h3>
-
-            <div class="post-meta">
-                <span class="date">
-                    <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
-                <span class="category">
-                    <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">解放军报</a></span>
-                <span class="comments">
-                    <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
-            </div>
-
-
-            <p>M从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、. . . <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">更多</a></p>
-
-        </div>
-        <div class="col-md-6 hentry" style="padding-left: 40px">
-
-            <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" />中国空军12型装备将首次向社会公众展示</a>
-            </h3>
-
-            <div class="post-meta">
-                <span class="date">
-                    <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
-                <span class="category">
-                    <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">解放军报</a></span>
-                <span class="comments">
-                    <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
-            </div>
-
-
-            <p>M从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、. . . <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">更多</a></p>
-
-        </div>
-
+        <a href="#" class="navlinks">下一页 ></a>
+        <a href="#" class="navlinks">末页</a>
     </div>
-    <div class="col-md-12 span8 main-listing">
-
-
-        <div class="col-md-6 hentry" style="padding-right: 40px">
-
-            <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" />中国空军12型装备将首次向社会公众展示</a>
-            </h3>
-
-            <div class="post-meta">
-                <span class="date">
-                    <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
-                <span class="category">
-                    <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">解放军报</a></span>
-                <span class="comments">
-                    <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
-            </div>
-
-
-            <p>M从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、. . . <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">更多</a></p>
-
-        </div>
-        <div class="col-md-6 hentry" style="padding-left: 40px">
-
-            <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" />中国空军12型装备将首次向社会公众展示</a>
-            </h3>
-
-            <div class="post-meta">
-                <span class="date">
-                    <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
-                <span class="category">
-                    <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">解放军报</a></span>
-                <span class="comments">
-                    <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
-            </div>
-
-
-            <p>M从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、. . . <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">更多</a></p>
-
-        </div>
-
-    </div>
-    <div class="col-md-12 span8 main-listing">
-
-
-        <div class="col-md-6 hentry" style="padding-right: 40px">
-
-            <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" />中国空军12型装备将首次向社会公众展示</a>
-            </h3>
-
-            <div class="post-meta">
-                <span class="date">
-                    <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
-                <span class="category">
-                    <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">解放军报</a></span>
-                <span class="comments">
-                    <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
-            </div>
-
-
-            <p>M从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、. . . <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">更多</a></p>
-
-        </div>
-        <div class="col-md-6 hentry" style="padding-left: 40px">
-
-            <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" />中国空军12型装备将首次向社会公众展示</a>
-            </h3>
-
-            <div class="post-meta">
-                <span class="date">
-                    <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
-                <span class="category">
-                    <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">解放军报</a></span>
-                <span class="comments">
-                    <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
-            </div>
-
-
-            <p>M从9月1日起，空军将在吉林长春举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机、. . . <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")">更多</a></p>
-
-        </div>
-
-    </div>
-
-
-    <ul class="pagination box-hover" style="margin-left: 200px">
-        <li><a href="#" class="previous-page paging">前一页</a></li>
-        <li><a href="#" class="paging">1</a></li>
-        <li><a href="#" class="paging">2</a></li>
-        <li class="current"><a href="#" class="paging">3</a></li>
-        <li><a href="#" class="paging">4</a></li>
-        <li><a href="#" class="paging">5</a></li>
-        <li><a href="#" class="paging">6</a></li>
-        <li><a href="#" class="next-page paging">后一页</a></li>
-    </ul>
-
-
-
+</div>
 </div>
 

@@ -1,5 +1,5 @@
 ﻿.grassrootwork {
-    width:1170px;
+    width:1350px;
     margin:auto;
     margin-top:10px;
     padding-left:20px;
@@ -79,10 +79,10 @@ body {
 
 .section_02_box {
     float: left;
-	width: 540px;
+	width: 590px;
 
 	/*border: 1px solid #CCCCCC;*/
-	margin: 0 20px 0 0px;
+	margin: 0 10px 0 40px;
     background-color:white;
     padding-top:10px ;
     padding-bottom:10px ;

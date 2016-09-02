@@ -24,7 +24,7 @@
         font-size: 18px;
     }*/
 
-    a
+    .nws_title a
     {
         color: black;
         display:block;
@@ -51,7 +51,7 @@
                     @for (int j = 0; j < Math.Min(10, defenseNewsArray.Count()); j++)
                     {
                         <div class="col-md-6">
-                            <p><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id="+defenseNewsArray[j].defenseNews_id)" target="_blank">
+                            <p class="nws_title"><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id="+defenseNewsArray[j].defenseNews_id)" target="_blank">
                                 @defenseNewsArray[j].defenseNews_title
                                </a>
                             </p>

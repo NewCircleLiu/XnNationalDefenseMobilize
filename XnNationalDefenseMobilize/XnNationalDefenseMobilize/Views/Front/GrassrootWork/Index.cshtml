@@ -19,7 +19,7 @@
                     GrassrootNews[] NewsArray = newsList.ToArray();         
                  
                     <div class="section_02_box" style="margin-bottom: 25px">
-                        <h3><b>@NewsArray.First().disTrict.district_name</b></h3>
+                        <h3 style="font-size:20px"><b>@NewsArray.First().disTrict.district_name</b></h3>
                         <div class="section_02_box_content col-md-6">
                             <ul>
                                 @for (int j = 0; j < Math.Min(5, NewsArray.Count()); j++)

@@ -11,7 +11,7 @@
         text-decoration: none;
     }
 
-    a {
+    .nws_title a {
         color: black;
         display:block;
         white-space:nowrap; 
@@ -56,7 +56,7 @@
                             @for (int j = 0; j < Math.Min(12, NewsInfoArray.Count()); j++)
                             {
                                 <div class="col-md-6">
-                                    <p><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[j].news_id)" target="_blank">@NewsInfoArray[j].news_title</a></p>
+                                    <p class="nws_title"><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[j].news_id)" target="_blank">@NewsInfoArray[j].news_title</a></p>
                                 </div>
 
                             }

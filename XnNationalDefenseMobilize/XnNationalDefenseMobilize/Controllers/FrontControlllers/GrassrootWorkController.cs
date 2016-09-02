@@ -25,7 +25,7 @@ namespace XnNationalDefenseMobilize.Controllers
                                                   orderby items.grassrootNews_title
                                                   select items;
 
-            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(newsList, 5, 5, page_id);
+            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(newsList, 6, 5, page_id);
             return View(multiPagesContrler);
         }
 

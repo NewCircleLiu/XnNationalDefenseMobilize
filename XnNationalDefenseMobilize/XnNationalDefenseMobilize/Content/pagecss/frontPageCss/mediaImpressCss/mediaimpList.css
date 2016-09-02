@@ -29,21 +29,24 @@ img {
 
 .main-listing p {
     margin-top:10px;
-    font-size:18px;
+    font-size:16px;
     line-height:30px;
     text-indent:40px;
+    text-align:justify;
+    border:
 }
 .main-listing a {
   color: #3b4348;
 }
 
-.main-listing a:hover {
-  color: #ed5c5c;
+.main-listing a:visited {
+  text-decoration:none;
 }
 
 .main-listing h3 {
     border-bottom: 2px solid #ed5c5c;
     padding-bottom: 7px;
+    font-size: 20px;
 }
 /* Articles List ------------------------------------------------------------------------------------------------------*/
 
@@ -74,23 +77,36 @@ img {
   margin-right:10px;
 }
 
-
-
-/*======Pagination=========*/
+/* pagination */
 .pagination {
-	padding:20px;
+	clear:both;
+	padding:10px 0;
+	margin-bottom:20px;
+	font-family: 'Open Sans', sans-serif;
+    background-color:white;
+    width:100%;
 }
-.pagination li {
+.pagination b{
 	float:left;
-	margin-right:5px;
-	padding:5px 10px;
+	margin: 0px 5px 2px 0;
+	padding:0px 10px;
+	font-weight: normal;
+	color: #999;
 }
-.pagination li a {
-	color:#000000;
-	font: 400 15px/20px 'bebas_neueregular',Arial,sans-serif;
+.pagination a.navlinks {
+	font-size: 16px;
+	color: #454545;
+	background-color: #eee;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 7px 10px;
+	border-radius: 3px;
 }
-
-.pagination li.current a, .pagination li:hover a{
-	color:#b90000;
-	text-decoration:underline;
+.pagination a.navlinks:hover {
+	color: #fff;
+	background-color: #454545;
+}
+.pagination a.current {
+	color: #fff;
+	background-color: #454545;
 }

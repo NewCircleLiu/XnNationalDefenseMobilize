@@ -40,7 +40,9 @@
                 <div class="blog_post" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #ddd">
                     <div class="blog_postcontent">
                         <div class="post_info_content_small">
-                            <a href="#" class="date"><strong>@(18 - i)</strong><i>2016.08</i></a>
+                            <a href="#" class="date"><strong>@NewsInfoArray[i].defenseNews_release_time.ToString("dd")
+                             </strong><i>@NewsInfoArray[i].defenseNews_release_time.ToString("yyyy.MM")</i>
+                            </a>
                             <h3><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + NewsInfoArray[i].defenseNews_id)"><b>@NewsInfoArray[i].defenseNews_title</b> </a></h3>
                             <div class="clearfix"></div>
                             <p>@NewsInfoArray[i].defenseNews_abstract</p>
@@ -49,8 +51,9 @@
                         @if (i + 1 < curr_page_data.Count())
                         {
                             <div class="post_info_content_small">
-                                <a href="#" class="date"><strong>@(18 - i)</strong><i>2016.08</i></a>
-                                <h3><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + NewsInfoArray[i].defenseNews_id)"><b>@NewsInfoArray[i + 1].defenseNews_title</b></a></h3>
+                                <a href="#" class="date"><strong>@NewsInfoArray[i+1].defenseNews_release_time.ToString("dd")</strong>
+                                <i>@NewsInfoArray[i+1].defenseNews_release_time.ToString("yyyy.MM")</i></a>
+                                <h3><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + NewsInfoArray[i+1].defenseNews_id)"><b>@NewsInfoArray[i + 1].defenseNews_title</b></a></h3>
                                 <div class="clearfix"></div>
                                 <p>@NewsInfoArray[i + 1].defenseNews_abstract</p>
                             </div>

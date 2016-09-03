@@ -15,6 +15,9 @@ namespace XnNationalDefenseMobilize.Models.DefenseMobilize
         public string defenseNews_source { get; set; }
         public string defenseNews_abstract { get; set; }
         public string defenseNews_content { get; set; }
+        public DateTime defenseNews_release_time { get; set; }
+
+        public int defenseCategory_id { get; set; }
 
         public virtual DefenseCategory defenseNewsCategory { get; set; }
     }

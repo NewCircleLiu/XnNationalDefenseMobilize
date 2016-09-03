@@ -15,5 +15,6 @@ namespace XnNationalDefenseMobilize.Models.PolycyAdvice
         public string message_title { get; set; }
         public string message_content { get; set; }
         public string message_reply_content { get; set; }
+        public DateTime message_release_time { get; set; }
     }
 }

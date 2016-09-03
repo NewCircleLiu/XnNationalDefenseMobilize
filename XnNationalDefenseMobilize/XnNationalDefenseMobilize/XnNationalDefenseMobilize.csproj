@@ -160,10 +160,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608291808065_InitialCreate.cs" />
+    <Compile Include="Migrations\201608291808065_InitialCreate.Designer.cs">
+      <DependentUpon>201608291808065_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609031446455_AddTimeForCommQus.cs" />
+    <Compile Include="Migrations\201609031446455_AddTimeForCommQus.Designer.cs">
+      <DependentUpon>201609031446455_AddTimeForCommQus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DefenseMobilize\DefenseCategory.cs" />
     <Compile Include="Models\DefenseMobilize\DefenseCategoryContext.cs" />
     <Compile Include="Models\DefenseMobilize\DefenseNews.cs" />
     <Compile Include="Models\DefenseMobilize\DefenseNewsContext.cs" />
+    <Compile Include="Models\Download\Download.cs" />
+    <Compile Include="Models\Download\DownloadCategory.cs" />
+    <Compile Include="Models\Download\DownloadCategoryContext.cs" />
+    <Compile Include="Models\Download\DownloadContext.cs" />
     <Compile Include="Models\GrassrootWork\District.cs" />
     <Compile Include="Models\GrassrootWork\DistrictContext.cs" />
     <Compile Include="Models\GrassrootWork\GrassrootNews.cs" />
@@ -176,6 +189,10 @@
     <Compile Include="Models\Master\MasterViewModel.cs" />
     <Compile Include="Models\Master\Suggest.cs" />
     <Compile Include="Models\Master\SuggestContext.cs" />
+    <Compile Include="Models\MediaImpress\MediaImpress.cs" />
+    <Compile Include="Models\MediaImpress\MediaImpressCategory.cs" />
+    <Compile Include="Models\MediaImpress\MediaImpressContext.cs" />
+    <Compile Include="Models\MediaImpress\MediaImpressCategoryContext.cs" />
     <Compile Include="Models\Media\Video.cs" />
     <Compile Include="Models\Media\VideoCategory.cs" />
     <Compile Include="Models\Media\VideoContext.cs" />
@@ -675,10 +692,17 @@
     <Folder Include="Files\" />
     <Folder Include="fonts\Models\" />
     <Folder Include="Image\back\uploadImage\" />
-    <Folder Include="Models\Download\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608291808065_InitialCreate.resx">
+      <DependentUpon>201608291808065_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609031446455_AddTimeForCommQus.resx">
+      <DependentUpon>201609031446455_AddTimeForCommQus.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

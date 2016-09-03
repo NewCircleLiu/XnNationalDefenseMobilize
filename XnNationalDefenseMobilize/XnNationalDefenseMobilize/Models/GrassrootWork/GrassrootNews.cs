@@ -15,6 +15,9 @@ namespace XnNationalDefenseMobilize.Models.GrassrootWork
         public string grassrootNews_source { get; set; }
         public string grassrootNews_abstract { get; set; }
         public string grassrootNews_content { get; set; }
+        public DateTime grassrootNews_release_time { get; set; }
+
+        public int district_id { get; set; }
 
         public virtual District disTrict { get; set; }
     }

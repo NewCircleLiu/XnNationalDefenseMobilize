@@ -13,6 +13,7 @@ namespace XnNationalDefenseMobilize.Models.GrassrootWork
         {
         }
 
+        public DbSet<District> DistrictLists { get; set; }
         public DbSet<GrassrootNews> grassrootNewsLists { get; set; }
     }
 }

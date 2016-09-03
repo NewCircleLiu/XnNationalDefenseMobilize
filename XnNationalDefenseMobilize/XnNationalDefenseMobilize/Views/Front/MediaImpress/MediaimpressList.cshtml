@@ -1,74 +1,95 @@
-﻿@{
-    ViewBag.Title = "媒体印象";
+﻿@using XnNationalDefenseMobilize.Models.MediaImpress
+@using XnNationalDefenseMobilize.Models.utility
+@model  MulltiPageDisplayContrler
+
+@{   
+    List<MediaImpress> curr_page_data = (List<MediaImpress>)Model.curr_page_data;
+    ViewBag.title = curr_page_data.First().mediaImpressCategory.mediaImpressCategory_name;
+    int news_type_id = curr_page_data.First().mediaImpressCategory_id;
 }
+
 <link href="@Url.Content("~/content/pagecss/frontPageCss/mediaImpressCss/mediaimpList.css")" rel="stylesheet" type="text/css" media="all" />
 
 <!-- Start of Page Container -->
 <div class="container">
-
-    @for(int i = 0; i < 4; i++)
-    {
-    <div class="col-md-12 span8 main-listing" >
-
-
-        <div class="col-md-6 hentry" style="padding-right: 40px">
-
-            <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")" target="_blank">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" /><b>中国空军12型装备将首次向社会公众展示</b></a>
-            </h3>
-
-            <div class="post-meta">
-                <span class="date">
-                    <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
-                <span class="category">
-                    <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">解放军报</a></span>
-                <span class="comments">
-                    <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
-            </div>
-
-            <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")" target="_blank" >
-            <p >从9月1日起，空军将在吉林省长春市举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机. . .</p>
-            </a>
-
-        </div>
-        <div class="col-md-6 hentry" style="padding-left: 40px">
-
-            <h3 class="post-title">
-                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")" target="_blank">
-                    <img src="~/Image/mediaimpress/standard-large.png" height="80" /><b>中国空军12型装备将首次向社会公众展示</b></a>
-            </h3>
-
-            <div class="post-meta">
-                <span class="date">
-                    <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
-                <span class="category">
-                    <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">解放军报</a></span>
-                <span class="comments">
-                    <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
-            </div>
-
-            <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id =3")" target="_blank">
-            <p>从9月1日起，空军将在吉林省长春市举办“追梦空天”航空开放活动，届时将向全国公众免费开放。记者从昨天举行的空军航空开放活动媒体吹风会上获悉，此次展示武器装备共30余型，涵盖战斗机、教练机、特种机. . .</p>
-            </a>
-
-        </div>
-    </div>
+    @{ MediaImpress[] mediaImpressArray = curr_page_data.ToArray();
+       int rows = (int)Math.Ceiling(mediaImpressArray.Count()/2.0);
     }
 
-        <div style="text-align: center;" >
-    <div class="pagination">
-        <a href="#" class="navlinks">首页</a>
-        <a href="#" class="navlinks">&lt;上一页</a>
+    @for(int i = 0; i < rows; i++){
+        <div class="col-md-12 span8 main-listing">
+            <div class="col-md-6 hentry" style="padding-right: 40px">
+                <h3 class="post-title">
+                    <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id="+mediaImpressArray[i].mediaImpress_id)" target="_blank">
+                        <img src="~/Image/mediaimpress/standard-large.png" height="80" /><b>@mediaImpressArray[i].mediaImpress_title</b>
+                    </a>
+                </h3>
 
-        @for (int i = 1; i <= 5; i++)
-        {
-            <a id="@i" href="#" class="navlinks">@i</a>
-        }
+                <div class="post-meta">
+                    <span class="date">
+                        <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />@mediaImpressArray[i].mediaImpress_release_time.ToString("yyyy-MM-dd")</span>
+                    <span class="category">
+                        <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">@mediaImpressArray[i].mediaImpress_source</a></span>
+                    <span class="comments">
+                        <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
+                </div>
 
-        <a href="#" class="navlinks">下一页 ></a>
-        <a href="#" class="navlinks">末页</a>
-    </div>
+                <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id="+mediaImpressArray[i].mediaImpress_id)" target="_blank" >
+                    <p>@mediaImpressArray[i].mediaImpress_abstract</p>
+                </a>
+
+            </div>
+
+            @if(i+1 < mediaImpressArray.Count())
+            {
+                <div class="col-md-6 hentry" style="padding-right: 40px">
+
+                    <h3 class="post-title">
+                        <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id="+mediaImpressArray[i+1].mediaImpress_id)" target="_blank">
+                            <img src="~/Image/mediaimpress/standard-large.png" height="80" /><b>@mediaImpressArray[i+1].mediaImpress_title</b></a>
+                    </h3>
+
+                    <div class="post-meta">
+                        <span class="date">
+                            <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />@mediaImpressArray[i+1].mediaImpress_release_time.ToString("yyyy-MM-dd")</span>
+                        <span class="category">
+                            <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">@mediaImpressArray[i+1].mediaImpress_source</a></span>
+                        <span class="comments">
+                            <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
+                    </div>
+
+                    <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id="+mediaImpressArray[i+1].mediaImpress_id)" target="_blank" >
+                        <p>@mediaImpressArray[i+1].mediaImpress_abstract</p>
+                    </a>
+                </div>
+          }
+        </div> 
+            
+    }
+
+            @{
+                int prePageId = (Model.curr_page_index > 1) ? Model.curr_page_index - 1 : 1;
+                int nextPageId = (Model.curr_page_index < Model.count_pages) ? Model.curr_page_index + 1 : Model.count_pages;
+            }
+
+        <div style="text-align: center">
+            <div class="pagination">
+                <a href="@Url.Content("~/MediaImpress/MediaimpressList?type_id=" + news_type_id + "&page_id=1")" class="navlinks">首页</a>
+                <a href="@Url.Content("~/MediaImpress/MediaimpressList?type_id=" + news_type_id + "&page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
+
+                @for (int i = Model.start_page_index; i <= Model.end_page_index; i++)
+                    {
+                    <a id="@i" href="@Url.Content("~/MediaImpress/MediaimpressList?type_id=" + news_type_id + "&page_id=" + i)" class="navlinks">@i</a>
+                    }
+
+                <a href="@Url.Content("~/MediaImpress/MediaimpressList?type_id=" + news_type_id + "&page_id=" + nextPageId)" class="navlinks">下一页 ></a>
+                <a href="@Url.Content("~/MediaImpress/MediaimpressList?type_id=" + news_type_id + "&page_id=" + Model.count_pages)" class="navlinks">末页</a>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            var id_name = "@Model.curr_page_index.ToString()";
+            document.getElementById(id_name).className = "navlinks current";
+        </script>
+
 </div>
-</div>
-

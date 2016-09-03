@@ -3,31 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XnNationalDefenseMobilize.Models.MediaImpress;
+using XnNationalDefenseMobilize.Models.utility;
 
 namespace XnNationalDefenseMobilize.Controllers
 {
     public class MediaImpressController : Controller
     {
-        //
-        // GET: /MediaImpress/
+
+        MediaImpressContext mediaImpressContext = new MediaImpressContext();
 
         public ActionResult Index()
         {
-            return View();
+            return View(mediaImpressContext.mediaImpressLists.ToList());
         }
 
-        public ActionResult MediaimpressList()
+        public ActionResult MediaimpressList(int type_id, int page_id = 1)
         {
+            IEnumerable<MediaImpress> mediaImpressList = from items in mediaImpressContext.mediaImpressLists
+                                                         where items.mediaImpressCategory_id == type_id
+                                                         orderby items.mediaImpress_release_time
+                                                         select items;
 
-            return View();
+            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(mediaImpressList, 8, 5, page_id);
+            return View(multiPagesContrler);
         }
-        public ActionResult MediaimpressDetail()
+
+        public ActionResult MediaimpressDetail(int id)
         {
-
-            return View();
+            MediaImpress mediaImpress = mediaImpressContext.mediaImpressLists.Find(id);
+            return View(mediaImpress);
         }
-
-
-
     }
 }

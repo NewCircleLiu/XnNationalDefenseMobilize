@@ -12,6 +12,6 @@ namespace XnNationalDefenseMobilize.Models.DefenseMobilize
         public int defenseCategory_id { get; set; }
         public string defenseCategory_name { get; set; }
 
-        public virtual ICollection<DefenseNews> news { get; set; }
+        public virtual ICollection<DefenseNews> defenseNews { get; set; }
     }
 }

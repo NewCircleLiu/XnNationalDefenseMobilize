@@ -43,7 +43,7 @@
                                     @for (int i = 0; i < curr_page_data.Count(); i++)
                                     {
                                         <li><a href="@Url.Content("~/PolicyAdvice/CommonQuesDetail?id=" + commonQuesArray[i].question_id)" target="_blank">
-                                            <span>@commonQuesArray[i].question_content</span>@commonQuesArray[i].question_id<p>2016-08-18</p>
+                                            <span>@commonQuesArray[i].question_content</span>@commonQuesArray[i].question_id<p>@commonQuesArray[i].question_release_time.ToString("yyyy-MM-dd")</p>
                                         </a></li>
                                         if ((i + 1) % 5 == 0)
                                         { <hr /> }

@@ -34,6 +34,7 @@ namespace XnNationalDefenseMobilize.Controllers
                 message.message_email = Request["email"];
                 message.message_title = Request["title"];
                 message.message_content = Request["answer"];
+                message.message_release_time = DateTime.Now;
 
                 MessageContext messageContext = new MessageContext();
                 messageContext.messageLists.Add(message);

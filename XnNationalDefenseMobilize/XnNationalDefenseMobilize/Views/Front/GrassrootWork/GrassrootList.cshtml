@@ -28,34 +28,11 @@
     </div>
 </div>
 
-<!--
-<div class="grassrootWorkList">
-    <div>
 
-        @{                  
-            GrassrootNews[] NewsInfoArray = curr_page_data.ToArray();
-            for (int i = 0; i < curr_page_data.Count(); i++)
-            {
-            <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=" + NewsInfoArray[i].grassrootNews_id)" class="list-group-item" target="_blank">
-                <table>
-                    <tr>
-                        <td class="artcle_title">
-                            <h4>@NewsInfoArray[i].grassrootNews_title</h4>
-                        </td>
-                        <td class="author">作者：@NewsInfoArray[i].grassrootNews_author</td>
-                        <td class="count">浏览次数：20次</td>
-                        <td class="time">时间：2016-8-20：12:00</td>
-                    </tr>
-                </table>
-            </a>
-            }
-        }
-    </div>
--->
-
+<div>
 <div class="container">
     @{
-        GrassrootNews[] NewsInfoArray1 = curr_page_data.ToArray();
+        GrassrootNews[] NewsInfoArray = curr_page_data.ToArray();
         for (int i = 0; i < curr_page_data.Count(); i++)
         {
 
@@ -64,13 +41,13 @@
             <div class="col-md-6 hentry" style="padding-left: 0; padding-right: 20px">
 
                 <h3 class="post-title">
-                    <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=" + NewsInfoArray[i].grassrootNews_id)" class="list-group-item" style="border:none" target="_blank">
+                    <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=" + @NewsInfoArray[i].grassrootNews_id)" class="list-group-item" style="border:none" target="_blank">
                         <img src="~/Image/mediaimpress/standard-large.png" height="80" /><b>@NewsInfoArray[i].grassrootNews_title</b></a>
                 </h3>
 
                 <div class="post-meta">
                     <span class="date">
-                        <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
+                        <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />@NewsInfoArray[i].grassrootNews_release_time.ToString("yyyy.MM.dd")</span>
                     <span class="category">
                         <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">@NewsInfoArray[i].grassrootNews_source</a></span>
                     <span class="comments">
@@ -96,7 +73,7 @@
 
                     <div class="post-meta">
                         <span class="date">
-                            <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />25 Feb, 2013</span>
+                            <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />@NewsInfoArray[i].grassrootNews_release_time.ToString("yyyy.MM.dd")</span>
                         <span class="category">
                             <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">@NewsInfoArray[i].grassrootNews_source</a></span>
                         <span class="comments">

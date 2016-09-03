@@ -12,8 +12,8 @@ namespace XnNationalDefenseMobilize.Models.Media
         public int video_id { get; set; }
         public string video_title { get; set; }
         public string video_source { get; set; }
-        public DateTime video_release_time { get; set; }
         public string video_covers { get; set; }
+        public DateTime video_release_time { get; set; }
 
         public int videoCategory_id { get; set; }
 

@@ -40,7 +40,8 @@ body
 .download-top-grid ul.last li a,.download-top-grid ul li{
 	font-size: 20px;
 	color: #000;
-    margin-top:10px;
+    margin-top:5px;
+    margin-bottom:10px;
 	display:-webkit-inline-box;
 	font-style:normal;
 	text-decoration:none;

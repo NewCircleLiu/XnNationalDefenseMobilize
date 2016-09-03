@@ -14,5 +14,6 @@ namespace XnNationalDefenseMobilize.Models.DefenseMobilize
         }
 
         public DbSet<DefenseNews> defenseNewsLists { get; set; }
+        public DbSet<DefenseCategory> defenseCategoryLists { get; set; }
     }
 }

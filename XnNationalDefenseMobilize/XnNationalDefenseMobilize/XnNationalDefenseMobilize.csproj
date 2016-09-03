@@ -176,6 +176,10 @@
     <Compile Include="Models\Master\MasterViewModel.cs" />
     <Compile Include="Models\Master\Suggest.cs" />
     <Compile Include="Models\Master\SuggestContext.cs" />
+    <Compile Include="Models\Media\Video.cs" />
+    <Compile Include="Models\Media\VideoCategory.cs" />
+    <Compile Include="Models\Media\VideoContext.cs" />
+    <Compile Include="Models\Media\VideoCategoryContext.cs" />
     <Compile Include="Models\News\NewsCategory.cs" />
     <Compile Include="Models\News\NewsCategoryContext.cs" />
     <Compile Include="Models\News\NewsInfo.cs" />
@@ -672,7 +676,6 @@
     <Folder Include="fonts\Models\" />
     <Folder Include="Image\back\uploadImage\" />
     <Folder Include="Models\Download\" />
-    <Folder Include="Models\Media\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

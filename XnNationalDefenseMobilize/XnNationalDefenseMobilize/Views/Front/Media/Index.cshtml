@@ -1,44 +1,26 @@
 ﻿@{
     ViewBag.Title = "影音天地";
 }
+@using XnNationalDefenseMobilize.Models.Media
 <link href="@Url.Content("~/content/pagecss/frontpagecss/videocss/video_index.css")" rel="stylesheet" type="text/css" media="all" />
-<!--这是影音天地页面-->
+
+
 <div class="vedio">
     <div class="zbxc">
         <div id="myplayer">
-            <!--酷播迷你 CuPlayerMiniV4.0 代码开始-->
+
             <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
             <script type="text/javascript" src="@Url.Content("~/Scripts/swfobject.js")"></script>
             <div id="CuPlayer"><strong>提示：您的Flash Player版本过低，请<a href="#">点此进行播放器升级</a>！</strong> </div>
             <div class="list" style="height: 400px; width: 280px; overflow-x: hidden;">
+
+                @for (int i = 1; i <= 6; i++ ){
                 <dl>
                     <dt><a href="#" onclick="changeStream(0);">
-                        <img src="@Url.Content("~/Image/videoImage/p1.jpg")" /><strong>2016解放军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
+                        <img src="@Url.Content("~/Image/videoImage/p"+i+".jpg")" /><strong>2016解放军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
                 </dl>
-                <dl>
-                    <dt><a href="#" onclick="changeStream(1);">
-                        <img src="@Url.Content("~/Image/videoImage/p2.jpg")" /><strong>2016陆军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
-                </dl>
-                <dl>
-                    <dt><a href="#" onclick="changeStream(2);">
-                        <img src="@Url.Content("~/Image/videoImage/p3.jpg")" /><strong>解放军发布2016最新热血征兵片《战斗宣言》[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
-                </dl>
-                <dl>
-                    <dt><a href="#" onclick="changeStream(3);">
-                        <img src="@Url.Content("~/Image/videoImage/p4.jpg")" /><strong>2016解放军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
-                </dl>
-                <dl>
-                    <dt><a href="#" onclick="changeStream(4);">
-                        <img src="@Url.Content("~/Image/videoImage/p1.jpg")" /><strong>2016陆军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
-                </dl>
-                <dl>
-                    <dt><a href="#" onclick="changeStream(5);">
-                        <img src="@Url.Content("~/Image/videoImage/p2.jpg")" /><strong>解放军发布2016最新热血征兵片《战斗宣言》[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
-                </dl>
-                <dl>
-                    <dt><a href="#" onclick="changeStream(6);">
-                        <img src="@Url.Content("~/Image/videoImage/p3.jpg")" /><strong>2016解放军征兵宣传片[高清]</strong><span>发布日期：2014.03.25</span></a></dt>
-                </dl>
+                }
+                
             </div>
 
             <script type="text/javascript">
@@ -46,6 +28,24 @@
                 var sp = CuPlayerList.split("|")
                 var num = sp.length;
                 var video_index = 0;
+
+                CuPlayerFile = sp[video_index];
+                $(".list dl dt a").css("background", "#ffffff").css("color", "#333");
+                $(".list dl dt a").eq(video_index).css("background", "#efefef").css("color", "red");
+                var so = new SWFObject("@Url.Content("~/Image/videoImage/CuPlayerMiniV4.swf")", "ply", "870", "400", "9", "#000000");
+                so.addParam("allowfullscreen", "true");
+                so.addParam("allowscriptaccess", "always");
+                so.addParam("wmode", "opaque");
+                so.addParam("quality", "high");
+                so.addParam("salign", "lt");
+                so.addVariable("CuPlayerFile", CuPlayerFile);
+                so.addVariable("CuPlayerSetFile", "@Url.Content("~/video/video_xml/CuPlayerSetFile.xml")"); //* 必须存在/播放器配置文件地址
+                so.addVariable("CuPlayerImage", "@Url.Content("~/Image/videoImage/start.png")"); //* 必须存在/视频略缩图,本图片文件必须正确
+                so.addVariable("CuPlayerWidth", "875");   //视频宽度
+                so.addVariable("CuPlayerHeight", "400");  //视频高度
+                so.addVariable("CuPlayerAutoPlay", "no"); //是否自动播放
+                so.addVariable("CuPlayerPosition", "bottom-right"); //Logo显示的位置
+                so.write("CuPlayer");
 
                 function getNext(pars) {
                     if (video_index < num - 1) {
@@ -69,28 +69,11 @@
                     LeftScr(CuPlayerFile);
                     video_index = CuPlayerFile;
                     so.addVariable("CuPlayerFile", sp[CuPlayerFile]);
+                    so.addVariable("CuPlayerImage", "@Url.Content("~/Image/videoImage/p1.jpg")"); //* 必须存在/视频略缩图,本图片文件必须正确
                     so.addVariable("CuPlayerAutoPlay", "yes"); //是否自动播放
                     so.write("CuPlayer");
                     return false;
                 }
-                CuPlayerFile = sp[video_index];
-                $(".list dl dt a").css("background", "#ffffff").css("color", "#333");
-                $(".list dl dt a").eq(video_index).css("background", "#efefef").css("color", "red");
-                var so = new SWFObject("@Url.Content("~/Image/videoImage/CuPlayerMiniV4.swf")", "ply", "870", "400", "9", "#000000");
-                so.addParam("allowfullscreen", "true");
-                so.addParam("allowscriptaccess", "always");
-                so.addParam("wmode", "opaque");
-                so.addParam("quality", "high");
-                so.addParam("salign", "lt");
-                so.addVariable("CuPlayerFile", CuPlayerFile);
-                so.addVariable("CuPlayerSetFile", "@Url.Content("~/video/video_xml/CuPlayerSetFile.xml")"); //* 必须存在/播放器配置文件地址
-                so.addVariable("CuPlayerImage", "@Url.Content("~/Image/videoImage/start.png")"); //* 必须存在/视频略缩图,本图片文件必须正确
-                so.addVariable("CuPlayerWidth", "875"); //视频宽度
-                so.addVariable("CuPlayerHeight", "400"); //视频高度
-                so.addVariable("CuPlayerAutoPlay", "no"); //是否自动播放
-                //so.addVariable("CuPlayerLogo", "@Url.Content("~/Image/videoImage/Logo.png")"); //Logo文件地址
-                so.addVariable("CuPlayerPosition", "bottom-right"); //Logo显示的位置
-                so.write("CuPlayer");
 
                 function LeftScr(m) {
                     var scrtop;
@@ -124,7 +107,7 @@
                                 <div class="video_item">
                                     <div class="video_img">
                                         <a href="#">
-                                            <img src="@Url.Content("~/Image/videoImage/video_exmp1.jpg")"/>
+                                            <img src="@Url.Content("~/Image/videoImage/video_exmp1.jpg")" onclick="changeStream(0);"/>
                                         </a>
                                     </div>
                                     <div class="video_name">
@@ -155,6 +138,9 @@
     }
 </div>
 
+
+@{int x = 0;}
+}
 <script>
     $(".more").click(function () {
         var curr_gradpa_ele = this.parentElement.parentElement;
@@ -178,7 +164,7 @@
                         + "</div>"
                         + "</div>";
         var tr = document.createElement("tr");
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < '@x'; i++) {
             var td = document.createElement("td");
             td.innerHTML = video_item;
             tr.appendChild(td);

@@ -39,8 +39,7 @@
                     <td>@item.slogan_location</td>
                     <td>@item.slogan__content</td>
                     <td>
-                        <a href="#" class="modify" id="slogan4">修改</a>|
-                    <a href="#" class="status" id="s4">启用</a>
+                        <a href="#" class="modify" id="@item.slogan_id">修改</a>
                     </td>
                 </tr>
             }
@@ -53,15 +52,18 @@
         K('.modify').click(function () {
             var sloganId = this.id;
             var newSlogan = prompt("请输入新的标语", "");
-            var data = "newSlogan=" + newSlogan + "&sloganId=" + sloganId;
             if (newSlogan) {
                 jQuery.ajax({
                     type: "POST",
                     url: "@Url.Content("~/SloganManage/ChangeSlogan")",
-                    data: data,
+                    data:{
+                        "newSlogan":newSlogan,
+                        "sloganId":sloganId
+                    },
                     dataType: "text",
                     async: true,
                     success: function (data) {
+                        window.location.href = "@Url.Content("~/SloganManage")";
                         alert(data);
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -71,26 +73,6 @@
             }
         });
 
-        //修改标语状态
-        K(".status").click(function () {
-            var sloganId = this.id;
-            var isSure = confirm("确定修改状态？");
-            if (isSure) {
-                jQuery.ajax({
-                    type: "POST",
-                    url: "@Url.Content("~/SloganManage/ChangeSloganStatus")",
-                    data: "sloganId=" + sloganId,
-                    dataType: "text",
-                    async: true,
-                    success: function (data) {
-                        alert(data);
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert(XMLHttpRequest.responseText);
-                    }
-                });
-            }
-        });
     });
 
 </script>

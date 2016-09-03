@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using XnNationalDefenseMobilize.Models.Home;
-using XnNationalDefenseMobilize.Models.Master;
 
 namespace XnNationalDefenseMobilize.Controllers
 {
@@ -14,6 +13,7 @@ namespace XnNationalDefenseMobilize.Controllers
 
         public ActionResult Index()
         {
+
             return View(homeViewModel);
         }
 
@@ -21,21 +21,11 @@ namespace XnNationalDefenseMobilize.Controllers
         [HttpPost]
         public ActionResult SendUserSuggest()
         {
-            if (Request.IsAjaxRequest())
-            {
-                Suggest suggest = new Suggest();
-                suggest.suggest_email = Request.Form["user_email"];
-                suggest.suggest_phone = Request.Form["user_phone"];
-                suggest.suggest_content = Request.Form["user_suggest"];
-
-
-                SuggestContext suggestContext = new SuggestContext();
-                suggestContext.suggestLists.Add(suggest);
-                suggestContext.SaveChanges();
-                return Content("发送意见建议成功");
-            }
-            else
-                return View("Index");
+            String user_name = Request.Form["user_name"];
+            String user_email = Request.Form["user_email"];
+            String user_phone = Request.Form["user_phone"];
+            String user_suggest = Request.Form["user_suggest"];
+            return Content("发送成功");
         }
     }
 }

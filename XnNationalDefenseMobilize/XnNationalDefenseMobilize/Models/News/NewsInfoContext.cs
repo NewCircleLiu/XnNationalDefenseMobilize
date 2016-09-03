@@ -14,5 +14,6 @@ namespace XnNationalDefenseMobilize.Models.News
         }
 
         public DbSet<NewsInfo> newsInfoLists { get; set; }
+        public DbSet<NewsCategory> newsCategoryLists { get; set; }
     }
 }

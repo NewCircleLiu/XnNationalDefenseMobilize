@@ -1,7 +1,9 @@
 ﻿@{
-    ViewBag.Title = "网站信息管理";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
+
+@model XnNationalDefenseMobilize.Models.Master.Contact
 
 <style>
     .panel-body table {
@@ -42,26 +44,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="@Url.Content("~/Image/master/binCode.png")"/>
+                        <img src="@Url.Content(Model.contact_wx_bincode)"/>
                     </td>
                     <td style="width: 100px;"></td>
                     <td>
-                        <img src="@Url.Content("~/Image/master/binCode.png")"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="change">
-                            <input type="button" id="weixinCode" value="更换" class="btn btn-primary" name="changeImage" />
-                            <input type="text" value="" name="weixinCode" />
-                        </div>
-                    </td>
-                    <td style="width: 100px;"></td>
-                    <td>
-                        <div class="change">
-                            <input type="button" id="webBinCode" value="更换" class="btn btn-primary" name="changeImage" />
-                            <input type="text" value="" name="webBinCode" />
-                        </div>
+                        <img src="@Url.Content(Model.contact_web_bincode)"/>
                     </td>
                 </tr>
             </table>
@@ -79,7 +66,7 @@
                         <h4>地址：</h4>
                     </td>
                     <td>
-                        <h4>青海省西宁市七一路</h4>
+                        <h4>@Model.contact_addr</h4>
                     </td>
                 </tr>
                 <tr>
@@ -87,7 +74,7 @@
                         <h4>电话：</h4>
                     </td>
                     <td>
-                        <h4>0971-6666666</h4>
+                        <h4>@Model.contact_phone</h4>
                     </td>
                 </tr>
                 <tr>
@@ -95,7 +82,7 @@
                         <h4>传真：</h4>
                     </td>
                     <td>
-                        <h4>0971-6666666</h4>
+                        <h4>@Model.contact_fax</h4>
                     </td>
                 </tr>
                 <tr>
@@ -103,7 +90,7 @@
                         <h4>邮箱：</h4>
                     </td>
                     <td>
-                        <h4>webmaster@yahoo.com</h4>
+                        <h4>@Model.contact_email</h4>
                     </td>
                 </tr>
                 <tr>
@@ -111,7 +98,7 @@
                         <h4>网站：</h4>
                     </td>
                     <td>
-                        <h4>www.xngfdy.com</h4>
+                        <h4>@Model.contact_website</h4>
                     </td>
                 </tr>
                 <tr>
@@ -141,31 +128,45 @@
                     <div class="form-group">
                         <label for="firstname" class="col-sm-2 control-label">地址</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="address" id="address">
+                            <input type="text" class="form-control" name="address" id="address" value="@Model.contact_addr">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="lastname" class="col-sm-2 control-label">电话</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="phone" id="phone">
+                            <input type="text" class="form-control" name="phone" id="phone" value="@Model.contact_phone">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="lastname" class="col-sm-2 control-label">传真</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="fax" id="fax">
+                            <input type="text" class="form-control" name="fax" id="fax" value="@Model.contact_fax">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="lastname" class="col-sm-2 control-label">邮箱</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="email" id="email">
+                            <input type="text" class="form-control" name="email" id="email" value="@Model.contact_email">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="lastname" class="col-sm-2 control-label">网站</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="webSite" id="webSite">
+                            <input type="text" class="form-control" name="webSite" id="webSite" value="@Model.contact_website">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">微信二维码</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="wx_bincode" value="@Model.contact_wx_bincode">
+                            <input type="button" id="wx_bincode" value="更换" class="btn btn-primary" name="changeImage" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">网站二维码</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="web_bincode" value="@Model.contact_web_bincode">
+                            <input type="button" id="web_bincode" value="更换" class="btn btn-primary" name="changeImage" />
                         </div>
                     </div>
                 </form>
@@ -187,60 +188,43 @@
         KindEditor.ready(function (K) {
             var editor = K.editor({
                 uploadJson: '@Url.Content("~/editor/upload_json.ashx")',
-            fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx")',
-            allowFileManager: true
-        });
-        jQuery("input[name='changeImage']").click(function () {
-            var imgLocal = this.id;
-            editor.loadPlugin('image', function () {
-                editor.plugin.imageDialog({
-                    imageUrl: jQuery("input[name='" + imgLocal + "']").val(),
-                    clickFn: function (url, title, width, height, border, align) {
-                        jQuery("input[name='" + imgLocal + "']").val(url);
-
-                        jQuery.ajax({
-                            url: "@Url.Content("~/WebInfo/ImageChange")",
-                            data: {
-                                "imgLocal": imgLocal,
-                                "imgUrl": jQuery("input[name='" + imgLocal + "']").val()
-                            },
-                            type: "POST",
-                            dataType: "text",
-                            success: function (data) {
-                                alert(data);
-                            },
-                            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                                alert(XMLHttpRequest.responseText);
-                            }
-                        });
-
-                        editor.hideDialog();
-                    }
-                });
+                fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx")',
+                allowFileManager: true
             });
+            jQuery("input[name='changeImage']").click(function () {
+                var id = this.id;
+                editor.loadPlugin('image', function () {
+                    editor.plugin.imageDialog({
+                        clickFn: function (url, title, width, height, border, align) {
+                            jQuery("input[name='"+id+"']").val(url);
+                            editor.hideDialog();
+                        }
+                    });
+                });
 
+            });
         });
-    });
 
-    //修改信息
-    jQuery("#btn_modifyInfo").click(function () {
-        var address = jQuery("#address").val();
-        var phone = jQuery("#phone").val();
-        var fax = jQuery("#fax").val();
-        var email = jQuery("#email").val();
-        var webSite = jQuery("#webSite").val();
-        if (address.length <= 0 || phone.length <= 0 || fax.length <= 0 || email.length <= 0 || webSite.length <= 0) {
-            alert("请填写完整的信息");
-            return;
-        }
-        jQuery.ajax({
-            url: "@Url.Content("~/WebInfo/ModifyInfo")",
+        //修改信息
+        jQuery("#btn_modifyInfo").click(function () {
+            var address = jQuery("#address").val();
+            var phone = jQuery("#phone").val();
+            var fax = jQuery("#fax").val();
+            var email = jQuery("#email").val();
+            var webSite = jQuery("#webSite").val();
+            if (address.length <= 0 || phone.length <= 0 || fax.length <= 0 || email.length <= 0 || webSite.length <= 0) {
+                alert("请填写完整的信息");
+                return;
+            }
+            jQuery.ajax({
+                url: "@Url.Content("~/WebInfo/ModifyInfo")",
             data: jQuery("#modifyINfoForm").serialize(),
             type: "POST",
             dataType: "text",
             success: function (data) {
                 $('#modifyInfo').modal('hide')
                 alert(data);
+                window.location.href = "@Url.Content("~/WebInfo")";
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert(XMLHttpRequest.responseText);

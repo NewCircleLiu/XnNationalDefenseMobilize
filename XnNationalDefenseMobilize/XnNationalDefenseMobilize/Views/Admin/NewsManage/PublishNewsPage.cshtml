@@ -1,12 +1,8 @@
 ﻿@{
-    ViewBag.Title = "PublishNewsPage";
+    ViewBag.Title = "发布新闻";
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
 
-<link rel="stylesheet" href="@Url.Content("~/editor/themes/default/default.css")" />
-<script charset="utf-8" src="@Url.Content("~/editor/kindeditor-min.js")"></script>
-<script charset="utf-8" src="@Url.Content("~/editor/lang/zh-CN.js")"></script>
-<script charset="utf-8" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
 
 
 <style>
@@ -71,11 +67,11 @@
                             <label class="col-md-3 control-label" for="email">分类</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="classify">
-                                    <option value="gjxw">国际新闻</option>
-                                    <option value="gnxw">国内新闻</option>
-                                    <option value="jsxw">军事新闻</option>
-                                    <option value="shxw">社会新闻</option>
-                                    <option value="xnxw">西宁新闻</option>
+                                    <option value="1">国际新闻</option>
+                                    <option value="2">国内新闻</option>
+                                    <option value="3">军事新闻</option>
+                                    <option value="4">社会新闻</option>
+                                    <option value="5">西宁新闻</option>
                                 </select>
                             </div>
                         </div>
@@ -183,7 +179,6 @@
         //发布
         K('input[name=publish]').click(function (e) {
             var text = editor.html();
-
             while (text.indexOf("<") >= 0) {
                 text = text.replace("<", "#lt;");
             }
@@ -210,6 +205,7 @@
                 data: arr,
                 success: function (data) {
                     alert(data);
+                    window.location.href = "@Url.Content("~/NewsManage")";
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(XMLHttpRequest.responseText);

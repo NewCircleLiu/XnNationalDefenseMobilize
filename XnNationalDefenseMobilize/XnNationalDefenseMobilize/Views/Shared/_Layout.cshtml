@@ -98,63 +98,22 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        function checkForm() {
-
-            if (jQuery("#user_email").val().trim() == "") {
-                jQuery("#user_email").css("border", "1px solid red ");
-                return false;
-            } else
-                jQuery("#user_email").css("border", "1px solid #e8e8e8 ");
-
-            if (jQuery("#user_phone").val().trim() == "") {
-                jQuery("#user_phone").css("border", "1px solid red ");
-                return false;
-            } else
-                jQuery("#user_phone").css("border", "1px solid #e8e8e8 ");
-
-            if (jQuery("#user_suggest").val().trim() == "") {
-                jQuery("#user_suggest").css("border", "1px solid red ");
-                return false;
-            } else
-                jQuery("#user_suggest").css("border", "1px solid #e8e8e8 ");
-
-            $.ajax({
-            url: "@Url.Content("~/Home/SendUserSuggest")",
-            type: "POST",
-            dataType: "text",
-            data: $("#contract_form").serialize(),
-            success: function (data) {
-                alert(data);
-                $("#user_name").val("");
-                $("#user_email").val("");
-                $("#user_phone").val("");
-                $("#user_suggest").val("");
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.responseText);
-            }
-        });
-        return true;
-    }
-</script>
-
 
     <div id="contact" class="contact">
         <div class="container">
             <div class="contact-form">
                 <h3>联系我们</h3>
-                <form id="contract_form"> <!--action="@Url.Content("~/Home/SendUserSuggest")" method="post"-->
+                <form action="@Url.Content("~/Home/SendUserSuggest")" method="post">
                     <div class="contact-left">
-                        <input name="user_name"  id="user_name" type="text" placeholder="姓名">
-                        <input name="user_email" id="user_email" type="text" placeholder="邮箱" required >
-                        <input name="user_phone" id="user_phone" type="text" placeholder="联系电话" required">
+                        <input type="text" placeholder="姓名" required name="user_name">
+                        <input type="text" placeholder="邮箱" required name="user_email">
+                        <input type="text" placeholder="联系电话" required name="user_phone">
                     </div>
                     <div class="contact-right">
-                        <textarea name="user_suggest" id="user_suggest"  placeholder="请填写您的意见及建议" required ></textarea>
+                        <textarea placeholder="请填写您的意见及建议" required name="user_suggest"></textarea>
                     </div>
                     <div class="clearfix"></div>
-                    <input type="button" onclick="checkForm()" value="发送">
+                    <input type="submit" value="发送">
                 </form>
             </div>
             <div class="address">
@@ -182,7 +141,7 @@
                 <div style="text-align: center; color: white; font-size: 14px">公众号二维码</div>
             </div>
             <div style="float: left; margin-left: 20px; padding-right: 50px; border-right: 1px solid white">
-                <img  src="@Url.Content(contact.contact_wx_bincode)" width="120" height="120"  alt="" />
+                <img  src="@Url.Content(contact.contact_web_bincode)" width="120" height="120"  alt="" />
                 <div style="text-align: center; color: white; font-size: 14px">网站二维码</div>
             </div>
             <div style="float: left; width: 400px;">

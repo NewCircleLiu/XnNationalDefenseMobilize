@@ -37,3 +37,22 @@
 	color: #fff;
 	background-color: #454545;
 }
+
+
+/*-----------*/
+.managerInfo {
+    width:95%;
+    margin:auto;
+    margin-top:10px;
+}
+.managerInfo table{
+    width:100%;
+}
+
+.managerInfo img{
+    width:50px;
+}
+#menu_ul a{
+    font-size:22px;
+    text-align:center;
+}

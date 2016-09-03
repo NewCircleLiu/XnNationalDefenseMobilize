@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,68 +15,114 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         //
         // GET: /NewsManage/
 
-        
+        private NewsInfoContext newsContext = new NewsInfoContext();
 
         public ActionResult Index(int page_id = 1)
         {
-            NewsInfoContext newsContext = new NewsInfoContext();
             IEnumerable<NewsInfo> newsList = from items in newsContext.newsInfoLists
-                                             where items.newsCategory.newsCategory_id == 1
                                              orderby items.news_title
                                              select items;
 
-            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(newsList, 4, 5, page_id);
+            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(newsList, 10, 5, page_id);
 
             return View(multiPagesContrler);
         }
 
-        public ActionResult PublishNewsPage()
-        {
-            return View();
-        }
-
-        //刷新
-        [HttpGet]
-        public ActionResult Refresh()
-        {
-            return Content("刷新成功");
-        }
-
         //删除
         [HttpPost]
-        public ActionResult Delete(String newsId)
+        public ActionResult Delete(int newsId)
         {
-            return Content("删除成功:" + newsId);
+            NewsInfo news = newsContext.newsInfoLists.Find(newsId);
+            newsContext.newsInfoLists.Remove(news);
+            newsContext.SaveChanges();
+            return Content("删除成功");
         }
 
         //批量删除
         [HttpPost]
         public ActionResult DeleteMore()
         {
+            NewsInfo news = null;
             String newsIds = Request.Form["news"];
-            return Content("删除成功:" + newsIds);
+            String[] ids = newsIds.Split(',');
+            for (int i = 0; i < ids.Length; i++)
+            {
+                news = newsContext.newsInfoLists.Find(int.Parse(ids[i]));
+                newsContext.newsInfoLists.Remove(news);
+                newsContext.SaveChanges();
+            }
+            return Content("删除成功:");
+        }
+
+        //修改新闻页面
+        [HttpGet]
+        public ActionResult ModifyNews(int id) {
+            NewsInfo news = newsContext.newsInfoLists.Find(id);
+            return View(news);
+        }
+
+        //确定修改新闻
+        [HttpPost]
+        public ActionResult ModifyNewsConfirm() {
+
+            NewsInfo news = new NewsInfo();
+
+            news.news_id = int.Parse(Request.Form["id"]);
+            news.news_title = Request.Form["title"];
+            news.news_author = Request.Form["author"];
+            news.news_source = Request.Form["from"];
+            news.news_abstract = Request.Form["abstract"];
+
+            String text = Request.Form["text"];
+            text = text.Replace("#lt;", "<");
+            text = text.Replace("#gt;", ">");
+            news.news_content = text;
+
+            int categoryId = int.Parse(Request.Form["classify"]);
+            news.newsCategory_id = categoryId;
+            
+
+            if(ModelState.IsValid){
+                newsContext.Entry(news).State = EntityState.Modified;
+                newsContext.SaveChanges();
+            }
+            return Content("修改成功");
+        }
+
+        //
+        public ActionResult PublishNewsPage()
+        {
+            return View();
         }
 
         //发布新闻
         [HttpPost]
         public ActionResult PublishNews()
         {
-            //新闻标题
-            String title = Request.Form["text"];
-            //新闻作者
-            String author = Request.Form["author"];
-            //新闻来源
-            String from = Request.Form["from"];
-            //新闻分类
-            //gjxw:国际新闻,gnxw:国内新闻,jsxw：军事新闻，shxw：社会新闻，xnxw：西宁新闻
-            String classify = Request.Form["classify"];
-            //新闻摘要
-            //标签中的“<”符号用“#lt;”替换，“>”符号用“#gt;”替换
-            String Newabstract = Request.Form["abstract"];
-            //新闻内容
-            //内容中的换行用“<br/>”代替
+            NewsInfo news = new NewsInfo();
+            NewsCategoryContext newsCategoryContext = new NewsCategoryContext();
+            //NewsCategory newsCategory = null;
+
+            
+            news.news_title = Request.Form["title"];
+            news.news_author = Request.Form["author"];
+            news.news_source = Request.Form["from"];
+            news.news_abstract = Request.Form["abstract"];
+
             String text = Request.Form["text"];
-            return Content("发布成功:" + text);
+            text = text.Replace("#lt;", "<");
+            text = text.Replace("#gt;", ">");
+            news.news_content = text;
+             
+            int categoryId = int.Parse(Request.Form["classify"]);
+            news.newsCategory_id = categoryId;
+
+            if (ModelState.IsValid)
+            {
+                newsContext.newsInfoLists.Add(news);
+                newsContext.SaveChanges();
+            }
+            return Content("发布成功:");
         }
 
         //搜索

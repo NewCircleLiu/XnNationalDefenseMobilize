@@ -43,54 +43,65 @@ namespace XnNationalDefenseMobilize.Models.utility
         public void GetRelatedValues(int data_items_count)
         {
             count_items = data_items_count;
-            count_pages = (int)Math.Ceiling(count_items / (items_in_apage * 1.0));  //获取总的页数，去上整
+            count_pages = (int)Math.Ceiling(count_items / (items_in_apage * 1.0));                  //获取总的页数，去上整
 
-            if (curr_page_index <= 0) curr_page_index = 1;                          //当前页是第1页时，不能继续点击上一页
-            if (curr_page_index >= count_pages) curr_page_index = count_pages;      //当前页是第最后1页时，不能继续点击下一页
+            if (curr_page_index <= 0) curr_page_index = 1;                                          //当前页是第1页时，不能继续点击上一页
+            if (curr_page_index >= count_pages) curr_page_index = count_pages;                      //当前页是第最后1页时，不能继续点击下一页
 
-            start_item_index = (curr_page_index - 1) * items_in_apage;              //当前页的第一项数据
-            end_item_index = Math.Min(curr_page_index * items_in_apage, count_items); //当前页的最后一项数据
+            start_item_index = (curr_page_index - 1) * items_in_apage;                              //当前页的第一项数据
+            end_item_index = Math.Min(curr_page_index * items_in_apage, count_items);               //当前页的最后一项数据
 
             start_page_index = ((curr_page_index - 1) / link_num_in_apage) * link_num_in_apage + 1; //显示的起始页码
-            end_page_index = Math.Min(start_page_index + link_num_in_apage - 1, count_pages);       //显示的终止页码            
+            end_page_index = Math.Min(start_page_index + link_num_in_apage - 1, count_pages);       //显示的终止页码
         }
 
         public void GetData()
         {
-            if (data.GetType().ToString() == "System.Data.Entity.Infrastructure.DbQuery`1[XnNationalDefenseMobilize.Models.News.NewsInfo]")
+            string objTypeStr = data.GetType().ToString();
+            switch (objTypeStr)
             {
-                IEnumerable<NewsInfo> newsItems = (IEnumerable<NewsInfo>)data;
-                GetRelatedValues(newsItems.Count());
-                curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
-            }
 
-            else if (data.GetType().ToString() == "System.Data.Entity.Infrastructure.DbQuery`1[XnNationalDefenseMobilize.Models.DefenseMobilize.DefenseNews]")
-            {
-                IEnumerable<DefenseNews> newsItems = (IEnumerable<DefenseNews>)data;
-                GetRelatedValues(newsItems.Count());
-                curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
-            }
-
-            else if (data.GetType().ToString() == "System.Data.Entity.Infrastructure.DbQuery`1[XnNationalDefenseMobilize.Models.GrassrootWork.GrassrootNews]")
-            {
-                IEnumerable<GrassrootNews> newsItems = (IEnumerable<GrassrootNews>)data;
-                GetRelatedValues(newsItems.Count());
-                curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
-            }
+                case "System.Data.Entity.Infrastructure.DbQuery`1[XnNationalDefenseMobilize.Models.News.NewsInfo]":
+                    {
+                        IEnumerable<NewsInfo> newsItems = (IEnumerable<NewsInfo>)data;
+                        GetRelatedValues(newsItems.Count());
+                        curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
+                        break;
+                    }
 
 
-            else if (data.GetType().ToString() == "System.Collections.Generic.List`1[XnNationalDefenseMobilize.Models.PolycyAdvice.CommonQues]")
-            {
-                IEnumerable<CommonQues> newsItems = (IEnumerable<CommonQues>)data;
-                GetRelatedValues(newsItems.Count());
-                curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
-            }
+                case "System.Data.Entity.Infrastructure.DbQuery`1[XnNationalDefenseMobilize.Models.DefenseMobilize.DefenseNews]":
+                    {
+                        IEnumerable<DefenseNews> newsItems = (IEnumerable<DefenseNews>)data;
+                        GetRelatedValues(newsItems.Count());
+                        curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
+                        break;
+                    }
 
-            else if (data.GetType().ToString() == "System.Collections.Generic.List`1[XnNationalDefenseMobilize.Models.PolycyAdvice.Message]")
-            {
-                IEnumerable<Message> newsItems = (IEnumerable<Message>)data;
-                GetRelatedValues(newsItems.Count());
-                curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
+                case "System.Data.Entity.Infrastructure.DbQuery`1[XnNationalDefenseMobilize.Models.GrassrootWork.GrassrootNews]":
+                    {
+                        IEnumerable<GrassrootNews> newsItems = (IEnumerable<GrassrootNews>)data;
+                        GetRelatedValues(newsItems.Count());
+                        curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
+                        break;
+                    }
+
+
+                case "System.Collections.Generic.List`1[XnNationalDefenseMobilize.Models.PolycyAdvice.CommonQues]":
+                    {
+                        IEnumerable<CommonQues> newsItems = (IEnumerable<CommonQues>)data;
+                        GetRelatedValues(newsItems.Count());
+                        curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
+                        break;
+                    }
+
+                case "System.Collections.Generic.List`1[XnNationalDefenseMobilize.Models.PolycyAdvice.Message]":
+                    {
+                        IEnumerable<Message> newsItems = (IEnumerable<Message>)data;
+                        GetRelatedValues(newsItems.Count());
+                        curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
+                        break;
+                    }
             }
         }
     }

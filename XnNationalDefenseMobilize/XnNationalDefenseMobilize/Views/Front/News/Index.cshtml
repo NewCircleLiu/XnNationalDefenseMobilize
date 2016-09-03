@@ -1,75 +1,362 @@
 ﻿@{
-    ViewBag.Title = "新闻聚焦";
+    ViewBag.Title = "首页";
 }
+@using XnNationalDefenseMobilize.Models.Master
+@using XnNationalDefenseMobilize.Models.Slogan
+@{
+    MasterViewModel masterData = new MasterViewModel();
+    SloganContext SloganTable = masterData.SloganTable;
+    }
 
-@using XnNationalDefenseMobilize.Models.News
-@model  IEnumerable<NewsInfo>
-
-<link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/news.css")" rel="stylesheet" type="text/css" media="all" />
 <style>
-    a:visited, a:focus {
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover
+    {
+        background-color: #efefef;
+    }
+    a:visited, a:focus
+    {
         text-decoration: none;
     }
-
-    .nws_title a {
-        color: black;
-        display:block;
-        white-space:nowrap; 
-        overflow:hidden; 
-        text-overflow:ellipsis
+    .nav-tabs > li
+    {
+        font-weight:bold;
     }
-
-    /*
-    p a:hover {
-        color: #337ab7;
-        font-size: 18px;
-    }*/
-
 </style>
 
-@{string[] title = new string[] { "国际新闻", "国内新闻", "军事新闻", "社会新闻", "西宁新闻", "北京新闻" };}
 
-<div class="service-section">
-    <div class="container">
-        <div class="serve-grids wow bounceIn animated" data-wow-delay="0.4s">
+<div class="banner" style="margin-top: 2px">
+    <img src="@Url.Content("~/Image/home/参军4.jpg")"  height="50%" width="100%"/>
+</div>
 
-            @for (int i = 0; i < 5; i++)
-            {
-                <div class="col-md-12 services-section-grid">
-                    <div class="services-section-grid-head">
-                        <div class="service-icon">
-                            <i class="rocket" style="font-style: normal">
-                                <span>@title[i].Substring(0, 1)</span>
-                                <span>@title[i].Substring(1, 1)</span>
-                                <span>@title[i].Substring(2, 1)</span>
-                                <span>@title[i].Substring(3, 1)</span>
-
-                            </i>
-                        </div>
-
-                        @{ 
-                            IEnumerable<NewsInfo> newsList = from items in Model where items.newsCategory.newsCategory_id == (i + 1) orderby items.news_title select items;
-                            NewsInfo[] NewsInfoArray = newsList.ToArray();            
-                        }
-
-                        <div class="service-icon-heading">
-                            @for (int j = 0; j < Math.Min(12, NewsInfoArray.Count()); j++)
-                            {
-                                <div class="col-md-6">
-                                    <p class="nws_title"><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[j].news_id)" target="_blank">@NewsInfoArray[j].news_title</a></p>
-                                </div>
-
-                            }
-                        </div>
-
-                        <div class="nunc-bwn" style="clear: both">
-                            <a href="@Url.Content("~/News/NewsList?type_id=" + (i + 1))" target="_blank">More >></a>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+<!-- banner-bottom -->
+<div class="new-bottom" style="display:none">
+    <div class="container" style="width: 100%">
+        <div class="bottom-grids">
+            <div class="col-md-3 bottom-grid">
+                <div class="bottom-left">
+                    <div class="new"></div>
                 </div>
-            }
+                <div class="bottom-right">
+                    <h3 style="text-align: center">对象范围</h3>
+                    <p style="text-align: justify">
+                        男兵征集对象以高中(含职高、中专、技校)毕业以上文化程度的青年为主，同等条件下，
+                        优先征集高学历青年和应届毕业生入伍。征集的非农业户口青年应具备高中以上文化程度。
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-3 bottom-grid">
+                <div class="bottom-left">
+                    <div class="fresh"></div>
+                </div>
+                <div class="bottom-right">
+                    <h3 style="text-align: center">年龄条件</h3>
+                    <p style="text-align: justify">
+                        男青年为2016年年满18至22周岁,普通高等学校毕业生可以放宽至24周岁,初中文化程
+                        度男青年不超过20周岁。女青年为2016年年满18至22周岁。可征集年满17周岁的高中毕业生入伍。
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-3 bottom-grid">
+                <div class="bottom-left">
+                    <div class="strong"></div>
+                </div>
+                <div class="bottom-right">
+                    <h3 style="text-align: center">政治条件</h3>
+                    <p style="text-align: justify">
+                        征集服现役的公民必须热爱中国共产党，热爱社会主义祖国，热爱人民军队，遵纪守法，品德优良，决心为抵抗侵略、
+                         保卫祖国、保卫人民的和平劳动而英勇奋斗。
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-3 bottom-grid">
+                <div class="bottom-left">
+                    <div class="great"></div>
+                </div>
+                <div class="bottom-right">
+                    <h3 style="text-align: center">身体条件</h3>
+                    <p style="text-align: justify">
+                        其中：身高，男青年不低于160厘米，女青年不低于158厘米，条件兵另行规定。体重，标准体重千克=(身高厘米-110),男
+                        青年不超过标准体重的30%,不低于标准体重的15%。
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
             <div class="clearfix"></div>
         </div>
     </div>
 </div>
+<!-- //banner-bottom -->
+
+<!-- defense mobilizie -->
+<div id="about" class="about">
+    <div class="container">
+        <div class="about-header">
+            <h2>国防动员</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@SloganTable.sloganLists.Find(1).slogan__content</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="about-grid" style="overflow: hidden">
+            @for (int i = 0; i < 3; i++)
+            {
+                <div class="col-md-4 col-sm-12" style="color: black; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                    <p><a href="#" style="color: black">2016年部队依托地方高校定向培养士官有关政策规定</a></p>
+                    <p><a href="#" style="color: black">关于对直接招收为士官的高等学校学生施行国家资助的通知</a></p>
+                    <p><a href="#" style="color: black">高等学校学生应征入伍服义务兵役国家资助办法出台</a></p>
+                </div>
+            }
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<!-- //defense mobilizie -->
+
+<!-- news -->
+<div class="news">
+    <div class="container">
+        <div class="about-header">
+            <h2>新闻聚焦</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@SloganTable.sloganLists.Find(2).slogan__content</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="news-grids">
+            <div class="col-md-12 news-grid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs default bordered" style="font-size:16px" >
+                            <li class="active">
+                                <a href="#international" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-home"></i></span>
+                                    <span class="hidden-xs">国际</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#nation" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-man"></i></span>
+                                    <span class="hidden-xs">国内</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#military" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-email"></i></span>
+                                    <span class="hidden-xs">军事</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#society" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
+                                    <span class="hidden-xs">社会</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#xining" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
+                                    <span class="hidden-xs">西宁</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="international">
+                                <div class="scrollable" style="overflow: hidden;">
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        <div class="col-md-4 col-sm-6" style="color: black">
+                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
+                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
+                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade in" id="nation">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4 col-sm-6" style="color: black">
+                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
+                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
+                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="tab-pane fade in" id="military">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4 col-sm-6" style="color: black">
+                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
+                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
+                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="tab-pane fade in" id="society">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4 col-sm-6" style="color: black">
+                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
+                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
+                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="tab-pane fade in" id="xining">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4 col-sm-6" style="color: black">
+                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
+                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
+                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- //news -->
+
+
+<!-- media -->
+<div class="mediaimpress">
+    <div class="container">
+        <div class="about-header">
+            <h2>媒体印象</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@SloganTable.sloganLists.Find(3).slogan__content</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="mediaimpress-grids">
+            <div class="col-md-12 mediaimpress-grid">
+                <div class="row">
+                    <div class="col-md-12" style="padding-left:0">
+                        <ul class="nav nav-tabs default bordered" style="font-size:16px">
+                            <li class="active">
+                               <a href="#gfb" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-man"></i></span>
+                                    <span class="hidden-xs">国防报</span>
+                                </a>
+                            </li>
+                            <li>
+                                 <a href="#jfjb" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-home"></i></span>
+                                    <span class="hidden-xs">解放军报</span>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="#gf" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-email"></i></span>
+                                    <span class="hidden-xs">国防</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#zgbf" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
+                                    <span class="hidden-xs">中国兵法</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#jfjhb" data-toggle="tab">
+                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
+                                    <span class="hidden-xs">解放军画报</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in" id="jfjb">
+                                <div class="scrollable" style="overflow: hidden;">
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        <div class="col-md-4 col-sm-6" style="color: black">
+                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
+                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
+                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade active in" id="gfb">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4 col-sm-6" style="color: black">
+                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
+                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
+                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="tab-pane fade in" id="gf">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4 col-sm-6" style="color: black">
+                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
+                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
+                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="tab-pane fade in" id="zgbf">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4 col-sm-6" style="color: black">
+                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
+                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
+                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="tab-pane fade in" id="jfjhb">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-md-4 col-sm-6" style="color: black">
+                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
+                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
+                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--media-->
+
+<!-- army-image -->
+<div class="army-image">
+    <div class="container">
+        <div class="about-header" style="overflow: auto; margin: 20px  auto">
+            <h2 style="float: left">军营生活</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@SloganTable.sloganLists.Find(4).slogan__content</h2>
+        </div>
+        <div class="col-md-3" style="padding-left: 0">
+            <img src="@Url.Content("~/Image/home/slider1.png")" width="100%" alt=""/>
+        </div>
+        <div class="col-md-3" style="padding-left: 5px">
+            <img src="@Url.Content("~/Image/home/slider2.png")" width="100%" alt=""/>
+        </div>
+        <div class="col-md-3" style="padding-left: 5px">
+            <img src="@Url.Content("~/Image/home/slider3.png")" width="100%" alt=""/>
+        </div>
+        <div class="col-md-3" style="padding-left: 5px">
+            <img src="@Url.Content("~/Image/home/slider4.png")" width="100%" alt=""/>
+        </div>
+    </div>
+</div>
+<!-- //army-image -->

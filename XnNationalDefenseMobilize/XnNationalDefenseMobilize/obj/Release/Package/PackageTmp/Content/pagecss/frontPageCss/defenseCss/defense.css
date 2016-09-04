@@ -1,0 +1,286 @@
+
+/*--nunc start here--*/
+
+.nuncdig-main {
+    background-color: white;
+}
+
+.nuncdig
+{
+    margin: 40px auto;
+    position: relative;
+}
+
+.nunc-top
+{
+    background: #F7F7F7;
+    text-align: center;
+    padding: 25px 0px 0px 0px;
+    border-top: 2px solid #e45c5f;
+    width: 35%;
+    position: absolute;
+    top: 60px;
+    left: 31%;
+}
+
+    .nunc-top h3
+    {
+        font-size: 30px;
+        font-weight: 800;
+        color: #777;
+        margin: 0px 0px 5px 0px;
+    }
+
+    .nunc-top p
+    {
+        font-size: 15px;
+        font-weight: 400;
+        color: #777;
+    }
+
+.nunc-bott
+{
+    padding: 30px 20px;
+    background: white;
+}
+
+.nuncdig-main
+{
+    border-top: 2px solid #e45c5f;
+    border-bottom: 2px solid #e45c5f;
+}
+
+.headind-text
+{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 13px 0px;
+}
+
+    .headind-text h3
+    {
+        font-size: 23px;
+        font-weight: 700;
+        color: #e45c5f;
+        margin: 0px 0px 8px 0px;
+    }
+
+    .headind-text h4
+    {
+        font-size: 25px;
+        font-weight: 300;
+        color: #e45c5f;
+        margin: 0px;
+    }
+
+.nunc-bott-grid p
+{
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    width: 100%;
+    line-height: 1.8em;
+    padding-top: 15px;
+
+}
+
+.nunc-bwn
+{
+    margin: 40px 0px 0px 0px;
+    float:right;
+}
+
+    .nunc-bwn a
+    {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background: #e45c5f;
+        padding: 6px 16px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+        .nunc-bwn a:hover
+        {
+            text-decoration: none;
+            color: #fff;
+            background: #999;
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+        }
+/*--nunc end here--*/
+
+@media(max-width:768px)
+{
+    .nunc-top h3;
+
+{
+    font-size: 25px;
+}
+
+.molli-top h3
+{
+    font-size: 30px;
+}
+
+.nunc-bott
+{
+    padding: 80px 20px 0PX 20PX;
+}
+
+.nunc-bott-grid
+{
+    padding: 0px 25px 60px 0px;
+    text-align: center;
+}
+
+.headind-text
+{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.nunc-bott-grid p
+{
+    width: 88%;
+    margin: 0 auto;
+}
+
+.nunc-bwn
+{
+    margin: 20px 0px 0px 0px;
+}
+
+.nuncdig
+{
+    padding: 95px 0px 0px 0px;
+}
+
+.nunc-top
+{
+    top: 4%;
+}
+
+}
+
+@media(max-width:640px)
+{
+    .nunc-top h3;
+
+{
+    font-size: 20px;
+}
+
+.nunc-top p
+{
+    font-size: 13px;
+}
+
+.nunc-bott
+{
+    padding: 60px 20px 0PX 20PX;
+}
+
+}
+
+@media(max-width:480px)
+{
+.nunc-top h3
+{
+    font-size: 16px;
+}
+
+.nunc-top
+{
+    padding: 15px 0px 0px 0px;
+    width: 41%;
+    top: 2%;
+    left: 30%;
+}
+
+.nunc-top p
+{
+    font-size: 11px;
+}
+
+.nuncdig
+{
+    padding: 65px 0px 0px 0px;
+}
+
+.headind-text
+{
+    width: 85%;
+}
+
+.nunc-bott-grid p
+{
+    font-size: 13px;
+    overflow: hidden;
+    height: 64px;
+    width: 90%;
+}
+
+.nunc-bott
+{
+    padding: 50px 20px 0PX 20PX;
+}
+
+.nunc-bott-grid
+{
+    padding: 0px 0px 50px 0px;
+}
+
+}
+
+@media(max-width:320px)
+{
+    .nunc-top;
+
+{
+    padding: 10px 0px 0px 0px;
+    width: 66%;
+    top: 3%;
+    left: 18%;
+}
+
+.nunc-bott
+{
+    padding: 40px 20px 0PX 20PX;
+}
+
+.headind-text h3
+{
+    font-size: 16px;
+}
+
+.headind-text h4
+{
+    font-size: 18px;
+}
+
+.nunc-bwn a
+{
+    font-size: 13px;
+}
+
+.nunc-bott-grid p
+{
+    font-size: 13px;
+    width: 90%;
+    padding-top: 5px;
+    height: 55px;
+}
+
+.navg ul.res li a
+{
+    padding: 7px;
+}
+
+}
+/*--media quries end here--*/

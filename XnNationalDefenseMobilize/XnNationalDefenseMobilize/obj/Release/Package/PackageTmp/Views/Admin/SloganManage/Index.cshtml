@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "标语管理";
+    Layout = "~/Views/Shared/_backLayout.cshtml";
+}
+
+@model IEnumerable<XnNationalDefenseMobilize.Models.Slogan.Slogan>
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li class="active">标语管理</li>
+        </ol>
+    </div>
+
+
+
+    <table data-toggle="table">
+        <thead>
+            <tr>
+                <th>选择</th>
+                <th>ID</th>
+                <th>标语位置</th>
+                <th>标语内容</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>@item.slogan_id</td>
+                    <td>@item.slogan_location</td>
+                    <td>@item.slogan__content</td>
+                    <td>
+                        <a href="#" class="modify" id="@item.slogan_id">修改</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    KindEditor.ready(function (K) {
+        //修改标语
+        K('.modify').click(function () {
+            var sloganId = this.id;
+            var newSlogan = prompt("请输入新的标语", "");
+            if (newSlogan) {
+                jQuery.ajax({
+                    type: "POST",
+                    url: "@Url.Content("~/SloganManage/ChangeSlogan")",
+                    data:{
+                        "newSlogan":newSlogan,
+                        "sloganId":sloganId
+                    },
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        window.location.href = "@Url.Content("~/SloganManage")";
+                        alert(data);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(XMLHttpRequest.responseText);
+                    }
+                });
+            }
+        });
+
+    });
+
+</script>

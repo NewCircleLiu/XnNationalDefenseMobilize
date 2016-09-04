@@ -112,6 +112,7 @@ ul.mylist {
 
 .video_classify {
     margin-top: 10px;
+    margin-bottom: 70px;
 }
 
 .video_classify_name {
@@ -143,7 +144,7 @@ ul.mylist {
     .video_img_list td {
         padding: 5px;
         width: 25%;
-        height: 350px;
+        height: 230px;
     }
 
 .video_item {
@@ -153,7 +154,7 @@ ul.mylist {
 
 .video_img {
     width: 100%;
-    height: 300px;
+    height: 220px;
     position: relative;
 }
 
@@ -164,7 +165,7 @@ ul.mylist {
 
 .video_name {
     width: 100%;
-    height: 50px;
+    height: 30px;
     text-align: center;
 }
 
@@ -187,3 +188,54 @@ ul.mylist {
     padding: 5px;
     text-align: right;
 }
+
+.more_video {
+    margin: 20px 0px 30px 10%;
+    float: right;
+    padding-right: 20px;
+}
+
+    .more_video a {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background: #e45c5f;
+        padding: 6px 16px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+.nunc-bwn a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #999;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+}
+
+
+.more_video a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: #e45c5f;
+    padding: 6px 16px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+    .more_video a:hover {
+        text-decoration: none;
+        color: #fff;
+        background: #999;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+    }

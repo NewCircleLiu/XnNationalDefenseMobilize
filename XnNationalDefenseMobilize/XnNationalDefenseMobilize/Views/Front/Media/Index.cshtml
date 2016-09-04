@@ -23,7 +23,7 @@
             </div>
 
             <script type="text/javascript">
-                var CuPlayerList = "@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")";
+                var CuPlayerList = "@Url.Content("~/video/2016年果洛征兵宣传片.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")|@Url.Content("~/video/3.mp4")";
                 var sp = CuPlayerList.split("|")
                 var num = sp.length;
                 var video_index = 0;
@@ -106,21 +106,13 @@
                                 <div class="video_item">
                                     <div class="video_img">
                                         <a href="#">
-                                            <img src="@Url.Content("~/Image/videoImage/video_exmp1.jpg")" onclick="changeStream(0);"/>
+                                            <img src="@Url.Content("~/Image/videoImage/p"+(i+3)+".jpg")" onclick="changeStream(0);"/>
                                         </a>
                                     </div>
                                     <div class="video_name">
                                         <a href="#">
-                                            <h4>视频名称视频名称</h4>
+                                            <h4 style="color:black">视频名称视频名称</h4>
                                         </a>
-                                    </div>
-                                    <div class="video_info">
-                                        <div class="video_pull_time">
-                                            <p>2016-08-15</p>
-                                        </div>
-                                        <div class="video_counts">
-                                            <p>320次</p>
-                                        </div>
                                     </div>
                                 </div>
                             </td>
@@ -129,7 +121,7 @@
                 </table>
                 <div class="more_video">
                     <a class="more" id="1">
-                        <h4>更多>></h4>
+                       More>>
                     </a>
                 </div>
             </div>

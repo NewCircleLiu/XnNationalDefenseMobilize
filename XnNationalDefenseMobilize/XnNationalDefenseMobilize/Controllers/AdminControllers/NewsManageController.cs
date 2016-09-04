@@ -108,6 +108,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             news.news_author = Request.Form["author"];
             news.news_source = Request.Form["from"];
             news.news_abstract = Request.Form["abstract"];
+            news.new_release_time = DateTime.Now;
 
             String text = Request.Form["text"];
             text = text.Replace("#lt;", "<");

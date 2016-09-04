@@ -612,6 +612,7 @@
     <Content Include="设计方案\参考模板.txt" />
     <Content Include="editor\file_manager_json.ashx" />
     <Content Include="editor\upload_json.ashx" />
+    <None Include="Properties\PublishProfiles\army.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Image\news\ser-bg.png" />
     <Content Include="Scripts\bootstrap.js" />

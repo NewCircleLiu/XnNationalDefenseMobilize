@@ -1,0 +1,55 @@
+﻿@model  XnNationalDefenseMobilize.Models.GrassrootWork.GrassrootNews
+@{
+    ViewBag.Title = Model.disTrict.district_name;
+}
+
+<link href="@Url.Content("~/Content/pagecss//frontpagecss/newscss/newsdetail.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss//frontpagecss/newscss/newsdetailred.css")" rel="stylesheet" type="text/css" media="all" />
+
+<!-- Wrapper Start -->
+<div id="outer_wrapper">
+    <!-- Content Section Start -->
+    <div id="contentsec">
+        <div class="inner">
+            <div class="twothird left">
+                <!-- Two Third Box Start -->
+                <div class="twothird box left">
+                    <h2 class="widget-head-border colr"><b>@Model.grassrootNews_title</b></h2>
+                    <div class="blog">
+                        <!-- Blog Post Start -->
+                        <div class="post">
+                            <div class="p-date">
+                                <span>@Model.grassrootNews_release_time.ToString("dd")</span>
+                                <span>@Model.grassrootNews_release_time.ToString("yyyy.MM")</span>
+                            </div>
+                            <div class="post-sec">
+                                <div class="thumb" style="text-align: center">
+                                    <a href="#">
+                                        <img src="@Url.Content("~/Image/Grassroot/参军光荣.jpg")" alt="" /></a>
+                                </div>
+                                <div class="post-desc">
+                                    @Html.Raw(Model.grassrootNews_content)
+
+                                    <div class="post-opts">
+                                        <p class="postby">供稿：<span style="color: #666">@Model.grassrootNews_source</span></p>
+                                        <p class="postby">编辑：<span style="color: #666">@Model.grassrootNews_author</span></p>
+                                        <p class="post-time">2016.8.18</p>
+                                        <p class="post-time">青海省警备司令部</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Blog Post End -->
+                    </div>
+                </div>
+                <!-- Two Third Box End -->
+
+            </div>
+            <!-- One Third Box Start -->
+
+        </div>
+    </div>
+    <!-- Content Section End -->
+</div>
+<!-- Wrapper End -->
+

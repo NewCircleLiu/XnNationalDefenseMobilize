@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_backLayout.cshtml";
+}
+
+<link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/ImageManageCss/ImageManageCss.css")">
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+        <ol class="breadcrumb">
+            <li class="active">图片管理</li>
+        </ol>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            首页-->大图
+        </div>
+        <div class="panel-body">
+            <div class="explain">
+                <p>(尺寸推荐：1080*800)</p>
+            </div>
+            <div class="index_big_img_prevew">
+                <div class="head">
+                    <img src="@Url.Content("~/Image/back/back_imgManage_big_head.jpg")"/>
+                </div>
+                <div class="img_preview">
+                    <img src="@Url.Content("~/Image/back/参军4.jpg")" class="bigImg"/>
+                </div>
+            </div>
+            <div class="change">
+                <input type="button" id="bigImg" value="更换" class="btn btn-primary" name="changeImage"/>
+                <input type="text" value="" name="bigImg"/>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            首页-->军营生活图片
+        </div>
+        <div class="panel-body">
+            <div class="explain">
+                <p>(尺寸推荐：1080*800)</p>
+            </div>
+            <div class="index_life_img_prevew">
+                <div class="head">
+                    <img src="@Url.Content("~/Image/back/lifi_head.jpg")"/>
+                </div>
+                <div class="life_img_preview">
+                    <table>
+                        <tr>
+                            <td class="preview">
+                                <img src="@Url.Content("~/Image/back/slider1.png")" class="lifeImg1"/>
+                            </td>
+                            <td class="preview">
+                                <img src="@Url.Content("~/Image/back/slider1.png")" class="lifeImg2"/>
+                            </td>
+                            <td class="preview">
+                                <img src="@Url.Content("~/Image/back/slider1.png")" class="lifeImg3"/>
+                            </td>
+                            <td class="preview">
+                                <img src="@Url.Content("~/Image/back/slider1.png")" class="lifeImg4"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="change">
+                                    <input type="text"  value="" name="lifeImg1"/>
+                                    <input type="button" id="lifeImg1" value="更换" class="btn btn-primary" name="changeImage"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="change">
+                                    <input type="text" name="lifeImg2" value="" />
+                                    <input type="button" id="lifeImg2" value="更换" class="btn btn-primary" name="changeImage"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="change">
+                                    <input type="text" name="lifeImg3" value="" />
+                                    <input type="button" id="lifeImg3" value="更换" class="btn btn-primary" name="changeImage"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="change">
+                                    <input type="text" name="lifeImg4" value="" />
+                                    <input type="button" id="lifeImg4" value="更换" class="btn btn-primary" name="changeImage"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    KindEditor.ready(function (K) {
+        var editor = K.editor({
+            uploadJson: '@Url.Content("~/editor/upload_json.ashx")',
+            fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx")',
+            allowFileManager: true
+        });
+        jQuery("input[name='changeImage']").click(function () {
+            var imgLocal = this.id;
+            editor.loadPlugin('image', function () {
+                editor.plugin.imageDialog({
+                    imageUrl: jQuery("input[name='" + imgLocal + "']").val(),
+                    clickFn: function (url, title, width, height, border, align) {
+                        jQuery("input[name='"+imgLocal+"']").val(url);
+                        
+                        jQuery.ajax({
+                            url: "@Url.Content("~/ImgManage/ImageChange")",
+                            data: {
+                                "imgLocal": imgLocal,
+                                "imgUrl": jQuery("input[name='"+imgLocal+"']").val()
+                            },
+                            type: "POST",
+                            dataType: "text",
+                            success: function (data) {
+                                alert(data);
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert(XMLHttpRequest.responseText);
+                            }
+                        });
+
+                        editor.hideDialog();
+                    }
+                });
+            });
+            
+        });
+    });
+
+</script>
+

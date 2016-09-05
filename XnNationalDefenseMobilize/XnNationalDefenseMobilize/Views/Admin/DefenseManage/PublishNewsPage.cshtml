@@ -70,12 +70,12 @@
                             <label class="col-md-3 control-label" for="email">分类</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="classify">
-                                    <option value="rmwz">人民武装</option>
-                                    <option value="gfjy">国防教育</option>
-                                    <option value="jtzb">交通战备</option>
-                                    <option value="gmjj">国民经济</option>
-                                    <option value="rmfk">人民防空</option>
-                                    <option value="xxdy">信息动员</option>
+                                    <option value="1">人民武装</option>
+                                    <option value="2">国防教育</option>
+                                    <option value="3">交通战备</option>
+                                    <option value="4">国民经济</option>
+                                    <option value="5">人民防空</option>
+                                    <option value="6">信息动员</option>
                                 </select>
                             </div>
                         </div>
@@ -98,18 +98,10 @@
             内容编辑
         </div>
         <div class="panel-body">
-
-            <form name="text" action="@Url.Content("~/PreviewNews")" method="post">
-
-
-                <textarea name="content" style="width: 100%; height: 800px; visibility: hidden; display: block;">KindEditor</textarea>
-
-
+                <textarea name="content" style="width: 100%; height: 800px; visibility: hidden; display: block;"></textarea>
                 <input type="button" name="publish" value="发布" class="btn btn-primary" />
                 <input type="button" name="preview" value="预览" class="btn btn-primary" data-toggle="modal" data-target="#preview"/>
                 <input type="button" name="clear" value="清空" class="btn btn-primary" />
-            </form>
-
         </div>
     </div>
 </div>
@@ -206,6 +198,7 @@
                 data: arr,
                 success: function (data) {
                     alert(data);
+                    window.location.href = "@Url.Content("~/DefenseManage")";
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(XMLHttpRequest.responseText);

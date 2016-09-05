@@ -23,10 +23,12 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         [HttpPost]
-        public ActionResult ChangeSlogan(String newSlogan, String sloganId)
+        public ActionResult ChangeSlogan()
         {
-            Slogan slogan = sloganContxt.sloganLists.Find(int.Parse(sloganId));
-            slogan.slogan__content = newSlogan;
+            Slogan slogan = new Slogan();
+            slogan.slogan_id = int.Parse(Request.Form["slogan_id"]);
+            slogan.slogan__content = Request.Form["sloganContent"];
+            slogan.slogan_location = Request.Form["slogan_localtion"];
 
             if (ModelState.IsValid)
             {

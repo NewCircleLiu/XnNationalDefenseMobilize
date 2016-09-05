@@ -98,7 +98,7 @@
             <form name="text" action="@Url.Content("~/PreviewNews")" method="post">
 
 
-                <textarea name="content" style="width: 100%; height: 800px; visibility: hidden; display: block;">KindEditor</textarea>
+                <textarea name="content" style="width: 100%; height: 800px; visibility: hidden; display: block;"></textarea>
 
 
                 <input type="button" name="publish" value="发布" class="btn btn-primary" />
@@ -186,6 +186,8 @@
                 text = text.replace(">", "#gt;");
             }
 
+            text = jQuery.param({ "text": text });
+
             var title = jQuery("input[name='title']").val();
             var author = jQuery("input[name='author']").val();
             var from = jQuery("input[name='from']").val();
@@ -196,7 +198,7 @@
             }
            
             var arr = jQuery("#base_info").serialize();
-            arr = arr + "&text=" + text;
+            arr = arr + "&" + text;
 
             jQuery.ajax({
                 url: "@Url.Content("~/NewsManage/PublishNews")",

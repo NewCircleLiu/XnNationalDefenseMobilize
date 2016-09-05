@@ -898,8 +898,11 @@ if (typeof jQuery === 'undefined') {
 
   $.fn.dropdown.noConflict = function () {
     $.fn.dropdown = old
+
     return this
   }
+
+
 
 
   // APPLY TO STANDARD DROPDOWN ELEMENTS

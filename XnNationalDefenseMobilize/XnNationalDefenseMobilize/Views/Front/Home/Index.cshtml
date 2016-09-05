@@ -2,20 +2,36 @@
     ViewBag.Title = "首页";
 }
 
+@using XnNationalDefenseMobilize.Models.Slogan
+@using XnNationalDefenseMobilize.Models.Master
+
+@{
+    MasterViewModel masterData = new MasterViewModel();
+    SloganContext sloganContxt = masterData.SloganTable;
+}
+
 <style>
     .nav-tabs > li.active > a,
     .nav-tabs > li.active > a:focus,
     .nav-tabs > li.active > a:hover
     {
-        background-color: #efefef;
+        /*background-color: #efefef;*/
+        background-color:white;
     }
     a:visited, a:focus
     {
         text-decoration: none;
     }
+    a {
+        color:black;
+    }
     .nav-tabs > li
     {
         font-weight:bold;
+    }
+    body
+    {
+        background-color:white;
     }
 </style>
 
@@ -29,7 +45,7 @@
     <div class="container">
         <div class="about-header">
             <h2>国防动员</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">听党指挥，能打胜仗，作风优良。 </h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@sloganContxt.sloganLists.Find(1).slogan__content</h2>
             <div class="clearfix"></div>
         </div>
         <div class="about-grid" style="overflow: hidden">
@@ -53,7 +69,7 @@
     <div class="container">
         <div class="about-header">
             <h2>新闻聚焦</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">国防是国家生存与发展的安全保障。 </h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@sloganContxt.sloganLists.Find(2).slogan__content</h2>
             <div class="clearfix"></div>
         </div>
         <div class="news-grids">
@@ -164,7 +180,7 @@
     <div class="container">
         <div class="about-header">
             <h2>媒体印象</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">铁的纪律，铁的连队，铁的作风，铁的素质。 </h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@sloganContxt.sloganLists.Find(3).slogan__content</h2>
             <div class="clearfix"></div>
         </div>
         <div class="mediaimpress-grids">
@@ -275,7 +291,7 @@
     <div class="container">
         <div class="about-header" style="overflow: auto; margin: 20px  auto">
             <h2 style="float: left">军营生活</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">团结奋进，无私奉献，为建设新世纪现代化军队而不断开拓创新。</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@sloganContxt.sloganLists.Find(4).slogan__content</h2>
         </div>
         <div class="col-md-3" style="padding-left: 0">
             <img src="@Url.Content("~/Image/home/slider1.png")" width="100%" alt=""/>

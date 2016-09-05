@@ -64,12 +64,12 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
 
         //修改链接
         [HttpPost]
-        public ActionResult ModifyLink(String linkID,String LinkName, String LinkAddress)
+        public ActionResult ModifyLink()
         {
             LinkList linkList = new LinkList();
-            linkList.link_id = int.Parse(linkID);
-            linkList.link_name = LinkName;
-            linkList.link_url = LinkAddress;
+            linkList.link_id = int.Parse(Request.Form["link_id"]);
+            linkList.link_name = Request.Form["newLinkName"];
+            linkList.link_url = Request.Form["newLinkAddress"];
             if(ModelState.IsValid){
                 linkListContext.Entry(linkList).State = EntityState.Modified;
                 linkListContext.SaveChanges();

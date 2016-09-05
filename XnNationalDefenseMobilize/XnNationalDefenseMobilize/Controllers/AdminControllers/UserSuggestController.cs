@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XnNationalDefenseMobilize.Models.Master;
+using XnNationalDefenseMobilize.Models.utility;
 
 namespace XnNationalDefenseMobilize.Controllers.AdminControllers
 {
     public class UserSuggestController : Controller
     {
+        private SuggestContext suggestContext =new SuggestContext();
         //
         // GET: /UserSuggest/
 
-        public ActionResult Index()
+        public ActionResult Index(int page_id = 1)
         {
-            return View();
+            IEnumerable<Suggest> suggestList = from item in suggestContext.suggestLists
+                                               orderby item.suggest_id
+                                               select item;
+
+            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(suggestList, 10, 5, page_id);
+            return View(multiPagesContrler);
         }
 
         //刷新和载入数据

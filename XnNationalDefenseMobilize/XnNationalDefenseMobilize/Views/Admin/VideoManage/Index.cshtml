@@ -3,6 +3,14 @@
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
 
+@using XnNationalDefenseMobilize.Models.Media
+@using XnNationalDefenseMobilize.Models.utility
+@model  MulltiPageDisplayContrler
+
+@{   
+    List<Video> curr_page_data = (List<Video>)Model.curr_page_data;
+}
+
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
@@ -61,68 +69,64 @@
                     <th>选择</th>
                     <th>视频名称</th>
                     <th>分类</th>
-                    <th>格式</th>
-                    <th>大小</th>
+                    <th>视频首图</th>
                     <th>上传时间</th>
-                    <th>播放次数</th>
                     <th>操作</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="1001" name="video">
-                            </label>
-                        </div>
-                    </td>
-                    <td>征兵宣传片</td>
-                    <td>征兵宣传</td>
-                    <td>mp4</td>
-                    <td>200MB</td>
-                    <td>2016-8-26 14:22</td>
-                    <td>20</td>
-                    <td>
-                        <a id="1001" onclick="Delete(this.id)">删除</a>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="1002" name="video">
-                            </label>
-                        </div>
-                    </td>
-                    <td>国防宣传片</td>
-                    <td>国防教育</td>
-                    <td>mp4</td>
-                    <td>200MB</td>
-                    <td>2016-8-26 14:22</td>
-                    <td>20</td>
-                    <td>
-                        <a id="1001" onclick="Delete(this.id)">删除</a>
-                    </td>
-                </tr>
-
+                @{
+                    Video[] VideoArray = curr_page_data.ToArray();
+                    for (int i = 0; i < curr_page_data.Count(); i++)
+                    {
+                    <tr>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="@VideoArray[i].video_id" name="video_id">
+                                </label>
+                            </div>
+                        </td>
+                        <td>@VideoArray[i].video_title</td>
+                        <td>@VideoArray[i].videoCategory.videoCategory_name</td>
+                        <td>@VideoArray[i].video_covers</td>
+                        <td>@VideoArray[i].video_release_time</td>
+                        <td>
+                            <a id="@VideoArray[i].video_id" onclick="Delete(this.id)">删除</a>
+                        </td>
+                    </tr>
+                    }
+                }
             </tbody>
         </table>
     </form>
 
-    <center>
-        <ul class="pagination">
-                <li><a href="">&laquo;</a></li>
-                <li><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">5</a></li>
-                <li><a href="">&raquo;</a></li>
-            </ul>
-    </center>
+    @{
+        int prePageId = (Model.curr_page_index > 1) ? Model.curr_page_index - 1 : 1;
+        int nextPageId = (Model.curr_page_index < Model.count_pages) ? Model.curr_page_index + 1 : Model.count_pages;
+    }
+
+    <div style="text-align: center">
+        <div class="pagination">
+            <a href="@Url.Content("~/VideoManage/Index?page_id=1")" class="navlinks">首页</a>
+            <a href="@Url.Content("~/VideoManage/Index?page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
+
+            @for (int i = Model.start_page_index; i <= Model.end_page_index; i++)
+            {
+                <a id="@i" href="@Url.Content("~/VideoManage/Index?page_id=" + i)" class="navlinks">@i</a>
+            }
+
+            <a href="@Url.Content("~/VideoManage/Index?page_id=" + nextPageId)" class="navlinks">下一页 ></a>
+            <a href="@Url.Content("~/VideoManage/Index?page_id=" + Model.count_pages)" class="navlinks">末页</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var id_name = "@Model.curr_page_index.ToString()";
+        document.getElementById(id_name).className = "navlinks current";
+    </script>
 
 
     <!-- 上传视频窗口 -->
@@ -297,41 +301,41 @@
             }
             jQuery.ajax({
                 url: "@Url.Content("~/VideoManage/UploadVideo")",
-            data: jQuery("#videoInfo").serialize(),
-            type: "POST",
-            dataType: "text",
-            success: function (data) {
-                jQuery('#addVideo').modal('hide');
-                alert(data);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.responseText);
-            }
+                data: jQuery("#videoInfo").serialize(),
+                type: "POST",
+                dataType: "text",
+                success: function (data) {
+                    jQuery('#addVideo').modal('hide');
+                    alert(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
         });
-    });
 
-    //搜索视频
-    jQuery("#search").click(function () {
-        var s_type = jQuery("#s_type").val();
-        var s_text = jQuery("#s_type").val();
+        //搜索视频
+        jQuery("#search").click(function () {
+            var s_type = jQuery("#s_type").val();
+            var s_text = jQuery("#s_type").val();
 
-        if (jQuery("#s_text").val().length <= 0) {
-            alert("请输入搜索条件");
-            return;
-        }
-        jQuery.ajax({
-            url: "@Url.Content("~/VideoManage/Search")",
-            data: "s_type=" + s_type + "&s_text=" + s_text,
-            type: "POST",
-            dataType: "text",
-            success: function (data) {
-                alert(data);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.responseText);
+            if (jQuery("#s_text").val().length <= 0) {
+                alert("请输入搜索条件");
+                return;
             }
+            jQuery.ajax({
+                url: "@Url.Content("~/VideoManage/Search")",
+                data: "s_type=" + s_type + "&s_text=" + s_text,
+                type: "POST",
+                dataType: "text",
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
         });
-    });
 </script>
 
 

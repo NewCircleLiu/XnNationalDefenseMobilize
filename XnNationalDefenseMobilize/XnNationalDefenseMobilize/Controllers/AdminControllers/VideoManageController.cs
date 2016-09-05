@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XnNationalDefenseMobilize.Models.Media;
+using XnNationalDefenseMobilize.Models.utility;
 
 namespace XnNationalDefenseMobilize.Controllers.BackControllers
 {
     public class VideoManageController : Controller
     {
+
+        private VideoContext videoContext = new VideoContext();
         //
         // GET: /VideoManage/
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        //刷新
-        [HttpGet]
-        public ActionResult Refresh()
+        public ActionResult Index(int page_id = 1)
         {
 
-            return Content("刷新成功");
+            IEnumerable<Video> videoList = videoContext.videoLists;
+
+            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(videoList, 10, 5, page_id);
+
+            return View(multiPagesContrler);
         }
 
         //删除

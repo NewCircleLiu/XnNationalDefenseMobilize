@@ -72,6 +72,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             news.news_author = Request.Form["author"];
             news.news_source = Request.Form["from"];
             news.news_abstract = Request.Form["abstract"];
+            news.new_release_time = DateTime.Now;
 
             String text = Request.Form["text"];
             text = text.Replace("#lt;", "<");
@@ -100,8 +101,6 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         public ActionResult PublishNews()
         {
             NewsInfo news = new NewsInfo();
-            NewsCategoryContext newsCategoryContext = new NewsCategoryContext();
-            //NewsCategory newsCategory = null;
 
             
             news.news_title = Request.Form["title"];
@@ -117,6 +116,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
              
             int categoryId = int.Parse(Request.Form["classify"]);
             news.newsCategory_id = categoryId;
+            news.newsCategory = newsContext.newsCategoryLists.Find(categoryId);
 
             if (ModelState.IsValid)
             {

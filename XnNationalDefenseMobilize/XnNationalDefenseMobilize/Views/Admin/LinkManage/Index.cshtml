@@ -60,22 +60,22 @@
                 @{
                     for (int i = 0; i < linkArray.Length; i++)
                     {
-                        <tr>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="linkid" type="checkbox" value="@linkArray[i].link_id">
-                                    </label>
-                                </div>
-                            </td>
-                            <td>@linkArray[i].link_id</td>
-                            <td>@linkArray[i].link_name</td>
-                            <td>@linkArray[i].link_url</td>
-                            <td>
-                                <a onclick="modifyLink(@(linkArray[i].link_id),@(linkArray[i].link_name),@(linkArray[i].link_url))">修改</a>|
+                    <tr>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="linkid" type="checkbox" value="@linkArray[i].link_id">
+                                </label>
+                            </div>
+                        </td>
+                        <td>@linkArray[i].link_id</td>
+                        <td>@linkArray[i].link_name</td>
+                        <td>@linkArray[i].link_url</td>
+                        <td>
+                            <a onclick="showModyfyDialog('@linkArray[i].link_id','@linkArray[i].link_name','@linkArray[i].link_url')">修改</a>|
                                 <a onclick="Delete(this.id)" id="@linkArray[i].link_id">删除</a>
-                            </td>
-                        </tr>
+                        </td>
+                    </tr>
                     }
                 }
 
@@ -138,16 +138,17 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal" role="form" id="modifyLinkForm">
+                        <input type="hidden" name="link_id"/>
                         <div class="form-group">
                             <label for="firstname" class="col-sm-2 control-label">链接名称</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="newName" id="newName">
+                                <input type="text" class="form-control" name="newLinkName" id="newLinkName">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="lastname" class="col-sm-2 control-label">链接地址</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="newAddress" id="newAddress">
+                                <input type="text" class="form-control" name="newLinkAddress" id="newLinkAddress">
                             </div>
                         </div>
                     </form>
@@ -202,7 +203,7 @@
             type: "POST",
             dataType: "text",
             success: function (data) {
-                $('#addLink').modal('hide');
+                jQuery('#addLink').modal('hide');
                 alert(data);
                 refresh();
             },
@@ -212,37 +213,37 @@
         });
     });
 
+    function showModyfyDialog(link_id, link_name, link_url) {
+        jQuery("input[name='newLinkName']").val(link_name);
+        jQuery("input[name='newLinkAddress']").val(link_url);
+        jQuery("input[name='link_id']").val(link_id);
+        jQuery('#modifyLink').modal('show');
+    }
+
     //修改连接
-    function modifyLink(linkId, linkName, linkUri) {
+    jQuery("#btn_modifyLink").click(function () {
+        var linkName = jQuery("input[name='newLinkName']").val();
+        var LinkAddress = jQuery("input[name='newLinkAddress']").val();
 
-        alert("lll");
-
-        //$('#modifyLink').modal('show');
-
-        jQuery("input[id='newName']").attr("placeholder", linkName);
-        newAddress = jQuery("input[id='newAddress']").attr("placeholder", linkUri);
-
-        var newName = jQuery("input[id='newName']").val();
-        var newAddress = jQuery("input[id='newAddress']").val();
-
-        if (newName.length == 0) {
+        if (linkName.length <= 0) {
             alert("请输入链接名称");
             return;
         }
-        if (newAddress.length == 0) {
+        if (LinkAddress.length <= 0) {
             alert("请输入链接地址");
             return;
-        } else if (newAddress.indexOf("http://") < 0) {
+        } else if (LinkAddress.indexOf("http://") < 0) {
             alert("请检查地址格式是否正确(例：http://www.baidu.com)");
             return;
         }
+
         jQuery.ajax({
             url: "@Url.Content("~/LinkManage/ModifyLink")",
-            data: jQuery("#addLinkForm").serialize() + "&linkID=" + linkId,
+            data: jQuery("#modifyLinkForm").serialize(),
             type: "POST",
             dataType: "text",
             success: function (data) {
-                $('#modifyLink').modal('hide')
+                jQuery('#modifyLink').modal('hide')
                 alert(data);
                 refresh();
             },
@@ -250,7 +251,8 @@
                 alert(XMLHttpRequest.responseText);
             }
         });
-    }
+    });
+
 
     //全选
     jQuery("#select_all").click(function () {
@@ -278,35 +280,9 @@
         if (isSure) {
             jQuery.ajax({
                 url: "@Url.Content("~/LinkManage/Delete")",
-                dataType: "text",
-                type: "POST",
-                data: { "id": id },
-                success: function (data) {
-                    alert(data);
-                    refresh();
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert(XMLHttpRequest.responseText);
-                }
-            });
-        }
-    }
-
-    //批量删除
-    jQuery("#delete_selected").click(function () {
-        var n = jQuery("input[name='linkid']:checked").length;
-        if (n == 0) {
-            alert("请至少选择一条");
-        }
-        else {
-            var isSure = confirm("您确定要删除选中的链接？");
-            if (isSure) {
-                var data = jQuery("#selectedForm").serialize();
-                jQuery.ajax({
-                    url: "@Url.Content("~/LinkManage/DeleteMore")",
                     dataType: "text",
                     type: "POST",
-                    data: data,
+                    data: { "id": id },
                     success: function (data) {
                         alert(data);
                         refresh();
@@ -317,18 +293,44 @@
                 });
             }
         }
-    });
 
-    //搜索
-    jQuery("#search").click(function () {
-        var s_type = jQuery("#s_type").val();
-        var s_text = jQuery("#s_text").val();;
-        if (s_text.length <= 0) {
-            alert("请输入查询条件");
-            return;
-        }
-        jQuery.ajax({
-            url: "@Url.Content("~/LinkManage/Search")",
+        //批量删除
+        jQuery("#delete_selected").click(function () {
+            var n = jQuery("input[name='linkid']:checked").length;
+            if (n == 0) {
+                alert("请至少选择一条");
+            }
+            else {
+                var isSure = confirm("您确定要删除选中的链接？");
+                if (isSure) {
+                    var data = jQuery("#selectedForm").serialize();
+                    jQuery.ajax({
+                        url: "@Url.Content("~/LinkManage/DeleteMore")",
+                        dataType: "text",
+                        type: "POST",
+                        data: data,
+                        success: function (data) {
+                            alert(data);
+                            refresh();
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert(XMLHttpRequest.responseText);
+                        }
+                    });
+                }
+            }
+        });
+
+        //搜索
+        jQuery("#search").click(function () {
+            var s_type = jQuery("#s_type").val();
+            var s_text = jQuery("#s_text").val();;
+            if (s_text.length <= 0) {
+                alert("请输入查询条件");
+                return;
+            }
+            jQuery.ajax({
+                url: "@Url.Content("~/LinkManage/Search")",
             data: "s_type=" + s_type + "&s_text=" + s_text,
             type: "POST",
             dataType: "text",

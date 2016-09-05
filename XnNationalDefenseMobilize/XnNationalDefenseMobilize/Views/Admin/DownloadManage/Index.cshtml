@@ -2,6 +2,8 @@
     ViewBag.Title = "下载中心";
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
+@using XnNationalDefenseMobilize.Models.Download
+@model  DownloadContext
 
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -61,7 +63,7 @@
                                 </td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
-                                    <input type="button" class="btn btn-primary" value="刷新" id="file_refresh" name="refresh" />
+                                    <input type="button" class="btn btn-primary" value="刷新" onclick="refresh()"/>
                                 </td>
                             </tr>
                         </table>
@@ -73,67 +75,37 @@
                                     <th>选择</th>
                                     <th>ID</th>
                                     <th>文件名称</th>
-                                    <th>文件类型</th>
-                                    <th>文件大小</th>
                                     <th>上传时间</th>
-                                    <th>下载次数</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="1001" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>大学生入伍宣传手册</td>
-                                    <td>doc</td>
-                                    <td>120KB</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="1001" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="1002" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>大学生入伍宣传手册</td>
-                                    <td>doc</td>
-                                    <td>120KB</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="1002" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
+                                @{
+                                    IEnumerable<Download> file = from item in Model.downloadLists.ToArray()
+                                                      where item.downloadCategory_id==1
+                                                      select item;
+                                    for (int i = 0; i < file.ToArray().Length;i++ )
+                                    {
+                                         <tr>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="@file.ToArray()[i].download_id" name="news">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>@file.ToArray()[i].download_id</td>
+                                            <td>@file.ToArray()[i].download_title</td>
+                                            <td>@file.ToArray()[i].download_release_time</td>
+                                            <td>
+                                                <a id="@file.ToArray()[i].download_id" onclick="Delete(this.id)">删除</a>
+                                            </td>
+                                        </tr>
+                                    }                  
+                                }
                             </tbody>
                         </table>
                     </form>
-
-                    <center>
-                        <ul class="pagination">
-                            <li><a href="">&laquo;</a></li>
-                            <li><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">&raquo;</a></li>
-                        </ul>
-                    </center>
-
                 </div>
                 <!---------------------- 手机应用模块---------------------->
                 <div class="tab-pane fade" id="tab2">
@@ -174,7 +146,7 @@
                                 </td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
-                                    <input type="button" class="btn btn-primary" value="刷新" id="phone_app_refresh" name="refresh" />
+                                    <input type="button" class="btn btn-primary" value="刷新" onclick="refresh()"/>
                                 </td>
                             </tr>
                         </table>
@@ -186,67 +158,38 @@
                                 <tr>
                                     <th>选择</th>
                                     <th>ID</th>
-                                    <th>应用名称</th>
-                                    <th>应用类型</th>
-                                    <th>应用大小</th>
+                                    <th>文件名称</th>
                                     <th>上传时间</th>
-                                    <th>下载次数</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="2001" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>愤怒的小鸟</td>
-                                    <td>安卓应用</td>
-                                    <td>12MB</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="2001" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="2002" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>愤怒的小鸟</td>
-                                    <td>苹果应用</td>
-                                    <td>12MB</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="2002" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
+                                @{
+                                    IEnumerable<Download> apps = from item in Model.downloadLists.ToArray()
+                                                      where item.downloadCategory_id==2
+                                                      select item;
+                                    for (int i = 0; i < apps.ToArray().Length; i++)
+                                    {
+                                         <tr>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="@apps.ToArray()[i].download_id" name="news">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>@apps.ToArray()[i].download_id</td>
+                                            <td>@apps.ToArray()[i].download_title</td>
+                                            <td>@apps.ToArray()[i].download_release_time</td>
+                                            <td>
+                                                <a id="@apps.ToArray()[i].download_id" onclick="Delete(this.id)">删除</a>
+                                            </td>
+                                        </tr>
+                                    }                  
+                                }
                             </tbody>
                         </table>
                     </form>
-
-                    <center>
-                        <ul class="pagination">
-                            <li><a href="">&laquo;</a></li>
-                            <li><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">&raquo;</a></li>
-                        </ul>
-                    </center>
                 </div>
                 <!---------------------- pc软件模块---------------------->
                 <div class="tab-pane fade" id="tab3">
@@ -287,7 +230,7 @@
                                 </td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
-                                    <input type="button" class="btn btn-primary" value="刷新" id="pc_refresh" name="refresh" />
+                                    <input type="button" class="btn btn-primary" value="刷新" onclick="refresh()"/>
                                 </td>
                             </tr>
                         </table>
@@ -299,65 +242,38 @@
                                 <tr>
                                     <th>选择</th>
                                     <th>ID</th>
-                                    <th>软件名称</th>
-                                    <th>软件大小</th>
+                                    <th>文件名称</th>
                                     <th>上传时间</th>
-                                    <th>下载次数</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="3001" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>暴风播放器</td>
-                                    <td>120MB</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="3001" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="3002" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>暴风播放器</td>
-                                    <td>120MB</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="3002" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
+                                @{
+                                    IEnumerable<Download> pcapps = from item in Model.downloadLists.ToArray()
+                                                      where item.downloadCategory_id==3
+                                                      select item;
+                                    for (int i = 0; i < pcapps.ToArray().Length; i++)
+                                    {
+                                         <tr>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="@pcapps.ToArray()[i].download_id" name="news">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>@pcapps.ToArray()[i].download_id</td>
+                                            <td>@pcapps.ToArray()[i].download_title</td>
+                                            <td>@pcapps.ToArray()[i].download_release_time</td>
+                                            <td>
+                                                <a id="@pcapps.ToArray()[i].download_id" onclick="Delete(this.id)">删除</a>
+                                            </td>
+                                        </tr>
+                                    }                  
+                                }
                             </tbody>
                         </table>
                     </form>
-
-
-                    <center>
-                        <ul class="pagination">
-                            <li><a href="">&laquo;</a></li>
-                            <li><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">&raquo;</a></li>
-                        </ul>
-                    </center>
                 </div>
                 <!---------------------- 图书管理模块---------------------->
                 <div class="tab-pane fade" id="tab4">
@@ -398,86 +314,50 @@
                                 </td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
-                                    <input type="button" class="btn btn-primary" value="刷新" id="book_refresh" name="refresh" />
+                                    <input type="button" class="btn btn-primary" value="刷新" onclick="refresh()" />
                                 </td>
                             </tr>
                         </table>
                     </form>
 
                     <form id="book">
-                        <table data-toggle="table">
+                       <table data-toggle="table">
                             <thead>
                                 <tr>
                                     <th>选择</th>
                                     <th>ID</th>
-                                    <th>图书名称</th>
-                                    <th>作者</th>
-                                    <th>出版社</th>
-                                    <th>文件格式</th>
-                                    <th>文件大小</th>
+                                    <th>文件名称</th>
                                     <th>上传时间</th>
-                                    <th>下载次数</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="4001" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>红楼梦</td>
-                                    <td>曹雪芹</td>
-                                    <td>新华出版社</td>
-                                    <td>pdf</td>
-                                    <td>2MB</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="4001" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="4002" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>红楼梦</td>
-                                    <td>曹雪芹</td>
-                                    <td>新华出版社</td>
-                                    <td>pdf</td>
-                                    <td>2MB</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="4002" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
+                                @{
+                                    IEnumerable<Download> books = from item in Model.downloadLists.ToArray()
+                                                      where item.downloadCategory_id==4
+                                                      select item;
+                                    for (int i = 0; i < books.ToArray().Length; i++)
+                                    {
+                                         <tr>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="@books.ToArray()[i].download_id" name="news">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>@books.ToArray()[i].download_id</td>
+                                            <td>@books.ToArray()[i].download_title</td>
+                                            <td>@books.ToArray()[i].download_release_time</td>
+                                            <td>
+                                                <a id="@books.ToArray()[i].download_id" onclick="Delete(this.id)">删除</a>
+                                            </td>
+                                        </tr>
+                                    }                  
+                                }
                             </tbody>
                         </table>
                     </form>
-
-
-                    <center>
-                        <ul class="pagination">
-                            <li><a href="">&laquo;</a></li>
-                            <li><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">&raquo;</a></li>
-                        </ul>
-                    </center>
                 </div>
             </div>
         </div>
@@ -509,10 +389,10 @@
                             <label for="lastname" class="col-sm-2 control-label">文件类别</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="classify">
-                                    <option value="f_file">文件</option>
-                                    <option value="f_app">手机应用</option>
-                                    <option value="f_pc">pc软件</option>
-                                    <option value="f_book">书籍</option>
+                                    <option value="1">文件</option>
+                                    <option value="2">手机应用</option>
+                                    <option value="3">pc软件</option>
+                                    <option value="4">书籍</option>
                                 </select>
                             </div>
                         </div>
@@ -547,6 +427,12 @@
 
 </div>
 <script>
+
+    //刷新
+    function refresh() {
+        window.location.href = "@Url.Content("~/DownloadManage/Index")";
+    }
+
 
     //全选
     jQuery("input[name='select_all']").click(function () {
@@ -586,18 +472,24 @@
 
     //删除
     function Delete(id) {
-        jQuery.ajax({
-            url: "@Url.Content("~/DownloadManage/Delete")",
-            dataType: "text",
-            type: "POST",
-            data: "id=" + id,
-            success: function (data) {
-                alert(data);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.responseText);
-            }
-        });
+        var isSure = confirm("您确认要删除此文件吗？", "");
+        if (isSure) {
+            jQuery.ajax({
+                url: "@Url.Content("~/DownloadManage/Delete")",
+                dataType: "text",
+                type: "POST",
+                data: { "id": id },
+                success: function (data) {
+                    window.location.href = "@Url.Content("~/DownloadManage/Index")";
+                    alert(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
+        } else {
+            return;
+        }
     }
 
     //批量删除
@@ -623,52 +515,26 @@
                 data: data,
                 success: function (data) {
                     alert(data);
-                    refresh();
+                    window.location.href = "@Url.Content("~/DownloadManage/Index")";
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(XMLHttpRequest.responseText);
                 }
             });
-            }
+        }
     });
 
-
-        //刷新
-        jQuery("input[name='refresh']").click(function () {
-            var model_id;
-            switch (this.id) {
-                case 'file_refresh': model_id = "file_model"; break;
-                case 'phone_app_refresh': model_id = "phone_app"; break;
-                case 'pc_refresh': model_id = "pc"; break;
-                case 'book_refresh': model_id = "book"; break;
-            }
-            jQuery.ajax({
-                url: "@Url.Content("~/DownloadManage/Refresh")",
-                dataType: "text",
-                type: "POST",
-                data: "model_id=" + model_id,
-                success: function (data) {
-                    alert(data);
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert(XMLHttpRequest.responseText);
-                }
-            });
-        });
-
-
-
-        //搜索
-        jQuery("input[name='search']").click(function () {
-            var model = this.id;
-            var s_type = jQuery("input[name='s_type']").val();
-            var s_text = jQuery("input[name='s_text']").val();;
-            if (s_text.length <= 0) {
-                alert("请输入查询条件");
-                return;
-            }
-            jQuery.ajax({
-                url: "@Url.Content("~/DownloadManage/Search")",
+    //搜索
+    jQuery("input[name='search']").click(function () {
+        var model = this.id;
+        var s_type = jQuery("input[name='s_type']").val();
+        var s_text = jQuery("input[name='s_text']").val();;
+        if (s_text.length <= 0) {
+            alert("请输入查询条件");
+            return;
+        }
+        jQuery.ajax({
+            url: "@Url.Content("~/DownloadManage/Search")",
                 data: "model=" + model + "&s_type=" + s_type + "&s_text=" + s_text,
                 type: "POST",
                 dataType: "text",
@@ -682,11 +548,11 @@
         });
 
 
-        $(function () { $('#addfile').modal('hide') });
-        //上传视频
-        KindEditor.ready(function (K) {
-            var editor = K.editor({
-                uploadJson: '@Url.Content("~/editor/upload_json.ashx")',
+    $(function () { $('#addfile').modal('hide') });
+    //上传
+    KindEditor.ready(function (K) {
+        var editor = K.editor({
+            uploadJson: '@Url.Content("~/editor/upload_json.ashx")',
                 fileManagerJson: '@Url.Content("~/editor/file_manager_json.ashx")',
                 allowFileManager: true
             });
@@ -703,29 +569,29 @@
             });
         });
 
-            jQuery("#ok_file").click(function () {
-                var fileName = jQuery("#fileName").val();
-                var fileUrl = jQuery("#fileUrl").val();
-                if (fileName.length <= 0) {
-                    alert("请输入文件名称");
-                    return;
-                }
-                if (fileUrl.length <= 0) {
-                    alert("请上传文件");
-                    return;
-                }
-                jQuery.ajax({
-                    url: "@Url.Content("~/DownloadManage/Upload")",
-                    data: jQuery("#fileInfo").serialize(),
-                    type: "POST",
-                    dataType: "text",
-                    success: function (data) {
-                        jQuery('#addVideo').modal('hide');
-                        alert(data);
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert(XMLHttpRequest.responseText);
-                    }
-                });
+    jQuery("#ok_file").click(function () {
+        var fileName = jQuery("#fileName").val();
+        var fileUrl = jQuery("#fileUrl").val();
+        if (fileName.length <= 0) {
+            alert("请输入文件名称");
+            return;
+        }
+        if (fileUrl.length <= 0) {
+            alert("请上传文件");
+            return;
+        }
+        jQuery.ajax({
+            url: "@Url.Content("~/DownloadManage/Upload")",
+            data: jQuery("#fileInfo").serialize(),
+            type: "POST",
+            dataType: "text",
+            success: function (data) {
+                window.location.href = "@Url.Content("~/DownloadManage/Index")";
+                jQuery('#addfile').modal('hide');
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
     });
 </script>

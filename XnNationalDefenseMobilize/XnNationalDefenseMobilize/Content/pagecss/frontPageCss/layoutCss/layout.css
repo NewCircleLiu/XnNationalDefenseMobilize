@@ -464,7 +464,7 @@ color: #212121;
 /*-- //banner-bottom --*/
 /*-- about --*/
 .about {
-background: #efefef;
+/*background: #efefef;*/
 padding-top:30px;
 }
 .about-header{
@@ -513,7 +513,7 @@ padding: 30px 0;
 
 .news,
 .mediaimpress {
-background: #efefef;
+/*background: #efefef;*/
 }
 .news-grid p,
 .mediaimpress-grid p {
@@ -581,7 +581,7 @@ font-weight: 700;
 padding: 15px;
 }
 .army-image {
-background: #efefef;
+/*background: #efefef;*/
 padding-bottom:10px;
 }
 /*--flexisel--*/

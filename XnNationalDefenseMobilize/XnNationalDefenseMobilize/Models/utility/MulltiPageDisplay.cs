@@ -8,6 +8,7 @@ using XnNationalDefenseMobilize.Models.DefenseMobilize;
 using XnNationalDefenseMobilize.Models.GrassrootWork;
 using XnNationalDefenseMobilize.Models.PolycyAdvice;
 using XnNationalDefenseMobilize.Models.MediaImpress;
+using XnNationalDefenseMobilize.Models.Master;
 
 namespace XnNationalDefenseMobilize.Models.utility
 {
@@ -106,6 +107,14 @@ namespace XnNationalDefenseMobilize.Models.utility
                 case "System.Data.Entity.Infrastructure.DbQuery`1[XnNationalDefenseMobilize.Models.MediaImpress.MediaImpress]":
                     {
                         IEnumerable<MediaImpress.MediaImpress> newsItems = (IEnumerable<MediaImpress.MediaImpress>)data;
+                        GetRelatedValues(newsItems.Count());
+                        curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
+                        break;
+                    }
+
+                case "System.Data.Entity.Infrastructure.DbQuery`1[XnNationalDefenseMobilize.Models.Master.Suggest]":
+                    {
+                        IEnumerable<Suggest> newsItems = (IEnumerable<Suggest>)data;
                         GetRelatedValues(newsItems.Count());
                         curr_page_data = newsItems.ToList().GetRange(start_item_index, end_item_index - start_item_index);
                         break;

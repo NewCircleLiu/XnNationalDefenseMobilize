@@ -11,6 +11,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         //
         // GET: /BackIndex/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View();

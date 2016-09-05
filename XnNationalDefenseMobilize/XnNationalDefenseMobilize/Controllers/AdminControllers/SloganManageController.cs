@@ -17,11 +17,13 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
 
         SloganContext sloganContxt = new SloganContext();
 
+        [Authorize]
         public ActionResult Index()
         {
             return View(sloganContxt.sloganLists.ToList());
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult ChangeSlogan()
         {

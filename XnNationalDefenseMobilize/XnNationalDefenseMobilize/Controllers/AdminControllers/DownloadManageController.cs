@@ -14,6 +14,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         //
         // GET: /DownloadManage/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View(downloadContext);
@@ -31,6 +32,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //批量删除
+        [Authorize]
         [HttpPost]
         public ActionResult DeleteMore()
         {
@@ -47,6 +49,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //搜索
+        [Authorize]
         [HttpPost]
         public ActionResult Search()
         {
@@ -67,6 +70,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //上传
+        [Authorize]
         [HttpPost]
         public ActionResult Upload() {
             Download d = new Download();

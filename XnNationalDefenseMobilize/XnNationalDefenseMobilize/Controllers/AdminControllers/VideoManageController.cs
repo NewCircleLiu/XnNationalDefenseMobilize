@@ -15,6 +15,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         //
         // GET: /VideoManage/
 
+        [Authorize]
         public ActionResult Index(int page_id = 1)
         {
 
@@ -26,6 +27,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //删除
+        [Authorize]
         [HttpPost]
         public ActionResult Delete(String video_id)
         {
@@ -34,6 +36,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //批量删除
+        [Authorize]
         [HttpPost]
         public ActionResult DeleteMore()
         {
@@ -42,6 +45,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //上传视频
+        [Authorize]
         [HttpPost]
         public ActionResult UploadVideo()
         {
@@ -60,6 +64,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //搜索
+        [Authorize]
         [HttpPost]
         public ActionResult Search()
         {

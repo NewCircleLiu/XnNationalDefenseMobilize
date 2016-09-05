@@ -16,6 +16,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         //
         // GET: /DefenseManage/
 
+        [Authorize]
         public ActionResult Index(int page_id = 1)
         {
             IEnumerable<DefenseNews> newsList = from items in defenseNewsContext.defenseNewsLists
@@ -27,12 +28,14 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             return View(multiPagesContrler);
         }
 
+        [Authorize]
         public ActionResult PublishNewsPage()
         {
             return View();
         }
 
         //发布新闻
+        [Authorize]
         [HttpPost]
         public ActionResult PublishNews()
         {

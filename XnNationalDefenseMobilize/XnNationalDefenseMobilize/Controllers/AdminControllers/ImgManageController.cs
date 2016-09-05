@@ -11,12 +11,14 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         //
         // GET: /ImgManage/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
         //更换图片
+        [Authorize]
         [HttpPost]
         public ActionResult ImageChange(){
             String imgLocal = Request.Form["imgLocal"];

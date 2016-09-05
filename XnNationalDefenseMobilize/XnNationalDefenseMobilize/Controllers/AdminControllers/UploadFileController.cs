@@ -13,8 +13,9 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
     public class UploadFileController : Controller
     {
         //
-        
 
+
+        [Authorize]
         [HttpPost]
         public void Index()
         {
@@ -105,6 +106,7 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
             //return Content("ads");
         }
 
+        [Authorize]
         private void showError(string message)
         {
             Hashtable hash = new Hashtable();

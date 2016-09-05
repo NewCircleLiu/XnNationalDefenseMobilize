@@ -17,6 +17,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
 
         private NewsInfoContext newsContext = new NewsInfoContext();
 
+        [Authorize]
         public ActionResult Index(int page_id = 1)
         {
             IEnumerable<NewsInfo> newsList = from items in newsContext.newsInfoLists
@@ -29,6 +30,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //删除
+        [Authorize]
         [HttpPost]
         public ActionResult Delete(int newsId)
         {
@@ -39,6 +41,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //批量删除
+        [Authorize]
         [HttpPost]
         public ActionResult DeleteMore()
         {
@@ -55,6 +58,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //修改新闻页面
+        [Authorize]
         [HttpGet]
         public ActionResult ModifyNews(int id) {
             NewsInfo news = newsContext.newsInfoLists.Find(id);
@@ -62,6 +66,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //确定修改新闻
+        [Authorize]
         [HttpPost]
         public ActionResult ModifyNewsConfirm() {
 
@@ -91,12 +96,14 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //
+        [Authorize]
         public ActionResult PublishNewsPage()
         {
             return View();
         }
 
         //发布新闻
+        [Authorize]
         [HttpPost]
         public ActionResult PublishNews()
         {
@@ -127,6 +134,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //搜索
+        [Authorize]
         [HttpPost]
         public ActionResult Search()
         {

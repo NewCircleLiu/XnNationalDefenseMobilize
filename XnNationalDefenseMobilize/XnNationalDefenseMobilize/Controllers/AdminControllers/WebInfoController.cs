@@ -15,6 +15,7 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
 
         ContactContext contactContext = new ContactContext();
 
+        [Authorize]
         public ActionResult Index()
         {
             Contact contact = contactContext.ContactLists.Find(1);
@@ -22,6 +23,7 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
         }
 
         //修改信息
+        [Authorize]
         [HttpPost]
         public ActionResult ModifyInfo()
         {

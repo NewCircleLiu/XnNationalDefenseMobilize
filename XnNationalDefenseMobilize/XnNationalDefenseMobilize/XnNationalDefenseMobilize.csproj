@@ -207,6 +207,10 @@
     <Compile Include="Models\PolicyAdvice\CommonQuesContext.cs" />
     <Compile Include="Models\Slogan\SloganContext.cs" />
     <Compile Include="Models\Slogan\Slogan.cs" />
+    <Compile Include="Models\User\UserContext.cs" />
+    <Compile Include="Models\User\Rights.cs" />
+    <Compile Include="Models\User\User.cs" />
+    <Compile Include="Models\User\RightsContext.cs" />
     <Compile Include="Models\utility\MulltiPageDisplay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

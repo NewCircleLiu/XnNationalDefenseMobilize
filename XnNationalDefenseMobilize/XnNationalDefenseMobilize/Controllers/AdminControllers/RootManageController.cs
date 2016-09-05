@@ -10,13 +10,14 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
     {
         //
         // GET: /RootManage/
-
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
         //删除
+        [Authorize]
         [HttpPost]
         public ActionResult DeleteRole()
         {
@@ -25,6 +26,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //添加角色
+        [Authorize]
         [HttpPost]
         public ActionResult AddRole()
         {

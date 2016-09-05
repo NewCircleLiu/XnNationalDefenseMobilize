@@ -14,6 +14,7 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
         //
         // GET: /UserSuggest/
 
+        [Authorize]
         public ActionResult Index(int page_id = 1)
         {
             IEnumerable<Suggest> suggestList = from item in suggestContext.suggestLists
@@ -26,6 +27,7 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
 
         //刷新和载入数据
         //  /UserSuggest/Refresh
+        [Authorize]
         [HttpGet]
         public ActionResult Refresh()
         {
@@ -34,6 +36,7 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
 
         //删除
         // id为要删除的建议的id
+        [Authorize]
         [HttpPost]
         public ActionResult Delete(String id)
         {
@@ -41,6 +44,7 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
         }
 
         //批量删除
+        [Authorize]
         [HttpPost]
         public ActionResult DeleteMore()
         {
@@ -49,6 +53,7 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
         }
 
         //搜索
+        [Authorize]
         [HttpPost]
         public ActionResult Search()
         {

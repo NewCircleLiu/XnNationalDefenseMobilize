@@ -15,6 +15,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
 
         //
         // GET: /LinkManage/
+        [Authorize]
         public ActionResult Index()
         {
             return View(linkListContext);
@@ -22,6 +23,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
 
         //删除
         // id为要删除的建议的id
+        [Authorize]
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -32,6 +34,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //批量删除
+        [Authorize]
         [HttpPost]
         public ActionResult DeleteMore()
         {
@@ -48,6 +51,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //添加链接
+        [Authorize]
         [HttpPost]
         public ActionResult AddLink(String LinkName, String LinkAddress)
         {
@@ -63,6 +67,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //修改链接
+        [Authorize]
         [HttpPost]
         public ActionResult ModifyLink()
         {
@@ -78,6 +83,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //搜索
+        [Authorize]
         [HttpPost]
         public ActionResult Search()
         {

@@ -11,17 +11,20 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         //
         // GET: /GrossworkManage/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         public ActionResult PublishNewsPage()
         {
             return View();
         }
 
         //发布新闻
+        [Authorize]
         [HttpPost]
         public ActionResult PublishNews()
         {
@@ -51,6 +54,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //刷新
+        [Authorize]
         [HttpGet]
         public ActionResult Refresh()
         {
@@ -58,6 +62,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //删除
+        [Authorize]
         [HttpPost]
         public ActionResult Delete(String newsId)
         {
@@ -65,6 +70,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //批量删除
+        [Authorize]
         [HttpPost]
         public ActionResult DeleteMore()
         {
@@ -73,6 +79,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //搜索
+        [Authorize]
         [HttpPost]
         public ActionResult Search()
         {

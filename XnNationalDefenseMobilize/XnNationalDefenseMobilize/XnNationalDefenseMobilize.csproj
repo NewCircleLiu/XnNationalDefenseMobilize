@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminControllers\ExitAndLogoutController.cs" />
+    <Compile Include="Controllers\AdminControllers\MediaImpressManageController.cs" />
     <Compile Include="Controllers\AdminControllers\StringBuild.cs" />
     <Compile Include="Controllers\AdminControllers\UploadFileController.cs" />
     <Compile Include="Controllers\AdminControllers\UserSuggestController.cs" />
@@ -615,6 +616,9 @@
     <Content Include="uploadFile\image\20160831\20160831123033_5080.png" />
     <Content Include="uploadFile\image\20160831\20160831123117_3400.png" />
     <Content Include="uploadFile\image\20160831\20160831123141_1635.png" />
+    <Content Include="uploadFile\image\20160907014113_5776.jpg" />
+    <Content Include="uploadFile\image\media\20160907013529_5206.mp4" />
+    <Content Include="uploadFile\image\media\20160907014046_0686.mp4" />
     <Content Include="video\video_xml\CuPlayerSetFile.xml" />
     <Content Include="设计方案\参考模板.txt" />
     <Content Include="editor\file_manager_json.ashx" />
@@ -696,6 +700,14 @@
     <Content Include="Views\Admin\UserSuggest\Index.cshtml" />
     <Content Include="Views\Admin\VideoManage\Index.cshtml" />
     <Content Include="Views\Admin\WebInfo\Index.cshtml" />
+    <Content Include="Views\Admin\MediaImpressManage\Index.cshtml" />
+    <Content Include="Views\Admin\MediaImpressManage\ModifyPage.cshtml" />
+    <Content Include="Views\Admin\MediaImpressManage\PublishPage.cshtml" />
+    <Content Include="Views\Admin\PolicyManage\AnswerPage.cshtml" />
+    <Content Include="Views\Admin\PolicyManage\ModifyMessagePage.cshtml" />
+    <Content Include="Views\Admin\PolicyManage\ModifyPage.cshtml" />
+    <Content Include="Views\Admin\PolicyManage\ReplayPage.cshtml" />
+    <Content Include="Views\Admin\GrossworkManage\ModifyPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\" />

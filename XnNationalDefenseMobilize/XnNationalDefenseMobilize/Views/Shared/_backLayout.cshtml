@@ -22,6 +22,10 @@
             cursor: pointer;
             text-decoration: none;
         }
+
+        li a:hover {
+            color:black;
+        }
     </style>
 
 </head>
@@ -49,7 +53,7 @@
     <div id="sidebar-collapse" class="col-sm-3 col-sm-2 sidebar" style="background-color: #D34346">
         <ul class="nav menu" id="menu_ul">
             <li role="presentation" class="divider"></li>
-            <li><a href="@Url.Content("~/ImgManage")">图片管理</a></li>
+            <li id="navi"><a href="@Url.Content("~/ImgManage")">图片管理</a></li>
             <li><a href="@Url.Content("~/LinkManage")">链接管理</a></li>
             <li><a href="@Url.Content("~/SloganManage")">标语管理</a></li>
             <li><a href="@Url.Content("~/NewsManage")">新闻管理</a></li>

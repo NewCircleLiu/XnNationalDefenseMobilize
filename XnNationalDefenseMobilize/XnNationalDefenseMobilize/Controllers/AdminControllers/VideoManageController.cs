@@ -14,25 +14,22 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         private VideoContext videoContext = new VideoContext();
         //
         // GET: /VideoManage/
-
         [Authorize]
         public ActionResult Index(int page_id = 1)
         {
 
-            IEnumerable<Video> videoList = videoContext.videoLists;
-
-            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(videoList, 10, 5, page_id);
-
-            return View(multiPagesContrler);
+            return View(videoContext);
         }
 
         //删除
         [Authorize]
         [HttpPost]
-        public ActionResult Delete(String video_id)
+        public ActionResult Delete(int id)
         {
-
-            return Content("删除成功:" + video_id);
+            Video v = videoContext.videoLists.Find(id);
+            videoContext.videoLists.Remove(v);
+            videoContext.SaveChanges();
+            return Content("删除成功:");
         }
 
         //批量删除
@@ -40,8 +37,16 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         [HttpPost]
         public ActionResult DeleteMore()
         {
-            String video_id = Request.Form["video"];
-            return Content("删除成功:" + video_id);
+            Video v = null;
+            String video_ids = Request.Form["video"];
+            string[] ids = video_ids.Split(',');
+            for (int i = 0; i < ids.Length;i++ )
+            {
+                v = videoContext.videoLists.Find(int.Parse(ids[i]));
+                videoContext.videoLists.Remove(v);
+                videoContext.SaveChanges();
+            }
+            return Content("删除成功");
         }
 
         //上传视频
@@ -49,18 +54,23 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         [HttpPost]
         public ActionResult UploadVideo()
         {
-            //视频名称
-            String video_name = Request.Form["VideoName"];
-            //视频分类
-            //v_zbxc:征兵宣传
-            //v_gfjy:国防教育
-            //v_yjys:拥军优属
-            //v_dyyl:动员演练
-            String video_classify = Request.Form["classify"];
-            //视频路径
-            String video_url = Request.Form["videoUrl"];
+            Video v = new Video();
+            v.video_title = Request.Form["VideoName"];
+            v.video_covers = Request.Form["img_url"];
+            v.video_source = Request.Form["videoUrl"];
+            v.video_release_time = DateTime.Now;
 
-            return Content("上传视频成功" + video_name);
+            int classify = int.Parse(Request.Form["classify"]);
+            v.videoCategory_id = classify;
+            v.videoCategory = videoContext.videoCategoryLists.Find(classify);
+
+            if (ModelState.IsValid)
+            {
+                videoContext.videoLists.Add(v);
+                videoContext.SaveChanges();
+            }
+
+            return Content("上传视频成功");
         }
 
         //搜索

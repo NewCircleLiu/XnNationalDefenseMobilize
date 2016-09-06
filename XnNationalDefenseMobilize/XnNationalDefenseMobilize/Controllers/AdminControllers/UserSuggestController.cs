@@ -38,8 +38,11 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
         // id为要删除的建议的id
         [Authorize]
         [HttpPost]
-        public ActionResult Delete(String id)
+        public ActionResult Delete(int id)
         {
+            Suggest s = suggestContext.suggestLists.Find(id);
+            suggestContext.suggestLists.Remove(s);
+            suggestContext.SaveChanges();
             return Content("删除成功");
         }
 
@@ -48,7 +51,15 @@ namespace XnNationalDefenseMobilize.Controllers.AdminControllers
         [HttpPost]
         public ActionResult DeleteMore()
         {
-            String data = Request.Form["checkbox"];//获取到一个数组
+            Suggest s = null;
+            String data = Request.Form["ids"];//获取到一个数组
+            String[] ids = data.Split(',');
+            for (int i = 0; i < ids.Length;i++ )
+            {
+                s = suggestContext.suggestLists.Find(int.Parse(ids[i]));
+                suggestContext.suggestLists.Remove(s);
+                suggestContext.SaveChanges();
+            }
             return Content("删除成功");
         }
 

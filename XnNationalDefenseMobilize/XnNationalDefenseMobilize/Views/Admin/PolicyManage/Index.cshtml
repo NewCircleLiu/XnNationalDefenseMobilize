@@ -3,6 +3,14 @@
     Layout = "~/Views/Shared/_backLayout.cshtml";
 }
 
+@using XnNationalDefenseMobilize.Models.PolycyAdvice
+@using XnNationalDefenseMobilize.Models.utility
+@model  MulltiPageDisplayContrler
+
+@{   
+    List<CommonQues> curr_page_data = (List<CommonQues>)Model.curr_page_data;
+}
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
@@ -13,8 +21,8 @@
     <div class="panel panel-default">
         <div class="panel-body tabs">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab1" data-toggle="tab">常见问题</a></li>
-                <li><a href="#tab2" data-toggle="tab">留言表</a></li>
+                <li class="active"><a href="@Url.Content("~/PolicyManage")">常见问题</a></li>
+                <li><a href="@Url.Content("~/PolicyManage/ReplayPage")">留言表</a></li>
             </ul>
 
             <div class="tab-content">
@@ -46,11 +54,11 @@
                                 </td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
-                                    <input type="button" class="btn btn-primary" value="删除所选" id="cjwt_delete_selected" name="delete_selected" />
+                                    <input type="button" class="btn btn-primary" value="删除所选" name="delete_selected" />
                                 </td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
-                                    <input type="button" class="btn btn-primary" value="全选" id="cjwt_select_all" name="select_all" />
+                                    <input type="button" class="btn btn-primary" value="全选"  name="select_all" />
                                 </td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
@@ -58,7 +66,7 @@
                                 </td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 <td>
-                                    <input type="button" class="btn btn-primary" value="刷新" id="cjwt_refresh" name="refresh" onclick="Refresh(this.id)" />
+                                    <input type="button" class="btn btn-primary" value="刷新" onclick="Refresh()" />
                                 </td>
                             </tr>
                         </table>
@@ -69,282 +77,83 @@
                                 <tr>
                                     <th>选择</th>
                                     <th>ID</th>
-                                    <th>标题</th>
-                                    <th>作者</th>
-                                    <th>来源</th>
+                                    <th>问题</th>
                                     <th>发布时间</th>
-                                    <th>浏览次数</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="1001" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</td>
-                                    <td>XXX</td>
-                                    <td>国防动员中心</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="1001" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="1001" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>国家鼓励高校应届毕业生应征入伍服义务兵役，这里的“高校毕业生”如何界定？</td>
-                                    <td>XXX</td>
-                                    <td>国防动员中心</td>
-                                    <td>2016-8-26 14:20</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a id="1001" onclick="Delete(this.id)">删除</a>
-                                    </td>
-                                </tr>
+                                 @{ CommonQues[] commonQuesArray = curr_page_data.ToArray();}
+                                    @for (int i = 0; i < curr_page_data.Count(); i++)
+                                    { 
+                                        <tr>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="@commonQuesArray[i].question_id" name="CommonQuize">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>@commonQuesArray[i].question_id</td>
+                                            <td>@commonQuesArray[i].question_content</td>
+                                            <td>@commonQuesArray[i].question_release_time</td>
+                                            <td>
+                                                <a id="@commonQuesArray[i].question_id" onclick="Delete(this.id)">删除</a>|
+                                                <a href="@Url.Content("~/PolicyManage/ModifyPage?id="+@commonQuesArray[i].question_id)">修改</a>
+                                            </td>
+                                        </tr>
+                                    }
                             </tbody>
                         </table>
                     </form>
 
-                    <center>
-                        <ul class="pagination">
-                            <li><a href="">&laquo;</a></li>
-                            <li><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">&raquo;</a></li>
-                        </ul>
-                    </center>
+                   @{
+                       int prePageId = (Model.curr_page_index > 1) ? Model.curr_page_index - 1 : 1;
+                       int nextPageId = (Model.curr_page_index < Model.count_pages) ? Model.curr_page_index + 1 : Model.count_pages;
+                                }
 
-                </div>
-                <!---------------------- 留言表模块---------------------->
-                <div class="tab-pane fade" id="tab2">
-                    <form class="search_form">
-                        <table>
-                            <tr>
-                                <td>
-                                    <input type="button" class="btn btn-primary" value="搜索" id="message_search" name="search" />
-                                </td>
-                                <td>
-                                    <div class="form-group" style="margin: 0;">
-                                        <input class="form-control" name="s_text">
+                                <div style="text-align: center">
+                                    <div class="pagination">
+                                        <a href="@Url.Content("~/PolicyManage/Index?page_id=1")" class="navlinks">首页</a>
+                                        <a href="@Url.Content("~/PolicyManage/Index?page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
+
+                                        @for (int i = Model.start_page_index; i <= Model.end_page_index; i++)
+                                        {
+                                            <a id="@i" href="@Url.Content("~/PolicyManage/Index?page_id=" + i)" class="navlinks">@i</a>
+                                        }
+
+                                        <a href="@Url.Content("~/PolicyManage/Index?page_id=" + nextPageId)" class="navlinks">下一页 ></a>
+                                        <a href="@Url.Content("~/PolicyManage/Index?page_id=" + Model.count_pages)" class="navlinks">末页</a>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group" style="margin: 0;">
-                                        <select class="form-control" name="s_type">
-                                            <option value="by_id">按ID</option>
-                                            <option value="by_name">按标题</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                </div>
 
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                <td>
-                                    <input type="button" class="btn btn-primary" value="删除所选" id="message_delete_selected" name="delete_selected" />
-                                </td>
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                <td>
-                                    <input type="button" class="btn btn-primary" value="全选" id="message_select_all" name="select_all" />
-                                </td>
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                <td>
-                                    <input type="button" class="btn btn-primary" value="反选" id="message_reverse_select" name="reverse_select" />
-                                </td>
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                <td>
-                                    <input type="button" class="btn btn-primary" value="刷新" id="message_refresh" name="refresh" onclick="Refresh(this.id)" />
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
+                                <script type="text/javascript">
+                                    var id_name = "@Model.curr_page_index.ToString()";
+                                    document.getElementById(id_name).className = "navlinks current";
+                                </script>
 
-                    <form id="message_model">
-                        <table data-toggle="table">
-                            <thead>
-                                <tr>
-                                    <th>选择</th>
-                                    <th>ID</th>
-                                    <th>姓名</th>
-                                    <th>邮箱</th>
-                                    <th>标题</th>
-                                    <th>内容</th>
-                                    <th>时间</th>
-                                    <th>状态</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="2001" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>君东科技</td>
-                                    <td>xxx@qq.com</td>
-                                    <td>征兵入伍</td>
-                                    <td>征兵入伍需要什么资料？</td>
-                                    <td>2016-8-31 10:30</td>
-                                    <td>未回复</td>
-                                    <td>
-                                        <a id="2001" onclick="replay(this.id)">回复</a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="2001" name="news">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>0001</td>
-                                    <td>君东科技</td>
-                                    <td>xxx@qq.com</td>
-                                    <td>征兵入伍</td>
-                                    <td>征兵入伍需要什么资料？</td>
-                                    <td>2016-8-31 10:30</td>
-                                    <td>已回复</td>
-                                    <td>
-                                        <a id="2001" onclick="replay(this.id)">回复</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </form>
-
-                    <center>
-                        <ul class="pagination">
-                            <li><a href="">&laquo;</a></li>
-                            <li><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">&raquo;</a></li>
-                        </ul>
-                    </center>
                 </div>
 
             </div>
         </div>
     </div>
-</div>
-<!--/.panel-->
-
-<!-- 回复窗口 -->
-<div class="modal fade" id="replay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
-                <h4 class="modal-title" id="addLinkLabel">回复留言
-                </h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" role="form" id="messageForm">
-                    <div class="form-group">
-                        <label for="firstname" class="col-sm-2 control-label">标题</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="messageTitle" id="messageTitle">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastname" class="col-sm-2 control-label">回复内容</label>
-                        <div class="col-md-9">
-                            <textarea class="form-control" id="message" name="text" placeholder="回复内容" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <input type="hidden" name="messageid" id="messageid" />
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                    关闭
-                </button>
-                <button type="button" class="btn btn-primary" id="btn_replay">
-                    回复
-                </button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-
-
 </div>
 
 <script>
+
+    //刷新
+    function Refresh() {
+        window.location.href = "@Url.Content("~/PolicyManage")";
+    }
 
     //跳转发布页面
     function publish_news() {
         window.location.href = "@Url.Content("~/PolicyManage/PublishNewsPage")";
     }
 
-    function replay(id) {
-        jQuery("#messageTitle").val("征兵入伍");
-        jQuery("#messageid").val(id);
-        jQuery("#replay").modal('show');
-    }
-
-    //回复留言
-    jQuery("#btn_replay").click(function () {
-        var title = jQuery("#messageTitle").val();
-        var message = jQuery("#message").val();
-        if (title.length <= 0 || message.length <= 0) {
-            alert("请填入完整的信息");
-            return;
-        }
-
-        jQuery.ajax({
-            url: "@Url.Content("~/PolicyManage/ReplayMessage")",
-            dataType: "text",
-            type: "POST",
-            data: jQuery("#messageForm").serialize(),
-            success: function (data) {
-                alert(data);
-                jQuery("#replay").modal('hide');
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.responseText);
-            }
-        });
-    });
-
     //全选
     jQuery("input[name='select_all']").click(function () {
-        var model_id;
-        switch (this.id) {
-            case 'cjwt_select_all': model_id = "#cjwt_model"; break;
-            case 'message_select_all': model_id = "#message_model"; break;
-        }
-
-        var checkboxes = jQuery(model_id + " :input");
+        var checkboxes = jQuery("input[name='CommonQuize']");
         for (var i = 0; i < checkboxes.length; i++) {
             checkboxes[i].checked = true;
         }
@@ -352,12 +161,7 @@
 
     //反选
     jQuery("input[name='reverse_select']").click(function () {
-        var model_id;
-        switch (this.id) {
-            case 'cjwt_reverse_select': model_id = "#cjwt_model"; break;
-            case 'message_reverse_select': model_id = "#message_model"; break;
-        }
-        var checkboxes = jQuery(model_id + " :input");
+        var checkboxes = jQuery("input[name='CommonQuize']");
         for (var i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i].checked) {
                 checkboxes[i].checked = false;
@@ -367,31 +171,16 @@
         }
     });
 
-    //刷新
-    function Refresh(id) {
-        jQuery.ajax({
-            url: "@Url.Content("~/PolicyManage/Refresh")",
-            dataType: "text",
-            type: "Post",
-            data: { "id": id },
-            success: function (data) {
-                alert(data);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.responseText);
-            }
-        });
-    }
-
     //删除
     function Delete(newsId) {
         jQuery.ajax({
             url: "@Url.Content("~/PolicyManage/Delete")",
             dataType: "text",
             type: "POST",
-            data: "newsId=" + newsId,
+            data: "id=" + newsId,
             success: function (data) {
                 alert(data);
+                Refresh();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert(XMLHttpRequest.responseText);
@@ -401,18 +190,12 @@
 
     //批量删除
     jQuery("input[name='delete_selected']").click(function () {
-        var model_id;
-        switch (this.id) {
-            case 'cjwt_delete_selected': model_id = "#cjwt_model"; break;
-            case 'message_delete_selected': model_id = "#message_model"; break;
-        }
-
-        var n = jQuery(model_id + " :input[type='checkbox']:checked").length;
+        var n = jQuery("input[type='checkbox']:checked").length;
         if (n == 0) {
             alert("请至少选择一条");
         }
         else {
-            var data = jQuery(model_id).serialize();
+            var data = jQuery("#cjwt_model").serialize();
             jQuery.ajax({
                 url: "@Url.Content("~/PolicyManage/DeleteMore")",
                 dataType: "text",
@@ -426,7 +209,7 @@
                     alert(XMLHttpRequest.responseText);
                 }
             });
-        }
+            }
     });
 
         //搜索
@@ -439,7 +222,7 @@
             if (id == "message_search") {
                 model = "#tab1";
             }
-            var s_type = jQuery(model+"input[name='s_type']").val();
+            var s_type = jQuery(model + "input[name='s_type']").val();
             var s_text = jQuery(model + "input[name='s_text']").val();
 
             if (s_text.length <= 0) {
@@ -448,7 +231,7 @@
             }
             jQuery.ajax({
                 url: "@Url.Content("~/PolicyManage/Search")",
-                data:{
+                data: {
                     "model": id,
                     "s_type=": s_type,
                     "s_text": s_text
@@ -462,5 +245,5 @@
                     alert(XMLHttpRequest.responseText);
                 }
             });
-    });
+        });
 </script>

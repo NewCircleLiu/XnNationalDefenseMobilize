@@ -1,20 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XnNationalDefenseMobilize.Models.GrassrootWork;
+using XnNationalDefenseMobilize.Models.utility;
 
 namespace XnNationalDefenseMobilize.Controllers.BackControllers
 {
     public class GrossworkManageController : Controller
     {
+        GrassrootNewsContext gn = new GrassrootNewsContext();
         //
         // GET: /GrossworkManage/
 
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(int page_id = 1)
         {
-            return View();
+            IEnumerable<GrassrootNews> newsList = from items in gn.grassrootNewsLists
+                                             orderby items.grassrootNews_release_time
+                                             select items;
+
+            MulltiPageDisplayContrler multiPagesContrler = new MulltiPageDisplayContrler(newsList, 10, 5, page_id);
+
+            return View(multiPagesContrler);
         }
 
         [Authorize]
@@ -28,45 +38,76 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         [HttpPost]
         public ActionResult PublishNews()
         {
-            //新闻标题
-            String title = Request.Form["text"];
-            //新闻作者
-            String author = Request.Form["author"];
-            //新闻来源
-            String from = Request.Form["from"];
-            //新闻分类
-            // <option value="cbq">城北区</option>
-            //<option value="czq">城中区</option>
-             //<option value="cnq">城南区</option>
-             //<option value="cxq">城西区</option>
-             //<option value="cdq">城东区</option>
-             //<option value="dtx">大通县</option>
-             //<option value="hzx">湟中县</option>
-             //<option value="hyx">湟源县</option>
-            String classify = Request.Form["classify"];
-            //新闻摘要
-            //标签中的“<”符号用“#lt;”替换，“>”符号用“#gt;”替换
-            String Newabstract = Request.Form["abstract"];
-            //新闻内容
-            //内容中的换行用“<br/>”代替
+            GrassrootNews g = new GrassrootNews();
+            g.grassrootNews_title = Request.Form["title"];
+            g.grassrootNews_author = Request.Form["author"];
+            g.grassrootNews_source = Request.Form["from"];
+            g.grassrootNews_abstract = Request.Form["abstract"];
+            g.grassrootNews_release_time = DateTime.Now;
+
             String text = Request.Form["text"];
-            return Content("发布成功:" + text);
+            text = text.Replace("#lt;", "<");
+            text = text.Replace("#gt;", ">");
+            g.grassrootNews_content = text;
+
+            int categoryId = int.Parse(Request.Form["classify"]);
+            g.district_id = categoryId;
+            g.disTrict = gn.DistrictLists.Find(categoryId);
+
+            if (ModelState.IsValid)
+            {
+                gn.grassrootNewsLists.Add(g);
+                gn.SaveChanges();
+            }
+            return Content("发布成功" );
         }
 
-        //刷新
+        //修改页面
         [Authorize]
         [HttpGet]
-        public ActionResult Refresh()
+        public ActionResult ModifyPage(int id) {
+            GrassrootNews g = gn.grassrootNewsLists.Find(id);
+            return View(g);
+        }
+
+        //修改
+        [Authorize]
+        [HttpPost]
+        public ActionResult Modify()
         {
-            return Content("刷新成功");
+            GrassrootNews g = new GrassrootNews();
+            g.grassrootNews_id = int.Parse(Request.Form["id"]);
+            g.grassrootNews_title = Request.Form["title"];
+            g.grassrootNews_author = Request.Form["author"];
+            g.grassrootNews_source = Request.Form["from"];
+            g.grassrootNews_abstract = Request.Form["abstract"];
+            g.grassrootNews_release_time = DateTime.Now;
+
+            String text = Request.Form["text"];
+            text = text.Replace("#lt;", "<");
+            text = text.Replace("#gt;", ">");
+            g.grassrootNews_content = text;
+
+            int categoryId = int.Parse(Request.Form["classify"]);
+            g.district_id = categoryId;
+
+            if (ModelState.IsValid)
+            {
+                gn.Entry(g).State = EntityState.Modified;
+                gn.SaveChanges();
+            }
+            return Content("修改成功");
         }
 
         //删除
         [Authorize]
         [HttpPost]
-        public ActionResult Delete(String newsId)
+        public ActionResult Delete(int id)
         {
-            return Content("删除成功:" + newsId);
+            GrassrootNews g = gn.grassrootNewsLists.Find(id);
+            gn.grassrootNewsLists.Remove(g);
+            gn.SaveChanges();
+            return Content("删除成功");
         }
 
         //批量删除
@@ -74,8 +115,16 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         [HttpPost]
         public ActionResult DeleteMore()
         {
-            String newsIds = Request.Form["news"];
-            return Content("删除成功:" + newsIds);
+            GrassrootNews g = null;
+            String data = Request.Form["ids"];
+            String[] ids = data.Split(',');
+            for (int i = 0; i < ids.Length;i++ )
+            {
+                g = gn.grassrootNewsLists.Find(int.Parse(ids[i]));
+                gn.grassrootNewsLists.Remove(g);
+                gn.SaveChanges();
+            }
+            return Content("删除成功" );
         }
 
         //搜索

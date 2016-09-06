@@ -70,14 +70,12 @@
                             <label class="col-md-3 control-label" for="email">分类</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="classify">
-                                    <option value="cbq">城北区</option>
-                                    <option value="czq">城中区</option>
-                                    <option value="cnq">城南区</option>
-                                    <option value="cxq">城西区</option>
-                                    <option value="cdq">城东区</option>
-                                    <option value="dtx">大通县</option>
-                                    <option value="hzx">湟中县</option>
-                                    <option value="hyx">湟源县</option>
+                                    <option value="1">城东区</option>
+                                    <option value="2">城西区</option>
+                                    <option value="3">城南区</option>
+                                    <option value="4">城北区</option>
+                                    <option value="5">城中区</option>
+                                    <option value="6">海湖新区</option>
                                 </select>
                             </div>
                         </div>
@@ -100,18 +98,10 @@
             内容编辑
         </div>
         <div class="panel-body">
-
-            <form name="text" action="@Url.Content("~/PreviewNews")" method="post">
-
-
-                <textarea name="content" style="width: 100%; height: 800px; visibility: hidden; display: block;">KindEditor</textarea>
-
-
+                <textarea name="content" style="width: 100%; height: 800px; visibility: hidden; display: block;"></textarea>
                 <input type="button" name="publish" value="发布" class="btn btn-primary" />
                 <input type="button" name="preview" value="预览" class="btn btn-primary" data-toggle="modal" data-target="#preview"/>
                 <input type="button" name="clear" value="清空" class="btn btn-primary" />
-            </form>
-
         </div>
     </div>
 </div>
@@ -208,6 +198,7 @@
                 data: arr,
                 success: function (data) {
                     alert(data);
+                    window.location.href = "@Url.Content("~/GrossworkManage")";
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(XMLHttpRequest.responseText);

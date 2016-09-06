@@ -1,12 +1,5 @@
 ﻿<%@ WebHandler Language="C#" Class="Upload" %>
 
-/**
- * KindEditor ASP.NET
- *
- * 本ASP.NET程序是演示程序，建议不要直接在实际项目中使用。
- * 如果您确定直接使用本程序，使用之前请仔细确认相关安全设置。
- *
- */
 
 using System;
 using System.Collections;
@@ -33,10 +26,10 @@ public class Upload : IHttpHandler
         extTable.Add("image", "gif,jpg,jpeg,png,bmp");
         extTable.Add("flash", "swf,flv");
         extTable.Add("media", "swf,flv,mp3,mp4,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb");
-        extTable.Add("file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2,exe,apk");
+        extTable.Add("file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2,exe,apk,swf,flv,mp3,mp4,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb");
 
         //最大文件大小
-        int maxSize = 1000000000;
+        long maxSize = 10000000000000;
         this.context = context;
 
         HttpPostedFile imgFile = context.Request.Files["imgFile"];
@@ -52,6 +45,7 @@ public class Upload : IHttpHandler
         }
 
         String dirName = context.Request.QueryString["dir"];
+        
         if (String.IsNullOrEmpty(dirName))
         {
             dirName = "image";
@@ -62,7 +56,7 @@ public class Upload : IHttpHandler
         }
 
         String fileName = imgFile.FileName;
-        String fileExt = Path.GetExtension(fileName).ToLower();
+        String fileExt = Path.GetExtension(fileName).ToLower();//文件后缀
 
         if (imgFile.InputStream == null || imgFile.InputStream.Length > maxSize)
         {
@@ -74,20 +68,26 @@ public class Upload : IHttpHandler
             showError("上传文件扩展名是不允许的扩展名。\n只允许" + ((String)extTable[dirName]) + "格式。");
         }
 
-        //创建文件夹
+        if (fileExt.Contains("mp4") || fileExt.Contains("avi") || fileExt.Contains("rmvb") || fileExt.Contains("flv")
+            || fileExt.Contains("swf") || fileExt.Contains("wav") || fileExt.Contains("wma") || fileExt.Contains("mid"))
+        {
+            dirName = "media";
+        }
+
+        //创建文件夹  
         dirPath += dirName + "/";
         saveUrl += dirName + "/";
         if (!Directory.Exists(dirPath))
         {
             Directory.CreateDirectory(dirPath);
         }
-        String ymd = DateTime.Now.ToString("yyyyMMdd", DateTimeFormatInfo.InvariantInfo);
-        dirPath += ymd + "/";
-        saveUrl += ymd + "/";
-        if (!Directory.Exists(dirPath))
-        {
-            Directory.CreateDirectory(dirPath);
-        }
+        //String ymd = DateTime.Now.ToString("yyyyMMdd", DateTimeFormatInfo.InvariantInfo);
+        //dirPath += ymd + "/";
+        //saveUrl += ymd + "/";
+        //if (!Directory.Exists(dirPath))
+        //{
+        //    Directory.CreateDirectory(dirPath);
+        //}
 
         String newFileName = DateTime.Now.ToString("yyyyMMddHHmmss_ffff", DateTimeFormatInfo.InvariantInfo) + fileExt;
         String filePath = dirPath + newFileName;

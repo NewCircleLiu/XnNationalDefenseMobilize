@@ -13,7 +13,6 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         DownloadContext downloadContext = new DownloadContext();
         //
         // GET: /DownloadManage/
-
         [Authorize]
         public ActionResult Index()
         {
@@ -21,6 +20,7 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
 
         //删除
+        [Authorize]
         [HttpPost]
         public ActionResult Delete()
         {

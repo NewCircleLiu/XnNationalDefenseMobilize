@@ -37,6 +37,7 @@
 .preview {
     border: 2px dashed red;
     padding:4px;
+    width:25%;
 }
 .imgs {
     width:100%;

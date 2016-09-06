@@ -13,7 +13,7 @@ namespace XnNationalDefenseMobilize.Models.Home
     public class HomeViewModel
     {
         public MasterViewModel masterView { get; set; }
-        public HomeImageContext homeImages { get; set; }
+        public List<HomeImage> homeImages { get; set; }
         public List<Slogan.Slogan> slogans { get; set; }
         public List<DefenseNews> defenseNews { get; set; }
         public List<NewsInfo> news { get; set; }
@@ -22,7 +22,7 @@ namespace XnNationalDefenseMobilize.Models.Home
 
         public HomeViewModel()
         {
-            homeImages = new HomeImageContext();
+            homeImages = new HomeImageContext().homeImageLists.ToList();
 
             DefenseNewsContext defenseContext = new DefenseNewsContext();
             defenseNews = (from item in defenseContext.defenseNewsLists

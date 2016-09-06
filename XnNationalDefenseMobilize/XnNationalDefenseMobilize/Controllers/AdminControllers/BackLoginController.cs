@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,7 +31,8 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             {
                 ViewBag.validate = true;
                 FormsAuthentication.SetAuthCookie(username, false);
-                return RedirectToAction("Index", "BackIndex");
+                Session["username"] = username;
+                return RedirectToAction("Index", "ImgManage");
             }
             else
             {
@@ -44,5 +46,27 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "BackLogin");
         }
+
+        [HttpPost]
+        public ActionResult ModifyUserInfo()
+        {
+            string origin_username = Request.Form["origin_username"];
+            string origin_password = Request.Form["origin_pass"];
+            string new_username = Request.Form["new_username"];
+            string new_password = Request.Form["new_pass"];
+
+            User[] users = account_db.userLists.Where(u => u.user_name == origin_username && u.user_password == origin_password).ToArray();
+            if (users.Count() > 0)
+            {
+                account_db.userLists.Find(users[0].user_id).user_name = new_username;
+                account_db.userLists.Find(users[0].user_id).user_password = new_password;
+                account_db.SaveChanges();
+                return Content("修改账户成功");
+            }
+
+            else
+                return Content("原始账户输入错误");
+        }
+
     }
 }

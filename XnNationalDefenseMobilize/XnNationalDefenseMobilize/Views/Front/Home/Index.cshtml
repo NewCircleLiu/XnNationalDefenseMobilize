@@ -1,7 +1,4 @@
-﻿@{
-    ViewBag.Title = "首页";
-}
-
+﻿@{ ViewBag.Title = "首页"; }
 @using XnNationalDefenseMobilize.Models.Slogan
 @using XnNationalDefenseMobilize.Models.Master
 @using XnNationalDefenseMobilize.Models.DefenseMobilize
@@ -12,36 +9,30 @@
 <style>
     .nav-tabs > li.active > a,
     .nav-tabs > li.active > a:focus,
-    .nav-tabs > li.active > a:hover
-    {
-        /*background-color: #efefef;*/
+    .nav-tabs > li.active > a:hover {
         background-color: white;
     }
 
-    a:visited, a:focus
-    {
+    a:visited, a:focus {
         text-decoration: none;
     }
 
-    a
-    {
+    a {
         color: black;
     }
 
-    .nav-tabs > li
-    {
+    .nav-tabs > li {
         font-weight: bold;
     }
 
-    body
-    {
+    body {
         background-color: white;
     }
 </style>
 
 
 <div class="banner" style="margin-top: 2px">
-    <img src="@Url.Content("~/Image/home/参军4.jpg")"  height="50%" width="100%"/>
+    <img src="@Url.Content(Model.homeImages[0].image_path)"  height="auto" width="100%"/>
 </div>
 
 <!-- defense mobilizie -->
@@ -185,22 +176,22 @@
                     <div class="col-md-12" style="padding-left: 0">
                         <ul class="nav nav-tabs default bordered" style="font-size: 16px">
                             <li class="active">
-                                <a href="#gfb" data-toggle="tab">
+                                <a href="#jfjb" data-toggle="tab">
                                     <span class="visible-xs"><i class="icon-man"></i></span>
-                                    <span class="hidden-xs">国防报</span>
+                                    <span class="hidden-xs">解放军报</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#jfjb" data-toggle="tab">
+                                <a href="#jfjhb" data-toggle="tab">
                                     <span class="visible-xs"><i class="icon-home"></i></span>
-                                    <span class="hidden-xs">解放军报</span>
+                                    <span class="hidden-xs">解放军画报</span>
                                 </a>
 
                             </li>
                             <li>
-                                <a href="#jfjhb" data-toggle="tab">
+                                <a href="#zggfb" data-toggle="tab">
                                     <span class="visible-xs"><i class="icon-settings2"></i></span>
-                                    <span class="hidden-xs">解放军画报</span>
+                                    <span class="hidden-xs">中国国防报</span>
                                 </a>
                             </li>
                         </ul>
@@ -224,7 +215,7 @@
                                 </div>
                             </div>
 
-                            @{ string[] mediaIdName = new string[] { "gfb", "jfjhb" };}
+                            @{ string[] mediaIdName = new string[] { "jfjhb", "zggfb" };}
                             @for (int k = 2; k <= 3; k++)
                             {
 
@@ -262,18 +253,12 @@
             <h2 style="float: left">军营生活</h2>
             <h2 style="float: right; color: yellow; font-size: 24px">@Model.slogans[3].slogan__content</h2>
         </div>
-        <div class="col-md-3" style="padding-left: 0">
-            <img src="@Url.Content("~/Image/home/slider1.png")" width="100%" alt=""/>
-        </div>
-        <div class="col-md-3" style="padding-left: 5px">
-            <img src="@Url.Content("~/Image/home/slider2.png")" width="100%" alt=""/>
-        </div>
-        <div class="col-md-3" style="padding-left: 5px">
-            <img src="@Url.Content("~/Image/home/slider3.png")" width="100%" alt=""/>
-        </div>
-        <div class="col-md-3" style="padding-left: 5px">
-            <img src="@Url.Content("~/Image/home/slider4.png")" width="100%" alt=""/>
-        </div>
+        @for (int i = 1; i < 5; i++)
+        {
+            <div class="col-md-3" style="padding-left: 5px">
+                <img src="@Url.Content(Model.homeImages[i].image_path)" width="100%" alt=""/>
+            </div>
+        }
     </div>
 </div>
 <!-- //army-image -->

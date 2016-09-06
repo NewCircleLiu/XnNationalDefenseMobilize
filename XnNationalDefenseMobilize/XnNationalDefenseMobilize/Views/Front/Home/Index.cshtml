@@ -4,11 +4,10 @@
 
 @using XnNationalDefenseMobilize.Models.Slogan
 @using XnNationalDefenseMobilize.Models.Master
-
-@{
-    MasterViewModel masterData = new MasterViewModel();
-    SloganContext sloganContxt = masterData.SloganTable;
-}
+@using XnNationalDefenseMobilize.Models.DefenseMobilize
+@using XnNationalDefenseMobilize.Models.News
+@using XnNationalDefenseMobilize.Models.MediaImpress
+@model XnNationalDefenseMobilize.Models.Home.HomeViewModel
 
 <style>
     .nav-tabs > li.active > a,
@@ -16,22 +15,27 @@
     .nav-tabs > li.active > a:hover
     {
         /*background-color: #efefef;*/
-        background-color:white;
+        background-color: white;
     }
+
     a:visited, a:focus
     {
         text-decoration: none;
     }
-    a {
-        color:black;
+
+    a
+    {
+        color: black;
     }
+
     .nav-tabs > li
     {
-        font-weight:bold;
+        font-weight: bold;
     }
+
     body
     {
-        background-color:white;
+        background-color: white;
     }
 </style>
 
@@ -45,16 +49,19 @@
     <div class="container">
         <div class="about-header">
             <h2>国防动员</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">@sloganContxt.sloganLists.Find(1).slogan__content</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@Model.slogans[0].slogan__content</h2>
             <div class="clearfix"></div>
         </div>
         <div class="about-grid" style="overflow: hidden">
+
             @for (int i = 0; i < 3; i++)
             {
                 <div class="col-md-4 col-sm-12" style="color: black; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
-                    <p><a href="#" style="color: black">2016年部队依托地方高校定向培养士官有关政策规定</a></p>
-                    <p><a href="#" style="color: black">关于对直接招收为士官的高等学校学生施行国家资助的通知</a></p>
-                    <p><a href="#" style="color: black">高等学校学生应征入伍服义务兵役国家资助办法出台</a></p>
+                    @for (int j = 0; j < 3; j++)
+                    {
+                        <p><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + Model.defenseNews[i * 3 + j].defenseNews_id)" style="color: black">@Model.defenseNews[i * 3 + j].defenseNews_title</a></p>
+                    }
+
                 </div>
             }
         </div>
@@ -69,14 +76,14 @@
     <div class="container">
         <div class="about-header">
             <h2>新闻聚焦</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">@sloganContxt.sloganLists.Find(2).slogan__content</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@Model.slogans[1].slogan__content</h2>
             <div class="clearfix"></div>
         </div>
         <div class="news-grids">
             <div class="col-md-12 news-grid">
                 <div class="row">
                     <div class="col-md-12">
-                        <ul class="nav nav-tabs default bordered" style="font-size:16px" >
+                        <ul class="nav nav-tabs default bordered" style="font-size: 16px">
                             <li class="active">
                                 <a href="#international" data-toggle="tab">
                                     <span class="visible-xs"><i class="icon-home"></i></span>
@@ -111,59 +118,48 @@
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="international">
                                 <div class="scrollable" style="overflow: hidden;">
+                                    @{    NewsInfo[] international_news = (from item in Model.news
+                                                                           orderby item.new_release_time descending
+                                                                           where item.newsCategory_id == 1
+                                                                           select item).ToArray();
+                                    }
                                     @for (int i = 0; i < 3; i++)
                                     {
                                         <div class="col-md-4 col-sm-6" style="color: black">
-                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
-                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
-                                            <p><a href="#" style="color: black">美国务院否认参与"南海仲裁" 称不会建议中国放弃南海主张</a></p>
+
+
+                                            @for (int j = 0; j < 3; j++)
+                                            {
+                                                <p><a href="@Url.Content("~/News/NewsDetail?id=" + international_news[i * 3 + j].news_id)" style="color: black">@international_news[i * 3 + j].news_title</a></p>
+                                            }
                                         </div>
                                     }
                                 </div>
                             </div>
 
+                            @{ string[] NewsIdName = new string[] { "nation", "military", "society", "xining" };}
+                            @for (int k = 2; k <= 5; k++)
+                            {
+                                <div class="tab-pane fade in" id="@NewsIdName[k - 2]">
+                                    @{    NewsInfo[] class_news = (from item in Model.news
+                                                                   orderby item.new_release_time descending
+                                                                   where item.newsCategory_id == k
+                                                                   select item).ToArray();
+                                    }
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                       
+                                        <div class="col-md-4 col-sm-6" style="color: black">
+                                            @for (int j = 0; j < 3; j++)
+                                            {
+                                                <p><a href="@Url.Content("~/News/NewsDetail?id=" + class_news[i * 3 + j].news_id)" style="color: black">@class_news[i * 3 + j].news_title</a></p>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            }
 
-                            <div class="tab-pane fade in" id="nation">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    <div class="col-md-4 col-sm-6" style="color: black">
-                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
-                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
-                                        <p><a href="#" style="color: black">习近平出席推进“一带一路”建设工作座谈会</a></p>
-                                    </div>
-                                }
-                            </div>
 
-                            <div class="tab-pane fade in" id="military">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    <div class="col-md-4 col-sm-6" style="color: black">
-                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
-                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
-                                        <p><a href="#" style="color: black">中国海军舰艇编队圆满完成"环太"演习任务启程回国</a></p>
-                                    </div>
-                                }
-                            </div>
-                            <div class="tab-pane fade in" id="society">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    <div class="col-md-4 col-sm-6" style="color: black">
-                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
-                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
-                                        <p><a href="#" style="color: black">西宁市城中区总寨镇举办“两学一做”知识竞赛</a></p>
-                                    </div>
-                                }
-                            </div>
-                            <div class="tab-pane fade in" id="xining">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    <div class="col-md-4 col-sm-6" style="color: black">
-                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
-                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
-                                        <p><a href="#" style="color: black">西宁—成都—东京航线 我省首条飞往东北亚航线开通</a></p>
-                                    </div>
-                                }
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -180,38 +176,26 @@
     <div class="container">
         <div class="about-header">
             <h2>媒体印象</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">@sloganContxt.sloganLists.Find(3).slogan__content</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@Model.slogans[2].slogan__content</h2>
             <div class="clearfix"></div>
         </div>
         <div class="mediaimpress-grids">
             <div class="col-md-12 mediaimpress-grid">
                 <div class="row">
-                    <div class="col-md-12" style="padding-left:0">
-                        <ul class="nav nav-tabs default bordered" style="font-size:16px">
+                    <div class="col-md-12" style="padding-left: 0">
+                        <ul class="nav nav-tabs default bordered" style="font-size: 16px">
                             <li class="active">
-                               <a href="#gfb" data-toggle="tab">
+                                <a href="#gfb" data-toggle="tab">
                                     <span class="visible-xs"><i class="icon-man"></i></span>
                                     <span class="hidden-xs">国防报</span>
                                 </a>
                             </li>
                             <li>
-                                 <a href="#jfjb" data-toggle="tab">
+                                <a href="#jfjb" data-toggle="tab">
                                     <span class="visible-xs"><i class="icon-home"></i></span>
                                     <span class="hidden-xs">解放军报</span>
                                 </a>
 
-                            </li>
-                            <li>
-                                <a href="#gf" data-toggle="tab">
-                                    <span class="visible-xs"><i class="icon-email"></i></span>
-                                    <span class="hidden-xs">国防</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#zgbf" data-toggle="tab">
-                                    <span class="visible-xs"><i class="icon-settings2"></i></span>
-                                    <span class="hidden-xs">中国兵法</span>
-                                </a>
                             </li>
                             <li>
                                 <a href="#jfjhb" data-toggle="tab">
@@ -221,61 +205,46 @@
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane fade in" id="jfjb">
+                            <div class="tab-pane fade active in" id="jfjb">
                                 <div class="scrollable" style="overflow: hidden;">
+                                    @{   MediaImpress[] jfjb_news = (from item in Model.mediaImpress
+                                                                     orderby item.mediaImpress_release_time descending
+                                                                     where item.mediaImpressCategory_id == 1
+                                                                     select item).ToArray();
+                                    }
                                     @for (int i = 0; i < 3; i++)
                                     {
                                         <div class="col-md-4 col-sm-6" style="color: black">
-                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
-                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
-                                            <p><a href="#" style="color: black">我国成功发射世界首颗量子科学实验卫星</a></p>
+                                            @for (int j = 0; j < 3; j++)
+                                            {
+                                                <p><a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id=" + jfjb_news[i * 3 + j].mediaImpress_id)" style="color: black">@jfjb_news[i * 3 + j].mediaImpress_title</a></p>
+                                            }
                                         </div>
                                     }
                                 </div>
                             </div>
 
+                            @{ string[] mediaIdName = new string[] { "gfb", "jfjhb" };}
+                            @for (int k = 2; k <= 3; k++)
+                            {
 
-                            <div class="tab-pane fade active in" id="gfb">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    <div class="col-md-4 col-sm-6" style="color: black">
-                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
-                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
-                                        <p><a href="#" style="color: black">国防部新闻局就日本新任防卫大臣有关言论答记者问</a></p>
-                                    </div>
-                                }
-                            </div>
-
-                            <div class="tab-pane fade in" id="gf">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    <div class="col-md-4 col-sm-6" style="color: black">
-                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
-                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
-                                        <p><a href="#" style="color: black">国防部：中俄海军9月在南海举行联合军演</a></p>
-                                    </div>
-                                }
-                            </div>
-                            <div class="tab-pane fade in" id="zgbf">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    <div class="col-md-4 col-sm-6" style="color: black">
-                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
-                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
-                                        <p><a href="#" style="color: black">海军陆战队员实战化训练挑战57℃高温</a></p>
-                                    </div>
-                                }
-                            </div>
-                            <div class="tab-pane fade in" id="jfjhb">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    <div class="col-md-4 col-sm-6" style="color: black">
-                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
-                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
-                                        <p><a href="#" style="color: black">韩防长访星州遭抗议 “萨德”座谈会无果而终</a></p>
-                                    </div>
-                                }
-                            </div>
+                                <div class="tab-pane fade in" id="@mediaIdName[k - 2]">
+                                    @{   MediaImpress[] media_news = (from item in Model.mediaImpress
+                                                                      orderby item.mediaImpress_release_time descending
+                                                                      where item.mediaImpressCategory_id == k
+                                                                      select item).ToArray();
+                                    }
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        <div class="col-md-4 col-sm-6" style="color: black">
+                                            @for (int j = 0; j < 3; j++)
+                                            {
+                                                <p><a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id=" + media_news[i * 3 + j].mediaImpress_id)" style="color: black">@media_news[i * 3 + j].mediaImpress_title</a></p>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -291,7 +260,7 @@
     <div class="container">
         <div class="about-header" style="overflow: auto; margin: 20px  auto">
             <h2 style="float: left">军营生活</h2>
-            <h2 style="float: right; color: yellow; font-size: 24px">@sloganContxt.sloganLists.Find(4).slogan__content</h2>
+            <h2 style="float: right; color: yellow; font-size: 24px">@Model.slogans[3].slogan__content</h2>
         </div>
         <div class="col-md-3" style="padding-left: 0">
             <img src="@Url.Content("~/Image/home/slider1.png")" width="100%" alt=""/>

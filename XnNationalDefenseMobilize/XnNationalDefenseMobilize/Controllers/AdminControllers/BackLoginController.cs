@@ -20,24 +20,43 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         {
             return View();
         }
+        
+        //生成验证码图片
+        public ActionResult GetVerifyCode() {
+            ValidateCode vCode = new ValidateCode();
+            string code = vCode.CreateValidateCode(5);
+            Session["ValidateCode"] = code;
+            byte[] bytes = vCode.CreateValidateGraphic(code);
+            return File(bytes, @"image/jpeg");
+        }
 
         [HttpPost]
         public ActionResult Login() {
             String username = Request.Form["username"];
             String password = Request.Form["password"];
+            String verifyCode = Request.Form["verifyCode"];
 
-            var exsit = account_db.userLists.Where(u => u.user_name == username && u.user_password == password).ToList();
-            if (exsit.Count() > 0)
-            {
-                ViewBag.validate = true;
-                FormsAuthentication.SetAuthCookie(username, false);
-                Session["username"] = username;
-                return RedirectToAction("Index", "ImgManage");
-            }
-            else
+
+            if (Session["ValidateCode"].ToString() != verifyCode)
             {
                 TempData["validate"] = false;
                 return RedirectToAction("Index", "BackLogin");
+            }
+            else
+            {
+                var exsit = account_db.userLists.Where(u => u.user_name == username && u.user_password == password).ToList();
+                if (exsit.Count() > 0)
+                {
+                    ViewBag.validate = true;
+                    FormsAuthentication.SetAuthCookie(username, false);
+                    Session["username"] = username;
+                    return RedirectToAction("Index", "ImgManage");
+                }
+                else
+                {
+                    TempData["validate"] = false;
+                    return RedirectToAction("Index", "BackLogin");
+                } 
             }
         }
 

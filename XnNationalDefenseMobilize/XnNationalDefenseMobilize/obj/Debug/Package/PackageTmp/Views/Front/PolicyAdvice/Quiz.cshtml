@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "我要提问";
+}
+
+<link href="@Url.Content("~/Content/pagecss/frontpagecss/polycyadvicecss/polycyadvice.css")" rel="stylesheet" type="text/css" media="all" />
+
+<script type="text/javascript">
+    function checkQuizForm() {
+
+        if (jQuery("#title").val().trim() == "") {
+            jQuery("#title").css("border", "1px solid red ");
+            return false;
+        } else
+            jQuery("#title").css("border", "1px solid #e8e8e8 ");
+
+        var answer_edit = document.getElementById("answer");
+
+        if (jQuery("#answer").val().trim() == "") {
+            jQuery("#answer").css("border", "1px solid red");
+            return false;
+        } else
+            jQuery("#answer").css("border", "1px solid #e8e8e8");
+
+        $.ajax({
+            url: "@Url.Content("~/PolicyAdvice/Quiz")",
+            type: "POST",
+            dataType: "text",
+            data: $("#quiz_form").serialize(),
+            success: function (data) {
+                alert(data);
+                $("#name").val("");
+                $("#email").val("");
+                $("#title").val("");
+                $("#answer").val("");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
+        return true;
+    }
+</script>
+
+<div id="outer_wrapper">
+    <div id="contentsec">
+        <div class="inner">
+            <div class="twothird left">
+                <div class="twothird box left">
+                    <div class="blog">
+                        <div class="post">
+                            <div class="p-date">
+                                <p>政策咨询</p>
+                                <p><a id="Index" href = "@Url.Content("~/PolicyAdvice/Index")">常见问题</a></p>
+                                <p><a id="Reply" href = "@Url.Content("~/PolicyAdvice/Reply")">留言答复</a></p>
+                                <p><a id="Quiz"  href = "@Url.Content("~/PolicyAdvice/Quiz")" >我要提问</a></p>
+                            </div>
+                            <script type="text/javascript">
+                                var id_name = "@ViewContext.RouteData.Values["action"].ToString()";
+                                document.getElementById(id_name).innerText = "· " + document.getElementById(id_name).innerText + " ·";
+                            </script>
+                            <div class="post-sec">
+                                <div class="post-desc">
+                                    <div id="right_title">
+                                        我要提问
+                                    </div>
+                                </div>
+                                <div class="quiz-form">
+                                    <form id="quiz_form">
+                                        <div class="quiz-left">
+                                            <input id="name" name="name" type="text" placeholder="姓名">
+                                            <input id="email" name="email" type="text" placeholder="邮箱">
+                                            <input id="title" name="title" type="text" placeholder="标题" required>
+                                        </div>
+                                        <div class="quiz-right">
+                                            <textarea id="answer" name="answer" placeholder="请填写您的问题" required></textarea>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <input type="button" onclick="checkQuizForm()" value="发送">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

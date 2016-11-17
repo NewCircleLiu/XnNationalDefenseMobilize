@@ -136,6 +136,7 @@
     <Compile Include="Controllers\AdminControllers\StringBuild.cs" />
     <Compile Include="Controllers\AdminControllers\UploadFileController.cs" />
     <Compile Include="Controllers\AdminControllers\UserSuggestController.cs" />
+    <Compile Include="Controllers\AdminControllers\ValidateCode.cs" />
     <Compile Include="Controllers\AdminControllers\WebInfoController.cs" />
     <Compile Include="Controllers\FrontControlllers\MediaImpressController.cs" />
     <Compile Include="Controllers\AdminControllers\BackIndexController.cs" />
@@ -624,6 +625,7 @@
     <Content Include="editor\file_manager_json.ashx" />
     <Content Include="editor\upload_json.ashx" />
     <None Include="Properties\PublishProfiles\army.pubxml" />
+    <None Include="Properties\PublishProfiles\myMVC4Web.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Image\news\ser-bg.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -645,7 +647,9 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

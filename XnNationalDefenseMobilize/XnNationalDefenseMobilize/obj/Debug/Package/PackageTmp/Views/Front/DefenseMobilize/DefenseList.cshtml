@@ -1,0 +1,95 @@
+﻿@using XnNationalDefenseMobilize.Models.DefenseMobilize
+@using XnNationalDefenseMobilize.Models.utility
+@model  MulltiPageDisplayContrler
+
+@{   
+    List<DefenseNews> curr_page_data = (List<DefenseNews>)Model.curr_page_data;
+    ViewBag.title = curr_page_data.First().defenseNewsCategory.defenseCategory_name;
+    int news_type_id = curr_page_data.First().defenseNewsCategory.defenseCategory_id;
+}
+
+<link href="@Url.Content("~/Content/pagecss//frontpagecss/defensecss/reset.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/pagecss//frontpagecss/defensecss/style.css")" rel="stylesheet" type="text/css" media="all" />
+
+<div class="site_wrapper">
+    <div class="page_title">
+
+        <div class="container">
+
+            <div class="leaft_title">
+                <h1 style="float: left; font-size: 20px">国防动员  >>   @ViewBag.title</h1>
+                <div class="site-search-area" style="float: right">
+                    <form method="get" id="site-searchform" action="Index">
+                        <div>
+                            <input class="input-text" name="s" id="s" type="text" />
+                            <input id="searchsubmit" style="color: white; font-size: 14px; font-weight: bold" value="搜索" type="submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="container">
+        <div class="content_left">
+            @{                  
+                DefenseNews[] NewsInfoArray = curr_page_data.ToArray();
+                for (int i = 0; i < curr_page_data.Count(); i += 2)
+                {
+                <div class="blog_post" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #ddd">
+                    <div class="blog_postcontent">
+                        <div class="post_info_content_small">
+                            <a href="#" class="date"><strong>@NewsInfoArray[i].defenseNews_release_time.ToString("dd")
+                             </strong><i>@NewsInfoArray[i].defenseNews_release_time.ToString("yyyy.MM")</i>
+                            </a>
+                            <h3><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + NewsInfoArray[i].defenseNews_id)"><b>@NewsInfoArray[i].defenseNews_title</b> </a></h3>
+                            <div class="clearfix"></div>
+                            <p>@NewsInfoArray[i].defenseNews_abstract</p>
+                        </div>
+
+                        @if (i + 1 < curr_page_data.Count())
+                        {
+                            <div class="post_info_content_small">
+                                <a href="#" class="date"><strong>@NewsInfoArray[i+1].defenseNews_release_time.ToString("dd")</strong>
+                                <i>@NewsInfoArray[i+1].defenseNews_release_time.ToString("yyyy.MM")</i></a>
+                                <h3><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + NewsInfoArray[i+1].defenseNews_id)"><b>@NewsInfoArray[i + 1].defenseNews_title</b></a></h3>
+                                <div class="clearfix"></div>
+                                <p>@NewsInfoArray[i + 1].defenseNews_abstract</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+                }
+            }
+
+            @{
+                int prePageId = (Model.curr_page_index > 1) ? Model.curr_page_index - 1 : 1;
+                int nextPageId = (Model.curr_page_index < Model.count_pages) ? Model.curr_page_index + 1 : Model.count_pages;
+            }
+
+            <div style="text-align: center">
+                <div class="pagination">
+                    <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + news_type_id + "&page_id=1")" class="navlinks">首页</a>
+                    <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + news_type_id + "&page_id=" + prePageId)" class="navlinks">&lt;上一页</a>
+
+                    @for (int i = Model.start_page_index; i <= Model.end_page_index; i++)
+                    {
+                        <a id="@i" href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + news_type_id + "&page_id=" + i)" class="navlinks">@i</a>
+                    }
+
+                    <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=" + (news_type_id) + "&page_id=" + nextPageId)" class="navlinks">下一页 ></a>
+                    <a href="@Url.Content("~/DefenseMobilize/DefenseList?type_id=1&page_id=" + Model.count_pages)" class="navlinks">末页</a>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                var id_name = "@Model.curr_page_index.ToString()";
+                document.getElementById(id_name).className = "navlinks current";
+            </script>
+
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -7,61 +7,53 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>管理员登陆</title>
+    <title>管理员登录</title>
 
     <link rel="stylesheet" href ="@Url.Content("~/content/bootstrap.min.css")">
     <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/style.css")">
     <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/backLoginCss/backLogin.css")">
 </head>
-<body style="background-color:black">
+<body>
 
-    <div class="logo">
-        <img src="@Url.Content("~/Image/back/logo.png")"/>
-    </div>
-
-    <div class="login" style="text-align:center">
-        <div class="login_img">
-            <img src="@Url.Content("~/Image/back/login_icon.png")" width=240; height=240 />
+    <h1 style="font-family:隶书">西宁国防动员网后台管理登录</h1>
+    <div class="login" style="background-color: #D34346">
+        <div class="col-md-7">
+            <img src="@Url.Content("~/Image/Back/logo_express.jpg")" style="width:100%" />
         </div>
-
-        <div class="loginForm">
+        <div class="loginForm col-md-6">
             <div class="login-panel panel panel-default">
-                <div class="panel-heading">管理员登陆</div>
+                <div class="panel-heading" style="font-size: 16px; text-align: center">管理员登录</div>
                 <div class="panel-body">
                     <form role="form" action="@Url.Content("~/BackLogin/Login")" method="post">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" name="username" type="text" autofocus="">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" name="password" type="password">
-                            </div>
-                           
+                        <div class="form-group">
+                            <input class="form-control" placeholder="用户名" name="username" type="text" autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="密   码" name="password" type="password">
+                        </div>
 
-                            <div class="form-group">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <input class="form-control" name="verifyCode" type="text" style="width:150px;">
-                                        </td>
-                                        <td>
-                                            <img onclick="getVerifyCode();" id="verifyCode" src="@Url.Content("~/BackLogin/GetVerifyCode")" style="border:solid 1px;width:100px;height:40px;margin-left:20px;" alt="验证码"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                               
-                            </div>
+                        <div class="form-group">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input class="form-control" placeholder="验证码" name="verifyCode" type="text" style="width: 200px;">
+                                    </td>
+                                    <td>
+                                        <img onclick="getVerifyCode();" id="verifyCode" src="@Url.Content("~/BackLogin/GetVerifyCode")" style="border:solid 1px;width:140px;height:33px;margin-left:20px;" alt="验证码"/>
+                                    </td>
+                                </tr>
+                            </table>
 
-
-                            <center>
-                                 <input type="submit" class="btn btn-primary" value="登陆"/>
-                                 <input type="reset" class="btn btn-primary"  value="重置"/>
-                            </center>
-                        </fieldset>
+                        </div>
+                        <div class="form-group" style="text-align: center">
+                            <input type="submit" class="btn btn-primary" style="width: 30%" value="登录" />
+                            <input type="reset" class="btn btn-primary" style="width: 30%" value="重置" />
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
+        <div style="clear: both"></div>
     </div>
 </body>
 </html>

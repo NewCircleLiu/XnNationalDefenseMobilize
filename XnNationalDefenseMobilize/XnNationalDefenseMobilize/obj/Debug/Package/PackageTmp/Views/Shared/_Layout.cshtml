@@ -1,0 +1,202 @@
+﻿@using XnNationalDefenseMobilize.Models.Master
+@{
+    MasterViewModel masterData = new MasterViewModel();
+    LinkListContext linkTable = masterData.LinkTable;
+    ContactContext contactTable = masterData.ContactTable;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href ="@Url.Content("~/content/bootstrap.min.css")">
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>   
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("~/Content/pagecss/frontpagecss/layoutcss/layout.css")" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<!--
+    <script type="text/javascript">
+        document.getElementById("bodydiv").style.width = screen.width;
+    </script>
+ -->
+
+<body id="bodydiv" style="overflow: scroll;">
+    <div class="header">
+        <div class="container" style="width: 100%; padding-left: 0;">
+            <div class="header-grid">
+                <div class="logo">
+                    <div style="float: left; padding-left: 10px">
+                        <img src="@Url.Content("~/Image/master/logo6.png")" height="90" width="420"/>
+                        <!-- <span class="glyphicon glyphicon-bookmark" style="color: yellow; font-size: 54px;"> </span> -->
+                    </div>
+                </div>
+                <div class="navigation">
+                    <!--
+                     <ul class="nav1">
+                        <li class="navi" id="Home" onclick="enable('a1')"><a class="scroll"  href="@Url.Content("~/Home")"">首页</a></li>
+                        <li class="navi" id="News" onclick="enable('a2')"><a class="scroll"  href="@Url.Content("~/News")">新闻聚焦</a></li>
+                        <li class="navi" id="DefenseMobilize" onclick="enable('a3')"><a class="scroll"  href="@Url.Content("~/DefenseMobilize")">国防动员</a></li>
+                        <li class="navi" id="GrassrootWork" onclick="enable('a4')"><a class="scroll"  href="@Url.Content("~/GrassrootWork")">基层工作</a></li>
+                        <li class="navi" id="PolicyAdvice" onclick="enable('a5')"><a class="scroll"  href="@Url.Content("~/PolicyAdvice")">政策咨询</a></li>
+                        <li class="navi" id="Media" onclick="enable('a6')"><a class="scroll"  href="@Url.Content("~/Media")">影音天地</a></li>
+                        <li class="navi" id="Download" onclick="enable('a7')"><a class="scroll"  href="@Url.Content("~/Download")">下载中心</a></li>
+                        <li class="navi"  id="Application" onclick="enable('a8')"><a class="scroll"  href="@Url.Content("~/Application")">媒体印象</a></li>
+                    </ul>
+                    -->
+                    <ul class="nav1">
+                        <li class="navi" id="Home" onclick="enable('a1')"><a class="scroll"  href="@Url.Content("~/Home")"">国动首页</a></li>
+                        <li class="navi" id="News" onclick="enable('a2')"><a class="scroll"  href="@Url.Content("~/News")">新闻聚焦</a></li>
+                        <li class="navi" id="DefenseMobilize" onclick="enable('a3')"><a class="scroll"  href="@Url.Content("~/DefenseMobilize")">国防动员</a></li>
+                        <li class="navi" id="GrassrootWork" onclick="enable('a4')"><a class="scroll"  href="@Url.Content("~/GrassrootWork")">基层工作</a></li>
+                    </ul>
+                    <ul class="nav1">
+                        <li class="navi" id="PolicyAdvice" onclick="enable('a5')"><a class="scroll"  href="@Url.Content("~/PolicyAdvice")">政策咨询</a></li>
+                        <li class="navi" id="Media" onclick="enable('a6')"><a class="scroll"  href="@Url.Content("~/Media")">影音天地</a></li>
+                        <li class="navi" id="Download" onclick="enable('a7')"><a class="scroll"  href="@Url.Content("~/Download")">下载中心</a></li>
+                        <li class="navi" id="MediaImpress" onclick="enable('a8')"><a class="scroll"  href="@Url.Content("~/MediaImpress")">媒体印象</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    //css line 51
+    <script type="text/javascript">
+        var id_name = "@ViewContext.RouteData.Values["controller"].ToString()";
+        document.getElementById(id_name).style.borderBottom = "5px solid yellow";
+    </script>
+    -->
+
+    @RenderBody()
+
+    <div style="background: #f7f7f7">
+        <div id="link" class="container">
+            <div class="services-header">
+                <h2>友情链接</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="services-grids" style="border-bottom: 2px solid #ddd">
+
+                @foreach (var item in linkTable.linkLists.ToList())
+                {
+                    <div class="col-md-3 services-grid">
+                        <a href="@item.link_url" target ="_blank">
+                            <h3>@item.link_name</h3>
+                        </a>
+                    </div>
+                }
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        function checkForm() {
+
+            if (jQuery("#user_email").val().trim() == "") {
+                jQuery("#user_email").css("border", "1px solid red ");
+                return false;
+            } else
+                jQuery("#user_email").css("border", "1px solid #e8e8e8 ");
+
+            if (jQuery("#user_phone").val().trim() == "") {
+                jQuery("#user_phone").css("border", "1px solid red ");
+                return false;
+            } else
+                jQuery("#user_phone").css("border", "1px solid #e8e8e8 ");
+
+            if (jQuery("#user_suggest").val().trim() == "") {
+                jQuery("#user_suggest").css("border", "1px solid red ");
+                return false;
+            } else
+                jQuery("#user_suggest").css("border", "1px solid #e8e8e8 ");
+
+            $.ajax({
+                url: "@Url.Content("~/Home/SendUserSuggest")",
+                type: "POST",
+                dataType: "text",
+                data: $("#contract_form").serialize(),
+                success: function (data) {
+                    alert(data);
+                    $("#user_name").val("");
+                    $("#user_email").val("");
+                    $("#user_phone").val("");
+                    $("#user_suggest").val("");
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
+            return true;
+        }
+    </script>
+
+    <div id="contact" class="contact">
+        <div class="container">
+            <div class="contact-form">
+                <h3>联系我们</h3>
+                <form id="contract_form">
+                    <!--action="@Url.Content("~/Home/SendUserSuggest")" method="post"-->
+                    <div class="contact-left">
+                        <input name="user_name" id="user_name" type="text" placeholder="姓名">
+                        <input name="user_email" id="user_email" type="text" placeholder="邮箱" required>
+                        <input name="user_phone" id="user_phone" type="text" placeholder="联系电话" required">
+                    </div>
+                    <div class="contact-right">
+                        <textarea name="user_suggest" id="user_suggest" placeholder="请填写您的意见及建议" required></textarea>
+                    </div>
+                    <div class="clearfix"></div>
+                    <input type="button" onclick="checkForm()" value="发送">
+                </form>
+            </div>
+            <div class="address">
+                <h3>联系方式</h3>
+                @{Contact contact = contactTable.ContactLists.First(); }
+                <p style="font-size: 16px">
+                    <label><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp; @contact.contact_addr</label>
+                </p>
+                <ul style="font-size: 16px">
+                    <li><span class="glyphicon glyphicon-earphone"></span>&nbsp;@contact.contact_phone</li>
+                    <li><span class="glyphicon glyphicon-print"></span>&nbsp;@contact.contact_fax</li>
+                    <li><span class="glyphicon glyphicon-envelope"></span>&nbsp;@contact.contact_email</li>
+                    <li><span class="glyphicon glyphicon-globe"></span>&nbsp;@contact.contact_website</li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <!-- //contact -->
+    <!-- footer -->
+    <div class="footer">
+        <div class="container" style="text-align: center">
+            <div style="float: left; margin-left: 20%">
+                <img src="@Url.Content(contact.contact_wx_bincode)" width="120" height="120"  alt="" />
+                <div style="text-align: center; color: white; font-size: 14px">公众号二维码</div>
+            </div>
+            <div style="float: left; margin-left: 20px; padding-right: 50px; border-right: 1px solid white">
+                <img  src="@Url.Content(contact.contact_web_bincode)" width="120" height="120"  alt="" />
+                <div style="text-align: center; color: white; font-size: 14px">网站二维码</div>
+            </div>
+            <div style="float: left; width: 400px;">
+                <p style="font-size: 16px; margin-bottom: 10px">Copyright &copy; 2016-2020 青海省警备区版权所有.</p>
+                <p style="font-size: 16px; margin-bottom: 10px">地址：青海省西宁七一路.</p>
+                <p style="font-size: 16px; margin-bottom: 10px">联系电话：0971-6666666.</p>
+                <p style="font-size: 16px; margin-bottom: 10px">联系邮箱：webmaster@yahoo.com.</p>
+            </div>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

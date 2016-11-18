@@ -13,47 +13,55 @@
     <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/style.css")">
     <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/backLoginCss/backLogin.css")">
 </head>
+
 <body>
-
-    <h1 style="font-family:隶书">西宁国防动员网后台管理登录</h1>
-    <div class="login" style="background-color: #D34346">
-        <div class="col-md-7">
-            <img src="@Url.Content("~/Image/Back/logo_express.jpg")" style="width:100%" />
+    <div style="width: 1250px; margin: auto; margin-top: 60px">
+        <h1 style="font-family: 隶书; ">西宁国防动员网后台管理登录</h1>
+        <div class="login" style="background-color: #D34346; width: 1250px">
+            <table>
+                <tr>
+                    <td>
+                        <div style="margin-left:20px">
+                            <img src="@Url.Content("~/Image/Back/logo_express.jpg")" style="width:100%; height:308px" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="loginForm" style="margin-top:20px; margin-right:20px">
+                            <div class="login-panel panel panel-default">
+                                <div class="panel-heading" style="font-size: 16px; text-align: center">管理员登录</div>
+                                <div class="panel-body">
+                                    <form role="form" action="@Url.Content("~/BackLogin/Login")" method="post">
+                                        <div class="form-group" style="margin-bottom: 20px">
+                                            <input class="form-control" placeholder="用户名" name="username" type="text" autofocus="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="密   码" name="password" type="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <input class="form-control" placeholder="验证码" name="verifyCode" type="text" style="width: 200px;">
+                                                    </td>
+                                                    <td>
+                                                        <img onclick="getVerifyCode();" id="verifyCode" src="@Url.Content("~/BackLogin/GetVerifyCode")" style="border:solid 1px;width:110px;height:33px;margin-left:20px;" alt="验证码"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="form-group" style="text-align: center">
+                                            <input type="submit" class="btn btn-primary" style="width: 30%" value="登录" />
+                                            <input type="reset" class="btn btn-primary" style="width: 30%" value="重置" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div style="clear: both"></div>
         </div>
-        <div class="loginForm col-md-6">
-            <div class="login-panel panel panel-default">
-                <div class="panel-heading" style="font-size: 16px; text-align: center">管理员登录</div>
-                <div class="panel-body">
-                    <form role="form" action="@Url.Content("~/BackLogin/Login")" method="post">
-                        <div class="form-group">
-                            <input class="form-control" placeholder="用户名" name="username" type="text" autofocus="">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="密   码" name="password" type="password">
-                        </div>
-
-                        <div class="form-group">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <input class="form-control" placeholder="验证码" name="verifyCode" type="text" style="width: 200px;">
-                                    </td>
-                                    <td>
-                                        <img onclick="getVerifyCode();" id="verifyCode" src="@Url.Content("~/BackLogin/GetVerifyCode")" style="border:solid 1px;width:140px;height:33px;margin-left:20px;" alt="验证码"/>
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </div>
-                        <div class="form-group" style="text-align: center">
-                            <input type="submit" class="btn btn-primary" style="width: 30%" value="登录" />
-                            <input type="reset" class="btn btn-primary" style="width: 30%" value="重置" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div style="clear: both"></div>
     </div>
 </body>
 </html>

@@ -12,21 +12,22 @@
     <link rel="stylesheet" href ="@Url.Content("~/content/bootstrap.min.css")">
     <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/style.css")">
     <link rel="stylesheet" href ="@Url.Content("~/content/pagecss/backPageCss/backLoginCss/backLogin.css")">
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
 </head>
 
 <body>
     <div style="width: 1250px; margin: auto; margin-top: 60px">
-        <h1 style="font-family: 隶书; ">西宁国防动员网后台管理登录</h1>
+        <h1 style="font-family: 隶书;">西宁国防动员网后台管理登录</h1>
         <div class="login" style="background-color: #D34346; width: 1250px">
             <table>
                 <tr>
                     <td>
-                        <div style="margin-left:20px">
+                        <div style="margin-left: 20px">
                             <img src="@Url.Content("~/Image/Back/logo_express.jpg")" style="width:100%; height:308px" />
                         </div>
                     </td>
                     <td>
-                        <div class="loginForm" style="margin-top:20px; margin-right:20px">
+                        <div class="loginForm" style="margin-top: 20px; margin-right: 20px">
                             <div class="login-panel panel panel-default">
                                 <div class="panel-heading" style="font-size: 16px; text-align: center">管理员登录</div>
                                 <div class="panel-body">
@@ -44,14 +45,17 @@
                                                         <input class="form-control" placeholder="验证码" name="verifyCode" type="text" style="width: 200px;">
                                                     </td>
                                                     <td>
-                                                        <img onclick="getVerifyCode();" id="verifyCode" src="@Url.Content("~/BackLogin/GetVerifyCode")" style="border:solid 1px;width:110px;height:33px;margin-left:20px;" alt="验证码"/>
+                                                        <a onclick="refreshCode()">
+                                                         
+                                                        <img id="codeImg" src="@Url.Content("~/BackLogin/GetVerifyCode")" style="border:solid 1px;width:110px;height:33px;margin-left:20px;"/>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </div>
                                         <div class="form-group" style="text-align: center">
                                             <input type="submit" class="btn btn-primary" style="width: 30%" value="登录" />
-                                            <input type="reset" class="btn btn-primary" style="width: 30%" value="重置" />
+                                            <input type="reset"  class="btn btn-primary" style="width: 30%" value="重置" />
                                         </div>
                                     </form>
                                 </div>
@@ -65,3 +69,5 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript"> function refreshCode() { var codeImg = jQuery("#codeImg"); var time = new Date().getSeconds(); var url = "/BackLogin/GetVerifyCode?time=" + time; codeImg.attr("src", url);}</script>

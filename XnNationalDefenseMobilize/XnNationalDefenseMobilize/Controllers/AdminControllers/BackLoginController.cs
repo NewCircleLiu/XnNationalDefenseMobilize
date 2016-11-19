@@ -23,7 +23,8 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
         }
         
         //生成验证码图片
-        public ActionResult GetVerifyCode() {
+        public ActionResult GetVerifyCode(string time)
+        {
             ValidateCode vCode = new ValidateCode();
             string code = vCode.CreateValidateCode(5);
             Session["ValidateCode"] = code;
@@ -87,6 +88,5 @@ namespace XnNationalDefenseMobilize.Controllers.BackControllers
             else
                 return Content("原始账户输入错误");
         }
-
     }
 }

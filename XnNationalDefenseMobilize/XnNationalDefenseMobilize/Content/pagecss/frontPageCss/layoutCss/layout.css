@@ -1,4 +1,6 @@
 
+@charset "utf-8";
+
 body{
 	/*font-family: 'Open Sans', sans-serif;*/
 	margin:0;
@@ -1296,7 +1298,6 @@ text-align:center;
 /*-- //footer --*/
 @media(max-width:1440px){
 	.banner-info p{
-	
 		padding: 14px;
 	}
 	.banner{
@@ -1309,18 +1310,20 @@ text-align:center;
 	width:34%;
 	}
 }
+
 @media(max-width:1366px){
 	.banner-info {
 		width:38%;
 	}
-	
 }
+
 @media(max-width:1280px){
 	
 	.banner-info{
 		width:38%;
 	}
 }
+
 @media(max-width:1024px){
 	.social-icons {
 		width: 12%;
@@ -1440,10 +1443,11 @@ text-align:center;
 		font-size: 14px;
 		}
 }
+
 @media(max-width:768px){
 .bottom-right h3 {
 	font-size: 17px;
-}
+    }
 	.social-icons {
 		width: 15%;
 		  margin-top: 14px;
@@ -1454,7 +1458,6 @@ text-align:center;
 	.navigation {
 		width: 71%;
 		}
-	.logo {
 		width: 14%;
 		  margin-top: 17px;
 		}
@@ -1502,12 +1505,12 @@ text-align:center;
 		}
 		.about-grid p {
 		overflow: hidden;
-		height: 91px;
+		/*height: 91px;*/
 		}
 		.about-grid p:nth-child(1) {
-		padding: 4px 15px;
+		/*padding: 4px 15px;*/
 		overflow: hidden;
-		height: 78px;
+		/*height: 78px;*/
 		}
 		.slider-info h4 {
 		margin: 21px 0 0 23px;
@@ -1818,9 +1821,8 @@ text-align:center;
 		}
 		.banner {
 		min-height: 252px;
-	  background: url("../images/1.jpg") no-repeat -173px 0px;
-	  background-size: 169%;
-
+	    background: url("../images/1.jpg") no-repeat -173px 0px;
+	    background-size: 169%;
 		}
 		.col-md-3.bottom-grid:nth-child(3) {
 		display: none;
@@ -1835,15 +1837,15 @@ text-align:center;
 		}
 		.about-grid p {
 		overflow: hidden;
-		height: 110px;
+		/*height: 110px;*/
 		}
 		.col-md-4.about-grid.list {
 		  margin: 16px 0;
 		}
 		.about-grid p:nth-child(1) {
-		padding: 18px 26px;
+		/*padding: 18px 26px;*/
 		overflow: hidden;
-		height: 91px;
+		/*height: 91px;*/
 		}
 		a.callbacks_nav.callbacks2_nav.next {
 		right: 0% !important;
@@ -1941,7 +1943,7 @@ text-align:center;
 }
 @media(max-width:320px){
 	.about-grid p:nth-child(1) {
-		height: 84px;
+		/*height: 84px;*/
 	}
 		.logo {
 		width: 45%;
@@ -1998,7 +2000,7 @@ text-align:center;
 		}
 		.about-grid p {
 		overflow: hidden;
-		height: 92px;
+		/*height: 92px;*/
 		}
 		.col-md-4.about-grid.list {
 		margin: 16px 0 16px 0;
@@ -2042,8 +2044,8 @@ text-align:center;
 		display:none;
 		}
 		.about-grid p:nth-child(1) {
-		padding: 8px 21px;
-		height:82px;
+		/*padding: 8px 21px;
+		height:82px;*/
 		}
 		.services-data {
 		padding: 11px 0px;

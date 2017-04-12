@@ -228,17 +228,33 @@
     <Content Include="App_Data\Contact_log.ldf">
       <DependentUpon>Contact.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\DefenseCategory.mdf" />
+    <Content Include="App_Data\DefenseCategory_log.ldf">
+      <DependentUpon>DefenseCategory.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\DefenseNews.mdf" />
     <Content Include="App_Data\DefenseNews_log.ldf">
       <DependentUpon>DefenseNews.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Download.mdf" />
+    <Content Include="App_Data\Download_log.ldf">
+      <DependentUpon>Download.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\GrassrootNews.mdf" />
     <Content Include="App_Data\GrassrootNews_log.ldf">
       <DependentUpon>GrassrootNews.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\HomeImage.mdf" />
+    <Content Include="App_Data\HomeImage_log.ldf">
+      <DependentUpon>HomeImage.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\LinkList.mdf" />
     <Content Include="App_Data\LinkList_log.ldf">
       <DependentUpon>LinkList.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\MediaImpress.mdf" />
+    <Content Include="App_Data\MediaImpress_log.ldf">
+      <DependentUpon>MediaImpress.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\Message.mdf" />
     <Content Include="App_Data\Message_log.ldf">
@@ -255,6 +271,14 @@
     <Content Include="App_Data\Suggest.mdf" />
     <Content Include="App_Data\Suggest_log.ldf">
       <DependentUpon>Suggest.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\User.mdf" />
+    <Content Include="App_Data\User_log.ldf">
+      <DependentUpon>User.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Video.mdf" />
+    <Content Include="App_Data\Video_log.ldf">
+      <DependentUpon>Video.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -625,7 +649,8 @@
     <Content Include="editor\file_manager_json.ashx" />
     <Content Include="editor\upload_json.ashx" />
     <None Include="Properties\PublishProfiles\army.pubxml" />
-    <None Include="Properties\PublishProfiles\myMVC4Web.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Image\news\ser-bg.png" />
     <Content Include="Scripts\bootstrap.js" />

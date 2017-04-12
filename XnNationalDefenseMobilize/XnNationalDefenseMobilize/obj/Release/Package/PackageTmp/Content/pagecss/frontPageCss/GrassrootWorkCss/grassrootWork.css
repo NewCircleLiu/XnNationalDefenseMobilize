@@ -79,10 +79,10 @@ body {
 
 .section_02_box {
     float: left;
-	width: 590px;
+	width: 600px;
 
 	/*border: 1px solid #CCCCCC;*/
-	margin: 0 10px 0 40px;
+	margin: 10px 10px 0 10px;
     background-color:white;
     padding-top:10px ;
     padding-bottom:10px ;

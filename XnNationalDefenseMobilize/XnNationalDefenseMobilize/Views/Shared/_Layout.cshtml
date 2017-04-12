@@ -67,6 +67,8 @@
 
     @RenderBody()
 
+    <!--
+
     <div style="background: #f7f7f7">
         <div id="link" class="container">
             <div class="services-header">
@@ -88,7 +90,7 @@
             </div>
         </div>
     </div>
-
+    -->
 
     <script type="text/javascript">
         function checkForm() {
@@ -131,12 +133,12 @@
         }
     </script>
 
+    <!--
     <div id="contact" class="contact">
         <div class="container">
             <div class="contact-form">
                 <h3>联系我们</h3>
                 <form id="contract_form">
-                    <!--action="@Url.Content("~/Home/SendUserSuggest")" method="post"-->
                     <div class="contact-left">
                         <input name="user_name" id="user_name" type="text" placeholder="姓名">
                         <input name="user_email" id="user_email" type="text" placeholder="邮箱" required>
@@ -165,25 +167,40 @@
             <div class="clearfix"></div>
         </div>
     </div>
+-->
 
     <!-- //contact -->
     <!-- footer -->
     <div class="footer">
-        <div class="container" style="text-align: center">
-            <div style="float: left; margin-left: 20%">
-                <img src="@Url.Content(contact.contact_wx_bincode)" width="120" height="120"  alt="" />
+        <div class="container" style="text-align: center; margin-left:15%">
+            <div style="float: left; padding-right: 30px; border-right: 1px solid white">
+                <img src="@Url.Content(contact.contact_wx_bincode)" width="120" height="120" />
                 <div style="text-align: center; color: white; font-size: 14px">公众号二维码</div>
             </div>
+           <!--
             <div style="float: left; margin-left: 20px; padding-right: 50px; border-right: 1px solid white">
                 <img  src="@Url.Content(contact.contact_web_bincode)" width="120" height="120"  alt="" />
                 <div style="text-align: center; color: white; font-size: 14px">网站二维码</div>
             </div>
-            <div style="float: left; width: 400px;">
+           -->
+            <div style="float: left; width: 420px; padding-right: 15px; padding-left:15px; border-right: 1px solid white">
                 <p style="font-size: 16px; margin-bottom: 10px">Copyright &copy; 2016-2020 青海省警备区版权所有.</p>
                 <p style="font-size: 16px; margin-bottom: 10px">地址：青海省西宁市七一路.</p>
                 <p style="font-size: 16px; margin-bottom: 10px">联系电话：0971-6666666.</p>
                 <p style="font-size: 16px; margin-bottom: 10px">联系邮箱：webmaster@yahoo.com.</p>
             </div>
+
+            <div style="float: left; width: 450px;">
+                @foreach (var item in linkTable.linkLists.ToList())
+                {
+                    <div class="col-md-6 services-grid">
+                        <a href="@item.link_url" target ="_blank">
+                            <h3 style="text-align:left; color:white;font-size:16px;font-family: 'Open Sans', sans-serif;font-weight: 500;">@item.link_name</h3>
+                        </a>
+                    </div>
+                }
+            </div>
+
         </div>
     </div>
     @RenderSection("scripts", required: false)

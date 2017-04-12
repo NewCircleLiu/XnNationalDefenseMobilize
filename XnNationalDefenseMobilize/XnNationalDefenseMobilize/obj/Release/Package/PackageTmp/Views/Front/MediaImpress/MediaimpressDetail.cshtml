@@ -6,28 +6,20 @@
 <link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/newsdetail.css")" rel="stylesheet" type="text/css" media="all" />
 <link href="@Url.Content("~/Content/pagecss/frontpagecss/newscss/newsdetailred.css")" rel="stylesheet" type="text/css" media="all" />
 
-<!-- Wrapper Start -->
+
 <div id="outer_wrapper">
-    <!-- Content Section Start -->
     <div id="contentsec">
         <div class="inner">
-            <div class="twothird left">
-                <!-- Two Third Box Start -->
-                <div class="twothird box left">
+            <div class="twothird left" style="width:100%">
+                <div class="twothird box left" style="width:100%">
                     <h2 class="widget-head-border colr"><b>@Model.mediaImpress_title</b></h2>
                     <div class="blog">
-                        <!-- Blog Post Start -->
                         <div class="post">
                             <div class="p-date">
                                 <span>@Model.mediaImpress_release_time.ToString("dd")</span>
                                 <span>@Model.mediaImpress_release_time.ToString("yyyy.MM")</span>
                             </div>
                             <div class="post-sec">
-                                <div class="thumb" style="text-align: center">
-                                    <a href="#">
-                                        <img src="@Url.Content("~/Image/news/test.png")" alt="" />
-                                    </a>
-                                </div>
                                 <div class="post-desc">
                                     @Html.Raw(Model.mediaImpress_content)
 
@@ -40,16 +32,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Blog Post End -->
                     </div>
                 </div>
-                <!-- Two Third Box End -->
 
             </div>
-            <!-- One Third Box Start -->
-
         </div>
     </div>
-    <!-- Content Section End -->
 </div>
-<!-- Wrapper End -->

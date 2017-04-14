@@ -2542,6 +2542,12 @@ h1 {
 .navbar-brand {
     font-size:18px;
     color:white;
+    border-right:1px solid #aaa;
+    font-family:'Microsoft YaHei';
+}
+
+#navi_ul li {
+    text-align:center;
 }
 
 @media( max-width: 450px) {
@@ -2549,6 +2555,12 @@ h1 {
     {
     width:100%;
     }
+
+    #navi_ul li a,
+    .navbar-brand {
+    border-right:none;
+}
+
 }
 
 @media( max-width: 768px) {

@@ -162,15 +162,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608291808065_InitialCreate.cs" />
-    <Compile Include="Migrations\201608291808065_InitialCreate.Designer.cs">
-      <DependentUpon>201608291808065_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609031446455_AddTimeForCommQus.cs" />
-    <Compile Include="Migrations\201609031446455_AddTimeForCommQus.Designer.cs">
-      <DependentUpon>201609031446455_AddTimeForCommQus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DefenseMobilize\DefenseCategory.cs" />
     <Compile Include="Models\DefenseMobilize\DefenseCategoryContext.cs" />
     <Compile Include="Models\DefenseMobilize\DefenseNews.cs" />
@@ -647,7 +638,6 @@
     <Content Include="uploadFile\image\media\20160907013529_5206.mp4" />
     <Content Include="uploadFile\image\media\20160907014046_0686.mp4" />
     <Content Include="video\video_xml\CuPlayerSetFile.xml" />
-    <Content Include="设计方案\参考模板.txt" />
     <Content Include="editor\file_manager_json.ashx" />
     <Content Include="editor\upload_json.ashx" />
     <None Include="Properties\PublishProfiles\army.pubxml" />
@@ -694,7 +684,6 @@
     <Content Include="Views\Front\Media\Index.cshtml" />
     <Content Include="Views\Front\PolicyAdvice\Index.cshtml" />
     <Content Include="Views\Front\SiteNavi\Index.cshtml" />
-    <Content Include="设计方案\西宁市国防动员综合信息中心软件研发.doc" />
     <Content Include="Views\Front\News\NewsList.cshtml" />
     <Content Include="Views\Front\News\NewsDetail.cshtml" />
     <Content Include="Views\Front\DefenseMobilize\DefenseList.cshtml" />
@@ -747,14 +736,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608291808065_InitialCreate.resx">
-      <DependentUpon>201608291808065_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609031446455_AddTimeForCommQus.resx">
-      <DependentUpon>201609031446455_AddTimeForCommQus.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

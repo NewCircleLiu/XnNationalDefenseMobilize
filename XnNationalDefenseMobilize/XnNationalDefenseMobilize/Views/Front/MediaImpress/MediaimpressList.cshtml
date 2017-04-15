@@ -30,8 +30,10 @@
                         <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />@mediaImpressArray[i].mediaImpress_release_time.ToString("yyyy-MM-dd")</span>
                     <span class="category">
                         <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">@mediaImpressArray[i].mediaImpress_source</a></span>
-                    <span class="comments">
+                   <!--
+                     <span class="comments">
                         <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
+                    -->
                 </div>
 
                 <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id="+mediaImpressArray[i].mediaImpress_id)" target="_blank" >
@@ -54,8 +56,10 @@
                             <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />@mediaImpressArray[i+1].mediaImpress_release_time.ToString("yyyy-MM-dd")</span>
                         <span class="category">
                             <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">@mediaImpressArray[i+1].mediaImpress_source</a></span>
+                        <!--
                         <span class="comments">
                             <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
+                          -->
                     </div>
 
                     <a href="@Url.Content("~/MediaImpress/MediaimpressDetail?id="+mediaImpressArray[i+1].mediaImpress_id)" target="_blank" >

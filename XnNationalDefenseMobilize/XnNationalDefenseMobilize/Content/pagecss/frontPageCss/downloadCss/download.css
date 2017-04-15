@@ -114,6 +114,17 @@ body {
     -o-transition: 0.5s all;
 }
 
+@media screen and (max-width:600px) {
+    #download_container {
+        padding-left:0;
+        padding-right:0;
+    }
+
+    .download-top-grid ul li {
+        margin: 15px 0 0 5px ;
+    }
+}
+
 
 
 /*-- //download-top --*/

@@ -9,10 +9,15 @@
 
 <div id="outer_wrapper">
     <div id="contentsec">
-        <div class="inner">
+        <div class="inner" id="mediaim_detail_container">
             <div class="twothird left" style="width:100%">
                 <div class="twothird box left" style="width:100%">
-                    <h2 class="widget-head-border colr"><b>@Model.mediaImpress_title</b></h2>
+                    <h2 class="widget-head-border colr"><b>@Model.mediaImpress_title</b></h2>               
+                    <div style="margin-left:25px; font-size:16px">                             
+                          <span class="postby">供稿：<span style="color:#666">@Model.mediaImpress_source</span>&nbsp;&nbsp;</span>
+                          <span class="post-time">发布时间：<span style="color:#666">@Model.mediaImpress_release_time.ToString("yyyy-MM-dd hh:mm")&nbsp;&nbsp;</span></span>
+                    </div>
+                    <hr style="margin-left:25px; border:1px solid #46586A" />
                     <div class="blog">
                         <div class="post">
                             <div class="p-date">
@@ -22,13 +27,6 @@
                             <div class="post-sec">
                                 <div class="post-desc">
                                     @Html.Raw(Model.mediaImpress_content)
-
-                                    <div class="post-opts">
-                                        <p class="postby">供稿：<span style="color: #666">@Model.mediaImpress_source</span></p>
-                                        <p class="post-time">@Model.mediaImpress_release_time.ToString("yyyy.MM.dd")</p>
-                                        <p class="post-time">青海省警备区</p>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>

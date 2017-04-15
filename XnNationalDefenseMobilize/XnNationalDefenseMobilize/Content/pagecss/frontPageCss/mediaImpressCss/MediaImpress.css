@@ -2,43 +2,48 @@
     background-color: #efefef;
 }
 
-.impress-grids{
+.impress-grids {
     margin-top: 30px;
-    background-color:#fff;
+    background-color: #fff;
 }
 
-.impress-grids h3{
-    border-bottom:2px solid #ed5c5c;
-    padding-bottom:7px;
+    .impress-grids h3 {
+        border-bottom: 2px solid #ed5c5c;
+        padding-bottom: 7px;
+    }
 
+.army-left img {
+    width: 100%;
 }
-.army-left img{
-	width:100%;
+
+.army-top {
+    margin-bottom: 1.5em;
 }
-.army-top{
-	margin-bottom:1.5em;
+
+.army-left ul {
+    padding: 0;
+    margin-top: 2em;
 }
-.army-left ul{
-	padding:0;
-	margin-top:2em;
-}
-.army-left ul li{
-	list-style-image: url(~/Image/mediaimpress/arw.png);
-  	margin: 0px 0px 12px 18px;
-}
-.army-left ul li a{
-	color: black;
-  	font-size: 16px;
-  	font-weight: 400;
-}
-.army-left ul li a:hover{
-	color:#a2a876;
-	transition: 0.5s all ease;
-	-webkit-transition: 0.5s all ease;
-	-moz-transition: 0.5s all ease;
-	-o-transition: 0.5s all ease;
-	-ms-transition: 0.5s all ease;
-}
+
+    .army-left ul li {
+        list-style-image: url(~/Image/mediaimpress/arw.png);
+        margin: 0px 0px 12px 18px;
+    }
+
+        .army-left ul li a {
+            color: black;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+            .army-left ul li a:hover {
+                color: #a2a876;
+                transition: 0.5s all ease;
+                -webkit-transition: 0.5s all ease;
+                -moz-transition: 0.5s all ease;
+                -o-transition: 0.5s all ease;
+                -ms-transition: 0.5s all ease;
+            }
 
 /*
 .others-bottom {
@@ -123,3 +128,11 @@
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
         }
+
+@media screen and (max-width:600px) {
+    .impress-grids,
+    #impress_container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

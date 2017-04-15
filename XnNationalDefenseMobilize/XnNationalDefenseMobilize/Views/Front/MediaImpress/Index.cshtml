@@ -16,7 +16,7 @@
 
 <link href="@Url.Content("~/content/pagecss/frontPageCss/mediaImpressCss/MediaImpress.css")" rel="stylesheet" type="text/css" media="all" />
 <!--mediaimpress-->
-<div class="container" style="margin-bottom: 30px">
+<div class="container"id="impress_container" style="margin-bottom: 30px">
 
     @{string[] titles = new string[3] { "解放军军报", "解放军画报", "中国国防报" }; }
 
@@ -40,6 +40,7 @@
                 <div class="nunc-bwn" style="clear: both">
                     <a href="@Url.Content("~/MediaImpress/MediaimpressList?type_id=" + (i + 1))">More >></a>
                 </div>
+                  <div style="clear: both"></div>
             </div>
         }
     </div>

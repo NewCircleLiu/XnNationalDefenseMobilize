@@ -489,7 +489,8 @@ iframe {
 	box-sizing: border-box;
 	width:100%;
 	float:left;
-	padding:0px 0px 0px 220px;
+	/*padding:0px 0px 0px 220px;*/
+    padding:0px 0px 0px 20px;
 }
 .post .post-head{
 	width:100%;
@@ -673,5 +674,38 @@ iframe {
 	color: #fff;
 	background-color: #454545;
 }
+
+@media screen and (max-width:640px) {
+    #advise_container {
+        width:100%;
+        padding-left:0;
+        padding-right:0;
+    }
+
+    #right_list li {
+    clear: both;
+    }
+    
+    #right_list {
+    padding-left: 15px;
+    }
+
+    #send_btn {
+        width:100%;
+    }
+
+}
+
+@media screen and (max-width:650px) {
+    #ques_reply_container {
+        width:100%;
+        padding-left:0;
+        padding-right:0;
+    }
+    .post-sec {
+        padding-left:0;
+    }
+}
+
 
 /*------------------*/

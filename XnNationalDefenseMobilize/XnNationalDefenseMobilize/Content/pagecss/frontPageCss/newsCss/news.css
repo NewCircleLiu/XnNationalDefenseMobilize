@@ -37,7 +37,7 @@ body
 .service-icon-heading
 {
     float: left;
-    width: 85%;
+    /*width: 85%;*/
     padding: 1em 1em;
 }
 
@@ -131,7 +131,7 @@ i.cloud
     .services-section-grid, .services-section-grid.lost
     {
         background: url(../images/ser-bg.png)no-repeat 100% 100%;
-        width: 48%;
+       /* width: 48%;*/
         margin-right: 2%;
         background-size: cover;
         -o- background-size:cover;
@@ -171,8 +171,8 @@ i.cloud
     .services-section-grid, .services-section-grid.lost
     {
         background: url(../images/ser-bg.png)no-repeat 100% 100%;
-        width: 48%;
-        margin-right: 2%;
+        /*width: 48%;*/
+       /* margin-right: 2%;*/
         background-size: cover;
         min-height: 106px;
         float: left;
@@ -189,8 +189,14 @@ i.cloud
     .service-icon-heading
     {
         float: left;
-        width: 80%;
+        /*width: 80%;*/
+        width: 100%;
         padding: 1em 1em;
+    }
+
+    .news_line {
+        padding-left:0;
+        padding-right:0;
     }
 
     .services-section-grid p
@@ -220,6 +226,11 @@ i.cloud
     {
         margin-top: 1.2em;
     }
+
+    #news_container {
+        padding-left:0;
+        padding-right:0;
+    }
 }
 
 @media (max-width:640px)
@@ -237,6 +248,24 @@ i.cloud
         height: 89px;
         background: url('../images/s-icons.png') no-repeat 12px 26px #EC5844;
     }
+
+    .nws_title a {
+        color: black;
+        display: block;
+        white-space:normal;
+        overflow:auto;
+        text-overflow:clip;
+    }
+}
+
+@media screen and (min-width:800px) {
+        .nws_title a {
+        color: black;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 @media (max-width:480px)
@@ -245,7 +274,7 @@ i.cloud
     {
         background: url(../images/ser-bg.png)no-repeat 0px 0px;
         padding: 0;
-        width: 90%;
+       /* width: 90%;*/
         float: none;
         min-height: 137px;
     }
@@ -254,7 +283,7 @@ i.cloud
         {
             width: 100%;
             overflow: hidden;
-            height: 60px;
+           /* height: 60px;*/
         }
 
     i.rocket, i.plan, i.arrow, i.download
@@ -299,7 +328,7 @@ i.cloud
     .service-icon-heading
     {
         float: left;
-        width: 65%;
+        /*width: 65%;*/
         padding: 0.6em 0.6em;
     }
 

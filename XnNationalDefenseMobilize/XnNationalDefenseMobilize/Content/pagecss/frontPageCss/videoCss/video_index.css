@@ -239,3 +239,32 @@ ul.mylist {
         -moz-transition: 0.5s all;
         -o-transition: 0.5s all;
     }
+
+#video_item_id {
+    margin-top:10px;
+    padding-left:0;
+    border:none;
+    box-shadow:none;
+}
+
+@media screen and (max-width:650px) {
+    #video_container {
+        width:100%;
+    }
+
+    #player_list {
+        display:none;
+    }
+
+   .video_classify_name {
+        display:none;
+    }
+
+    #CuPlayer {
+        width:100%;
+    }
+
+    #CuPlayer embed {
+        width:100%;
+    }
+}

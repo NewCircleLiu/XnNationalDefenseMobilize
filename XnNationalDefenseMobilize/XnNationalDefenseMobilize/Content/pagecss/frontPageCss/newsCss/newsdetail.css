@@ -454,3 +454,21 @@ iframe {
 	float:left;
 	margin:0px 5px 0px 0px;
 }
+
+@media screen and (max-width:600px) {
+    #news_detail_container,
+    #dfnews_detail_container,
+    #grnews_detail_container,
+    #mediaim_detail_container {
+        width: 100%;
+        padding-left:0;
+        padding-right:0;
+    }
+
+    .p-date {
+        display:none;
+    }
+    .post .post-sec {
+        padding:0;
+    }
+}

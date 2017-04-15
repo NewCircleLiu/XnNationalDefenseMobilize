@@ -135,7 +135,7 @@ a:hover, a:visited {
 .banner {
     background: url("../images/1.jpg") no-repeat 0px 0px;
     background-size: 100%;
-   /* min-height: 445px;*/
+    /* min-height: 445px;*/
 }
 
 .banner-info {
@@ -1489,7 +1489,7 @@ h2.resp-accordion {
 }
 
 .banner {
-  /*  min-height: 374px;*/
+    /*  min-height: 374px;*/
 }
 
 .banner-info {
@@ -2157,7 +2157,7 @@ a.callbacks_nav.callbacks2_nav.prev {
 }
 
 .banner {
-   /* min-height: 252px;*/
+    /* min-height: 252px;*/
     background: url("../images/1.jpg") no-repeat -173px 0px;
     background-size: 169%;
 }
@@ -2528,52 +2528,83 @@ h1 {
     border: 0;
 }
 
-@media( min-width: 768px) {
-    .navbar-nav > li > a;
-
-{
-    text-align: center;
-    border-right: 1px solid rgba(0,0,0,0.1);
+@media screen and ( min-width: 768px) {
+    .navbar-nav > li > a
+    {
+     text-align: center;
+     border-right: 1px solid rgba(0,0,0,0.1);
+    }
 }
-}
-
 
 #navi_ul li a,
 .navbar-brand {
-    font-size:18px;
-    color:white;
-    border-right:1px solid #aaa;
-    font-family:'Microsoft YaHei';
+    font-size: 18px;
+    color: white;
+    border-right: 1px solid #aaa;
+    font-family: 'Microsoft YaHei';
 }
 
 #navi_ul li {
-    text-align:center;
+    text-align: center;
 }
 
-@media( max-width: 450px) {
-    #logo_img
-    {
-    width:100%;
+@media screen and ( max-width: 450px) {
+    #logo_img {
+        width: 100%;
     }
 
     #navi_ul li a,
     .navbar-brand {
-    border-right:none;
+        border-right: none;
+    }
 }
 
-}
-
-@media( max-width: 768px) {
-    .slogans{
-       display:none;
+@media screen and ( max-width: 768px) {
+    .slogans {
+        display: none;
     }
 }
 
 #mobile_navi:focus,
-#mobile_navi:hover{
-    background-color:transparent;
+#mobile_navi:hover {
+    background-color: transparent;
 }
 
 #mobile_navi span {
-    background-color:white;
+    background-color: white;
+}
+
+
+@media screen and ( min-width:1200px) {
+    #bincode_div {
+        width: 150px;
+        border-right: 1px solid white;
+        float: left;
+    }
+
+    #copyright_div {
+        float: left;
+        width: 450px;
+        border-right: 1px solid white;
+    }
+
+    #copyright_div p {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #link_div {
+        display: none;
+    }
+
+    #copyright_div {
+        margin-top: 5px;
+    }
+
+    #copyright_div p {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
 }

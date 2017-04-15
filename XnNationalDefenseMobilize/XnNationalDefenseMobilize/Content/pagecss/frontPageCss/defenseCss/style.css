@@ -8,11 +8,11 @@
 	width: 100%;
 	margin: auto auto auto auto;
 }
+/*
 .container {
-	/*width: 1000px;*/
     width:1170px;
 	margin: auto auto auto auto;
-}
+}*/
 
 /*------------------*/
 /*	CONTENT
@@ -224,13 +224,6 @@ ul.post_meta_links {
 }
 .blog_postcontent .video_frame iframe:hover {
 	border: 7px solid #f9f9f9;
-}
-.post_info_content_small {
-	padding: 0px;
-	margin: 0 0 0 4%;
-	/*width: 50%;*/
-    width:45%;
-	float: left;
 }
 ul.post_meta_links_small {
 	float: left;

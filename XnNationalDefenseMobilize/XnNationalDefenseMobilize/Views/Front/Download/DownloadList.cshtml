@@ -7,7 +7,7 @@
 <link href="@Url.Content("~/Content/pagecss/frontpagecss/downloadcss/DownloadList.css")" rel="stylesheet" type="text/css" media="all" />
 
 
-<div class="container" style="margin-bottom:30px">
+<div class="container" id="down_list_container" style="margin-bottom:30px">
     <div class="col-md-12 download-top-grid">
         <h3><b>@ViewBag.Title</b></h3>
 
@@ -16,16 +16,16 @@
                 int items_to_display_count = downloadsArray.Count();    
            }
 
-        <div class="col-md-6">
-                <ul class="last">
+        <div class="col-md-6 down_list">
+                <ul class="last" style="padding-left:5px;">
                     @for (int j = 0; j < Math.Ceiling(items_to_display_count / 2.0); j++)
                     {
                         <li style="font-size: 18px">@downloadsArray[j].download_title<a href="@Url.Content(@downloadsArray[j].download_source)"><span class="glyphicon glyphicon-download download"></span></a></li>
                     }
                 </ul>
             </div>
-            <div class="col-md-6">
-                <ul class="last">
+            <div class="col-md-6 down_list">
+                <ul class="last" style="padding-left:5px;">
                     @for (int j = (int)Math.Ceiling(items_to_display_count / 2.0); j < items_to_display_count; j++)
                     {
                         <li style="font-size: 18px">@downloadsArray[j].download_title<a href="@Url.Content(@downloadsArray[j].download_source)"><span class="glyphicon glyphicon-download download"></span></a></li>

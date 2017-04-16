@@ -95,3 +95,12 @@ ul.last li{
 .last img {
     padding-right:10px;
 }
+
+@media screen and (max-width:650px) {
+    .down_list,
+    .download-top-grid ,
+    #down_list_container{
+        padding-left:0;
+        padding-right:0;
+    }
+}

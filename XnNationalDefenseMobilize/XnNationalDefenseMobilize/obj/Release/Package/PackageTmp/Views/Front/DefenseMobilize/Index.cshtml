@@ -7,30 +7,12 @@
 <link href="@Url.Content("~/Content/pagecss//frontpagecss/defensecss/defense.css")" rel="stylesheet" type="text/css" media="all" />
 
 <style>
-    body
-    {
+    body {
         background-color: #efefef;
     }
 
-    p a:visited, p a:focus
-    {
+    p a:visited, p a:focus {
         text-decoration: none;
-    }
-
-    /*
-    p a:hover
-    {
-        color: #6CA6CD;
-        font-size: 18px;
-    }*/
-
-    .nws_title a
-    {
-        color: black;
-        display:block;
-        white-space:nowrap; 
-        overflow:hidden; 
-        text-overflow:ellipsis
     }
 </style>
 
@@ -40,7 +22,7 @@
     IEnumerable<DefenseNews> defenseNewsList = from items in Model where items.defenseNewsCategory.defenseCategory_id == (i + 1) orderby items.defenseNews_title select items;
     DefenseNews[] defenseNewsArray = defenseNewsList.ToArray();       
     
-    <div class="nuncdig" style="width: 1170px; padding-left: 15px; padding-right: 15px;">
+    <div class="container" style="padding-left:15px; padding-right: 15px; margin-top:3em">
         <div class="nuncdig-main">
             <div class="nunc-bott">
                 <div class="col-md-12 nunc-bott-grid">
@@ -48,13 +30,26 @@
                         <h3>@title[i]</h3>
                     </div>
 
-                    @for (int j = 0; j < Math.Min(10, defenseNewsArray.Count()); j++)
+                    @*for (int j = 0; j < Math.Min(10, defenseNewsArray.Count()); j++)
                     {
                         <div class="col-md-6">
                             <p class="nws_title"><a href="@Url.Content("~/DefenseMobilize/DefenseDetail?id="+defenseNewsArray[j].defenseNews_id)" target="_blank">
                                 @defenseNewsArray[j].defenseNews_title
                                </a>
                             </p>
+                        </div>
+                    }*@
+
+                    @for (int j = 0; j < Math.Min(6, defenseNewsArray.Count()); j++)
+                    {
+                        <div class="col-md-12">
+                            <div class="nws_title" style="line-height: 2.5em; border-bottom: 1px solid #ebebeb; font-size: 1.3em; font-family: 'sans-serif', '\5FAE\8F6F\96C5\9ED1';">
+                                <a class="col-md-9" href="@Url.Content("~/DefenseMobilize/DefenseDetail?id=" + defenseNewsArray[j].defenseNews_id)" target="_blank">
+                                    @defenseNewsArray[j].defenseNews_title
+                                </a>
+                                <span class="col-md-3 news_time" style="float: right">@defenseNewsArray[j].defenseNews_release_time.ToString("yyyy-MM-dd hh:mm")</span>
+                                <div style="clear: both"></div>
+                            </div>
                         </div>
                     }
 

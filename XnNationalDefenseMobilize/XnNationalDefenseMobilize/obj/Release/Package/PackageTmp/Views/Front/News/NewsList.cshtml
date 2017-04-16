@@ -19,7 +19,7 @@
                 <h1 style="float: left; font-size: 20px">新闻聚焦  >> @ViewBag.title</h1>
                 <div class="site-search-area" style="float: right">
                     <form method="get" id="site-searchform" action="Index">
-                        <div>
+                        <div id="search_box">
                             <input class="input-text" name="s" id="s" type="text" />
                             <input id="searchsubmit" style="color: white; font-size: 14px; font-weight: bold" value="搜索" type="submit" />
                         </div>
@@ -29,9 +29,8 @@
         </div>
     </div>
 
-
     <div class="clearfix"></div>
-    <div class="container">
+    <div class="container"  id="news_list_container">
         <div class="content_left">
             @{                  
                 NewsInfo[] NewsInfoArray = curr_page_data.ToArray();

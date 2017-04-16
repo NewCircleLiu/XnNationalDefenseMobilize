@@ -18,7 +18,7 @@
             <h1 style="float: left; font-size: 20px">基层工作  >> @ViewBag.title<span>基层工作</span></h1>
             <div class="site-search-area" style="float: right">
                 <form method="get" id="site-searchform" action="Index">
-                    <div>
+                    <div id="search_box">
                         <input class="input-text" name="s" id="s" type="text" />
                         <input id="searchsubmit" style="color: white; font-size: 14px; font-weight: bold" value="搜索" type="submit" />
                     </div>
@@ -50,8 +50,10 @@
                         <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />@NewsInfoArray[i].grassrootNews_release_time.ToString("yyyy.MM.dd")</span>
                     <span class="category">
                         <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">@NewsInfoArray[i].grassrootNews_source</a></span>
+                    <!--
                     <span class="comments">
                         <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
+                     -->
                 </div>
                 <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=" + NewsInfoArray[i].grassrootNews_id)" class="list-group-item" target="_blank">
                     <p>@NewsInfoArray[i].grassrootNews_abstract</p>
@@ -76,8 +78,10 @@
                             <img src="~/Image/mediaimpress/calendar-icon.png" height="40" />@NewsInfoArray[i].grassrootNews_release_time.ToString("yyyy.MM.dd")</span>
                         <span class="category">
                             <img src="~/Image/mediaimpress/category-icon.png" height="40" /><a href="#" title="View all">@NewsInfoArray[i].grassrootNews_source</a></span>
+                        <!--
                         <span class="comments">
                             <img src="~/Image/mediaimpress/comment.png" height="40" /><a href="#" title="Comment">0 阅读</a></span>
+                         -->
                     </div>
                     <a href="@Url.Content("~/GrassrootWork/GrassrootDetail?id=" + NewsInfoArray[i].grassrootNews_id)" class="list-group-item" target="_blank">
                         <p>@NewsInfoArray[i].grassrootNews_abstract</p>

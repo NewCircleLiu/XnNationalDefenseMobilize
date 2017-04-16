@@ -567,7 +567,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Image\back\back_imgManage_big_head.jpg" />
     <Content Include="Image\back\lifi_head.jpg" />
-    <Content Include="Image\back\login_bg.jpg" />
     <Content Include="Image\back\login_icon.png" />
     <Content Include="Image\back\logo.png" />
     <Content Include="Image\back\slider1.png" />
@@ -620,10 +619,6 @@
     <Content Include="Scripts\back\uploadify.swf" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\swfobject.js" />
-    <Content Include="uploadFile\file\20160831\20160831125953_8609.txt" />
-    <Content Include="uploadFile\file\20160831\20160831130021_8020.txt" />
-    <Content Include="uploadFile\file\20160831\20160831131150_2223.txt" />
-    <Content Include="uploadFile\file\20160831\20160831132545_2308.txt" />
     <Content Include="uploadFile\image\20160830\20160830214055_7762.jpg" />
     <Content Include="uploadFile\image\20160831\20160831092808_8727.jpg" />
     <Content Include="uploadFile\image\20160831\20160831092809_0297.png" />
@@ -642,6 +637,8 @@
     <Content Include="editor\upload_json.ashx" />
     <None Include="Properties\PublishProfiles\army.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Image\news\ser-bg.png" />
@@ -733,6 +730,7 @@
     <Folder Include="Files\" />
     <Folder Include="fonts\Models\" />
     <Folder Include="Image\back\uploadImage\" />
+    <Folder Include="uploadFile\file\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

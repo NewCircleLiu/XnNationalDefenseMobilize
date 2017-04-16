@@ -11,13 +11,6 @@
         text-decoration: none;
     }
 
-    .nws_title a {
-        color: black;
-        display:block;
-        white-space:nowrap; 
-        overflow:hidden; 
-        text-overflow:ellipsis
-    }
 
     /*
     p a:hover {
@@ -30,35 +23,52 @@
 @{string[] title = new string[] { "国际新闻", "国内新闻", "军事新闻", "社会新闻", "西宁新闻", "北京新闻" };}
 
 <div class="service-section">
-    <div class="container">
+    <div class="container" id="news_container">
         <div class="serve-grids wow bounceIn animated" data-wow-delay="0.4s">
 
             @for (int i = 0; i < 5; i++)
             {
                 <div class="col-md-12 services-section-grid">
                     <div class="services-section-grid-head">
+                        <div style="font-size:20px; font-family:'Microsoft YaHei'; color:white; padding:10px 10px 10px 30px; background-color: #EC5844">
+                            @title[i]
+                        </div>
+                        <!--
                         <div class="service-icon">
                             <i class="rocket" style="font-style: normal">
                                 <span>@title[i].Substring(0, 1)</span>
                                 <span>@title[i].Substring(1, 1)</span>
                                 <span>@title[i].Substring(2, 1)</span>
                                 <span>@title[i].Substring(3, 1)</span>
-
                             </i>
                         </div>
-
+                            -->
+                        
                         @{ 
                             IEnumerable<NewsInfo> newsList = from items in Model where items.newsCategory.newsCategory_id == (i + 1) orderby items.news_title select items;
                             NewsInfo[] NewsInfoArray = newsList.ToArray();            
                         }
 
                         <div class="service-icon-heading">
-                            @for (int j = 0; j < Math.Min(12, NewsInfoArray.Count()); j++)
+                            
+                            @*for (int j = 0; j < Math.Min(12, NewsInfoArray.Count()); j++)
                             {
                                 <div class="col-md-6">
                                     <p class="nws_title"><a href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[j].news_id)" target="_blank">@NewsInfoArray[j].news_title</a></p>
                                 </div>
 
+                            }*@
+                            
+
+                           @for (int j = 0; j < Math.Min(6, NewsInfoArray.Count()); j++)
+                            {
+                                <div class="col-md-12 news_line">
+                                    <div class="nws_title" style="line-height:2.5em; border-bottom:1px solid #ebebeb; font-size:1.3em;font-family: 'sans-serif', '\5FAE\8F6F\96C5\9ED1';">
+                                        <a class="col-md-9" href="@Url.Content("~/News/NewsDetail?id=" + NewsInfoArray[j].news_id)" target="_blank">@NewsInfoArray[j].news_title</a>
+                                        <span class="col-md-3 news_time" style="float:right">@NewsInfoArray[j].new_release_time.ToString("yyyy-MM-dd hh:mm")</span>
+                                        <div style="clear:both"></div>
+                                    </div>
+                                </div>
                             }
                         </div>
 

@@ -79,7 +79,6 @@ body {
 
 .section_02_box {
     float: left;
-	width: 600px;
 
 	/*border: 1px solid #CCCCCC;*/
 	margin: 10px 10px 0 10px;
@@ -178,3 +177,14 @@ body {
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
         }
+
+@media screen and (max-width:600px) {
+    #gross_container {
+        padding-left:0;
+        padding-right:0;
+    }
+
+    .section_02_box {
+    margin:0;
+    }
+}

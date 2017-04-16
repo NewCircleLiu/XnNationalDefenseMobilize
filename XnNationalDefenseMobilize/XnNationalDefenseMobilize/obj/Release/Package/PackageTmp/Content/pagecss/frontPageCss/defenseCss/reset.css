@@ -38,7 +38,6 @@ body, input, textarea {
 /* Headings */
 h1, 
 h2,
-h3,
 h4,
 h5,
 h6 {
@@ -107,11 +106,12 @@ h2 i {
 }
 
 /* Text elements */
+/*
 p {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: normal;
 	line-height: 22px;
-}
+}*/
 
 ul, ol {
 	margin: 0 0 20px 0;
@@ -382,4 +382,25 @@ height: 0;
 	float: left;
 	width: 100%;
 	border-bottom: 1px solid #eee;
+}
+
+@media screen and (max-width:600px) {
+    .post_info_content_small {
+        width:100%;
+        margin-top:10px;
+    }
+    #news_list_container {
+        width:100%;
+    }
+    #search_box {
+        display:none;
+    }
+}
+@media screen and (min-width:600px) {
+    .post_info_content_small {
+        padding: 0px;
+        margin: 0 0 0 4%;
+        width: 45%;
+        float: left;
+    }
 }
